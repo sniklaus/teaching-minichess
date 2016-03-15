@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<meta name="viewport" content="width=1000" />
+		
+		<title>Mini Chess</title>
+		
+		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAxlBMVEUAAABOWZ5BTZhCTZhHUpt7g7d5gbZ5grZ5grZ6grZsda9tdq9tdrBtd7Bsdq9ye7Jye7JzfLN0fbNxerJdaKdeaadfaahfaqhha6ldZ6dfaahfaqhjbat/h7mAh7mFjLx8hLh3gLV6grZ6grdfaahgaqlibKpha6ljbapRXKBSXKBUX6JTXqFSXaH///+uuNXEzOHx9Pvb4O+5wtv8/f+zvdi+x97m6vXr7/edqcujrs6/x97V2+vg5fGNmcKXo8jJ0eXQ1ucIdJUyAAAALnRSTlMACR0dI1BRUVJSiIiIiIi8vb29vdbW1tbW4uLi4uzs7Ozs7Ozx8fHx8f39/f39FstVagAAALZJREFUeNptz8cWgkAMBVAYR8Xee1fAnoQBBOz+/0+ZgaVmlXcX7ySG8TumKLV3x6PbsoSZZlkbLq7JlWb9itQiqtMn+vEDIn9cFgzWgBDD8AHB5dazGFqzAHk88PCzbDK45KUZgjuSw3BS4N85A1xQHTRE4PlxCqHaM2yJdyKKAGKydemcQde8AVYdhmKfMsCAugV9WGXCohAVjdLDTFnvremWvDbdssyeEYWmc97bjXzO/PP7F9bvG7XExUxsAAAAAElFTkSuQmCC" />
+		
+		<script type="text/javascript" src="/assets/jquery.js"></script>
+		
+		<script type="text/javascript" src="/assets/moment.js"></script>
+		
+		<script type="text/javascript" src="/assets/plotly.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="/assets/bootstrap.css" />
+		
+		<link rel="stylesheet" type="text/css" href="/assets/fontawesome.css" />
+		
+		<style id="idStylesheet_General" type="text/css">
+			body {
+				cursor:default;
+				
+				background-color:#FFFFFF;
+			}
+			
+			.btn {
+				display:block;
+				position:static;
+				
+				text-align:left;
+			}
+			
+			.btn > .pull-right {
+				margin:3px 0px 0px -30px;
+			}
+			
+			#idChess {
+				width:572px;
+				
+				margin:40px auto 40px auto;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td {
+				vertical-align:top;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) {
+				width:270px;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn {
+				margin:10px 0px 0px 0px;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn:nth-child(1) {
+				margin:0px;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group {
+				margin:5px 0px 0px 30px;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group > div.input-group-addon {
+				width:109px;
+				
+				text-align:right;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
+				width:1px;
+				height:411px;
+				
+				margin:0px 15px 0px 15px;
+				
+				background-color:#CCCCCC;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group {
+				width:241px;
+				
+				margin:0px 0px 5px 0px;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group > div.input-group-addon {
+				width:99px;
+				
+				text-align:right;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > table {
+				margin:10px 0px 0px 0px
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr > td {
+				cursor:pointer;
+				
+				width:48px;
+				height:48px;
+				
+				border:1px solid #CCCCCC;
+				
+				text-align:center;
+				
+				vertical-align:middle;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(odd) > td:nth-child(odd) {
+				background-color:#F5F5F5;
+			}
+			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(even) > td:nth-child(even) {
+				background-color:#F5F5F5;
+			}
+			
+			#idTest {
+				width:572px;
+				
+				margin:40px auto 40px auto;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td {
+				vertical-align:top;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(1) {
+				width:270px;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn {
+				margin:10px 0px 0px 0px;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn:nth-child(1) {
+				margin:0px;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
+				width:1px;
+				height:694px;
+				
+				margin:0px 15px 0px 15px;
+				
+				background-color:#CCCCCC;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group {
+				width:241px;
+				
+				margin:0px 0px 5px 0px;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group > div.input-group-addon {
+				width:116px;
+				
+				text-align:right;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div:nth-child(3) {
+				height:450px;
+			}
+			
+			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div:nth-child(4) {
+				margin:110px 0px 0px 0px;
+				
+				color:#777777;
+				font-size:10px;
+				text-align:justify;
+			}
+			
+			#idNetwork {
+				width:572px;
+				
+				margin:40px auto 40px auto;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td {
+				vertical-align:top;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) {
+				width:270px;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn {
+				margin:10px 0px 0px 0px;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn:nth-child(1) {
+				margin:0px;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group {
+				margin:5px 0px 0px 30px;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group > div.input-group-addon {
+				width:109px;
+				
+				text-align:right;
+			}
+			
+			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
+				width:1px;
+				height:411px;
+				
+				margin:0px 15px 0px 15px;
+				
+				background-color:#CCCCCC;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			jQuery(document).ready(function () {
+				var loading_show = function() {
+					if (jQuery('#idLoading').size() !== 0) {
+						return;
+					}
+					
+					jQuery(window.document.body)
+						.append(jQuery('<div></div>')
+							.attr({
+								'id': 'idLoading'
+							})
+							.css({
+								'position': 'fixed',
+								'left': '0px',
+								'right': '0px',
+								'top': '0px',
+								'bottom': '0px',
+								'z-index': '20000'
+							})
+							.append(jQuery('<div></div>')
+								.addClass('fa')
+								.addClass('fa-cog')
+								.addClass('fa-spin')
+								.css({
+									'position': 'fixed',
+									'right': '30px',
+									'bottom': '30px',
+									'font-size': '48px'
+								})
+							)
+						)
+					;
+				};
+				
+				var loading_hide = function() {
+					jQuery('#idLoading')
+						.remove()
+					;
+				};
+				
+				var zeromq_show = function() {
+					if (jQuery('#idZeromq').size() !== 0) {
+						return;
+					}
+					
+					jQuery(window.document.body)
+						.append(jQuery('<div></div>')
+							.attr({
+								'id': 'idZeromq'
+							})
+							.css({
+								'position': 'fixed',
+								'left': '0px',
+								'right': '0px',
+								'top': '0px',
+								'bottom': '0px',
+								'z-index': '10000',
+								'background-color': '#FFFFFF'
+							})
+							.append(jQuery('<div></div>')
+								.addClass('panel')
+								.addClass('panel-default')
+								.addClass('modal-content')
+								.css({
+									'display': 'inline-block',
+									'position': 'fixed',
+									'right': '100px',
+									'bottom': '8px'
+								})
+								.append(jQuery('<div></div>')
+									.addClass('panel-body')
+									.text('no client connected to the framework')
+								)
+							)
+						)
+					;
+				};
+				
+				var zeromq_hide = function() {
+					jQuery('#idZeromq')
+						.remove()
+					;
+				};
+				
+				var zeromq_check = function(functionCallback) {
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': '/zeromq_connected',
+						'dataType': 'json',
+						'success': function(objectData) {
+							if (objectData.boolReturn === true) {
+								zeromq_hide();
+								
+								window.setTimeout(function() {
+									functionCallback();
+								}, 1);
+								
+							} else if (objectData.boolReturn === false) {
+								zeromq_show();
+								
+								window.setTimeout(function() {
+									zeromq_check(functionCallback);
+								}, 1000);
+								
+							}
+						}
+					});
+				};
+				
+				var chess_strInput = '';
+				var chess_strInputPrevious = '';
+				var chess_strBoard = '';
+				var chess_strMoves = '';
+				
+				var chess_call = function(strFunction, strParameters) {
+					if (strFunction === 'chess_reset') {
+						chess_strInput = '';
+						chess_strInputPrevious = '';
+					}
+					
+					var strUrl = '/' + strFunction;
+					
+					for (strParameter in strParameters) {
+						if (strUrl.indexOf('?') === -1) {
+							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+							
+						} else if (strUrl.indexOf('?') !== -1) {
+							strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+							
+						}
+					}
+					
+					loading_show();
+					
+					zeromq_check(function() {
+						jQuery.ajax({
+							'async': true,
+							'type': 'GET',
+							'url': strUrl,
+							'dataType': 'json',
+							'success': function(objectData) {
+								loading_hide();
+								
+								chess_call_board();
+								chess_call_winner();
+								chess_call_moves();
+							}
+						});
+					});
+				};
+				
+				var chess_call_board = function() {
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': '/chess_boardGet',
+						'dataType': 'json',
+						'success': function(objectData) {
+							chess_strBoard = objectData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+							
+							jQuery('#idChess_Board_Depth')
+								.text(chess_strBoard[0].split(' ')[0])
+							;
+							
+							jQuery('#idChess_Board_Next')
+								.text(chess_strBoard[0].split(' ')[1])
+							;
+							
+							for (var intFor1 = 1; intFor1 < 7; intFor1 += 1) {
+								for (var intFor2 = 0; intFor2 < 5; intFor2 += 1) {
+									jQuery('#idChess_Board').find('tr').eq(intFor1 - 1).find('td').eq(intFor2)
+										.text(chess_strBoard[intFor1].substr(intFor2, 1))
+									;
+								}
+							}
+						}
+					});
+				};
+				
+				var chess_call_winner = function() {
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': '/chess_winner',
+						'dataType': 'json',
+						'success': function(objectData) {
+							jQuery('#idChess_Winner')
+								.text(objectData.strReturn)
+							;
+						}
+					});
+				};
+				
+				var chess_call_moves = function() {
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': '/chess_moves',
+						'dataType': 'json',
+						'success': function(objectData) {
+							chess_strMoves = objectData.strOut.split('\n');
+							
+							jQuery('#idChess_Board').find('td')
+								.css({
+									'background-color': ''
+								})
+							;
+							
+							for (var intFor1 = 0; intFor1 < chess_strMoves.length; intFor1 += 1) {
+								if (chess_strMoves[intFor1].substr(0, 2) === chess_strInput) {
+									var intX = chess_strMoves[intFor1].charCodeAt(3) - ('a').charCodeAt(0);
+									var intY = chess_strMoves[intFor1].charCodeAt(4) - ('1').charCodeAt(0);
+									
+									jQuery('#idChess_Board').find('tr').eq(intY).find('td').eq(intX)
+										.css({
+											'background-color': '#71C000'
+										})
+									;
+								}
+							}
+						}
+					});
+				};
+				
+				var test_strFunction = '';
+				var test_dblRdtscp = [];
+				
+				var test_call = function(strFunction, strParameters) {
+					if (test_strFunction !== strFunction) {
+						test_strFunction = strFunction;
+						test_dblRdtscp = [];
+					}
+					
+					var strUrl = '/' + strFunction;
+					
+					for (strParameter in strParameters) {
+						if (strUrl.indexOf('?') === -1) {
+							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+							
+						} else if (strUrl.indexOf('?') !== -1) {
+							strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+							
+						}
+					}
+					
+					loading_show();
+					
+					zeromq_check(function() {
+						jQuery.ajax({
+							'async': true,
+							'type': 'GET',
+							'url': strUrl,
+							'dataType': 'json',
+							'success': function(objectData) {
+								test_dblRdtscp.push(objectData.dblRdtscp);
+								
+								jQuery('#idTest_Return_Return')
+									.text(objectData.boolReturn)
+								;
+								
+								jQuery('#idTest_Return_Rdtscp')
+									.text(objectData.dblRdtscp.toFixed(3))
+								;
+								
+								Plotly.newPlot('idTest_Boxplot', [{
+									'type': 'box',
+									'orientation': 'v',
+									'boxpoints': 'all',
+									'pointpos': 2.0,
+									'jitter': 0.0,
+									'y': test_dblRdtscp,
+									'hoverinfo': 'none'
+								}], {
+									'showlegend': false,
+									'margin': {
+										'l': 80,
+										'r': 60,
+										'b': 50,
+										't': 50
+									},
+									'xaxis': {
+										'zeroline': false,
+										'showticklabels': false
+									},
+									'yaxis': {
+										'zeroline': false,
+										'tickformat': '.1f'
+									}
+								}, {
+									'displayModeBar': false
+								});
+								
+								if (objectData.boolReturn === true) {
+									jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
+										.removeClass()
+										.addClass('fa')
+										.addClass('fa-check')
+										.addClass('pull-right')
+									;
+									
+								} else if (objectData.boolReturn === false) {
+									jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
+										.removeClass()
+										.addClass('fa')
+										.addClass('fa-times')
+										.addClass('pull-right')
+									;
+									
+								}
+								
+								loading_hide();
+								
+								chess_call('chess_reset', {});
+							}
+						});
+					});
+				};
+				
+				chess_call('chess_reset', {});
+				
+				jQuery('#idChess_Reset')
+					.off('click')
+					.on('click', function() {
+						chess_call('chess_reset', {});
+					})
+				;
+				
+				jQuery('#idChess_MoveRandom')
+					.off('click')
+					.on('click', function() {
+						chess_call('chess_moveRandom', {});
+					})
+				;
+				
+				jQuery('#idChess_MoveGreedy')
+					.off('click')
+					.on('click', function() {
+						chess_call('chess_moveGreedy', {});
+					})
+				;
+				
+				jQuery('#idChess_MoveNegamax')
+					.off('click')
+					.on('click', function() {
+						chess_call('chess_moveNegamax', {
+							'intDepth': jQuery('#idChess_MoveNegamax_Depth').val(),
+							'intDuration': jQuery('#idChess_MoveNegamax_Duration').val()
+						});
+					})
+				;
+				
+				jQuery('#idChess_MoveAlphabeta')
+					.off('click')
+					.on('click', function() {
+						chess_call('chess_moveAlphabeta', {
+							'intDepth': jQuery('#idChess_MoveAlphabeta_Depth').val(),
+							'intDuration': jQuery('#idChess_MoveAlphabeta_Duration').val()
+						});
+					})
+				;
+				
+				jQuery('#idChess_Undo')
+					.off('click')
+					.on('click', function() {
+						chess_call('chess_undo', {});
+					})
+				;
+				
+				jQuery('#idChess_Board').find('td')
+					.off('click')
+					.on('click', function() {
+						var intX = jQuery(this).index();
+						var intY = jQuery(this).parent().index();
+						
+						var strInput = String.fromCharCode(('a').charCodeAt(0) + intX, ('1').charCodeAt(0) + intY);
+						var strInputPrevious = chess_strInput;
+						
+						if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) === -1) {
+							chess_strInput = strInput;
+							chess_strInputPrevious = strInputPrevious;
+							
+							chess_call('chess_moves', {});
+							
+						} else if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) !== -1) {
+							chess_strInput = '';
+							chess_strInputPrevious = '';
+							
+							chess_call('chess_move', {
+								'strIn': strInputPrevious + '-' + strInput
+							});
+							
+						}
+					})
+				;
+				
+				jQuery('#idTest_Board')
+					.off('click')
+					.on('click', function() {
+						test_call('test_board');
+					})
+				;
+				
+				jQuery('#idTest_Winner')
+					.off('click')
+					.on('click', function() {
+						test_call('test_winner');
+					})
+				;
+				
+				jQuery('#idTest_IsValid')
+					.off('click')
+					.on('click', function() {
+						test_call('test_isValid');
+					})
+				;
+				
+				jQuery('#idTest_IsEnemy')
+					.off('click')
+					.on('click', function() {
+						test_call('test_isEnemy');
+					})
+				;
+				
+				jQuery('#idTest_IsOwn')
+					.off('click')
+					.on('click', function() {
+						test_call('test_isOwn');
+					})
+				;
+				
+				jQuery('#idTest_IsNothing')
+					.off('click')
+					.on('click', function() {
+						test_call('test_isNothing');
+					})
+				;
+				
+				jQuery('#idTest_Eval')
+					.off('click')
+					.on('click', function() {
+						test_call('test_eval');
+					})
+				;
+				
+				jQuery('#idTest_Moves')
+					.off('click')
+					.on('click', function() {
+						test_call('test_moves');
+					})
+				;
+				
+				jQuery('#idTest_Move')
+					.off('click')
+					.on('click', function() {
+						test_call('test_move');
+					})
+				;
+				
+				jQuery('#idTest_Undo')
+					.off('click')
+					.on('click', function() {
+						test_call('test_undo');
+					})
+				;
+				
+				jQuery('#idTest_MovesShuffled')
+					.off('click')
+					.on('click', function() {
+						test_call('test_movesShuffled');
+					})
+				;
+				
+				jQuery('#idTest_MovesEvaluated')
+					.off('click')
+					.on('click', function() {
+						test_call('test_movesEvaluated');
+					})
+				;
+				
+				jQuery('#idTest_MoveRandom')
+					.off('click')
+					.on('click', function() {
+						test_call('test_moveRandom');
+					})
+				;
+				
+				jQuery('#idTest_MoveGreedy')
+					.off('click')
+					.on('click', function() {
+						test_call('test_moveGreedy');
+					})
+				;
+				
+				jQuery('#idTest_MoveNegamax')
+					.off('click')
+					.on('click', function() {
+						test_call('test_moveNegamax');
+					})
+				;
+				
+				jQuery('#idTest_MoveAlphabeta')
+					.off('click')
+					.on('click', function() {
+						test_call('test_moveAlphabeta');
+					})
+				;
+			});
+		</script>
+	</head>
+	<body>
+		<div class="panel panel-default modal-content" id="idChess">
+			<div class="panel-heading">
+				Chess
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						<td>
+							<a class="btn btn-primary" id="idChess_Reset">
+								chess_reset();
+								<span class="fa fa-repeat pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idChess_MoveRandom">
+								chess_moveRandom();
+								<span class="fa fa-random pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idChess_MoveGreedy">
+								chess_moveGreedy();
+								<span class="fa fa-bicycle pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idChess_MoveNegamax">
+								chess_moveNegamax(int);
+								<span class="fa fa-car pull-right"></span>
+							</a>
+							<div class="input-group">
+								<div class="input-group-addon">intDepth:</div>
+								<input class="form-control" id="idChess_MoveNegamax_Depth" type="number" value="3" />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">intDepth:</div>
+								<input class="form-control" id="idChess_MoveNegamax_Duration" type="number" value="3000" />
+							</div>
+							
+							<a class="btn btn-primary" id="idChess_MoveAlphabeta">
+								chess_moveAlphabeta(int, int);
+								<span class="fa fa-plane pull-right"></span>
+							</a>
+							<div class="input-group">
+								<div class="input-group-addon">intDepth:</div>
+								<input class="form-control" id="idChess_MoveAlphabeta_Depth" type="number" value="3" />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">intDuration:</div>
+								<input class="form-control" id="idChess_MoveAlphabeta_Duration" type="number" value="3000" />
+							</div>
+							
+							<a class="btn btn-primary" id="idChess_Undo">
+								chess_undo();
+								<span class="fa fa-undo pull-right"></span>
+							</a>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div class="input-group">
+								<div class="input-group-addon">intDepth:</div>
+								<div class="form-control" id="idChess_Board_Depth"></div>
+							</div>
+							
+							<div class="input-group">
+								<div class="input-group-addon">strNext:</div>
+								<div class="form-control" id="idChess_Board_Next"></div>
+							</div>
+							
+							<div class="input-group">
+								<div class="input-group-addon">strWinner:</div>
+								<div class="form-control" id="idChess_Winner"></div>
+							</div>
+							
+							<table id="idChess_Board">
+								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="panel panel-default modal-content" id="idTest">
+			<div class="panel-heading">
+				Test
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						<td>
+							<a class="btn btn-primary" id="idTest_Board">
+								test_board();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_Winner">
+								test_winner();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_IsValid">
+								test_isValid();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_IsEnemy">
+								test_isEnemy();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_IsOwn">
+								test_isOwn();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_IsNothing">
+								test_isNothing();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_Eval">
+								test_eval();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_Moves">
+								test_moves();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_Move">
+								test_move();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_Undo">
+								test_undo();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_MovesShuffled">
+								test_movesShuffled();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_MovesEvaluated">
+								test_movesEvaluated();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_MoveRandom">
+								test_moveRandom();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_MoveGreedy">
+								test_moveGreedy();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_MoveNegamax">
+								test_moveNegamax();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idTest_MoveAlphabeta">
+								test_moveAlphabeta();
+								<span class="fa fa-question pull-right"></span>
+							</a>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<div class="input-group">
+								<div class="input-group-addon">boolReturn:</div>
+								<div class="form-control" id="idTest_Return_Return"></div>
+							</div>
+							
+							<div class="input-group">
+								<div class="input-group-addon">dblRdtscp:</div>
+								<div class="form-control" id="idTest_Return_Rdtscp"></div>
+							</div>
+							
+							<div id="idTest_Boxplot"></div>
+							
+							<div>
+								note that since there is a significant overhead due to the communication with the client, the measured time needs to be taken with a grain of salt
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="panel panel-default modal-content" id="idNetwork">
+			<div class="panel-heading">
+				Network
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						<td>
+							<a class="btn btn-primary" id="idNetwork_Connect">
+								network_connect();
+								<span class="fa fa-repeat pull-right"></span>
+							</a>
+							
+							<a class="btn btn-primary" id="idNetwork_List">
+								network_list();
+								<span class="fa fa-random pull-right"></span>
+							</a>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
