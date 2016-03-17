@@ -10,7 +10,7 @@ pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
 void zeromq_thread() {
 	{
 		void* contextHandle = zmq_ctx_new();
-		void* socketHandle = zmq_socket(contextHandle, ZMQ_REQ);
+		void* socketHandle = zmq_socket(contextHandle, ZMQ_PAIR);
 		
 		{
 			if (strcmp(zeromq_charMode, "tcp") == 0) {

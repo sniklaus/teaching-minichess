@@ -1,4 +1,7 @@
 import json
+
+##########################################################
+
 import zmq # sudo pip install pyzmq
 
 ##########################################################
@@ -19,7 +22,7 @@ def zeromq_start(strMode, strName):
 	zeromq_boolRunning = True
 	
 	contextHandle = zmq.Context()
-	socketHandle = contextHandle.socket(zmq.REP)
+	socketHandle = contextHandle.socket(zmq.PAIR)
 	
 	if zeromq_strMode == "tcp":
 		socketHandle.bind("tcp://*:54361")
@@ -104,8 +107,8 @@ def zeromq_start(strMode, strName):
 		jsonIn = None
 		jsonOut = None
 	
-	socketHandle.close();
-	contextHandle.term();
+	socketHandle.close()
+	contextHandle.destroy()
 
 
 def zeromq_stop():

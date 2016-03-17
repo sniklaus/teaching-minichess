@@ -15,7 +15,7 @@ void zeromq_start(char* charMode, char* charName) {
 	
 	{
 		void* contextHandle = zmq_ctx_new();
-		void* socketHandle = zmq_socket(contextHandle, ZMQ_REP);
+		void* socketHandle = zmq_socket(contextHandle, ZMQ_PAIR);
 		
 		{
 			if (strcmp(zeromq_charMode, "tcp") == 0) {

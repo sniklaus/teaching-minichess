@@ -19,7 +19,7 @@ public class zeromq {
 		
 		{
 			ZMQ.Context contextHandle = ZMQ.context(1);
-			ZMQ.Socket socketHandle = contextHandle.socket(ZMQ.REP);
+			ZMQ.Socket socketHandle = contextHandle.socket(ZMQ.PAIR);
 			
 			{
 				if (zeromq.strMode.equals("tcp") == true) {
