@@ -3,6 +3,7 @@
 
 #include <limits.h>
 #include <pthread.h>
+#include <semaphore.h>
 #include <signal.h>
 #include <stdbool.h>
 #include <stdio.h>

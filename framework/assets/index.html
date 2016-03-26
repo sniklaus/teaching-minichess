@@ -26,6 +26,10 @@
 				background-color:#FFFFFF;
 			}
 			
+			body > table {
+				margin:40px auto 0px auto;
+			}
+			
 			.btn {
 				display:block;
 				position:static;
@@ -37,68 +41,66 @@
 				margin:3px 0px 0px -30px;
 			}
 			
-			#idChess {
-				width:572px;
-				
-				margin:40px auto 40px auto;
-			}
-			
-			#idChess > div.panel-body > table > tbody > tr > td {
+			table > tbody > tr > td {
 				vertical-align:top;
 			}
 			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) {
+			div.panel-default {
+				margin:0px 20px 40px 20px;
+			}
+			
+			div.panel-body > table > tbody > tr > td:nth-child(1) {
 				width:270px;
 			}
 			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn {
+			div.panel-body > table > tbody > tr > td:nth-child(3) {
+				width:270px;
+			}
+			
+			div.panel-body > table > tbody > tr > td > a.btn {
 				margin:10px 0px 0px 0px;
 			}
 			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn:nth-child(1) {
+			div.panel-body > table > tbody > tr > td > a.btn:nth-child(1) {
 				margin:0px;
 			}
 			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group {
-				margin:5px 0px 0px 30px;
+			div.panel-body > table > tbody > tr > td > div.input-group {
+				width:100%;
+				
+				margin:0px 0px 5px 0px;
 			}
 			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group > div.input-group-addon {
-				width:109px;
+			div.panel-body > table > tbody > tr > td > div.input-group > div.input-group-addon {
+				width:110px;
 				
 				text-align:right;
 			}
 			
+			#idChess > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group {
+				width:auto;
+				
+				margin:5px 0px 0px 30px;
+			}
+			
 			#idChess > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
 				width:1px;
-				height:411px;
+				height:447px;
 				
 				margin:0px 15px 0px 15px;
 				
 				background-color:#CCCCCC;
 			}
 			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group {
-				width:241px;
-				
-				margin:0px 0px 5px 0px;
-			}
-			
-			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group > div.input-group-addon {
-				width:99px;
-				
-				text-align:right;
-			}
-			
 			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > table {
-				margin:10px 0px 0px 0px
+				margin:10px 0px 0px 0px;
 			}
 			
 			#idChess > div.panel-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr > td {
 				cursor:pointer;
 				
-				width:48px;
-				height:48px;
+				width:54px;
+				height:54px;
 				
 				border:1px solid #CCCCCC;
 				
@@ -115,26 +117,28 @@
 				background-color:#F5F5F5;
 			}
 			
-			#idTest {
-				width:572px;
+			#idImcs > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group {
+				width:auto;
 				
-				margin:40px auto 40px auto;
+				margin:5px 0px 0px 30px;
 			}
 			
-			#idTest > div.panel-body > table > tbody > tr > td {
-				vertical-align:top;
+			#idImcs > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
+				width:1px;
+				height:300px;
+				
+				margin:0px 15px 0px 15px;
+				
+				background-color:#CCCCCC;
 			}
 			
-			#idTest > div.panel-body > table > tbody > tr > td:nth-child(1) {
+			#idImcs > div.panel-body > table > tbody > tr > td:nth-child(3) > pre {
 				width:270px;
-			}
-			
-			#idTest > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn {
-				margin:10px 0px 0px 0px;
-			}
-			
-			#idTest > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn:nth-child(1) {
+				height:300px;
+				
 				margin:0px;
+				
+				word-wrap:normal;
 			}
 			
 			#idTest > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
@@ -146,181 +150,192 @@
 				background-color:#CCCCCC;
 			}
 			
-			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group {
-				width:241px;
-				
-				margin:0px 0px 5px 0px;
-			}
-			
-			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div.input-group > div.input-group-addon {
-				width:116px;
-				
-				text-align:right;
-			}
-			
 			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div:nth-child(3) {
 				height:450px;
 			}
 			
 			#idTest > div.panel-body > table > tbody > tr > td:nth-child(3) > div:nth-child(4) {
-				margin:110px 0px 0px 0px;
+				margin:124px 0px 0px 0px;
 				
 				color:#777777;
 				font-size:10px;
 				text-align:justify;
 			}
-			
-			#idNetwork {
-				width:572px;
-				
-				margin:40px auto 40px auto;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td {
-				vertical-align:top;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) {
-				width:270px;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn {
-				margin:10px 0px 0px 0px;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > a.btn:nth-child(1) {
-				margin:0px;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group {
-				margin:5px 0px 0px 30px;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(1) > div.input-group > div.input-group-addon {
-				width:109px;
-				
-				text-align:right;
-			}
-			
-			#idNetwork > div.panel-body > table > tbody > tr > td:nth-child(2) > div {
-				width:1px;
-				height:411px;
-				
-				margin:0px 15px 0px 15px;
-				
-				background-color:#CCCCCC;
-			}
 		</style>
 		
 		<script type="text/javascript">
 			jQuery(document).ready(function () {
-				var loading_show = function() {
-					if (jQuery('#idLoading').size() !== 0) {
-						return;
-					}
+				var websocket_connect = function() {
+					var websocketHandle = new WebSocket('ws://' + window.location.host + '/ws');
 					
-					jQuery(window.document.body)
-						.append(jQuery('<div></div>')
-							.attr({
-								'id': 'idLoading'
-							})
-							.css({
-								'position': 'fixed',
-								'left': '0px',
-								'right': '0px',
-								'top': '0px',
-								'bottom': '0px',
-								'z-index': '20000'
-							})
+					websocketHandle.onmessage = function(eventHandle) {
+						var objectData = JSON.parse(eventHandle.data);
+						
+						if (objectData.strEvent === 'zeromq_status') {
+							if (objectData.strData === 'disconnected') {
+								if (jQuery('#idZeromq').size() === 0) {
+									jQuery(window.document.body)
+										.append(jQuery('<div></div>')
+											.attr({
+												'id': 'idZeromq'
+											})
+											.css({
+												'position': 'fixed',
+												'left': '0px',
+												'right': '0px',
+												'top': '0px',
+												'bottom': '0px',
+												'z-index': '10000',
+												'background-color': '#FFFFFF'
+											})
+											.append(jQuery('<div></div>')
+												.addClass('panel')
+												.addClass('panel-default')
+												.addClass('modal-content')
+												.css({
+													'display': 'inline-block',
+													'position': 'fixed',
+													'right': '30px',
+													'bottom': '30px',
+													'width': 'auto',
+													'margin': '0px'
+												})
+												.append(jQuery('<div></div>')
+													.addClass('panel-body')
+													.text('no client connected to the framework ...')
+												)
+											)
+										)
+									;
+								}
+								
+							} else if (objectData.strData === 'connected') {
+								if (jQuery('#idZeromq').size() !== 0) {
+									window.location.reload();
+								}
+								
+							}
+							
+						} else if (objectData.strEvent === 'imcs_statusname') {
+							jQuery('#idImcs_Register_User')
+								.val(objectData.strData)
+							;
+							
+							jQuery('#idImcs_Login_User')
+								.val(objectData.strData)
+							;
+							
+						} else if (objectData.strEvent === 'imcs_status') {
+							/*if (objectData.strData === 'disconnected') {
+								jQuery('#idImcs').find('div.panel-body').children().eq(0)
+									.css({
+										'display': 'block'
+									})
+								;
+								
+								jQuery('#idImcs').find('div.panel-body').children().eq(1)
+									.css({
+										'display': 'none'
+									})
+								;
+								
+								jQuery('#idImcs').find('div.panel-body').children().eq(2)
+									.css({
+										'display': 'none'
+									})
+								;
+								
+							} else if (objectData.strData === 'connected') {
+								jQuery('#idImcs').find('div.panel-body').children().eq(0)
+									.css({
+										'display': 'none'
+									})
+								;
+								
+								jQuery('#idImcs').find('div.panel-body').children().eq(1)
+									.css({
+										'display': 'block'
+									})
+								;
+								
+								jQuery('#idImcs').find('div.panel-body').children().eq(2)
+									.css({
+										'display': 'none'
+									})
+								;
+								
+							} else if (objectData.strData === 'authorized') {
+								jQuery('#idImcs').find('div.panel-body').children().eq(0)
+									.css({
+										'display': 'none'
+									})
+								;
+								
+								jQuery('#idImcs').find('div.panel-body').children().eq(1)
+									.css({
+										'display': 'none'
+									})
+								;
+								
+								jQuery('#idImcs').find('div.panel-body').children().eq(2)
+									.css({
+										'display': 'block'
+									})
+								;
+								
+							}*/
+							
+						} else if (objectData.strEvent === 'imcs_buffer') {
+							jQuery('#idImcs_History')
+								.append(window.document.createTextNode(objectData.strData))
+								.scrollTop(1000000)
+							;
+							
+						}
+					};
+					
+					websocketHandle.onclose = function(eventHandle) {
+						window.setTimeout(websocket_connect, 1000);
+					};
+				};
+				
+				var loading_show = function() {
+					if (jQuery('#idLoading').size() === 0) {
+						jQuery(window.document.body)
 							.append(jQuery('<div></div>')
-								.addClass('fa')
-								.addClass('fa-cog')
-								.addClass('fa-spin')
+								.attr({
+									'id': 'idLoading'
+								})
 								.css({
 									'position': 'fixed',
-									'right': '30px',
-									'bottom': '30px',
-									'font-size': '48px'
+									'left': '0px',
+									'right': '0px',
+									'top': '0px',
+									'bottom': '0px',
+									'z-index': '20000'
 								})
+								.append(jQuery('<div></div>')
+									.addClass('fa')
+									.addClass('fa-cog')
+									.addClass('fa-spin')
+									.css({
+										'position': 'fixed',
+										'right': '30px',
+										'bottom': '30px',
+										'font-size': '48px'
+									})
+								)
 							)
-						)
-					;
+						;
+					}
 				};
 				
 				var loading_hide = function() {
-					jQuery('#idLoading')
-						.remove()
-					;
-				};
-				
-				var zeromq_show = function() {
-					if (jQuery('#idZeromq').size() !== 0) {
-						return;
+					if (jQuery('#idLoading').size() !== 0) {
+						jQuery('#idLoading')
+							.remove()
+						;
 					}
-					
-					jQuery(window.document.body)
-						.append(jQuery('<div></div>')
-							.attr({
-								'id': 'idZeromq'
-							})
-							.css({
-								'position': 'fixed',
-								'left': '0px',
-								'right': '0px',
-								'top': '0px',
-								'bottom': '0px',
-								'z-index': '10000',
-								'background-color': '#FFFFFF'
-							})
-							.append(jQuery('<div></div>')
-								.addClass('panel')
-								.addClass('panel-default')
-								.addClass('modal-content')
-								.css({
-									'display': 'inline-block',
-									'position': 'fixed',
-									'right': '100px',
-									'bottom': '8px'
-								})
-								.append(jQuery('<div></div>')
-									.addClass('panel-body')
-									.text('no client connected to the framework')
-								)
-							)
-						)
-					;
-				};
-				
-				var zeromq_hide = function() {
-					jQuery('#idZeromq')
-						.remove()
-					;
-				};
-				
-				var zeromq_check = function(functionCallback) {
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': '/zeromq_connected',
-						'dataType': 'json',
-						'success': function(objectData) {
-							if (objectData.boolReturn === true) {
-								zeromq_hide();
-								
-								window.setTimeout(function() {
-									functionCallback();
-								}, 1);
-								
-							} else if (objectData.boolReturn === false) {
-								zeromq_show();
-								
-								window.setTimeout(function() {
-									zeromq_check(functionCallback);
-								}, 1000);
-								
-							}
-						}
-					});
 				};
 				
 				var chess_strInput = '';
@@ -329,7 +344,7 @@
 				var chess_strMoves = '';
 				
 				var chess_call = function(strFunction, strParameters) {
-					if (strFunction === 'chess_reset') {
+					if (strFunction !== 'chess_moves') {
 						chess_strInput = '';
 						chess_strInputPrevious = '';
 					}
@@ -348,20 +363,19 @@
 					
 					loading_show();
 					
-					zeromq_check(function() {
-						jQuery.ajax({
-							'async': true,
-							'type': 'GET',
-							'url': strUrl,
-							'dataType': 'json',
-							'success': function(objectData) {
-								loading_hide();
-								
-								chess_call_board();
-								chess_call_winner();
-								chess_call_moves();
-							}
-						});
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': strUrl,
+						'dataType': 'json',
+						'success': function(objectData) {
+							chess_call_board();
+							chess_call_winner();
+							chess_call_moves();
+						},
+						'complete': function() {
+							loading_hide();
+						}
 					});
 				};
 				
@@ -438,6 +452,50 @@
 					});
 				};
 				
+				var imcs_call = function(strFunction, strParameters) {
+					var strUrl = '/' + strFunction;
+					
+					for (strParameter in strParameters) {
+						if (strUrl.indexOf('?') === -1) {
+							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+							
+						} else if (strUrl.indexOf('?') !== -1) {
+							strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+							
+						}
+					}
+					
+					loading_show();
+					
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': strUrl,
+						'dataType': 'json',
+						'success': function(objectData) {
+							
+						},
+						'complete': function() {
+							loading_hide();
+						}
+					});
+				};
+				
+				var imcs_call_buffer = function() {
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': '/imcs_buffer',
+						'dataType': 'json',
+						'success': function(objectData) {
+							jQuery('#idImcs_History')
+								.append(window.document.createTextNode(objectData.strBuffer))
+								.scrollTop(1000000)
+							;
+						}
+					});
+				};
+				
 				var test_strFunction = '';
 				var test_dblRdtscp = [];
 				
@@ -461,78 +519,75 @@
 					
 					loading_show();
 					
-					zeromq_check(function() {
-						jQuery.ajax({
-							'async': true,
-							'type': 'GET',
-							'url': strUrl,
-							'dataType': 'json',
-							'success': function(objectData) {
-								test_dblRdtscp.push(objectData.dblRdtscp);
-								
-								jQuery('#idTest_Return_Return')
-									.text(objectData.boolReturn)
-								;
-								
-								jQuery('#idTest_Return_Rdtscp')
-									.text(objectData.dblRdtscp.toFixed(3))
-								;
-								
-								Plotly.newPlot('idTest_Boxplot', [{
-									'type': 'box',
-									'orientation': 'v',
-									'boxpoints': 'all',
-									'pointpos': 2.0,
-									'jitter': 0.0,
-									'y': test_dblRdtscp,
-									'hoverinfo': 'none'
-								}], {
-									'showlegend': false,
-									'margin': {
-										'l': 80,
-										'r': 60,
-										'b': 50,
-										't': 50
-									},
-									'xaxis': {
-										'zeroline': false,
-										'showticklabels': false
-									},
-									'yaxis': {
-										'zeroline': false,
-										'tickformat': '.1f'
-									}
-								}, {
-									'displayModeBar': false
-								});
-								
-								if (objectData.boolReturn === true) {
-									jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
-										.removeClass()
-										.addClass('fa')
-										.addClass('fa-check')
-										.addClass('pull-right')
-									;
-									
-								} else if (objectData.boolReturn === false) {
-									jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
-										.removeClass()
-										.addClass('fa')
-										.addClass('fa-times')
-										.addClass('pull-right')
-									;
-									
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': strUrl,
+						'dataType': 'json',
+						'success': function(objectData) {
+							test_dblRdtscp.push(objectData.dblRdtscp);
+							
+							jQuery('#idTest_Return_Return')
+								.text(objectData.boolReturn)
+							;
+							
+							jQuery('#idTest_Return_Rdtscp')
+								.text(objectData.dblRdtscp.toFixed(3))
+							;
+							
+							Plotly.newPlot('idTest_Boxplot', [{
+								'type': 'box',
+								'orientation': 'v',
+								'boxpoints': 'all',
+								'pointpos': 2.0,
+								'jitter': 0.0,
+								'y': test_dblRdtscp,
+								'hoverinfo': 'none'
+							}], {
+								'showlegend': false,
+								'margin': {
+									'l': 80,
+									'r': 60,
+									'b': 50,
+									't': 50
+								},
+								'xaxis': {
+									'zeroline': false,
+									'showticklabels': false
+								},
+								'yaxis': {
+									'zeroline': false,
+									'tickformat': '.1f'
 								}
+							}, {
+								'displayModeBar': false
+							});
+							
+							if (objectData.boolReturn === true) {
+								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
+									.removeClass()
+									.addClass('fa')
+									.addClass('fa-check')
+									.addClass('pull-right')
+								;
 								
-								loading_hide();
+							} else if (objectData.boolReturn === false) {
+								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
+									.removeClass()
+									.addClass('fa')
+									.addClass('fa-times')
+									.addClass('pull-right')
+								;
 								
-								chess_call('chess_reset', {});
 							}
-						});
+						},
+						'complete': function() {
+							loading_hide();
+							
+							chess_call('chess_reset', {});
+						}
 					});
 				};
-				
-				chess_call('chess_reset', {});
 				
 				jQuery('#idChess_Reset')
 					.off('click')
@@ -606,6 +661,33 @@
 							});
 							
 						}
+					})
+				;
+				
+				jQuery('#idImcs_Register')
+					.off('click')
+					.on('click', function() {
+						imcs_call('imcs_register', {
+							'strUser': jQuery('#idImcs_Register_User').val(),
+							'strPass': jQuery('#idImcs_Register_Pass').val()
+						});
+					})
+				;
+				
+				jQuery('#idImcs_Login')
+					.off('click')
+					.on('click', function() {
+						imcs_call('imcs_login', {
+							'strUser': jQuery('#idImcs_Login_User').val(),
+							'strPass': jQuery('#idImcs_Login_Pass').val()
+						});
+					})
+				;
+				
+				jQuery('#idImcs_List')
+					.off('click')
+					.on('click', function() {
+						imcs_call('imcs_list');
 					})
 				;
 				
@@ -720,10 +802,16 @@
 						test_call('test_moveAlphabeta');
 					})
 				;
+				
+				websocket_connect();
+				
+				chess_call('chess_reset', {});
 			});
 		</script>
 	</head>
 	<body>
+		<table><tr><td>
+		
 		<div class="panel panel-default modal-content" id="idChess">
 			<div class="panel-heading">
 				Chess
@@ -810,6 +898,58 @@
 				</table>
 			</div>
 		</div>
+		
+		<div class="panel panel-default modal-content" id="idImcs">
+			<div class="panel-heading">
+				Internet
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						<td>
+							<a class="btn btn-primary" id="idImcs_Register">
+								imcs_register(char*, char*);
+								<span class="fa fa-lock pull-right"></span>
+							</a>
+							<div class="input-group">
+								<div class="input-group-addon">strUser:</div>
+								<input class="form-control" id="idImcs_Register_User" type="text" value="" />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">strPass:</div>
+								<input class="form-control" id="idImcs_Register_Pass" type="password" value="" />
+							</div>
+							
+							<a class="btn btn-primary" id="idImcs_Login">
+								imcs_login(char*, char*);
+								<span class="fa fa-lock pull-right"></span>
+							</a>
+							<div class="input-group">
+								<div class="input-group-addon">strUser:</div>
+								<input class="form-control" id="idImcs_Login_User" type="text" value="" />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">strPass:</div>
+								<input class="form-control" id="idImcs_Login_Pass" type="password" value="" />
+							</div>
+							
+							<a class="btn btn-primary" id="idImcs_List">
+								imcs_list();
+								<span class="fa fa-list pull-right"></span>
+							</a>
+						</td>
+						<td>
+							<div></div>
+						</td>
+						<td>
+							<pre id="idImcs_History"></pre>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		</td><td>
 		
 		<div class="panel panel-default modal-content" id="idTest">
 			<div class="panel-heading">
@@ -916,7 +1056,7 @@
 							<div id="idTest_Boxplot"></div>
 							
 							<div>
-								note that since there is a significant overhead due to the communication with the client, the measured time needs to be taken with a grain of salt
+								note that since there is a significant overhead due to the communication with the client, the measured time needs to be taken with a grain of salt ...
 							</div>
 						</td>
 					</tr>
@@ -924,33 +1064,6 @@
 			</div>
 		</div>
 		
-		<div class="panel panel-default modal-content" id="idNetwork">
-			<div class="panel-heading">
-				Network
-			</div>
-			<div class="panel-body">
-				<table>
-					<tr>
-						<td>
-							<a class="btn btn-primary" id="idNetwork_Connect">
-								network_connect();
-								<span class="fa fa-repeat pull-right"></span>
-							</a>
-							
-							<a class="btn btn-primary" id="idNetwork_List">
-								network_list();
-								<span class="fa fa-random pull-right"></span>
-							</a>
-						</td>
-						<td>
-							<div></div>
-						</td>
-						<td>
-							
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
+		</td></tr></table>
 	</body>
 </html>

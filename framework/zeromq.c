@@ -1,8 +1,11 @@
 #include "main.h"
 
+// TOOD: ENFORCE MUTUAL EXCLUSION
+
+void* zeromq_socketHandle = NULL;
+
 char zeromq_charMode[256] = { };
 char zeromq_charName[256] = { };
-void* zeromq_socketHandle = NULL;
 bool zeromq_boolConnected = false;
 
 pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
@@ -28,8 +31,6 @@ void zeromq_thread() {
 		
 		{
 			zeromq_socketHandle = socketHandle;
-			
-			zeromq_boolConnected = false;
 		}
 		
 		{
@@ -67,6 +68,8 @@ void zeromq_thread() {
 						if (zmqeventHandle.event == ZMQ_EVENT_CONNECTED) {
 							{
 								zeromq_boolConnected = true;
+								
+								webserver_broadcast("zeromq_status", NULL);
 							}
 							
 							{
@@ -85,6 +88,8 @@ void zeromq_thread() {
 								
 								{
 									strcpy(zeromq_charName, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+									
+									webserver_broadcast("zeromq_name", zeromq_charName);
 								}
 								
 								cJSON_Delete(cjsonOut);
@@ -98,6 +103,8 @@ void zeromq_thread() {
 						} else if (zmqeventHandle.event == ZMQ_EVENT_DISCONNECTED) {
 							{
 								zeromq_boolConnected = false;
+								
+								webserver_broadcast("zeromq_status", NULL);
 							}
 							
 							{
@@ -209,11 +216,17 @@ void zeromq_thread() {
 	}
 }
 
-void zeromq_start(char* charMode, char* charName) {
+void zeromq_start(char* charMode) {
+	{
+		zeromq_socketHandle = NULL;
+	}
+	
 	{
 		strcpy(zeromq_charMode, charMode);
 		
-		strcpy(zeromq_charName, charName);
+		zeromq_charName[0] = '\0';
+		
+		zeromq_boolConnected = false;
 	}
 	
 	{

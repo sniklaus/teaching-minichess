@@ -6,11 +6,11 @@ int main(int argc, char** argv) {
 	}
 	
 	{
-		zeromq_start("tcp", "INSERT NAME");
+		zeromq_start("tcp");
 		
 		webserver_start();
 		
-		// imcs_start();
+		imcs_start();
 	}
 	
 	{
