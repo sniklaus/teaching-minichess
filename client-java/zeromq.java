@@ -4,17 +4,26 @@ import org.json.JSONObject;
 import org.zeromq.ZMQ;
 
 public class zeromq {
-	public static String strMode = "";
-	public static String strName = "";
 	public static boolean boolRunning = false;
 	
+	public static String strMode = "";
+	public static String strName = "";
+	
 	public static void start(String strMode, String strName) {
+		{
+			assert strName.length() < 16;
+			
+			assert strName.indexOf(" ") == -1;
+		}
+		
+		{
+			zeromq.boolRunning = true;
+		}
+		
 		{
 			zeromq.strMode = strMode;
 			
 			zeromq.strName = strName;
-			
-			zeromq.boolRunning = true;
 		}
 		
 		{
@@ -135,7 +144,7 @@ public class zeromq {
 	
 	public static void stop() {
 		{
-			zeromq.boolRunning = true;
+			zeromq.boolRunning = false;
 		}
 	}
 }

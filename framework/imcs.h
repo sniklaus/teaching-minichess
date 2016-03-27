@@ -9,6 +9,7 @@ void imcs_register(char* charUser, char* charPass);
 void imcs_login(char* charUser, char* charPass);
 void imcs_list();
 void imcs_offer();
-void imcs_accept();
+void imcs_accept(int intIdent);
+void imcs_ratings();
 
 #endif

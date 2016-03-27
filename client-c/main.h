@@ -1,6 +1,7 @@
 #ifndef MAIN_H_LOCK
 #define MAIN_H_LOCK
 
+#include <assert.h>
 #include <limits.h>
 #include <pthread.h>
 #include <signal.h>

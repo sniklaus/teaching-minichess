@@ -2,13 +2,13 @@
 
 // TOOD: ENFORCE MUTUAL EXCLUSION
 
+pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+
 void* zeromq_socketHandle = NULL;
 
 char zeromq_charMode[256] = { };
-char zeromq_charName[256] = { };
 bool zeromq_boolConnected = false;
-
-pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+char zeromq_charName[256] = { };
 
 void zeromq_thread() {
 	{
@@ -89,7 +89,7 @@ void zeromq_thread() {
 								{
 									strcpy(zeromq_charName, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
 									
-									webserver_broadcast("zeromq_name", zeromq_charName);
+									webserver_broadcast("zeromq_name", NULL);
 								}
 								
 								cJSON_Delete(cjsonOut);
@@ -224,9 +224,9 @@ void zeromq_start(char* charMode) {
 	{
 		strcpy(zeromq_charMode, charMode);
 		
-		zeromq_charName[0] = '\0';
-		
 		zeromq_boolConnected = false;
+		
+		zeromq_charName[0] = '\0';
 	}
 	
 	{
@@ -251,13 +251,11 @@ void zeromq_stop() {
 }
 
 bool zeromq_connected() {
-	bool boolConnected = false;
-	
-	{
-		boolConnected = zeromq_boolConnected;
-	}
-	
-	return boolConnected;
+	return zeromq_boolConnected;
+}
+
+char* zeromq_name() {
+	return zeromq_charName;
 }
 
 void zeromq_send(cJSON* cjsonHandle) {

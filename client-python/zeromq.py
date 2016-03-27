@@ -6,20 +6,25 @@ import zmq # sudo pip install pyzmq
 
 ##########################################################
 
+zeromq_boolRunning = False
+
 zeromq_strMode = ""
 zeromq_strName = ""
-zeromq_boolRunning = False
 
 ##########################################################
 
 def zeromq_start(strMode, strName):
+	global zeromq_boolRunning
 	global zeromq_strMode
 	global zeromq_strName
-	global zeromq_boolRunning
+	
+	assert len(strName) < 16
+	assert strName.find(" ") == -1
+	
+	zeromq_boolRunning = True
 	
 	zeromq_strMode = strMode
 	zeromq_strName = strName
-	zeromq_boolRunning = True
 	
 	contextHandle = zmq.Context()
 	socketHandle = contextHandle.socket(zmq.PAIR)
@@ -113,5 +118,7 @@ def zeromq_start(strMode, strName):
 
 def zeromq_stop():
 	global zeromq_boolRunning
+	global zeromq_strMode
+	global zeromq_strName
 
-	zeromq_boolRunning = true
+	zeromq_boolRunning = false

@@ -2,24 +2,20 @@
 
 // TOOD: ENFORCE MUTUAL EXCLUSION
 
+pthread_mutex_t imcs_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+
 struct mg_mgr* imcs_mgmgrHandle = NULL;
 struct mg_connection* imcs_mgconnectionHandle = NULL;
 
 bool imcs_boolConnected = false;
 bool imcs_boolAuthorized = false;
 
-sem_t imcs_semTermination = { };
-char imcs_charTermination[16] = { };
+char imcs_charOperation[16] = { };
 char imcs_charBuffer[1024] = { };
-
-pthread_mutex_t imcs_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+char imcs_charTermination[16] = { };
 
 void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* voidData) {
 	if (intEvent == MG_EV_CONNECT) {
-		{
-			imcs_mgconnectionHandle = mgconnectionHandle;
-		}
-		
 		{
 			imcs_boolConnected = true;
 			
@@ -28,16 +24,16 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 		
 	} else if (intEvent == MG_EV_CLOSE) {
 		{
-			imcs_mgconnectionHandle = NULL;
-		}
-		
-		{
 			imcs_boolConnected = false;
 			
 			webserver_broadcast("imcs_status", NULL);
 		}
 		
 	} else if (intEvent == MG_EV_RECV) {
+		{
+			mgconnectionHandle->recv_mbuf.buf[mgconnectionHandle->recv_mbuf.len] = '\0';
+		}
+		
 		{
 			if (strncmp(mgconnectionHandle->recv_mbuf.buf, "201 hello", strlen("201 hello"))  == 0) {
 				imcs_boolAuthorized = true;
@@ -64,9 +60,11 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 			if (imcs_charTermination[0] != '\0') {
 				if (strrchr(imcs_charBuffer, imcs_charTermination[0]) != NULL) {
 					if (strcmp(strrchr(imcs_charBuffer, imcs_charTermination[0]), imcs_charTermination) == 0) {
-						imcs_charTermination[0] = '\0';
+						webserver_broadcast("imcs_operation", imcs_charOperation);
 						
-						sem_post(&imcs_semTermination);
+						imcs_charOperation[0] = '\0';
+						imcs_charBuffer[0] = '\0';
+						imcs_charTermination[0] = '\0';
 					}
 				}
 			}
@@ -85,7 +83,7 @@ void imcs_thread() {
 	}
 	
 	{
-		mg_connect(imcs_mgmgrHandle, "tcp://svcs.cs.pdx.edu:3589", imcs_handler);
+		imcs_mgconnectionHandle = mg_connect(imcs_mgmgrHandle, "tcp://svcs.cs.pdx.edu:3589", imcs_handler);
 	}
 	
 	{
@@ -103,6 +101,12 @@ void imcs_thread() {
 
 void imcs_start() {
 	{
+		pthread_mutex_init(&imcs_pthreadmutexRunning, NULL);
+		
+		pthread_mutex_lock(&imcs_pthreadmutexRunning);
+	}
+	
+	{
 		imcs_mgmgrHandle = (struct mg_mgr*) (malloc(sizeof(struct mg_mgr)));
 		
 		imcs_mgconnectionHandle = NULL;
@@ -115,17 +119,11 @@ void imcs_start() {
 	}
 	
 	{
-		sem_init(&imcs_semTermination, 0, 0);
-		
-		imcs_charTermination[0] = '\0';
+		imcs_charOperation[0] = '\0';
 		
 		imcs_charBuffer[0] = '\0';
-	}
-	
-	{
-		pthread_mutex_init(&imcs_pthreadmutexRunning, NULL);
 		
-		pthread_mutex_lock(&imcs_pthreadmutexRunning);
+		imcs_charTermination[0] = '\0';
 	}
 	
 	{
@@ -144,120 +142,129 @@ void imcs_stop() {
 }
 
 bool imcs_connected() {
-	bool boolConnected = false;
-	
-	{
-		boolConnected = imcs_boolConnected;
-	}
-	
-	return boolConnected;
+	return imcs_boolConnected;
 }
 
 bool imcs_authorized() {
-	bool boolAuthorized = false;
-	
-	{
-		boolAuthorized = imcs_boolAuthorized;
-	}
-	
-	return boolAuthorized;
-}
-
-void imcs_buffer(char* charBuffer) {
-	strcpy(charBuffer, imcs_charBuffer);
-	
-	imcs_charBuffer[0] = '\0';
+	return imcs_boolAuthorized;
 }
 
 void imcs_register(char* charUser, char* charPass) {
 	{
-		sprintf(imcs_charBuffer + strlen(imcs_charBuffer), "register %s\n", charUser);
+		assert(imcs_connected() == true);
 	}
 	
 	{
-		imcs_charTermination[0] = '\r';
-		imcs_charTermination[1] = '\n';
-		imcs_charTermination[2] = '\0';
+		char charBuffer[1024] = { };
+		
+		sprintf(charBuffer, ">>> register %s\n", charUser);
+		
+		webserver_broadcast("imcs_buffer", charBuffer);
+	}
+	
+	{
+		sprintf(imcs_charOperation, "imcs_register");
+		imcs_charBuffer[0] = '\0';
+		sprintf(imcs_charTermination, "\r\n");
 		
 		mg_printf(imcs_mgconnectionHandle, "register %s %s\n", charUser, charPass);
-		
-		sem_wait(&imcs_semTermination);
 	}
 }
 
 void imcs_login(char* charUser, char* charPass) {
 	{
-		sprintf(imcs_charBuffer + strlen(imcs_charBuffer), "me %s\n", charUser);
+		assert(imcs_connected() == true);
 	}
 	
 	{
-		imcs_charTermination[0] = '\r';
-		imcs_charTermination[1] = '\n';
-		imcs_charTermination[2] = '\0';
+		char charBuffer[1024] = { };
+		
+		sprintf(charBuffer, ">>> me %s\n", charUser);
+		
+		webserver_broadcast("imcs_buffer", charBuffer);
+	}
+	
+	{
+		sprintf(imcs_charOperation, "imcs_login");
+		imcs_charBuffer[0] = '\0';
+		sprintf(imcs_charTermination, "\r\n");
 		
 		mg_printf(imcs_mgconnectionHandle, "me %s %s\n", charUser, charPass);
-		
-		sem_wait(&imcs_semTermination);
 	}
 }
 
 void imcs_list() {
 	{
-		sprintf(imcs_charBuffer + strlen(imcs_charBuffer), "list\n");
+		assert(imcs_connected() == true);
 	}
 	
 	{
-		imcs_charTermination[0] = '.';
-		imcs_charTermination[1] = '\r';
-		imcs_charTermination[2] = '\n';
-		imcs_charTermination[3] = '\0';
+		webserver_broadcast("imcs_buffer", ">>> list\n");
+	}
+	
+	{
+		sprintf(imcs_charOperation, "imcs_list");
+		imcs_charBuffer[0] = '\0';
+		sprintf(imcs_charTermination, ".\r\n");
 		
 		mg_printf(imcs_mgconnectionHandle, "list\n");
-		
-		sem_wait(&imcs_semTermination);
 	}
 }
 
 void imcs_offer() {
 	{
-		imcs_charTermination[0] = '\r';
-		imcs_charTermination[1] = '\n';
-		imcs_charTermination[2] = '\0';
-		
-		mg_printf(imcs_mgconnectionHandle, "clean\n");
-		
-		sem_wait(&imcs_semTermination);
+		assert(imcs_connected() == true);
 	}
 	
 	{
-		imcs_charTermination[0] = '\r';
-		imcs_charTermination[1] = '\n';
-		imcs_charTermination[2] = '\0';
+		webserver_broadcast("imcs_buffer", ">>> offer\n");
+	}
+	
+	{
+		sprintf(imcs_charOperation, "imcs_offer");
+		imcs_charBuffer[0] = '\0';
+		sprintf(imcs_charTermination, "\r\n");
 		
 		mg_printf(imcs_mgconnectionHandle, "offer\n");
-		
-		sem_wait(&imcs_semTermination);
 	}
 }
 
-void imcs_accept() {
+void imcs_accept(int intIdent) {
 	{
-		imcs_charTermination[0] = '\r';
-		imcs_charTermination[1] = '\n';
-		imcs_charTermination[2] = '\0';
-		
-		mg_printf(imcs_mgconnectionHandle, "clean\n");
-		
-		sem_wait(&imcs_semTermination);
+		assert(imcs_connected() == true);
 	}
 	
 	{
-		imcs_charTermination[0] = '\r';
-		imcs_charTermination[1] = '\n';
-		imcs_charTermination[2] = '\0';
+		char charBuffer[1024] = { };
 		
-		mg_printf(imcs_mgconnectionHandle, "accept\n");
+		sprintf(charBuffer, ">>> accept %d\n", intIdent);
 		
-		sem_wait(&imcs_semTermination);
+		webserver_broadcast("imcs_buffer", charBuffer);
+	}
+	
+	{
+		sprintf(imcs_charOperation, "imcs_accept");
+		imcs_charBuffer[0] = '\0';
+		sprintf(imcs_charTermination, "\r\n");
+		
+		mg_printf(imcs_mgconnectionHandle, "accept %d\n", intIdent);
+	}
+}
+
+void imcs_ratings() {
+	{
+		assert(imcs_connected() == true);
+	}
+	
+	{
+		webserver_broadcast("imcs_buffer", ">>> ratings\n");
+	}
+	
+	{
+		sprintf(imcs_charOperation, "imcs_ratings");
+		imcs_charBuffer[0] = '\0';
+		sprintf(imcs_charTermination, ".\r\n");
+		
+		mg_printf(imcs_mgconnectionHandle, "ratings\n");
 	}
 }

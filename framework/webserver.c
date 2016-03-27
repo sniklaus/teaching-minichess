@@ -2,9 +2,10 @@
 
 // TOOD: ENFORCE MUTUAL EXCLUSION
 
-struct mg_mgr* webserver_mgmgrHandle = NULL;
-
 pthread_mutex_t webserver_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+
+struct mg_mgr* webserver_mgmgrHandle = NULL;
+struct mg_connection* webserver_mgconnectionHandle = NULL;
 
 void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* voidData) {
 	if (intEvent == MG_EV_HTTP_REQUEST) {
@@ -1121,6 +1122,100 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON_Delete(cjsonHandle);
 					}
 					
+				} else if (mg_vcmp(&httpmessageHandle->uri, "/imcs_offer") == 0) {
+					{
+						mg_printf(mgconnectionHandle, "%s", "HTTP/1.1 200 OK\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "Transfer-Encoding: chunked\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "Content-Type: application/json\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "\r\n");
+					}
+					
+					{
+						cJSON* cjsonHandle = cJSON_CreateObject();
+						
+						{
+							imcs_offer();
+						}
+						
+						{
+							char* charJson = cJSON_PrintUnformatted(cjsonHandle);
+							
+							mg_send_http_chunk(mgconnectionHandle, charJson, strlen(charJson));
+							mg_send_http_chunk(mgconnectionHandle, "", 0);
+							
+							free(charJson);
+						}
+						
+						cJSON_Delete(cjsonHandle);
+					}
+					
+				} else if (mg_vcmp(&httpmessageHandle->uri, "/imcs_accept") == 0) {
+					{
+						mg_printf(mgconnectionHandle, "%s", "HTTP/1.1 200 OK\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "Transfer-Encoding: chunked\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "Content-Type: application/json\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "\r\n");
+					}
+					
+					{
+						cJSON* cjsonHandle = cJSON_CreateObject();
+						
+						{
+							char charIdent[1024] = { };
+							
+							mg_get_http_var(&httpmessageHandle->query_string, "intIdent", charIdent, sizeof(charIdent));
+							
+							imcs_accept(atoi(charIdent));
+						}
+						
+						{
+							char* charJson = cJSON_PrintUnformatted(cjsonHandle);
+							
+							mg_send_http_chunk(mgconnectionHandle, charJson, strlen(charJson));
+							mg_send_http_chunk(mgconnectionHandle, "", 0);
+							
+							free(charJson);
+						}
+						
+						cJSON_Delete(cjsonHandle);
+					}
+					
+				} else if (mg_vcmp(&httpmessageHandle->uri, "/imcs_ratings") == 0) {
+					{
+						mg_printf(mgconnectionHandle, "%s", "HTTP/1.1 200 OK\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "Transfer-Encoding: chunked\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "Content-Type: application/json\r\n");
+						
+						mg_printf(mgconnectionHandle, "%s", "\r\n");
+					}
+					
+					{
+						cJSON* cjsonHandle = cJSON_CreateObject();
+						
+						{
+							imcs_ratings();
+						}
+						
+						{
+							char* charJson = cJSON_PrintUnformatted(cjsonHandle);
+							
+							mg_send_http_chunk(mgconnectionHandle, charJson, strlen(charJson));
+							mg_send_http_chunk(mgconnectionHandle, "", 0);
+							
+							free(charJson);
+						}
+						
+						cJSON_Delete(cjsonHandle);
+					}
+					
 				}
 			}
 		}
@@ -1148,7 +1243,11 @@ void webserver_thread() {
 	}
 	
 	{
-		mg_set_protocol_http_websocket(mg_bind(webserver_mgmgrHandle, "8080", webserver_handler));
+		webserver_mgconnectionHandle = mg_bind(webserver_mgmgrHandle, "8080", webserver_handler);
+	}
+	
+	{
+		mg_set_protocol_http_websocket(webserver_mgconnectionHandle);
 	}
 	
 	{
@@ -1166,13 +1265,15 @@ void webserver_thread() {
 
 void webserver_start() {
 	{
-		webserver_mgmgrHandle = (struct mg_mgr*) (malloc(sizeof(struct mg_mgr)));
-	}
-	
-	{
 		pthread_mutex_init(&webserver_pthreadmutexRunning, NULL);
 		
 		pthread_mutex_lock(&webserver_pthreadmutexRunning);
+	}
+	
+	{
+		webserver_mgmgrHandle = (struct mg_mgr*) (malloc(sizeof(struct mg_mgr)));
+		
+		webserver_mgconnectionHandle = NULL;
 	}
 	
 	{
@@ -1208,14 +1309,10 @@ void webserver_broadcast(char* charEvent, char* charData) {
 					
 				}
 				
-			} else if (strcmp(charEvent, "imcs_name") == 0) {
-				// TODO: cJSON_AddStringToObject(cjsonHandle, "strData", zeromq_charName);
+			} else if (strcmp(charEvent, "zeromq_name") == 0) {
+				cJSON_AddStringToObject(cjsonHandle, "strData", zeromq_name());
 				
-			}
-		}
-		
-		{
-			if (strcmp(charEvent, "imcs_status") == 0) {
+			} else if (strcmp(charEvent, "imcs_status") == 0) {
 				if (imcs_connected() == false) {
 					cJSON_AddStringToObject(cjsonHandle, "strData", "disconnected");
 					
@@ -1230,7 +1327,10 @@ void webserver_broadcast(char* charEvent, char* charData) {
 			} else if (strcmp(charEvent, "imcs_buffer") == 0) {
 				cJSON_AddStringToObject(cjsonHandle, "strData", charData);
 				
-			}
+			} else if (strcmp(charEvent, "imcs_operation") == 0) {
+				cJSON_AddStringToObject(cjsonHandle, "strData", charData);
+				
+			} 
 		}
 		
 		{
@@ -1245,7 +1345,9 @@ void webserver_broadcast(char* charEvent, char* charData) {
 					}
 					
 					{
-						mg_send_websocket_frame(mgconnectionHandle, WEBSOCKET_OP_TEXT, charJson, strlen(charJson));
+						if ((mgconnectionHandle->flags & MG_F_IS_WEBSOCKET) == MG_F_IS_WEBSOCKET) {
+							mg_send_websocket_frame(mgconnectionHandle, WEBSOCKET_OP_TEXT, charJson, strlen(charJson));
+						}
 					}
 					
 					{

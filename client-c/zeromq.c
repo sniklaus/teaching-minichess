@@ -1,16 +1,25 @@
 #include "main.h"
 
-char zeromq_charMode[256] = { };
-char zeromq_charName[256] = { };
 bool zeromq_boolRunning = false;
 
+char zeromq_charMode[256] = { };
+char zeromq_charName[256] = { };
+
 void zeromq_start(char* charMode, char* charName) {
+	{
+		assert(strlen(charName) < 16);
+		
+		assert(strstr(charName, " ") == NULL);
+	}
+	
+	{
+		zeromq_boolRunning = true;
+	}
+	
 	{
 		strcpy(zeromq_charMode, charMode);
 		
 		strcpy(zeromq_charName, charName);
-		
-		zeromq_boolRunning = true;
 	}
 	
 	{
@@ -192,6 +201,6 @@ void zeromq_start(char* charMode, char* charName) {
 
 void zeromq_stop() {
 	{
-		zeromq_boolRunning = true;
+		zeromq_boolRunning = false;
 	}
 }
