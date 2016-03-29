@@ -1,6 +1,7 @@
 #include "main.h"
 
 // TOOD: ENFORCE MUTUAL EXCLUSION
+// TODO: DO NOT EXPOSE A POINTER TO THE NAME BUFFER
 
 pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
 

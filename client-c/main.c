@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
 	}
 	
 	{
-		zeromq_start("tcp", "INSERT NAME");
+		zeromq_start("tcp", "YOUR NAME");
 	}
 	
 	return 0;
