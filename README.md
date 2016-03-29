@@ -42,13 +42,7 @@ after downloading and choosing a client, please change the name of your implemen
 as stated in the overview, it is necessary to use the framework together with a client. this section will accordingly outline the necessary steps for compiling and running the framework as well as the empty clients.
 
 ###`framework`
-in order to be able to compile the framework, it is necessary to install the `libzmq3-dev` library. this has already been done for the machines in the linux lab, but you can use `apt-get` to install it on your own machine. should you be unable to install this additional library, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the machines in the linux lab.
-
-```
-sudo apt-get install libzmq3-dev
-```
-
-a simple makefile is already provided in order to build the framework. after you open a console and navigate to the folder of the framework, you can therefore utilize the `make` command.
+a rudimentary makefile is already provided in order to build the framework. after you open a console and navigate to the folder of the framework, you can therefore utilize the `make` command.
 
 ```
 make
@@ -67,13 +61,7 @@ localhost:8080
 ```
 
 ###`client-c`
-in order to be able to compile the c client, it is necessary to install the `libzmq3-dev` library. this has already been done for the machines in the linux lab, but you can use `apt-get` to install it on your own machine. should you be unable to install this additional library, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the machines in the linux lab.
-
-```
-sudo apt-get install libzmq3-dev
-```
-
-a simple makefile is already provided in order to build the client. after you open a console and navigate to the folder of the client, you can therefore utilize the `make` command.
+a rudimentary makefile is already provided in order to build the client. after you open a console and navigate to the folder of the client, you can therefore utilize the `make` command.
 
 ```
 make
@@ -88,7 +76,7 @@ after a successful compilation, a `client` binary should have been built that yo
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
 
 ###`client-java`
-a simple makefile is already provided in order to build the clent. after you open a console and navigate to the folder of the client, you can therefore utilize the `make` command.
+a rudimentary makefile is already provided in order to build the clent. after you open a console and navigate to the folder of the client, you can therefore utilize the `make` command.
 
 ```
 make
