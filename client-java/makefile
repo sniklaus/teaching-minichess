@@ -1,4 +1,4 @@
 all:
 	javac -cp libs/*:. *.java
-	jar cvfm MiniChess.jar manifest *.class
+	jar cvfm client.jar manifest *.class
 	rm *.class
