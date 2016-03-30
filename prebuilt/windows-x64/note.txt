@@ -1,0 +1,1 @@
+your princess is in another castle - i am afraid that there is no prebuilt binary for windows yet
