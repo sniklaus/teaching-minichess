@@ -1243,7 +1243,11 @@ void webserver_thread() {
 	}
 	
 	{
-		webserver_mgconnectionHandle = mg_bind(webserver_mgmgrHandle, "8080", webserver_handler);
+		char charWebserver[1024] = { };
+		
+		sprintf(charWebserver, "%d", main_intWebserver);
+		
+		webserver_mgconnectionHandle = mg_bind(webserver_mgmgrHandle, charWebserver, webserver_handler);
 	}
 	
 	{

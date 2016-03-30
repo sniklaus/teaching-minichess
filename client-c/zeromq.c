@@ -2,24 +2,9 @@
 
 bool zeromq_boolRunning = false;
 
-char zeromq_charMode[256] = { };
-char zeromq_charName[256] = { };
-
-void zeromq_start(char* charMode, char* charName) {
-	{
-		assert(strlen(charName) < 16);
-		
-		assert(strstr(charName, " ") == NULL);
-	}
-	
+void zeromq_start() {
 	{
 		zeromq_boolRunning = true;
-	}
-	
-	{
-		strcpy(zeromq_charMode, charMode);
-		
-		strcpy(zeromq_charName, charName);
 	}
 	
 	{
@@ -27,16 +12,12 @@ void zeromq_start(char* charMode, char* charName) {
 		void* socketHandle = zmq_socket(contextHandle, ZMQ_PAIR);
 		
 		{
-			if (strcmp(zeromq_charMode, "tcp") == 0) {
-				if (zmq_bind(socketHandle, "tcp://*:54361") == -1) {
-					printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
-				}
-				
-			} else if (strcmp(zeromq_charMode, "ipc") == 0) {
-				if (zmq_bind(socketHandle, "ipc:///tmp/minichess-zeromq") == -1) {
-					printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
-				}
-				
+			char charZeromq[1024] = { };
+			
+			sprintf(charZeromq, "tcp://*:%d", main_intZeromq);
+			
+			if (zmq_bind(socketHandle, charZeromq) == -1) {
+				printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 			}
 		}
 		
@@ -57,7 +38,7 @@ void zeromq_start(char* charMode, char* charName) {
 				
 				{
 					if (strcmp(cJSON_GetObjectItem(cjsonIn, "strFunction")->valuestring, "ping") == 0) {
-						cJSON_AddStringToObject(cjsonOut, "strOut", zeromq_charName);
+						cJSON_AddStringToObject(cjsonOut, "strOut", main_charName);
 						
 					} else if (strcmp(cJSON_GetObjectItem(cjsonIn, "strFunction")->valuestring, "chess_reset") == 0) {
 						chess_reset();

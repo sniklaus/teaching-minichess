@@ -8,32 +8,17 @@ import zmq # sudo pip install pyzmq
 
 zeromq_boolRunning = False
 
-zeromq_strMode = ""
-zeromq_strName = ""
-
 ##########################################################
 
-def zeromq_start(strMode, strName):
+def zeromq_start():
 	global zeromq_boolRunning
-	global zeromq_strMode
-	global zeromq_strName
-	
-	assert len(strName) < 16
-	assert strName.find(" ") == -1
 	
 	zeromq_boolRunning = True
-	
-	zeromq_strMode = strMode
-	zeromq_strName = strName
 	
 	contextHandle = zmq.Context()
 	socketHandle = contextHandle.socket(zmq.PAIR)
 	
-	if zeromq_strMode == "tcp":
-		socketHandle.bind("tcp://*:54361")
-		
-	elif zeromq_strMode == "ipc":
-		socketHandle.bind("ipc:///tmp/minichess-zeromq")
+	socketHandle.bind("tcp://*:" + str(main_intZeromq))
 	
 	while zeromq_boolRunning == True:
 		jsonIn = None
@@ -42,7 +27,7 @@ def zeromq_start(strMode, strName):
 		jsonIn = json.loads(socketHandle.recv())
 		
 		if jsonIn["strFunction"] == "ping":
-			jsonOut["strOut"] = zeromq_strName
+			jsonOut["strOut"] = main_strName
 			
 		elif jsonIn["strFunction"] == "chess_reset":
 			chess_reset()
@@ -118,7 +103,5 @@ def zeromq_start(strMode, strName):
 
 def zeromq_stop():
 	global zeromq_boolRunning
-	global zeromq_strMode
-	global zeromq_strName
 
 	zeromq_boolRunning = false

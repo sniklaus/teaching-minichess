@@ -26,7 +26,7 @@ sudo apt-get install libzmq3-dev
 should you not be able to use `apt-get` or should you experience any issues during the installation, you can consult [zeromq.org](http://zeromq.org/intro:get-the-software) for further instructions. as with the compiler toolchain, i am afraid that there will not be individual support to resolve this issue.
 
 ##download
-to download this framework, you can either use the button on the top of this page or by cloning the repository with the following command. the latter option is recommended as you are encouraged to manage your code in a source repository, even though you might have to install [git](http://git-scm.com) before you will be able to do so.
+to download this framework, you can either use the button on the top of this page or clone the repository with the following command. the latter option is recommended as you are encouraged to manage your code in a source repository, even though you might have to install [git](http://git-scm.com) before you will be able to do so.
 
 ```
 git clone https://github.com/CodeRect/teaching-minichess
@@ -35,7 +35,7 @@ git clone https://github.com/CodeRect/teaching-minichess
 after downloading and choosing a client, please change the name of your implementation in the main file of the client. note that there are certain restrictions for a valid name. it must not contain non printable characters and must not exceed the length limitation of fifteen characters.
 
 ```javascript
-"YOUR NAME" // please change
+Name = "YOUR NAME"; // CHANGE THIS - REQUIRED
 ```
 
 ##usage
@@ -105,12 +105,38 @@ python main.py
 
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
 
+##linux lab
+when connecting remotely into the linux lab, please choose one of the machines in the [first](https://cat.pdx.edu/labstatus/labs/cslinlaba/) or the [second](https://cat.pdx.edu/labstatus/labs/cslinlabb/) lab. after selecting a machine, you can use your credentials to establish a connection through ssh. note that you can alternatively use putty as well.
+
+```
+ssh <username>@<machine>.cs.pdx.edu
+```
+
+since the framework and the client use a unique port in order to communicate, a multiuser environment like the linux lab can cause certain issues. should another instance of the framework already be running on a machine, a newly executed framework will result in a segfault. it is in such a case recommended to either switch to a different machine or to modify the mentioned unique ports in the main file of the framework as well as the client.
+
+```javascript
+Webserver = 8080; // CHANGE THIS - OPTIONAL
+Zeromq = 54361; // CHANGE THIS - OPTIONAL
+```
+
+in order to be able to access the webinterface of the framework on the remote machine in the linux lab, you need to establish an ssh tunnel such that you can use the browser on your local computer. there a few online resources that describe how this can be done and it eventually boils down to the following command. note that there is an equivalent way when using putty.
+
+```
+ssh <username>@<machine>.cs.pdx.edu -L 8080:localhost:8080
+```
+
+you will eventually need three ssh connections in parallel. one for the execution of the framework, one for the execution of the client as well as one for the tunnel in order to be able to access the webinterface. i am well aware that this is rather inconvenient but it is at least guaranteed to work. you are furthermore encouraged to use your own computer without connecting remotely into the linux lab. since i am afraid that there will not be individual support to get the framework to run on your own computer, this alternative had to be provided such that nobody will be left behind.
+
 ##frequently asked questions
-*the system does not respond anymore, how can i resolve this issue?* there are many potential causes for such a behavior. while the framework has been tested extensively, it might still contain an error that cause such an issue. it is therefore recommended to restart the framework as well as the client. it is furthermore likely that the implementation of the player has an issue, so please make sure that the error resides within the framework before creating a case in the issue tracker.
+*why does the framework segfault when it starts?* this can happen when the port it tries for the communication with the client is invalid or in use by another instance of the framework. to solve this issue, make sure that a valid port has been chosen and that there is no other running instance of the framework. make sure to read the previous section about the linux lab, should you be using this resource to work on your artificial chess player.
 
-*is my implementation correct if all the test cases work?* while it mathematically might be possible to prove that a certain implementation meets the specification, test cases are far from providing such a gurantee. an implementation of a player might therefore pass all the test cases while still not being able to play chess competitively.
+*there is a message from zeromq, stating that the address is already in use?* there might be another instance of the framework or the client running in the background, that prevents a newly executed framework or client from using the same port. it is therefore necessary to close the instance that has accidentally been left open. should it not be the case that there has been an instance left open, the operating system might not yet have gained back the control over a port that has previously been in use. in this case, it is recommended to retry it a few times.
 
-*how meaningful are the benchmarks of the test cases?* there is a significant overhead due to the communication with the client. the test cases need to communicate quite frequently with the client, which is why the influence of this overhead is very noticable. there is no need for an extensive communication while playing a game against another player however, which is why the communication induced overhead is usually not an issue.
+*the system does not respond anymore, how can i resolve this issue?* there are many potential causes for such a behavior. while the framework has been tested extensively, it might still contain an error that causes such an issue. it is therefore recommended to restart the framework as well as the client. it is furthermore likely that the implementation of the player has an issue, so please make sure that the error resides within the framework before opening a case in the issue tracker.
+
+*is my implementation correct if all the test cases work?* while it mathematically might be possible to prove that a certain implementation meets the specification, test cases are far from providing such a guarantee. an implementation of a player might therefore pass all the test cases while still not being able to play chess competitively.
+
+*how meaningful are the benchmarks of the test cases?* there is a significant overhead due to the communication with the client. the test cases need to communicate quite frequently with the client, which is why the influence of this overhead is very noticeable. there is no need for an extensive communication while playing a game against another player however, which is why the communication induced overhead is usually not an issue.
 
 ##dependencies
 since the framework consists of several components and each component has individual dependencies, they are being listed separately.

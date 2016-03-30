@@ -1,15 +1,14 @@
 #include "main.h"
 
 // TOOD: ENFORCE MUTUAL EXCLUSION
-// TODO: DO NOT EXPOSE A POINTER TO THE NAME BUFFER
+// TODO: DO NOT EXPOSE A POINTER TO THE CLIENT BUFFER
 
 pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
 
 void* zeromq_socketHandle = NULL;
 
-char zeromq_charMode[256] = { };
 bool zeromq_boolConnected = false;
-char zeromq_charName[256] = { };
+char zeromq_charClient[256] = { };
 
 void zeromq_thread() {
 	{
@@ -17,16 +16,12 @@ void zeromq_thread() {
 		void* socketHandle = zmq_socket(contextHandle, ZMQ_PAIR);
 		
 		{
-			if (strcmp(zeromq_charMode, "tcp") == 0) {
-				if (zmq_connect(socketHandle, "tcp://localhost:54361") == -1) {
-					printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
-				}
-				
-			} else if (strcmp(zeromq_charMode, "ipc") == 0) {
-				if (zmq_connect(socketHandle, "ipc:///tmp/minichess-zeromq") == -1) {
-					printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
-				}
-				
+			char charZeromq[1024] = { };
+			
+			sprintf(charZeromq, "tcp://localhost:%d", main_intZeromq);
+			
+			if (zmq_connect(socketHandle, charZeromq) == -1) {
+				printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 			}
 		}
 		
@@ -88,7 +83,7 @@ void zeromq_thread() {
 								}
 								
 								{
-									strcpy(zeromq_charName, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+									strcpy(zeromq_charClient, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
 									
 									webserver_broadcast("zeromq_name", NULL);
 								}
@@ -98,7 +93,7 @@ void zeromq_thread() {
 							}
 							
 							{
-								printf("zeromq: connected to %s\n", zeromq_charName);
+								printf("zeromq: connected to %s\n", zeromq_charClient);
 							}
 							
 						} else if (zmqeventHandle.event == ZMQ_EVENT_DISCONNECTED) {
@@ -109,7 +104,7 @@ void zeromq_thread() {
 							}
 							
 							{
-								printf("zeromq: disconnected from %s\n", zeromq_charName);
+								printf("zeromq: disconnected from %s\n", zeromq_charClient);
 							}
 							
 						}
@@ -217,17 +212,15 @@ void zeromq_thread() {
 	}
 }
 
-void zeromq_start(char* charMode) {
+void zeromq_start() {
 	{
 		zeromq_socketHandle = NULL;
 	}
 	
 	{
-		strcpy(zeromq_charMode, charMode);
-		
 		zeromq_boolConnected = false;
 		
-		zeromq_charName[0] = '\0';
+		zeromq_charClient[0] = '\0';
 	}
 	
 	{
@@ -256,7 +249,7 @@ bool zeromq_connected() {
 }
 
 char* zeromq_name() {
-	return zeromq_charName;
+	return zeromq_charClient;
 }
 
 void zeromq_send(cJSON* cjsonHandle) {

@@ -6,24 +6,9 @@ import org.zeromq.ZMQ;
 public class zeromq {
 	public static boolean boolRunning = false;
 	
-	public static String strMode = "";
-	public static String strName = "";
-	
-	public static void start(String strMode, String strName) {
-		{
-			assert strName.length() < 16;
-			
-			assert strName.indexOf(" ") == -1;
-		}
-		
+	public static void start() {
 		{
 			zeromq.boolRunning = true;
-		}
-		
-		{
-			zeromq.strMode = strMode;
-			
-			zeromq.strName = strName;
 		}
 		
 		{
@@ -31,13 +16,7 @@ public class zeromq {
 			ZMQ.Socket socketHandle = contextHandle.socket(ZMQ.PAIR);
 			
 			{
-				if (zeromq.strMode.equals("tcp") == true) {
-					socketHandle.bind("tcp://*:54361");
-					
-				} else if (zeromq.strMode.equals("ipc") == true) {
-					socketHandle.bind("ipc:///tmp/minichess-zeromq");
-					
-				}
+				socketHandle.bind("tcp://*:" + main.intZeromq);
 			}
 			
 			{
@@ -51,7 +30,7 @@ public class zeromq {
 					
 					{
 						if (jsonobjectIn.getString("strFunction").equals("ping") == true) {
-							jsonobjectOut.put("strOut", zeromq.strName);
+							jsonobjectOut.put("strOut", main.strName);
 							
 						} else if (jsonobjectIn.getString("strFunction").equals("chess_reset") == true) {
 							chess.reset();

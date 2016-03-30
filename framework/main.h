@@ -21,6 +21,9 @@
 #include "webserver.h"
 #include "zeromq.h"
 
+extern int main_intWebserver;
+extern int main_intZeromq;
+
 static inline int minimum(int intA, int intB) {
 	if (intA < intB) {
 		return intA;

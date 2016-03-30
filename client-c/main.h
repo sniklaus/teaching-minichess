@@ -17,6 +17,9 @@
 #include "chess.h"
 #include "zeromq.h"
 
+extern int main_intZeromq;
+extern char* main_charName;
+
 static inline int minimum(int intA, int intB) {
 	if (intA < intB) {
 		return intA;
