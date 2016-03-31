@@ -2,7 +2,7 @@ import json
 
 ##########################################################
 
-import zmq # sudo pip install pyzmq
+import zmq # pip install pyzmq
 
 ##########################################################
 

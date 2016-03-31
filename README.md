@@ -9,7 +9,7 @@ the framework provides a graphical user interface that is accessible through a w
 <p align="center"><img src="http://content.coderect.com/ChessRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
 
 ##prerequisites
-while you are able to choose between different languages to implement the client, the framework itself is written in c. therefore, the `gcc` compiler must be present to build the framework. unless you are making use of the linux lab, you might have to separately install the appropriate compiler toolchain. should you be able to use `apt-get`, you can install the following package to do so.
+while you are able to choose between different languages to implement the client, the framework itself is written in c. therefore, the `gcc` compiler must be present and running in a `64 bit` environment to build the framework. unless you are making use of the linux lab, you might have to separately install the appropriate compiler toolchain. should you be able to use `apt-get`, you can install the following package to do so.
 
 ```
 sudo apt-get install build-essential
@@ -17,7 +17,7 @@ sudo apt-get install build-essential
 
 should you be unable to setup the compiler toolchain correctly, i am afraid that there will not be individual support to resolve this issue. the machines in the linux lab are appropriately configured, so you always have the option to use them in favor of your personal computer.
 
-besides the compiler toolchain, it is necessary to install `zeromq` which will be used to communicate between the framework and a client. this dependency is already met by the machines in the linux lab but can easily be installed on a debian computer through the corresponding package.
+besides the compiler toolchain, it is necessary to install `zeromq` with version `3.*` which will be used to communicate between the framework and a client. this dependency is already met by the machines in the linux lab but can easily be installed on a debian computer through the corresponding package.
 
 ```
 sudo apt-get install libzmq3-dev
@@ -32,7 +32,7 @@ to download this framework, you can either use the button on the top of this pag
 git clone https://github.com/CodeRect/teaching-minichess
 ```
 
-after downloading and choosing a client, please change the name of your implementation in the main file of the client. note that there are certain restrictions for a valid name. it must not contain non printable characters and must not exceed the length limitation of fifteen characters.
+after downloading and choosing a client, please change the name of your implementation in the main file. note that there are certain restrictions for a valid name. it must not contain non printable characters and must not exceed the length limitation of fifteen characters.
 
 ```javascript
 Name = "YOUR NAME"; // CHANGE THIS - REQUIRED
@@ -76,7 +76,7 @@ after a successful compilation, a `client` binary should have been built that yo
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
 
 ###`client-java`
-a rudimentary makefile is already provided in order to build the clent. after you open a console and navigate to the folder of the client, you can therefore utilize the `make` command.
+a rudimentary makefile is already provided in order to build the client. after you open a console and navigate to the folder of the client, you can therefore utilize the `make` command.
 
 ```
 make
@@ -91,10 +91,10 @@ java -ea -jar client.jar
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
 
 ###`client-python`
-in order to be able to use the python client, it is necessary to install the `pyzmq` module. this has already been done for the machines in the linux lab, but you can use `pip` to install it on your own machine. should you be unable to install this additional module, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the machines in the linux lab.
+only version `2.*` of python is supported, so make sure that you are not accidentally using version `3.*` of python. in order to be able to use the python client, it is necessary to install the `pyzmq` module. this has already been done for the machines in the linux lab, but you can use `pip` to install it on your own machine. should you be unable to install this additional module, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the correctly configured machines in the linux lab.
 
 ```
-sudo pip install pyzmq
+pip install pyzmq
 ```
 
 since no compilation step is necessary to run the python client, a python interpreter can accordingly be used to execute the main file.
@@ -104,6 +104,9 @@ python main.py
 ```
 
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
+
+##test cases
+note that the more advanced test cases rely on the basic test cases to succeed. for this reason, the most advanced test case `test_moveAlphabeta` does succeed even with the provided empty clients. other test cases like `test_moveNegamax` might not halt without a correct implementation of the basic functions. the grading will therefore not only evaluate newly implemented features, but furthermore take the basic functionalities into consideration as well.
 
 ##linux lab
 when connecting remotely into the linux lab, please choose one of the machines in the [first](https://cat.pdx.edu/labstatus/labs/cslinlaba/) or the [second](https://cat.pdx.edu/labstatus/labs/cslinlabb/) lab. after selecting a machine, you can use your credentials to establish a connection through ssh. note that you can alternatively use putty as well.
@@ -127,7 +130,7 @@ ssh <username>@<machine>.cs.pdx.edu -L 8080:localhost:8080
 
 you will eventually need three ssh connections in parallel. one for the execution of the framework, one for the execution of the client as well as one for the tunnel in order to be able to access the webinterface. i am well aware that this is rather inconvenient but it is at least guaranteed to work. you are furthermore encouraged to use your own computer without connecting remotely into the linux lab. since i am afraid that there will not be individual support to get the framework to run on your own computer, this alternative had to be provided such that nobody will be left behind.
 
-##alternatives
+##alternative workarounds
 using a virtual machine is always a viable option. i personally do this as well and developed this framework in a debian environment that is running within a virtual machine. note that there are quite a few free virtualizers to choose from and while i have a preferred one, i would like to take the liberty of not making any advertisements here. i would therefore recommend to read a few related online resources.
 
 should you only be having trouble building the framework, you can try the corresponding binary within the binaries folder of this repository. note however, that even a binary might not work in case some dependencies are not met. there so far is furthermore only one prebuilt binary for linux.

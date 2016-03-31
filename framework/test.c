@@ -6647,15 +6647,69 @@ bool test_moveNegamax() {
 	return true;
 }
 
-int test_moveMercury(int intDepth);
-void test_moveMercury_dummy() {
-	__asm volatile("test_moveMercury:");
-	__asm volatile("test_moveMercury_0:     push       %rbp");
-	__asm volatile("test_moveMercury_1:     mov        %rsp,%rbp");
-	__asm volatile("test_moveMercury_4:     push       %rbx");
+int test_moveCarbide(char* charLeft, char* charRight, int intNumber) __asm ("test_moveCarbide");
+int test_moveCarbide(char* charLeft, char* charRight, int intNumber) {
+	__asm volatile("test_moveCarbide_0:     nop        ");
+	__asm volatile("test_moveCarbide_1:     nop        ");
+	__asm volatile("test_moveCarbide_4:     mov        %rdi,-0x18(%rbp)");
+	__asm volatile("test_moveCarbide_8:     mov        %rsi,-0x20(%rbp)");
+	__asm volatile("test_moveCarbide_12:    mov        %edx,-0x24(%rbp)");
+	__asm volatile("test_moveCarbide_15:    movl       $0x0,-0x4(%rbp)");
+	__asm volatile("test_moveCarbide_22:    jmp        test_moveCarbide_136");
+	__asm volatile("test_moveCarbide_24:    mov        -0x4(%rbp),%eax");
+	__asm volatile("test_moveCarbide_27:    movslq     %eax,%rdx");
+	__asm volatile("test_moveCarbide_30:    mov        -0x18(%rbp),%rax");
+	__asm volatile("test_moveCarbide_34:    add        %rdx,%rax");
+	__asm volatile("test_moveCarbide_37:    movzbl     (%rax),%eax");
+	__asm volatile("test_moveCarbide_40:    test       %al,%al");
+	__asm volatile("test_moveCarbide_42:    jne        test_moveCarbide_46");
+	__asm volatile("test_moveCarbide_44:    jmp        test_moveCarbide_144");
+	__asm volatile("test_moveCarbide_46:    mov        -0x4(%rbp),%eax");
+	__asm volatile("test_moveCarbide_49:    movslq     %eax,%rdx");
+	__asm volatile("test_moveCarbide_52:    mov        -0x18(%rbp),%rax");
+	__asm volatile("test_moveCarbide_56:    add        %rdx,%rax");
+	__asm volatile("test_moveCarbide_59:    movzbl     (%rax),%edx");
+	__asm volatile("test_moveCarbide_62:    mov        -0x4(%rbp),%eax");
+	__asm volatile("test_moveCarbide_65:    movslq     %eax,%rcx");
+	__asm volatile("test_moveCarbide_68:    mov        -0x20(%rbp),%rax");
+	__asm volatile("test_moveCarbide_72:    add        %rcx,%rax");
+	__asm volatile("test_moveCarbide_75:    movzbl     (%rax),%eax");
+	__asm volatile("test_moveCarbide_78:    cmp        %al,%dl");
+	__asm volatile("test_moveCarbide_80:    jle        test_moveCarbide_89");
+	__asm volatile("test_moveCarbide_82:    mov        $0x1,%eax");
+	__asm volatile("test_moveCarbide_87:    jmp        test_moveCarbide_149");
+	__asm volatile("test_moveCarbide_89:    mov        -0x4(%rbp),%eax");
+	__asm volatile("test_moveCarbide_92:    movslq     %eax,%rdx");
+	__asm volatile("test_moveCarbide_95:    mov        -0x18(%rbp),%rax");
+	__asm volatile("test_moveCarbide_99:    add        %rdx,%rax");
+	__asm volatile("test_moveCarbide_102:   movzbl     (%rax),%edx");
+	__asm volatile("test_moveCarbide_105:   mov        -0x4(%rbp),%eax");
+	__asm volatile("test_moveCarbide_108:   movslq     %eax,%rcx");
+	__asm volatile("test_moveCarbide_111:   mov        -0x20(%rbp),%rax");
+	__asm volatile("test_moveCarbide_115:   add        %rcx,%rax");
+	__asm volatile("test_moveCarbide_118:   movzbl     (%rax),%eax");
+	__asm volatile("test_moveCarbide_121:   cmp        %al,%dl");
+	__asm volatile("test_moveCarbide_123:   jge        test_moveCarbide_132");
+	__asm volatile("test_moveCarbide_125:   mov        $0xffffffff,%eax");
+	__asm volatile("test_moveCarbide_130:   jmp        test_moveCarbide_149");
+	__asm volatile("test_moveCarbide_132:   addl       $0x1,-0x4(%rbp)");
+	__asm volatile("test_moveCarbide_136:   mov        -0x4(%rbp),%eax");
+	__asm volatile("test_moveCarbide_139:   cmp        -0x24(%rbp),%eax");
+	__asm volatile("test_moveCarbide_142:   jl         test_moveCarbide_24");
+	__asm volatile("test_moveCarbide_144:   mov        $0x0,%eax");
+	__asm volatile("test_moveCarbide_149:   nop        ");
+	__asm volatile("test_moveCarbide_150:   nop        ");
+
+}
+
+int test_moveMercury(int intDepth) __asm ("test_moveMercury");
+int test_moveMercury(int intDepth) {
+	__asm volatile("test_moveMercury_0:     nop        ");
+	__asm volatile("test_moveMercury_1:     nop        ");
+	__asm volatile("test_moveMercury_4:     nop        ");
 	__asm volatile("test_moveMercury_5:     sub        $0x448,%rsp");
 	__asm volatile("test_moveMercury_12:    mov        %edi,-0x444(%rbp)");
-	__asm volatile("test_moveMercury_18:    mov        %fs:0x28,%rax");
+	__asm volatile("test_moveMercury_18:    nop        ");
 	__asm volatile("test_moveMercury_27:    mov        %rax,-0x18(%rbp)");
 	__asm volatile("test_moveMercury_31:    xor        %eax,%eax");
 	__asm volatile("test_moveMercury_33:    mov        $0x0,%eax");
@@ -6725,24 +6779,23 @@ void test_moveMercury_dummy() {
 	__asm volatile("test_moveMercury_345:   jl         test_moveMercury_232");
 	__asm volatile("test_moveMercury_347:   mov        -0x434(%rbp),%eax");
 	__asm volatile("test_moveMercury_353:   mov        -0x18(%rbp),%rbx");
-	__asm volatile("test_moveMercury_357:   xor        %fs:0x28,%rbx");
-	__asm volatile("test_moveMercury_366:   je         test_moveMercury_373");
-	__asm volatile("test_moveMercury_368:   callq      __stack_chk_fail");
+	__asm volatile("test_moveMercury_357:   nop        ");
+	__asm volatile("test_moveMercury_366:   nop        ");
+	__asm volatile("test_moveMercury_368:   nop        ");
 	__asm volatile("test_moveMercury_373:   add        $0x448,%rsp");
-	__asm volatile("test_moveMercury_380:   pop        %rbx");
-	__asm volatile("test_moveMercury_381:   pop        %rbp");
-	__asm volatile("test_moveMercury_382:   retq       ");
+	__asm volatile("test_moveMercury_380:   nop        ");
+	__asm volatile("test_moveMercury_381:   nop        ");
+	__asm volatile("test_moveMercury_382:   nop        ");
 }
 
-bool test_moveTungsten(int intDepth);
-void test_moveTungsten_dummy() {
-	__asm volatile("test_moveTungsten:");
-	__asm volatile("test_moveTungsten_0:     push       %rbp");
-	__asm volatile("test_moveTungsten_1:     mov        %rsp,%rbp");
-	__asm volatile("test_moveTungsten_4:     push       %rbx");
+bool test_moveTungsten(int intDepth) __asm ("test_moveTungsten");
+bool test_moveTungsten(int intDepth) {
+	__asm volatile("test_moveTungsten_0:     nop        ");
+	__asm volatile("test_moveTungsten_1:     nop        ");
+	__asm volatile("test_moveTungsten_4:     nop        ");
 	__asm volatile("test_moveTungsten_5:     sub        $0x458,%rsp");
 	__asm volatile("test_moveTungsten_12:    mov        %edi,-0x454(%rbp)");
-	__asm volatile("test_moveTungsten_18:    mov        %fs:0x28,%rax");
+	__asm volatile("test_moveTungsten_18:    nop        ");
 	__asm volatile("test_moveTungsten_27:    mov        %rax,-0x18(%rbp)");
 	__asm volatile("test_moveTungsten_31:    xor        %eax,%eax");
 	__asm volatile("test_moveTungsten_33:    movl       $0x0,-0x438(%rbp)");
@@ -6820,20 +6873,20 @@ void test_moveTungsten_dummy() {
 	__asm volatile("test_moveTungsten_399:   mov        $0x5,%edx");
 	__asm volatile("test_moveTungsten_404:   mov        %rax,%rsi");
 	__asm volatile("test_moveTungsten_407:   mov        %rcx,%rdi");
-	__asm volatile("test_moveTungsten_410:   callq      strncmp");
+	__asm volatile("test_moveTungsten_410:   callq      test_moveCarbide");
 	__asm volatile("test_moveTungsten_415:   test       %eax,%eax");
 	__asm volatile("test_moveTungsten_417:   je         test_moveTungsten_426");
 	__asm volatile("test_moveTungsten_419:   mov        $0x0,%eax");
 	__asm volatile("test_moveTungsten_424:   jmp        test_moveTungsten_431");
 	__asm volatile("test_moveTungsten_426:   mov        $0x1,%eax");
 	__asm volatile("test_moveTungsten_431:   mov        -0x18(%rbp),%rbx");
-	__asm volatile("test_moveTungsten_435:   xor        %fs:0x28,%rbx");
-	__asm volatile("test_moveTungsten_444:   je         test_moveTungsten_451");
-	__asm volatile("test_moveTungsten_446:   callq      __stack_chk_fail");
+	__asm volatile("test_moveTungsten_435:   nop        ");
+	__asm volatile("test_moveTungsten_444:   nop        ");
+	__asm volatile("test_moveTungsten_446:   nop        ");
 	__asm volatile("test_moveTungsten_451:   add        $0x458,%rsp");
-	__asm volatile("test_moveTungsten_458:   pop        %rbx");
-	__asm volatile("test_moveTungsten_459:   pop        %rbp");
-	__asm volatile("test_moveTungsten_460:   retq       ");
+	__asm volatile("test_moveTungsten_458:   nop        ");
+	__asm volatile("test_moveTungsten_459:   nop        ");
+	__asm volatile("test_moveTungsten_460:   nop        ");
 }
 
 bool test_moveAlphabeta() {
