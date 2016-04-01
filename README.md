@@ -91,7 +91,7 @@ java -ea -jar client.jar
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
 
 ###`client-python`
-only version `2.*` of python is supported, so make sure that you are not accidentally using version `3.*` of python. in order to be able to use the python client, it is necessary to install the `pyzmq` module. this has already been done for the machines in the linux lab, but you can use `pip` to install it on your own machine. should you be unable to install this additional module, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the correctly configured machines in the linux lab.
+in order to be able to use the python client, it is necessary to install the `pyzmq` module. this has already been done for the machines in the linux lab, but you can use `pip` to install it on your own machine. should you be unable to install this additional module, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the correctly configured machines in the linux lab.
 
 ```
 pip install pyzmq
