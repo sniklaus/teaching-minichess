@@ -9,7 +9,7 @@ the framework provides a graphical user interface that is accessible through a w
 <p align="center"><img src="http://content.coderect.com/ChessRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
 
 ##prerequisites
-while you are able to choose between different languages to implement the client, the framework itself is written in c. therefore, the `gcc` compiler must be present and running in a `64 bit` environment to build the framework. unless you are making use of the linux lab, you might have to separately install the appropriate compiler toolchain. should you be able to use `apt-get`, you can install the following package to do so.
+while you are able to choose between different languages to implement the client, the framework itself is written in c. therefore, the `gcc` compiler must be present to build the framework. unless you are making use of the linux lab, you might have to separately install the appropriate compiler toolchain. should you be able to use `apt-get`, you can install the following package to do so.
 
 ```
 sudo apt-get install build-essential
