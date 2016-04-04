@@ -1721,700 +1721,700 @@ bool test_moves() {
 	chess_reset();
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a5-a4\nb5-b4\nc5-c4\nd5-d4\ne5-e4\nb6-a4\nb6-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a2-a3\nb2-b3\nc2-c3\nd2-d3\ne2-e3\nb1-a3\nb1-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n..b.r\n.k.pp\n..pP.\n.q..B\npPRQP\nn..NK\n");
+	chess_boardSet("15 B\nk.bnr\n..N.p\nBp...\n.p.q.\nP..P.\n.R.K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d3-e2\ne4-e3\ne4-d4\nc5-c4\nc5-c3\nc5-c6\nd5-d4\nd5-c4\nd5-b3\nd5-a2\nd5-c6\nd6-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-b6\nd6-b5\nd6-c4\nd6-e4\ne5-e4\nb3-b2\nb3-a2\nd3-d4\nd3-d5\nd3-c3\nd3-e3\nd3-d2\nd3-c4\nd3-b5\nd3-e4\nd3-c2\nd3-b1\nd3-e2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n..qn.\np...r\nkpPPb\nP....\n.P.B.\n.R.QK\n");
+	chess_boardSet("12 B\nkb..r\n..p.p\nQ.PPP\nP....\n.B.P.\n....K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c1-b1\nc1-a1\nc1-c2\nc1-c3\nc1-b2\nc1-d2\nd1-b2\nd1-c3\ne2-e1\ne2-d2\ne2-c2\ne2-b2\na3-a4\na3-b2\na3-b4\nb3-b4\nb3-a4\ne3-d2\ne3-d4\ne3-c5\ne3-b6\ne3-e4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\na6-b5\nb6-a5\nb6-c6\nb6-b5\ne6-d6\ne6-c6\nc5-d4\ne5-d4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.k.B.\nqp.Np\n..p.K\npb..P\nP....\nR..Q.\n");
+	chess_boardSet("12 W\n.Nb..\n.k..r\n.ppPp\n....P\nPPPQ.\nR.B.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d1-c2\nd1-b3\nd1-a4\nd1-e2\nd1-c1\nd1-e1\nd2-b1\nd2-b3\nd2-c4\ne3-e2\ne3-d3\ne3-d4\na5-b4\na6-b6\na6-c6\nd6-d5\nd6-d4\nd6-d3\nd6-c6\nd6-b6\nd6-e6\nd6-c5\nd6-b4\nd6-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a4\nb6-d5\nb6-c4\nd4-d5\nd4-e5\na2-a3\nb2-b3\nc2-c3\nd2-d3\nd2-e2\nd2-d1\nd2-c3\nd2-b4\na1-b1\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.k..r\n....p\npPn.p\nQ.P.b\n.P.B.\nR...K\n");
+	chess_boardSet("12 B\n.k.nr\nppbqp\n.P..P\nP.pB.\nR.PK.\n.N...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b3-b2\na4-a3\na4-b4\na4-a5\nb5-b4\nd5-e4\nd5-c6\nd5-d4\nd5-c5\nd5-e5\nd5-d6\na6-a5\na6-b6\na6-c6\na6-d6\ne6-e5\ne6-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nd6-c4\nd6-e4\na5-a4\na5-b4\nc5-b4\nc5-d4\nc5-e3\nc5-c6\nc5-c4\nd5-d4\nd5-d3\nd5-c6\nd5-c4\nd5-b3\nd5-a2\nd5-e4\nc3-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nkqr..\n.ppQ.\n.....\n..PB.\nPp.KP\nRN...\n");
+	chess_boardSet("13 W\n....r\n..p.p\nqkp..\n...b.\nP.PBP\n..RK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-d1\nd2-c2\nd2-e2\nd2-d3\nd2-c1\nd2-e1\nd2-c3\nd2-b4\nd2-e3\nc4-c3\nd4-c3\nd4-b2\nd4-e3\nd4-c5\nd4-d3\nd4-e4\na5-a4\nd5-c5\nd5-d6\nd5-e4\nd5-c6\nd5-e6\ne5-e4\nb6-a4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a2-a3\nc2-c3\nc2-d3\nd2-c3\nd2-b4\nd2-e3\nd2-e1\ne2-e3\ne2-d3\nc1-b1\nc1-a1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.b..r\nk.ppp\npp.qN\nP..PP\nRPPB.\n...QK\n");
+	chess_boardSet("21 W\n.....\n.k.b.\n.pP.N\np.nrB\nP..R.\n....K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-b2\ne1-d1\ne1-c1\na2-a1\na2-b2\nc2-c3\nd2-e3\nb3-b4\nb3-a4\nd3-c3\nd3-e3\nd3-d4\nd3-c4\nd3-b5\nd3-e4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-c5\nc4-b5\nc4-d5\ne4-c5\ne4-d6\ne4-c3\ne3-d4\ne3-c5\ne3-b6\ne3-e2\nd2-d3\nd2-c2\nd2-b2\nd2-e2\nd2-d1\ne1-e2\ne1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nkrn..\n..pbp\n.P.pP\npP.P.\nR.PQK\n.....\n");
+	chess_boardSet("18 B\n..rb.\n..k.p\n.p.p.\nPPRP.\n...K.\n...Q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b3-b2\nb3-c2\ne3-d2\na5-a4\na5-b5\na5-a6\nc5-c4\nd5-d6\nd5-c4\nd5-e4\nd5-c6\nd5-e6\ne5-e4\ne5-e6\ne5-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-b6\nc6-a6\nd6-e6\nd6-d5\nc5-b5\nc5-d5\nc5-c4\nc5-b6\ne5-e4\nb4-a3\nb4-c3\nd4-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nk.q.r\np...p\n..pb.\nPPP..\nRNB..\nQ..K.\n");
+	chess_boardSet("19 W\nk....\n.pp.r\n..K.b\n.ppn.\n....R\nqNB.Q\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-b2\nc1-b1\nc1-d1\nc1-c2\nc1-b2\nc1-a3\nc1-d2\nc1-e3\ne1-d1\na2-a3\ne2-e3\nc3-b4\nd3-c2\nd3-b1\nd3-c4\nd3-e4\nd3-d2\nd3-e3\nd3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-c5\nc4-b4\nc4-d4\nc4-c3\nc4-b5\nc4-d5\nc4-b3\nc4-d3\ne2-e3\ne2-e4\ne2-d2\ne2-c2\ne2-b2\ne2-a2\nb1-a3\nb1-d2\nb1-c3\nc1-b2\nc1-a3\nc1-d2\nc1-e3\nc1-c2\nc1-d1\ne1-d1\ne1-d2\ne1-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk..nr\n.p..p\npq.P.\nPP.b.\n..PQK\nR.NB.\n");
+	chess_boardSet("11 B\nk...r\nppb..\n....p\nP.pPP\n..P.B\n.R.QK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nd1-c3\nd1-e3\ne2-e3\ne2-d3\na3-b4\nb3-c3\nb3-d3\nb3-b4\nb3-a2\nb3-c2\nb3-a4\nb3-c4\nb3-d5\nd4-c3\nd4-e3\nd4-c5\nd4-e5\nd4-c4\nd4-e4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\ne6-d6\ne6-c6\ne6-b6\ne6-e5\na5-a4\nb5-b4\nc5-b6\nc5-d6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-c6\nc5-d5\nc5-c4\ne4-d3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n....r\np.pQp\nbkq..\n.P...\nP..np\nR...K\n");
+	chess_boardSet("18 B\n...q.\nRkpbp\n..PrP\n...p.\n...PK\n...n.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-d1\nd2-c2\nd2-e2\nd2-d3\nd2-d4\nd2-d5\nd2-c1\nd2-e1\nd2-c3\nd2-e3\nb4-a3\nb4-c3\na5-a4\na6-b6\na6-c6\na6-d6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d6-c6\nd6-b6\nd6-a6\nd6-e6\nb5-b6\nb5-a5\nb5-b4\nb5-a6\nb5-c6\nb5-a4\nb5-c4\nd5-c6\nd5-e6\nd5-c4\nd5-e4\nd4-c4\nd4-e4\nd3-e2\nd1-b2\nd1-c3\nd1-e3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.q.r.\npk.QP\n.....\n....b\npPP.K\nR.B..\n");
+	chess_boardSet("20 W\n.k..r\n..P.p\nB....\nR.p..\n...KP\n.N...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-c2\nb1-d3\nd1-c1\nd1-e1\nd1-d2\na2-a3\nb2-c2\nb2-b3\nb2-a1\nb2-c1\nb2-a3\nb2-c3\ne4-d3\ne4-c2\ne4-d5\ne4-c6\ne4-e3\ne4-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c5-c6\nc5-b6\na4-b5\na4-c6\na4-b3\na4-c2\na4-d1\na4-a5\na4-b4\na3-b3\na3-c3\na3-a2\na3-a1\nd2-d3\nd2-c2\nd2-d1\nd2-c3\nd2-e3\nd2-c1\nd2-e1\ne2-e3\nb1-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nknqbr\np.P..\n....P\n..N..\n.Pp.Q\nR...K\n");
+	chess_boardSet("16 B\n.qk..\npr...\n...p.\nP.PBp\n.P..p\nRN.K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c2-b1\nc2-d1\ne3-e2\nc4-a3\nc4-b2\nc4-d2\nc4-a5\nc4-b6\nc4-d6\nb5-b4\ne5-e4\ne5-d5\ne5-c5\ne5-d4\ne5-c3\ne5-b2\ne5-a1\ne5-d6\na6-a5\na6-a4\na6-a3\na6-a2\na6-b6\na6-c6\na6-d6\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c5\nc6-d6\nc6-c5\nc6-d5\na5-a4\nb5-c5\nb5-d5\nb5-e5\nb5-b4\nb5-b3\nb5-b2\nd4-c3\ne2-e1\ne2-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n.Q.nr\nbk...\n.P.pp\nN..PP\nR.PK.\n.Q...\n");
+	chess_boardSet("15 W\nkb.nr\n....p\n.pN..\np.p.P\nPP..K\nR.B..\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-d1\nb1-b2\nb1-a2\nb1-c2\nb1-d3\nb3-a2\na4-c3\na4-b2\nd4-e3\ne4-d3\na5-b5\na5-a6\nc5-c4\nd5-e5\nd5-d6\nd5-c4\nd5-c6\nd5-e6\nb6-b5\nb6-b4\nb6-a6\nb6-c6\nb6-d6\nb6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-a5\nc4-b6\nc4-e5\nc4-d6\nc4-a3\nc4-d2\ne3-e4\nb2-b3\nb2-a3\nb2-c3\ne2-d2\ne2-e1\ne2-d3\ne2-d1\na1-b1\nc1-d2\nc1-c2\nc1-b1\nc1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk...r\n.pq.p\npp..b\nP.p..\nR.BPn\n.Q..K\n");
+	chess_boardSet("11 B\nk..br\n.p..p\np.p.P\nB...p\nP.qN.\nRQ..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\ne1-d1\ne1-c1\ne1-b1\nc2-c1\nc2-d2\nc2-c3\nc2-b1\nc2-d1\nc2-d3\nc2-e4\nb3-b4\nb3-a4\ne3-d2\ne3-c1\ne3-d4\ne3-c5\ne3-d3\ne3-e4\nc4-d5\ne5-d3\ne5-c6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\nd6-c5\nd6-b4\nd6-a3\nd6-c6\nd6-d5\nb5-b4\nc4-c3\ne3-e2\ne3-d2\nc2-c3\nc2-b2\nc2-a2\nc2-d2\nc2-c1\nc2-b3\nc2-d3\nc2-e4\nc2-b1\nc2-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n.k..r\n.p..p\n..ppB\nnp...\nP..QP\nR..K.\n");
+	chess_boardSet("12 B\nk..nr\n.qp.p\npP...\nP.Q.P\nRP.K.\n....B\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-a2\nb1-c2\ne1-d1\ne1-c1\nb2-b3\nc3-c4\nd3-d4\na4-c5\na4-b6\nb4-b5\nb4-a5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\nd6-c4\nd6-e4\nb5-b6\nb5-a5\nb5-b4\nb5-c6\nb5-c4\nb5-d3\nb5-e2\nc5-c4\nc5-b4\ne5-e4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.qbr.\n...N.\npQ..n\nk.PpB\n....P\nR..K.\n");
+	chess_boardSet("18 W\nkr..b\np..N.\n.Bpp.\n.q..P\nP...P\n.R..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-b2\nb1-b3\nb1-a2\nb1-c2\nb1-d3\nb1-e4\nc1-b2\nc1-d2\nc1-c2\nd1-e1\nd1-d2\ne3-c2\ne3-c4\ne3-d5\na4-b4\na4-a5\na4-b3\na4-b5\nd4-d5\nd4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d5-b6\nd5-c3\nb4-a5\nb4-c5\nb4-d6\nb4-a3\nb4-c3\nb4-d2\nb4-b5\nb4-a4\ne3-e4\ne3-d4\na2-a3\na2-b3\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n...r.\nk.q.p\np...P\n.p.KN\n.P.pP\n.R.B.\n");
+	chess_boardSet("13 W\nk.q.r\np...p\n...pb\np..P.\nPBpQP\n.R.K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d4-d3\nd4-c4\nd4-d5\nd4-c3\nd4-c5\ne4-c3\ne4-d2\ne4-c5\nb6-a6\nb6-c6\nd6-c5\nd6-b4\nd6-c6\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d3-e4\nb2-a3\nb2-c3\nb2-d4\nb2-a1\nb2-c1\nb2-b3\nd2-c2\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-c1\nd2-e1\ne2-e3\nb1-a1\nb1-c1\nd1-c1\nd1-e1\nd1-c2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk..b.\n.q.Nr\np...p\nR..BP\n..PQ.\n....K\n");
+	chess_boardSet("15 B\nk.br.\n..q..\n.p..Q\nn....\np.PPB\n....K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nd1-c2\nd1-b3\nd1-a4\nd1-c1\nd1-e1\nb2-b1\nb2-a2\nb2-c2\nb2-d2\nb2-b3\nb2-b4\nb2-b5\nb2-b6\nb2-c1\nb2-c3\nb2-d4\ne2-e1\ne2-d2\ne3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-b6\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nc5-b5\nc5-a5\nc5-d5\nc5-e5\nc5-c4\nc5-c3\nc5-c2\nc5-b6\nc5-d4\nc5-e3\nb4-b3\na3-c4\na3-b5\na3-c2\na3-b1\na2-a1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n...nN\n.....\npk..b\nqpPPP\nR....\n..B.K\n");
+	chess_boardSet("14 B\nkr...\n..QPp\n.P...\n..q..\nPBPn.\n.R.bK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "e1-c2\ne1-d3\nc4-c3\nc4-b3\nd4-d3\nd4-e3\na5-a4\na5-b5\na5-c5\na5-d5\na5-e5\na5-a6\nc6-b5\nc6-a4\nc6-d5\nc6-c5\nc6-b6\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\na6-b5\nb6-c6\nb6-d6\nb6-e6\nb6-b5\nb6-b4\ne5-e4\nc3-c4\nc3-c5\nc3-b3\nc3-a3\nc3-d3\nc3-e3\nc3-c2\nc3-b4\nc3-d4\nc3-b2\nd2-b3\nd2-c4\nd2-e4\nd2-b1\nd1-c2\nd1-e2\nd1-c1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nb...r\nkp.pp\np....\nnP..q\nR.P.Q\n.NKB.\n");
+	chess_boardSet("13 W\n.q.nr\nkp..p\n..p..\n..b..\n..PQP\nq.RK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b4-b3\nb4-a3\na5-a4\na5-b5\na5-a6\nc5-c4\ne5-e4\ne5-d5\ne5-e6\ne5-d4\ne5-c3\ne5-b2\nb6-a4\nb6-d5\nb6-c4\nc6-b5\nc6-d5\nd6-d5\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d2-d3\nd2-d4\nd2-d5\nd2-d6\nd2-c3\nd2-e3\nd2-e1\ne2-e3\nc1-b1\nc1-a1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n..knr\n.p.pp\npbP..\nP.qPP\n.BP.K\nR..Q.\n");
+	chess_boardSet("14 B\nk....\n.pbpr\n.P..P\n.Pp..\n..P.Q\nqN..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c1-b1\nc1-c2\nd1-c3\nd1-e3\nb2-c3\nd2-d3\nd2-c3\ne2-e3\nb3-a2\nb3-c2\nb3-a4\nb3-b4\nc4-c3\nc4-b4\nc4-a4\nc4-d4\nc4-c5\nc4-d3\nc4-b5\nc4-d5\nc4-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\nc5-b6\nc5-d6\nc5-b4\nc5-d4\nc5-e3\nc5-c6\nc5-c4\nd5-d4\nd5-e4\ne5-e6\ne5-e4\na1-a2\na1-a3\na1-a4\na1-a5\na1-b1\na1-b2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n..r..\np.k.p\nn.p.p\np..Pb\nP....\n..R.K\n");
+	chess_boardSet("12 B\n.k.N.\np.r..\nb...Q\npP..P\n..P.P\nR.B.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d4-d3\nd4-c3\nd4-e3\nc6-c5\nc6-c4\nc6-c3\nc6-b6\nc6-a6\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nb6-b5\nc5-c6\nc5-b5\nc5-d5\nc5-e5\nc5-c4\nc5-c3\nc5-c2\na4-b5\na4-c6\na4-b3\na4-b4\na3-a2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n.k.br\n.N..p\n.qp..\n..PpP\np..KB\nR....\n");
+	chess_boardSet("15 W\nk..br\n..p..\n..p.p\nRP..P\n..p.K\n..B..\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-b2\nb1-a2\nb1-c2\nd1-c2\nd1-c1\nd1-d2\ne2-e3\nb3-b2\nb3-a3\nb3-b4\nb3-b5\nb3-b6\nb3-a2\nb3-c2\nb3-a4\nb3-c4\nd4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a3-a4\na3-a5\na3-a6\na3-a2\na3-a1\nb3-b4\nb3-c4\ne2-d2\ne2-e1\ne2-d3\ne2-d1\nc1-b2\nc1-d2\nc1-b1\nc1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n.kqnB\n.N..r\npb..p\nP.P..\nR..P.\n..q.K\n");
+	chess_boardSet("16 B\nk..nr\np.p.p\nP....\npQpP.\n..P..\nR.qK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-b2\nb1-a2\nb1-c2\nc1-c2\nc1-c3\nc1-c4\nc1-b2\nc1-d2\nd1-b2\nd1-c3\ne2-e1\ne2-d2\ne2-c2\ne2-b2\nb3-a2\nb3-c2\nb3-a4\nb3-c4\nb3-c3\nb3-b4\ne3-e4\nc6-c5\nc6-c4\nc6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-b5\nc6-a4\nc6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-b5\nd6-b5\nd6-c4\nd6-e4\nc5-c4\ne5-e4\na3-a2\nc1-c2\nc1-b1\nc1-a1\nc1-d1\nc1-b2\nc1-d2\nc1-e3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nkq...\npr.np\n.pP.N\n..p.P\nP..P.\n..RQK\n");
+	chess_boardSet("13 B\nkqbr.\n.ppp.\nP.PB.\nP....\n...Pn\n...RK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c3-c2\nc3-b2\nc3-d2\ne3-c2\ne3-d1\ne3-c4\na5-a4\nd5-d4\nd5-c4\nc6-c5\nc6-c4\nc6-b6\nc6-a6\nd6-c5\nd6-b4\nd6-a3\nd6-e5\ne6-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\nb6-a5\nd6-e6\nb5-b4\nb5-a4\nb5-c4\nc5-d4\nd5-c4\ne2-c3\ne2-d4\ne2-c1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n.k.nr\np.ppp\nb....\n..P.P\npPQqK\n.B...\n");
+	chess_boardSet("19 W\n...nr\nQk.p.\np.PPp\nP....\n.pP.N\n..RBK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c4-c3\ne4-e3\nb5-b4\nc5-d5\nc5-c6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-d6\ne5-d5\ne5-e6\ne5-d4\ne5-d6\nb6-a5\nb6-a6\nb6-c6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a5-a6\na5-b5\na5-a4\na5-b6\na5-b4\na5-c3\na5-d2\nc4-c5\nc4-b5\nc4-d5\nc2-c3\ne2-c3\nc1-b1\nc1-a1\nd1-d2\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n...n.\n.ppbp\nq..p.\npPkP.\nPRP.P\n.BQ.K\n");
+	chess_boardSet("20 W\nk....\np...p\n..QpP\nP..P.\n.r.K.\nRN.q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d1-c3\nd1-e3\nb2-b3\nc2-c3\nd2-c1\nd2-e1\nd2-c3\nd2-b4\nd2-e3\ne2-e3\na3-a2\na3-a1\na3-b3\na3-c3\na3-b4\na4-b5\nc4-c3\nc4-b4\nc4-d4\nc4-c5\nc4-b3\nc4-b5\nc4-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-c5\nc4-c6\nc4-b4\nc4-a4\nc4-d4\nc4-c3\nc4-c2\nc4-c1\nc4-b5\nc4-a6\nc4-d5\nc4-e6\nc4-b3\nc4-a2\na3-a4\nd2-c2\nd2-e2\nd2-d1\nd2-c3\nd2-e3\nd2-c1\nd2-e1\na1-a2\nb1-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk.b.r\nP.n.p\n..pKp\np..q.\nR.P.B\n.N.Q.\n");
+	chess_boardSet("15 W\nk..b.\npp.r.\n.R.Kp\nB.P..\nPnPq.\n.....\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d3-d2\nd3-c3\nd3-e3\nd3-d4\nd3-c2\nd3-e2\nd3-c4\nd3-e4\na5-a4\na5-b5\na5-a6\nc5-c4\nc5-d4\ne5-d4\ne5-e4\ne5-d5\ne5-e6\nb6-a4\nb6-d5\nb6-c4\nd6-d5\nd6-d4\nd6-c6\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b4-b5\nb4-a4\nb4-c4\nb4-b3\nb4-b2\nd4-d5\nd4-c4\nd4-e4\nd4-d3\nd4-c5\nd4-e5\nd4-e3\na3-b2\na3-a4\na3-b3\nc3-c4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n..r..\n.kP.p\np...K\n..p.B\nP..P.\nQ....\n");
+	chess_boardSet("17 W\n.....\np.pNB\nQp..p\n.bk.P\n.P..q\n.R..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c1-b1\nc1-a1\nc1-d1\nc1-e1\nc1-c2\nb2-b1\nb2-a2\nb2-c2\nb2-b3\nb2-a1\nb2-c3\na3-a4\nc4-c5\nc4-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d5-b6\nd5-b4\nd5-c3\ne5-d6\ne5-d4\ne5-c3\ne5-e6\na4-a5\na4-b4\na4-a3\na4-a2\na4-a1\na4-b5\na4-c6\na4-b3\nb2-c3\nb1-a1\nb1-c1\nb1-d1\ne1-e2\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n....r\nkp..p\n.....\n..B..\nP.P.K\nNRqQ.\n");
+	chess_boardSet("18 W\nq...r\nk.n..\np...P\n.bp..\nP.Bp.\n.R..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c4-b3\nc4-a2\nc4-d3\nc4-e2\nc4-b5\nc4-d5\nc4-e6\nc4-c3\nc4-b4\nc4-d4\na5-a4\ne5-e4\ne5-d5\ne5-e6\ne5-d4\na6-b4\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nb6-c6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\nd6-c6\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "e4-e5\na2-a3\na2-b3\nc2-b3\nc2-d3\nc2-d1\nc2-b2\nc2-c1\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\ne1-e2\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkqb..\n.....\np.NPp\n.p..P\nBPrPQ\nR...K\n");
+	chess_boardSet("19 W\nk...r\n...qp\npR.P.\nP.Kb.\n...BP\n.Q...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c3-a2\nc3-b1\nc3-e2\nc3-d1\nc3-a4\nd3-d2\na5-b4\na5-b6\na5-a4\nd5-d4\ne5-d4\ne5-d6\na6-b6\na6-c6\na6-d6\ne6-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b4-b5\nb4-b6\nb4-a4\nb4-c4\nb4-b3\nb4-b2\nd4-e5\nc3-c4\nc3-b3\nc3-d3\nc3-c2\nc3-b2\nd2-e3\nd2-c1\nd2-e1\nd2-c2\nd2-d1\ne2-e3\ne2-d3\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\nb1-e1\nb1-a2\nb1-c2\nb1-d3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n..b..\nk.p..\nppNp.\nP.K.r\n.Bq..\nRQ...\n");
+	chess_boardSet("19 B\n..r..\n.k.pb\n.Q...\n..n.P\nP..KP\nRN...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c3-a2\nc3-b1\nc3-e2\nc3-d1\nc3-e4\nc3-d5\na4-b3\nc4-b4\nc4-d4\nc4-c5\nc4-b3\nc4-d3\nc4-d5\nb5-c6\nb5-b4\nb5-a5\na6-a5\nb6-c6\nb6-d6\nb6-e6\nb6-a5\nb6-c5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-c5\nc6-c4\nb5-b6\nb5-a5\nb5-c5\nb5-b4\nb5-a6\nb5-a4\nb5-c4\nd5-d4\ne5-d6\ne5-d4\ne5-e6\ne5-e4\nc3-a4\nc3-e4\nc3-a2\nc3-b1\nc3-e2\nc3-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n..b..\nk..rp\n..p.P\n.nPq.\nPPQ..\n.RB.K\n");
+	chess_boardSet("15 W\nk.qnr\n..p.P\np....\n.BQp.\nP..P.\nRq..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "e3-d2\na5-a4\na5-b4\nc5-d5\nc5-e5\nc5-b4\nc5-d4\nc5-d6\nb6-a6\nc6-d5\nc6-e4\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "e5-d6\nb3-a4\nb3-c4\nb3-d5\nb3-e6\nb3-c2\nb3-d1\nb3-b4\nb3-a3\nb3-b2\nc3-c4\nc3-c5\nc3-d3\nc3-c2\nc3-c1\nc3-b4\nc3-a5\nc3-d4\nc3-b2\na2-a3\na1-b1\ne1-e2\ne1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nknqr.\np..Pb\n....P\np.p.Q\nP.P..\nR..BK\n");
+	chess_boardSet("21 W\n....r\n....Q\np.k.q\np.P.P\nRp...\n.NB.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-c1\ne4-d4\ne4-c4\ne4-e5\ne4-d3\ne4-c2\ne4-b1\ne4-d5\ne4-c6\na6-b6\na6-c6\nd6-e5\nd6-d5\nd6-c6\ne6-e5\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "e5-e6\ne5-d5\ne5-c5\ne5-b5\ne5-a5\ne5-e4\ne5-d6\ne5-d4\na2-a3\na2-b2\na2-a1\nb1-a3\nb1-d2\nc1-b2\nc1-d2\nc1-c2\nc1-d1\ne1-e2\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nk..n.\nr....\nppP.p\nPRbK.\n.....\n..B.Q\n");
+	chess_boardSet("17 B\nk...r\n.N.qP\n.....\np..pP\n..bK.\n.R.n.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c3-c2\na4-b3\nb4-b3\nb4-c4\nb4-b5\nb4-b6\nd4-d3\nd4-c4\nd4-e4\nd4-d5\nd4-e3\nd4-c5\nd4-e5\nc6-b5\nc6-d5\nc6-e4\nc6-c5\nc6-b6\nc6-d6\ne6-e5\ne6-e4\ne6-e3\ne6-d6\ne6-d5\ne6-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\na6-b5\ne6-d6\ne6-c6\ne6-b6\ne6-e5\nd5-d6\nd5-c5\nd5-b5\nd5-e5\nd5-d4\nd5-c6\nd5-c4\nd5-b3\nd5-a2\nd5-e4\na3-a2\nc2-b3\nc2-a4\nc2-b1\nc2-c3\nc2-b2\nc2-c1\nd1-b2\nd1-c3\nd1-e3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\nk.Nr.\n.n..p\npQpp.\np..q.\n.R...\n....K\n");
+	chess_boardSet("12 W\nkq.br\n..p.p\n.p.pn\nP.pPP\n..Q..\nRN.BK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nd1-c1\nd1-e1\nd1-d2\nb2-c4\ne2-e3\nc3-c4\na4-a5\na4-b5\nd4-c4\nd4-b4\nd4-e4\nd4-d5\nd4-d6\nd4-e3\nd4-c5\nd4-b6\nd4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a3-a4\na3-b4\nd3-e4\ne3-d4\nc2-c3\nc2-b2\nc2-a2\nc2-d2\nc2-e2\nc2-c1\nc2-b3\nc2-a4\na1-a2\nb1-d2\nb1-c3\nd1-e2\nd1-d2\nd1-c1\ne1-e2\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n...nr\nkqP.p\np.b..\nPP.PP\n..R..\n.NBK.\n");
+	chess_boardSet("17 W\nk..qr\n...pp\np..b.\n.P...\n..Pn.\nR..QK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d1-e3\na2-a1\na2-b1\na2-b3\nb2-b1\nb2-c2\nb2-b3\nb2-b4\nb2-a1\nb2-c1\ne2-e3\na3-b4\nc3-d2\nc3-b4\nc3-d4\nc3-b3\nc3-d3\nc3-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b3-b4\nb3-a4\nc2-c3\na1-a2\na1-a3\na1-a4\na1-b1\na1-c1\nd1-d2\nd1-c1\nd1-b1\nd1-e2\ne1-e2\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n.B..r\nqp...\nPk...\n...pQ\nP.P.P\nRN.K.\n");
+	chess_boardSet("13 W\nk.qbr\n.Np.p\n.pP..\nP..p.\n.P.KP\n..Bn.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "e1-d1\ne1-c1\ne1-b1\ne1-e2\ne1-e3\ne1-e4\na2-a1\na2-a3\na2-b1\nb2-a3\nb3-a3\nb3-c3\nb3-b4\nb3-c2\nb3-a4\nb3-c4\nd4-d5\nd4-c5\nd4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b5-d6\nb5-d4\nb5-c3\na3-a4\na3-b4\nb2-b3\nd2-d3\nd2-c2\nd2-d1\nd2-c3\nd2-e3\nd2-e1\ne2-e3\ne2-d3\nc1-c2\nc1-b1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n.k..r\np..pN\n.....\nB..Pp\n.P...\nRn..K\n");
+	chess_boardSet("17 B\n...Q.\nk..pr\nR..Pp\n..NK.\n.nP..\n..B.Q\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-b2\nb1-c2\ne1-d1\ne1-c1\ne1-e2\na2-a3\nd2-d3\ne4-e5\nb6-a4\nb6-d5\nb6-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a5-a6\na5-b5\na5-a4\na5-b6\na5-b4\ne5-e6\ne4-e3\ne4-d3\nb2-a4\nb2-d3\nb2-c4\nb2-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nk.nr.\n.pbp.\n..Qp.\n..p..\nP..KP\nR....\n");
+	chess_boardSet("17 W\nk...r\nPpN.b\n....p\nR..p.\n.p.BP\n...QK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nc1-a2\nc1-b3\nc1-e2\nd1-e1\nb2-b3\nb2-c3\nc2-b1\nc2-b3\nc2-a4\nd2-c3\nd3-d4\nc4-c5\nc4-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c5-a6\nc5-e6\nc5-a4\nc5-b3\nc5-e4\nc5-d3\na3-a4\na3-b3\na3-c3\na3-d3\na3-a2\na3-a1\nd2-c3\nd2-b4\nd2-e3\nd2-c1\nd2-c2\ne2-e3\ne2-d3\nd1-c1\nd1-b1\nd1-a1\nd1-c2\nd1-b3\nd1-a4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nk.r..\np...p\np...P\nP...P\nRqK..\n.Q...\n");
+	chess_boardSet("17 W\n.k.r.\np...p\nP.Q.P\n..p..\n..B.P\nq...K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a5-b5\na5-a6\nc5-c4\nc5-b5\nc5-d5\nc5-c6\nc5-b4\nc5-d4\nc5-d6\nb6-b5\nb6-a6\nb6-c6\nb6-d6\nb6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-c5\nc4-c6\nc4-b4\nc4-d4\nc4-c3\nc4-b5\nc4-a6\nc4-d5\nc4-e6\nc4-b3\nc4-a2\nc4-d3\nc2-b3\nc2-d3\nc2-b1\nc2-d1\nc2-b2\nc2-d2\nc2-c1\ne2-e3\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..nr\np....\n..ppb\nB...K\nP.P..\nRQ...\n");
+	chess_boardSet("21 W\n.n...\n.kPPQ\npp...\nbP..P\nP.B.K\n..q..\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-b2\nd1-b2\ne1-e2\na2-a3\nc3-c4\nd3-d4\nd3-e4\ne3-d2\ne3-c1\ne3-d4\ne3-c5\ne3-e2\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c5-c6\nc5-b6\nd5-d6\ne5-e6\ne5-e4\ne5-d6\ne5-d4\ne5-c3\ne5-b2\ne5-a1\nb3-a4\ne3-e4\nc2-d3\nc2-e4\nc2-b1\nc2-d1\nc2-c3\nc2-b2\nc2-d2\ne2-d2\ne2-e1\ne2-d3\ne2-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n...r.\nk.pB.\nP...P\nR..q.\n.n..P\n.N..K\n");
+	chess_boardSet("20 W\nk..b.\n..p.r\npq..p\n.p.PK\nP...N\n...BR\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-c1\nd2-e1\nd2-c3\nd2-b4\nd2-a5\nd2-e2\nd2-d3\ne3-e2\na4-b4\na4-c4\na4-d4\na4-a5\na4-a6\ne5-e4\ne5-d4\nb6-d5\nb6-c4\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d3-d4\nd3-e4\ne3-e4\ne3-d4\ne3-d2\na2-a3\na2-b3\ne2-c3\ne2-d4\ne2-c1\nd1-c2\nd1-b3\nd1-d2\nd1-c1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk.q.r\n.p..n\np.p..\nPPPP.\n...PK\nRBQ..\n");
+	chess_boardSet("17 W\n.k.br\np...p\nP.pp.\n..n.P\nR..PQ\n.NB.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nc1-b1\nc1-d1\nc1-c2\nc1-d2\nc1-e3\ne1-d1\nb2-b3\ne2-d4\na3-b4\nc3-b4\nc3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "e3-e4\ne3-d4\na2-a3\na2-b2\na2-c2\na2-a1\nd2-d3\nd2-c3\ne2-d3\ne2-c4\ne2-d1\nb1-a3\nb1-c3\nc1-b2\nc1-a3\nc1-c2\nc1-d1\ne1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nk..n.\npb.pr\n.qN.P\n.P...\nPP.KP\nR.B.Q\n");
+	chess_boardSet("11 B\nkq..K\n..p..\np...p\nP...P\nP.P.b\n.RBQ.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\nd1-c3\nd1-e3\na2-a3\nb2-c1\nb2-a3\nb2-c3\nb2-b1\nb2-c2\nd2-d3\nd2-c3\nd2-e3\ne2-e1\ne2-e3\nb3-a3\nb3-c3\nb3-b4\nb3-c2\nb3-a4\nb3-c4\nb3-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\na6-b5\nb6-c6\nb6-d6\nb6-e6\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nb6-b1\nb6-a5\nc5-c4\ne2-d3\ne2-c4\ne2-b5\ne2-d1\ne2-d2\ne2-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.k.bQ\n.nP..\nppN.p\n.P..B\nP.P.P\n.R..K\n");
+	chess_boardSet("18 W\nk.b.r\n..pp.\nNp...\n...pP\nP.PK.\nRQq..\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-a2\nb1-c2\nd1-c2\nd1-e2\nd1-c1\nd1-d2\nb2-a4\nb2-d3\nb2-c4\na3-a4\na3-b4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a4-c5\na4-b6\na4-c3\na4-b2\ne3-e4\na2-a3\nc2-c3\nc2-d3\nd2-d3\nd2-e2\nd2-d1\nd2-c3\nd2-c1\nd2-e1\nb1-b2\nb1-b3\nb1-b4\nb1-c1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n.qb..\nk.Kpr\n.Pn.p\np.Q.P\nP..P.\nRN..B\n");
+	chess_boardSet("11 B\nkb..r\npp.qp\n..p.P\n.PP..\nPBN.Q\nR...K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c2-c1\nc2-b2\nc2-d2\nc2-c3\nc2-b1\nc2-d1\nc2-d3\nb3-b2\nb3-a2\nc4-c3\nc4-b4\nc4-a4\nc4-d4\nc4-c5\nc4-c6\nc4-d3\nc4-e2\nc4-b5\nd5-d4\nb6-a4\ne6-e5\ne6-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-c5\nb6-d4\nb6-e3\nb6-c6\ne6-d6\ne6-c6\na5-a4\nb5-b4\nd5-d6\nd5-c5\nd5-d4\nd5-d3\nd5-d2\nd5-d1\nd5-c6\nd5-e4\nc4-b3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n..br.\n.kppp\npq.N.\n..PKP\nPP.P.\nRB...\n");
+	chess_boardSet("12 B\nk.qr.\n.pp..\n.P...\npb..p\nP.PQP\n.R..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d3-b2\nd3-c1\nd3-e1\nd3-b4\nd3-c5\nd3-e5\nc4-c3\nc4-b3\nd4-c3\nd4-e3\nd4-c5\nd4-e5\ne4-e3\na5-a4\nb5-b4\nb6-c5\nb6-c6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\nc6-b6\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nc5-c4\nc5-b4\nb3-a4\nb3-c4\nb3-d5\nb3-e6\nb3-a2\nb3-c2\nb3-c3\nb3-b2\ne3-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..Nr\nq...p\npp.b.\nP.P..\n..K.P\nq....\n");
+	chess_boardSet("16 B\n.b...\nk.p.r\n..PPP\np.P..\nP..NK\n..R.q\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-b2\ne1-d1\na2-b2\na2-c2\na2-d2\na2-b1\ne2-e3\nb3-b4\nb3-a4\nb3-c4\nd3-c2\nd3-b1\nd3-c4\nd3-e4\nd3-d2\nd3-c3\nd3-e3\nd3-d4\na6-a5\na6-a4\na6-b6\na6-c6\na6-d6\na6-e6\na6-b5\na6-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nb6-b5\na5-a6\na5-b5\na5-a4\na5-b4\nc5-d4\ne5-e6\ne5-d5\ne5-e4\ne1-e2\ne1-d1\ne1-c1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nk.bnr\n.pqp.\n..p.p\npPP..\nP.B.K\nRNQ..\n");
+	chess_boardSet("19 B\n.k.r.\nP...p\np..P.\n.P...\nRP...\n..B.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b4-b3\nb4-c3\nc5-d4\nc5-e3\nc5-d6\nc5-b5\nc5-d5\ne5-e4\ne5-d5\ne5-e6\ne5-d4\ne5-d6\nb6-a4\nb6-d5\nc6-d6\nc6-e6\nc6-b5\nc6-a4\nc6-d5\nc6-e4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nb6-b5\nb6-a5\nb6-c5\nd6-c6\nd6-e6\nd6-d5\nd6-d4\ne5-e4\ne5-d4\na4-a3\na4-b3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk....\n...p.\nN..r.\n.P.Pb\n...B.\n.n.QK\n");
+	chess_boardSet("13 B\nk..nr\nPqQ.b\np.p..\n.....\nPBP.P\n.R.K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a3-c2\na3-b1\na3-c4\na3-b5\nb4-b3\nd5-c4\nd5-b3\nd5-a2\nd5-e4\nd5-c6\nd5-c5\nd5-e5\nd6-c6\nd6-b6\nd6-c5\nd6-e5\ne6-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\nd6-e4\nb5-b6\nb5-a5\nb5-c5\nb5-b4\nb5-b3\nb5-b2\nb5-c6\ne5-d4\ne5-c3\ne5-b2\ne5-d5\ne5-e4\na4-a3\nc4-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nq.r..\np..Pp\n.p.P.\n..P.K\n..P..\nkRBQ.\n");
+	chess_boardSet("16 W\n.br..\nkq.R.\np....\n..p.B\nP.P.K\n.n.Q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-d1\nd2-c1\nd3-e2\nc4-c3\nc4-b3\ne4-e3\ne4-d4\ne4-e5\ne4-d5\nb6-b5\nb6-b4\nb6-b3\nb6-a6\nc6-b5\nc6-a4\nc6-d5\nd6-d5\nd6-d4\nd6-e6\nd6-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d5-d6\nd5-c5\nd5-b5\nd5-e5\nd5-d4\nd5-d3\nd5-d2\ne3-d4\ne3-c5\ne3-b6\ne3-d2\ne3-c1\ne3-e4\ne3-d3\na2-a3\ne2-d2\ne2-e1\ne2-d3\nd1-d2\nd1-d3\nd1-d4\nd1-c1\nd1-b1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n.k..r\npN.P.\nn....\n...q.\nPPp.Q\n....K\n");
+	chess_boardSet("15 B\n..r..\nkNq.b\np....\n...p.\nPnP.K\nRQ...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b2-d1\nb2-a4\nb2-d3\nb2-c4\nd2-d1\nd2-e1\na5-a4\nb5-b4\ne5-e4\ne5-e3\ne5-e2\ne5-e1\ne5-d5\ne5-c5\ne5-d4\ne5-d6\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-b6\nc6-a6\nc6-d6\nc6-e6\na5-a6\na5-b5\na5-b6\na5-b4\nc5-b5\nc5-d5\nc5-c4\nc5-c3\nc5-c2\nc5-b6\nc5-d6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\ne5-d6\ne5-d4\ne5-c3\ne5-e6\ne5-d5\ne5-e4\na4-a3\nd3-d2\nd3-c2\nd3-e2\nb2-c4\nb2-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nkb.nr\nP....\n.....\n...pN\nqP.K.\n.RqB.\n");
+	chess_boardSet("15 B\n.kb..\n...rQ\npp..p\nQ...P\np.PP.\n.R.K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a2-b1\ne4-c3\ne4-d2\ne4-c5\nb5-b4\nd5-d4\nd5-c5\nd5-e5\nd5-c4\nd5-c6\nd5-e6\nb6-a6\nb6-c6\nd6-c5\nd6-b4\nd6-a3\nd6-e5\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-b5\nb6-a5\nb6-c5\nc6-b5\nc6-d6\nc6-c5\nd5-d6\nd5-c5\nd5-b5\nd5-a5\nd5-e5\nd5-d4\nd5-d3\nd5-d2\nb4-b3\nb4-a3\na2-a1\na2-b1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n.k.nr\np.q..\n.R.Bp\np.p..\n..PPP\n.NQK.\n");
+	chess_boardSet("18 B\nk..n.\np.rq.\n.PR.p\n....P\n...PK\n...Q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-b2\nd1-b2\nd1-c3\ne1-e2\na2-a3\na2-b3\nc2-c1\nc2-b2\nc2-d2\nc2-e2\nc2-c3\nc2-b3\nc2-d3\ne3-e4\na4-a5\nc4-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-b5\nd6-b5\nd6-c4\na5-a4\na5-b4\nc5-c6\nc5-b5\nc5-c4\nd5-e5\nd5-d4\nd5-d3\nd5-d2\nd5-c6\nd5-e6\nd5-c4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n...N.\n.r.bp\n..P..\nk...p\n.PP..\nRBQ.K\n");
+	chess_boardSet("16 B\nkb.qr\npp.Qp\nBR..n\nP.p.N\n..P.p\n...K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b2-b1\nb2-a2\nb2-c2\nb2-b3\nb2-b4\nb2-b5\nd2-c1\nd2-e1\nd2-c3\nd2-e3\nd2-c2\nd2-d3\ne2-e3\na4-a3\na4-b4\na4-a5\na4-b3\na4-b5\ne4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-c5\nb6-d4\nb6-e3\nb6-c6\nd6-c6\nd6-d5\nd6-c5\nd6-b4\na5-b4\nb5-a4\ne4-c5\ne4-d2\ne2-e1\ne2-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\nkqr..\npp.P.\n.npPp\nPPB.K\n.Q...\n.....\n");
+	chess_boardSet("13 B\n..b.r\n.nk.p\npPpQ.\nP....\n.P.P.\nRNB.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-c2\nb1-d3\nc1-d1\nc1-e1\nc1-c2\na2-a3\nb3-d2\nb3-a5\nb3-d4\nb3-c5\nc3-b4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-d5\nc6-e4\nc6-b6\nc6-d6\ne6-d6\nb5-d6\nb5-a3\nb5-d4\nb5-c3\nc5-d5\nc5-b6\nc5-d6\nc5-b4\nc5-d4\ne5-e4\ne5-d4\nc4-c3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n...r.\npk.bp\n...Q.\np.PpP\nP...P\nR.Q.K\n");
+	chess_boardSet("12 W\nk...r\np.b.p\n.pNp.\n.PQP.\nP.P.P\nRBqK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d3-d2\nd3-c3\nd3-b3\nd3-a3\nd3-e3\nd3-d4\nd3-c2\nd3-b1\nd3-e2\nc4-c3\ne4-e3\ne5-d4\na6-b6\nc6-c5\nc6-b6\nc6-d6\nc6-b5\nc6-a4\nc6-d5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-a5\nc4-b6\nc4-e5\nc4-d6\nc4-a3\nc4-b2\nc4-e3\nc4-d2\nc3-b4\nc3-d4\nc3-b2\nc3-d2\nc3-e1\na2-a3\ne2-e3\nb1-b2\nd1-d2\nd1-c1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n.....\n...rb\n.Ppp.\n.Q...\n..P..\nkB..K\n");
+	chess_boardSet("14 W\nk...r\n.pPbp\np.p..\n.N...\nP.P.K\nR.Bn.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b3-b2\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-b5\nb4-a3\nb4-c3\nb4-a5\nc5-c4\nb6-a5\nb6-b5\nb6-c6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c5-c6\nb3-a5\nb3-d4\nb3-d2\na2-a3\nc2-c3\ne2-e3\ne2-d2\ne2-e1\ne2-d3\ne2-d1\na1-b1\nc1-b2\nc1-a3\nc1-d2\nc1-e3\nc1-b1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nq..nr\n..kp.\n.p...\n.P...\nP..BK\n.....\n");
+	chess_boardSet("18 W\nbkr..\n..P.Q\n.p.P.\n.p...\nR.PK.\n...B.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a5-a4\nd5-c4\nd5-b3\nd5-e4\nd5-c6\nd5-e6\nd5-d4\nd5-c5\nd5-d6\ne5-e4\ne5-e6\ne5-d4\ne5-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c5-b6\ne5-e6\ne5-d5\ne5-e4\ne5-e3\ne5-e2\ne5-e1\ne5-d6\nd4-d5\na2-a3\na2-a4\na2-a5\na2-a6\na2-b2\na2-a1\nc2-c3\nc2-b3\nd2-d3\nd2-e2\nd2-c3\nd2-e3\nd2-c1\nd2-e1\nd1-e2\nd1-c1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n...nr\npb.p.\nPp.Bp\n.P...\nR..kK\n.N.Q.\n");
+	chess_boardSet("15 W\nk..r.\nK.P.N\n.....\n...p.\nP.P.P\nR.qQ.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a3-b2\nd3-c2\nd3-b1\nd3-e2\nd3-c4\nd3-b5\nd3-a6\nd3-e4\nd3-c3\nd3-d4\na5-a4\na5-b5\na5-c5\na5-d5\na5-a6\ne5-e4\ne5-d5\ne5-e6\ne5-d4\nb6-a4\nb6-d5\nb6-c4\nd6-d5\nd6-c6\nd6-e6\nd6-c5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a5-a6\na5-b5\na5-a4\na5-b6\na5-b4\nc5-c6\nc5-d6\ne5-c6\ne5-c4\ne5-d3\na2-a3\nc2-c3\nc2-d3\ne2-e3\ne2-d3\na1-b1\na1-c1\nd1-d2\nd1-d3\nd1-c1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n...n.\n.....\npkp..\n.qN.K\nq.Q..\n...B.\n");
+	chess_boardSet("17 B\nk.N.r\np.p..\n..n.p\n.p.BP\nP..K.\nR....\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c4-a3\nc4-b2\nc4-e3\nc4-d2\nc4-a5\nc4-b6\nc4-e5\ne4-e3\ne4-d4\ne4-e5\ne4-d3\ne4-d5\nc5-b5\nc5-a5\nc5-d5\nc5-e5\nc5-c6\nc5-b4\nc5-d4\nc5-e3\nc5-b6\nd6-e5\nd6-d5\nd6-c6\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-e5\na5-a4\nc4-b6\nc4-e5\nc4-d6\nc4-a3\nc4-b2\nc4-e3\nc4-d2\ne4-d3\nb3-b2\nb3-a2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk.br.\np..Pq\n..P.n\n..p..\nP.PQK\n.RB..\n");
+	chess_boardSet("13 B\n..q.r\nPkb..\npBppp\n..N..\n..PPP\n.R.QK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-c1\nc3-c2\na5-a4\nd5-d4\nd5-d3\nd5-d6\nd5-c4\nd5-e4\nd5-e6\ne5-e4\ne5-e6\ne5-d4\ne5-d6\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nb6-b1\nb6-a6\nc6-b5\nc6-a4\nc6-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-b6\nc6-a6\nc6-d6\nc6-d5\ne6-d6\ne6-e5\nb5-b6\nb5-a5\nb5-b4\nb5-a6\nc5-b6\nc5-d6\nc5-b4\nc5-d5\na4-a3\nd4-d3\nd4-c3\ne4-e3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nbq..r\nk...p\np.p..\nP.P..\npPQ.P\n.B..K\n");
+	chess_boardSet("15 B\nk....\n.p.b.\n.qnp.\n.PP.r\n....B\n.R..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b5-b4\nc5-d5\nc5-c6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-d6\ne5-e4\nb6-a5\nb6-a6\nb6-c6\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\nd5-c6\nd5-e6\nd5-e4\nd5-d6\nd5-c5\nd5-e5\nb4-a4\nb4-b3\nb4-a5\nb4-c5\nb4-d6\nb4-a3\nb4-c3\nc4-a5\nc4-b6\nc4-e5\nc4-d6\nc4-a3\nc4-b2\nc4-d2\nd4-d3\nd4-c3\ne3-e4\ne3-e5\ne3-e6\ne3-d3\ne3-c3\ne3-e2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n..knr\np.P.p\n....Q\nP.b..\n..PP.\n...qK\n");
+	chess_boardSet("16 B\n...br\nk...p\n.pp.P\n.P...\nq..P.\n.QB.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c2-d1\ne3-e2\ne3-d3\ne3-c3\ne3-b3\ne3-a3\ne3-e4\ne3-e5\ne3-d2\ne3-c1\ne3-d4\na4-a3\nd5-d4\nd5-c4\ne6-e5\ne6-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d6-c5\nd6-c6\nd6-d5\na5-a6\na5-b5\na5-a4\na5-b6\nc4-c3\nc4-b3\na2-a3\na2-a4\na2-b2\na2-c2\na2-d2\na2-a1\na2-b3\na2-b1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.bknr\np..pp\np.P..\nP.P.P\n..qP.\n..RBK\n");
+	chess_boardSet("18 W\nQ.Q..\nk..qp\n.Pp..\nP....\n.n.Pp\nRN..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-c2\nb1-d3\nb1-e4\nb1-a1\nb1-b2\nc1-c2\nc1-b2\nd1-b2\nd1-c3\nd1-e3\nd2-d3\nd2-c3\ne2-e3\nc5-c4\nc5-b5\nc5-a5\nc5-d5\nc5-c6\nc5-b4\nc5-d4\nc5-e3\nc5-b6\nc5-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\na6-b5\na6-c4\nc6-b6\nc6-d6\nc6-e6\nc6-c5\nc6-c4\nc6-b5\nc6-a4\nc6-d5\nb4-b5\nb4-a5\na3-a4\nd2-d3\na1-a2\nb1-c3\ne1-e2\ne1-d1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nkq...\np.b.p\n.p.K.\nq.p..\nP.PQ.\n....R\n");
+	chess_boardSet("17 W\nq...r\nkp.Bp\nP..b.\n...P.\nP.Pp.\nRNK..\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b2\nb1-c1\nb1-d1\nb1-e1\nb1-b2\na2-a3\nc2-d1\nc2-d3\nc2-c1\nc2-b2\nc2-d2\nc2-c3\ne2-e3\ne2-d3\nb3-b4\na4-a3\na4-b4\na4-a5\na4-b5\na4-c6\nc4-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d5-c6\nd5-e6\nd5-c4\nd5-b3\nd5-e4\nd5-d6\nd5-c5\na4-b5\na2-a3\nc2-c3\nb1-a3\nb1-d2\nb1-c3\nc1-d1\nc1-b2\nc1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nkq...\n.pp.p\np.P..\nP.bP.\n.R..K\n..Q..\n");
+	chess_boardSet("12 B\nk.qbr\np..pp\nPpRp.\n.....\n.P.NB\n....K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c3-b2\nd4-d3\nb5-b4\nb5-b3\nb5-b2\nb5-a5\nb5-c5\nb5-d5\nb5-b6\ne5-e4\ne5-d5\ne5-e6\ne5-d6\nc6-c5\nc6-c4\nc6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-d5\nc6-e4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-b5\nc6-b6\nc6-c5\nc6-c4\nc6-b5\nc6-a4\nd6-c5\nd5-c4\ne5-e4\nb4-b3\nd4-d3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nq..b.\nkp...\np...r\nP....\nR.pP.\n..NnK\n");
+	chess_boardSet("16 W\n.qb.r\nk.Pp.\n...Pp\n.p..P\n.PN.K\nRQ...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-c1\nd1-c2\nd1-b3\nd1-a4\nd1-e2\nd1-c1\nd1-e1\nd1-d2\na2-b1\na2-b3\nb2-b3\ne3-e2\ne3-e1\ne3-d3\ne3-c3\ne3-b3\ne3-e4\ne3-e5\ne3-e6\nd6-b5\nd6-c4\nd6-e4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c5-b6\nc2-a3\nc2-b4\nc2-e1\ne2-d2\ne2-e1\ne2-d3\ne2-d1\na1-a2\na1-a3\na1-a4\na1-a5\nb1-c1\nb1-d1\nb1-e1\nb1-a2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nk..br\n...p.\npppq.\n.P.p.\nP.PPP\nRNQ.K\n");
+	chess_boardSet("18 B\n.k.r.\n..p..\n.pP.p\n.Q..P\nPpB..\n...RK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\na1-b2\nd1-c2\nd1-e2\nd1-c1\ne1-e2\ne1-e3\ne1-e4\ne1-e5\na3-a4\na3-b4\nc3-c4\nc3-b4\nd3-e3\nd3-c2\nd3-b1\nd3-e2\nd3-c4\nd3-b5\nd3-a6\nd3-e4\nd4-c5\nd4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nb6-b5\nb6-a5\nd6-c6\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\nb2-b1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n....r\n..pPb\npkBR.\nq...n\nP...P\n....K\n");
+	chess_boardSet("20 B\n..qr.\np.p.p\n....N\n.k.Pp\nP...Q\n...RK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "e1-d1\ne1-c1\ne1-b1\ne1-a1\nc2-d3\ne2-d1\ne2-d3\ne2-e3\nb3-b2\nb3-c3\nb3-b4\nb3-a2\nb3-c4\na4-b4\na4-c4\na4-d4\na4-a5\na4-b5\na4-c6\ne4-c3\ne4-d2\ne4-c5\ne4-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-b6\nc6-a6\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nd6-d4\nd6-d3\na5-a4\nc5-c4\nb3-b4\nb3-a3\nb3-c3\nb3-b2\nb3-a4\nb3-c4\nb3-a2\nb3-c2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n...br\nkp.Pp\nN....\nPPq.P\nR....\nB..QK\n");
+	chess_boardSet("15 B\n.k.n.\n..pp.\n.b...\n.B..P\n.P.K.\n.RQ..\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d2-e1\na3-c2\na3-b1\na3-c4\na3-b5\nb4-b3\ne4-e3\na5-b5\na5-c5\na5-d5\na5-e5\na6-b5\na6-c4\na6-b6\nd6-d5\nd6-d4\nd6-d3\nd6-c6\nd6-b6\nd6-c5\nd6-e5\ne6-e5\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nb6-b5\nb6-a5\nd6-b5\nd6-c4\nd6-e4\nc5-c4\nd5-d4\nb4-a5\nb4-a3\nb4-c3\nb4-d2\nb4-b5\nb4-a4\nb4-c4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nk...r\nRp...\n..Bbp\n.p...\n..NpP\n...QK\n");
+	chess_boardSet("14 W\nk.br.\n.pp..\n.P.pp\nN.P.P\n.p...\n.R.QK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a2-a1\na2-b2\na2-a3\na2-a4\na2-a5\na2-a6\nc3-b2\nc3-d2\nc3-e1\nc3-b4\nc3-d4\nc3-c2\nc3-b3\nc3-c4\nc5-a4\nc5-b3\nc5-e4\nc5-d3\nc5-a6\ne5-e4\nd6-d5\nd6-c6\nd6-b6\nd6-a6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b4-c5\na3-c4\na3-b5\na3-c2\nc3-c4\nc3-d4\ne3-d4\nb1-b2\nb1-a1\nb1-c1\nd1-d2\nd1-d3\nd1-d4\nd1-c1\nd1-c2\nd1-b3\nd1-a4\nd1-e2\ne1-e2\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nkq.r.\np...p\nbp...\n.nPp.\n..KBP\n.N...\n");
+	chess_boardSet("16 W\nq.bnr\n.k.p.\np....\n.P..P\nR.Q..\n.N..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b2\nb1-c1\nb1-b2\nb1-c2\nb1-d3\nb1-e4\nd1-c1\nd1-e1\nd1-d2\nd1-d3\ne2-e3\na3-b2\na3-c1\na3-a4\nb3-c4\nb4-d3\nb4-c2\nb4-a6\nb4-d5\nb4-c6\nd4-c5\nd4-e5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b3-b4\nb3-a4\ne3-e4\na2-a3\na2-a4\na2-b2\na2-a1\nc2-c3\nc2-c4\nc2-c5\nc2-c6\nc2-b2\nc2-d2\nc2-e2\nc2-c1\nc2-d3\nc2-e4\nc2-d1\nb1-a3\nb1-d2\nb1-c3\ne1-e2\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nQ..nr\nq..Pp\n.kp..\nPP...\nR..PP\n.N..K\n");
+	chess_boardSet("16 W\nkqr..\np....\nP.Pp.\n.bn.p\nQ...P\n.R.BK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d1-b2\nd1-e3\na2-a1\na2-b2\na2-c2\na2-d2\na2-a3\na2-a4\na2-b1\ne2-e3\nb3-b2\nb3-a3\nb3-b4\nb3-c2\nb3-a4\nb3-c4\nc3-c4\nc3-b4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-c5\na2-a3\na2-b2\na2-c2\na2-d2\na2-a1\na2-b3\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nd1-c2\nd1-b3\nd1-d2\nd1-c1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n...r.\n.k.pp\n.bp..\n..PQP\n...n.\nR.B.K\n");
+	chess_boardSet("15 W\nk..nr\n....p\npbp..\nP.Pp.\n.PQK.\nR....\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c4-b3\nd4-d3\nd4-d2\nd4-d5\nd4-c3\nd4-e3\nd4-c5\nd4-b6\nd4-e5\ne4-e3\na6-a5\na6-a4\na6-a3\na6-a2\na6-a1\na6-b6\nc6-b5\nc6-a4\nc6-d5\nc6-c5\nc6-b6\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a3-b4\nc3-b4\nb2-b3\nc2-c1\nc2-b3\nc2-a4\nc2-d3\nc2-b1\nc2-d1\nd2-d3\nd2-e2\nd2-d1\nd2-e3\nd2-c1\nd2-e1\na1-a2\na1-b1\na1-c1\na1-d1\na1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk...r\n.pqbp\np....\nP.P.p\n..K..\nRN.n.\n");
+	chess_boardSet("13 B\nk..r.\nq.bp.\np.PNp\n.R..P\nP.PPQ\n...K.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\ne1-d1\ne1-c1\ne1-b1\nb2-b3\nc2-c1\nc2-c3\nc2-c4\nc2-b1\nc2-d1\nc2-b3\nc2-a4\nc2-d3\nd2-c1\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-d1\nd2-d3\ne2-e3\ne4-e5\nd6-b5\nd6-c4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-b5\nd6-c6\nd6-b6\nd6-e6\na5-b5\na5-b6\na5-b4\na5-c3\na5-d2\nc5-b6\nc5-b4\nc5-a3\nc5-d4\nc5-c6\nc5-b5\nd5-c4\na4-a3\na4-b3\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n..kr.\nNp...\n..Kpn\n.....\nP.P..\n.q...\n");
+	chess_boardSet("11 B\n.kbnr\n.p.qp\np...Q\nN.P..\nPPP.P\nR.BK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c1-b1\nc1-c2\nc1-d2\nd1-e1\nd1-d2\nb2-b3\nb2-c3\nd3-d4\ne3-c2\ne3-c4\ne3-d5\nb6-b5\nb6-b4\nb6-b3\nb6-a6\nb6-c6\nb6-d6\nb6-e6\nb6-a5\nb6-c5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-a5\nb6-c5\nc6-c5\nd6-c4\nd6-e4\nb5-b4\nd5-c5\nd5-d4\nd5-d3\nd5-d2\nd5-d1\nd5-c4\nd5-b3\nd5-a2\nd5-e4\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n.....\n.kqpr\nRPn.p\nN.P.P\n.B..K\n.....\n");
+	chess_boardSet("17 W\n.q.br\nk..np\n.p..P\n.P.p.\n..PQK\n.B...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b2-b1\nb2-a2\nb2-b3\nb2-a1\nb2-c1\nb2-a3\nc2-c1\nc2-b1\nc2-d1\nc2-b3\nc2-d3\nc2-e4\nd2-d3\ne2-e1\nc3-a2\nc3-b1\nc3-d1\nc3-a4\nc3-b5\nc3-e4\nc3-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "e4-d5\nc2-c3\nc2-d3\nd2-d3\nd2-d1\nd2-c3\nd2-b4\nd2-e3\nd2-c1\nd2-e1\ne2-e3\ne2-e1\ne2-d3\ne2-d1\nb1-a2\nb1-b2\nb1-a1\nb1-c1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\n.k.nr\npq.p.\n.Bb.p\n.P.PP\n.R...\n.N.QK\n");
+	chess_boardSet("13 B\n..bn.\np.p.B\nk.P..\n....p\nP..PP\nRN..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-c2\ne1-e2\na2-a3\na2-b3\nb2-c2\nb2-b3\nb2-a1\nb2-c1\nb2-a3\nd2-d3\nc3-b4\nc3-d4\nc3-c2\nc3-d3\nc3-c4\ne3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c6-b5\nc6-d5\nc6-e4\nc6-b6\nd6-b5\nd6-c4\nd6-e4\na4-b4\na4-a3\na4-b5\na4-b3\ne3-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n..b..\nP...B\n..kq.\n....r\nP.PNP\nR..QK\n");
+	chess_boardSet("12 W\nk..br\n..pp.\n...Qp\n.q.BP\nPP.pP\nR...K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a2-a1\ne2-d1\ne2-d3\ne2-e1\ne2-d2\ne2-e3\na5-a4\nc5-c4\nd5-b4\nd5-c3\nd5-e3\nd5-b6\na6-b6\na6-c6\nd6-c6\nd6-b6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d4-d5\nd4-c4\nd4-b4\nd4-a4\nd4-e4\nd4-c5\nd4-e5\nd4-c3\nd3-c4\nd3-b5\nd3-a6\nd3-e4\nd3-c2\nd3-b1\nd3-c3\na2-a3\na2-b3\na1-b1\na1-c1\na1-d1\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nkq.r.\npNp..\np.b.p\n..PpP\n..PP.\nRB.QK\n");
+	chess_boardSet("20 B\nkr...\n.n.pp\np....\nNQPP.\nq....\n.bB.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b2\nb1-c1\nb1-b2\nd1-c1\nd1-e1\nd1-d2\nd1-d3\na3-a4\nc3-b2\nc3-d2\nc3-e1\nc3-b4\nc3-a5\nc3-b3\nc3-d3\nd4-c5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\nb6-c6\nb6-d6\nb6-e6\nb5-d6\nb5-a3\nb5-d4\nb5-c3\nd5-d4\ne5-e4\na4-b3\na2-a3\na2-b2\na2-c2\na2-d2\na2-e2\na2-a1\na2-b3\nb1-c2\nb1-d3\nb1-b2\nb1-a1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n.r...\nkp.bp\nRP.qn\n.....\n.QPP.\n.q..K\n");
+	chess_boardSet("20 W\nk.r..\nq...p\npPp.P\nP.KB.\n.b.P.\nn..Q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a3-a2\na3-a4\na3-a5\na3-a6\nb3-a2\nb5-b4\nb5-a5\nb5-b6\nb5-a4\nb5-c4\nb5-d3\nb5-a6\nb5-c6\nc5-c4\nd5-d4\ne6-e5\ne6-d6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b4-b5\nb4-a5\nc3-c4\nc3-b3\nc3-c2\nc3-d4\nc3-b2\nd3-c4\nd3-c2\nd3-b1\nd3-e2\nd3-d4\nd3-e3\nd1-c1\nd1-b1\nd1-a1\nd1-e1\nd1-c2\nd1-b3\nd1-a4\nd1-e2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.kb..\n.pp..\n.q.Pr\nB.PQ.\nPn..K\nRN...\n");
+	chess_boardSet("18 B\nkr...\n.....\n..PBN\nqp..P\nP..K.\nR..Q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d3-d2\nd3-c2\na4-b3\na4-b5\na4-a3\na4-b4\nc4-c3\nc4-b3\nd4-e4\nd4-d5\nd4-d6\nd4-c3\nd4-b2\nd4-e3\nd4-c5\ne5-e4\ne5-d5\ne5-e6\ne5-d6\nb6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\na6-b5\nb6-c6\nb6-d6\nb6-e6\nb6-b5\nb6-b4\na3-a4\na3-a5\na3-a2\na3-b4\na3-c5\na3-d6\na3-b2\na3-c1\nb3-b2\nb3-a2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\nk.b.r\n.npp.\n..R..\n.PPPB\n....Q\n...K.\n");
+	chess_boardSet("18 W\n.Q...\n.kP..\npP..p\n..P..\n.Rq..\n..B.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nc1-b1\nc1-d1\ne1-d1\ne1-e2\ne1-e3\ne1-e4\nb2-d1\nb2-a4\nb2-d3\nb2-c4\nd2-d3\nd2-c3\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b6-a6\nb6-c6\nb6-d6\nb6-e6\nb6-b5\nb6-a5\nc5-c6\nc3-c4\nb2-b3\nb2-a2\nb2-c2\nb2-b1\nc1-d2\nc1-e3\nc1-b1\nc1-d1\ne1-e2\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nq..nr\n.p...\npPk.p\n.P.P.\n..P.P\nRB.K.\n");
+	chess_boardSet("20 W\n...br\nn.pkp\n.B...\nP..P.\n....Q\n..KR.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b4-a3\nb4-c3\nd4-d3\nd4-c3\nd4-e3\nc5-c4\ne5-e4\na6-a5\na6-a4\na6-a3\nb6-a5\nb6-b5\nb6-c6\nd6-d5\nd6-c6\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b4-a5\nb4-c5\nb4-c3\nb4-d2\nb4-e1\nb4-b5\nb4-a4\nb4-c4\nb4-b3\na3-a4\nd3-d4\ne2-e3\ne2-e4\ne2-e5\ne2-d2\ne2-c2\ne2-b2\ne2-a2\ne2-e1\nc1-c2\nc1-b1\nc1-b2\nc1-d2\nd1-d2\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n..b.r\n.kq.p\np.n..\npPPK.\n...P.\nRNB.Q\n");
+	chess_boardSet("14 B\nkq.nr\n.pp..\np..Kb\nP.P.P\nR..BQ\n.N...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "c1-d2\nc1-e3\nc1-b1\nc1-d1\ne1-d1\nb2-b1\nb2-a2\nb2-b3\nb2-a1\nc2-d2\nc2-b1\nc2-d1\nc2-b3\nc2-d3\nc2-e4\ne2-e3\na3-b4\nc3-a2\nc3-b1\nc3-d1\nc3-b5\nc3-e4\nc3-d5\na4-a5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-a5\nb6-c6\nb6-a5\nd6-c4\ne6-e5\nb5-b4\nc5-c4\nc5-d4\ne4-d5\ne4-c6\ne4-d3\ne4-c2\ne4-b1\ne4-e5\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.Qqr.\nk.p..\nQ....\nP.p.p\n...KP\nR....\n");
+	chess_boardSet("19 W\nrk...\npb.p.\nBPp.q\nN.K.P\nP..P.\n....R\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a2\nb1-c2\na3-a2\na3-b3\na3-c3\na3-d3\na3-e3\na3-b2\na3-c1\na3-b4\na3-c5\na3-d6\nd5-d4\nd5-c5\nd5-d6\nd5-c4\nd5-e4\nd5-c6\nd5-e6\na6-a5\na6-b6\na6-c6\na6-d6\na6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a4-b5\na4-b3\na4-c2\na4-d1\nb4-a5\na3-c4\na3-b5\na3-c2\na3-b1\nc3-c4\nc3-b3\nc3-d3\nc3-c2\nc3-d4\nc3-b2\nd2-d3\ne1-e2\ne1-d1\ne1-c1\ne1-b1\ne1-a1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n...b.\nk.pp.\n..Rr.\np..PP\n.BP..\n..K..\n");
+	chess_boardSet("19 B\nk.bq.\n..n.r\np.p..\n.R.pp\n.P.BP\n.NQK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "d1-e2\nd1-c1\nd1-e1\na2-a1\na2-b2\na2-a3\na2-b1\na2-b3\nd2-c3\nd3-c3\nd3-e3\nd3-d4\na4-a5\na4-b5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b6\na6-a5\na6-b5\nc6-b5\nc6-d5\nc6-e4\nc6-b6\nd6-e6\nd6-d5\nd6-d4\nc5-e6\nc5-b3\nc5-e4\ne5-e6\ne5-d5\ne5-e4\na4-a3\na4-b3\nc4-c3\nc4-b3\nd3-e2\ne3-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nk....\npp..p\n..Q..\n.bpP.\nPP..P\nRNQK.\n");
+	chess_boardSet("15 W\nq..nr\nkPp..\n..N.p\npb..P\nP....\n.RBQK\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na2-a3\nb2-b3\nb2-c3\ne2-e3\nb4-a3\nb4-c3\nb4-a5\nb4-c5\nb4-d6\nb4-b3\nb4-a4\nc4-c5\nc4-b5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b5-b6\nb5-a6\nc4-a5\nc4-b6\nc4-e5\nc4-d6\nc4-a3\nc4-b2\nc4-d2\na2-b3\nb1-b2\nb1-b3\nb1-a1\nc1-b2\nc1-a3\nc1-d2\nc1-c2\nd1-d2\nd1-d3\nd1-d4\nd1-d5\nd1-d6\nd1-c2\nd1-b3\nd1-e2\ne1-e2\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk.bnr\n.q..p\nR.pBP\n.P.P.\n..P.K\n.N.Q.\n");
+	chess_boardSet("15 B\nkq..r\np.pn.\nPp.Bp\nb..PP\n...N.\nR...K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\nc1-d2\nc1-e3\nc1-b1\nc1-c2\nd1-e3\nb2-b1\nb2-a2\nb2-c2\nb2-d2\nb2-b3\nb2-b4\nb2-a3\ne2-d3\nc3-c4\nc3-b4\nc3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "a6-b5\nb6-c6\nb6-d6\nb6-b5\ne6-d6\ne6-c6\ne6-e5\nc5-c4\nc5-d4\nd5-c3\nd5-e3\nb4-b3\ne4-d3\na3-b2\na3-c1\na3-b3\na3-a2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n....r\npq.p.\nk.p..\nb.P.P\nP...K\nRQ...\n");
+	chess_boardSet("12 B\n...nr\n..b..\npq.p.\nPPk.p\n..P.P\nRB..K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "e1-d1\ne1-c1\ne1-b1\ne1-a1\ne1-e2\ne1-e3\ne1-e4\nb2-b1\nb2-c2\nb2-b3\nb2-b4\nb2-b5\nb2-b6\nb2-a1\nb2-c1\nd2-d3\na3-b3\na3-b4\na4-b3\na4-c2\na4-d1\na4-b5\na4-c6\na4-b4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d6-b5\nd6-c4\nd6-e4\ne6-e5\ne6-e4\nc5-b6\nc5-c6\nc5-b5\nc5-d5\nc5-c4\na4-b3\nb4-b5\nb4-b6\nb4-c4\nb4-b3\nb4-a5\nb4-a3\nd4-d3\nc3-c4\nc3-b3\nc3-d3\nc3-c2\nc3-b2\nc3-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n....r\nk.b.p\nppp.q\nPP..B\n.QpKP\n....R\n");
+	chess_boardSet("13 W\nk..n.\n.p.br\np.Bpp\nP.p..\n..PNK\n.R.Q.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "e1-d1\ne1-c1\ne1-b1\ne1-a1\na2-a1\na2-b2\na2-b1\nc2-b1\nc2-d1\nc2-d3\nc2-e4\nc2-c1\nc2-b2\nc2-d2\na3-b4\nb3-a4\nc3-c4\nc3-b4\ne3-d3\ne3-e4\ne3-d2\ne3-c1\ne3-d4\nc5-c6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "c4-b5\nc4-d5\nc4-b3\nc4-a2\nc4-d3\nc4-c5\nc4-b4\nd2-b3\nd2-e4\ne2-e3\ne2-e1\ne2-d3\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-a1\nb1-c1\nd1-c1\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk..n.\n...r.\np.Bp.\n.Pp..\nP.p.P\nR.Q.K\n");
+	chess_boardSet("20 W\n....r\n.nk.b\n.p.pp\nqK.PB\nR..NP\n....Q\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-a2\na1-b2\nd1-b2\nd1-c3\nd1-e3\nd2-c2\nd2-b2\nd2-a2\nd2-e2\na3-a4\na3-b4\nd3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b3-b4\nb3-a3\nb3-c3\nb3-b2\nb3-a4\nb3-c4\nb3-c2\nd3-e4\ne3-d4\na2-a3\na2-b2\na2-c2\na2-a1\nd2-c4\nd2-e4\nd2-b1\ne1-d1\ne1-c1\ne1-b1\ne1-a1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.q.n.\np.pp.\nPpk..\n..P.P\nPN...\nRQ..K\n");
+	chess_boardSet("18 W\nk.b..\npP...\n.p..n\n.....\nP.BpQ\n..RK.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b1-a1\nb1-c1\nb1-b2\nd1-b2\nd1-e3\nd2-d3\nb3-b4\nb3-c4\nc3-d3\nc3-c4\nc3-b2\nc3-b4\nc3-d4\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b5-b6\nb5-a6\nb5-c6\na2-a3\nc2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-c3\nc2-b2\ne2-e3\ne2-e4\ne2-d2\ne2-e1\ne2-d3\ne2-c4\nc1-b1\nc1-a1\nd1-d2\nd1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n...br\npk.pp\n.P.q.\n.P.P.\n..QKn\nR..B.\n");
+	chess_boardSet("12 W\nkqb..\n.p..N\np.p.n\n.PprP\nP..K.\nR.BQ.\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "b3-a2\nc5-c4\nc5-c3\nc5-c2\nc5-c1\nc5-b5\nc5-a5\nc5-c6\nc5-b6\nd5-e5\nd5-c4\nd5-e4\nd5-c6\nd5-e6\na6-a5\na6-a4\na6-a3\na6-a2\na6-b6\na6-c6\nd6-e5\nd6-c6\nd6-e6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "e5-c6\ne5-c4\ne5-d3\nb3-b4\nb3-a4\nb3-c4\na2-a3\nd2-d3\nd2-c2\nd2-e2\nd2-c3\nd2-e1\na1-b1\nc1-b2\nc1-a3\nc1-c2\nc1-b1\nd1-e1\nd1-c2\nd1-e2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nkq.nr\n..ppP\nppN..\n.P..P\nQ....\nb..BK\n");
+	chess_boardSet("14 W\nk.q.r\nn..p.\np...p\nPB.PP\n.PQK.\n.R...\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-a2\na1-b2\nb1-c1\nb1-b2\nb1-a2\nd1-b2\nd1-c3\nd1-e3\ne1-e2\nd2-d3\nd2-c3\na3-a4\na3-b4\na6-b5\na6-c4\na6-d3\na6-e2\na6-b6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "b3-a4\nb3-c4\nb3-d5\nb3-a2\nb3-b4\nb3-c3\nd3-d4\nd3-e4\nc2-c3\nc2-c4\nc2-c5\nc2-c6\nc2-c1\nc2-d1\nd2-e2\nd2-d1\nd2-c3\nd2-c1\nd2-e1\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n.q..r\n.k..b\np....\nB..pP\nRn...\n....K\n");
+	chess_boardSet("13 W\nk..Qr\npq...\nPp.p.\nn..pP\n..P.Q\n..B.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a4-b3\na4-c2\na4-d1\na4-b5\na4-b4\ne4-e3\na5-b5\na5-a6\ne6-e5\ne6-d6\ne6-d5\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d6-c6\nd6-b6\nd6-a6\nd6-e6\nd6-d5\nd6-d4\nd6-c5\nd6-b4\nd6-e5\na4-b5\ne3-e4\ne3-d4\nc2-c3\nc2-d3\ne2-d2\ne2-d3\ne2-d1\nc1-b2\nc1-a3\nc1-d2\nc1-b1\nc1-d1\ne1-d1\ne1-d2\n") != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nk...b\np.p.p\n..p..\nP.N..\nR.pPQ\n....K\n");
+	chess_boardSet("13 W\nk...r\np.p.p\nq....\n...P.\nbPNQP\n.RB.K\n");
 	
 	intBuffer = chess_moves(charBuffer);
-	if (test_movesCompare(intBuffer, charBuffer, "a1-b1\na1-b2\ne1-d2\ne1-d1\na2-a3\ne2-e3\nc5-c6\n") != true) {
+	if (test_movesCompare(intBuffer, charBuffer, "d3-d4\nb2-b3\nc2-a3\nc2-b4\nc2-e3\nc2-d4\nc2-a1\nd2-d1\nd2-c3\nd2-b4\nd2-a5\nd2-e3\ne2-e3\nb1-a1\nc1-d1\ne1-d1\n") != true) {
 		return false;
 	}
 	
@@ -2425,802 +2425,802 @@ bool test_move() {
 	char charBuffer[1024] = { };
 	
 	chess_reset();
-	chess_move("b5-b4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "1 B\nkqbnr\nppppp\n.....\n.P...\nP.PPP\nRNBQK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\n.....\nPk...\n...R.\nNbPrp\nBQ.nP\n....K\n");
-	chess_move("a5-b6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\n.....\nPk...\n...R.\nNbPrp\n.Q.nP\n.B..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nkq..r\n.Nb..\np.ppp\n..PP.\nP..KP\nR....\n");
-	chess_move("a1-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\n.q..r\n.kb..\np.ppp\n..PP.\nP..KP\nR....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nk....\nq.b.p\nppP.P\nBP.r.\nP.p.P\n.RK..\n");
-	chess_move("a4-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\nk....\nq.b.p\npBP.P\n.P.r.\nP.p.P\n.RK..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nk...Q\n.p...\nbp..P\n.B.K.\nP....\nRn...\n");
-	chess_move("a1-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 W\n.k..Q\n.p...\nbp..P\n.B.K.\nP....\nRn...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\nkr..b\n.p...\np.ppq\nPPK..\n..P.n\n..R..\n");
-	chess_move("e5-c6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\nkr..b\n.p...\np.ppq\nPPK..\n..P..\n..n..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n.k..r\n.p.qP\n.PN..\n.p.Pp\nPBp.P\n..R.K\n");
-	chess_move("c3-d1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 B\n.k.Nr\n.p.qP\n.P...\n.p.Pp\nPBp.P\n..R.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nqk.rQ\n..pp.\np.b..\n...Qn\nPPPB.\nR..K.\n");
-	chess_move("b1-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\nq..rQ\n.kpp.\np.b..\n...Qn\nPPPB.\nR..K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\n.b..r\np.ppp\n.p..B\nk.P..\nPP.PP\nn..QK\n");
-	chess_move("e3-c5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\n.b..r\np.ppp\n.p...\nk.P..\nPPBPP\nn..QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\nB...k\np.P.p\n....P\nb...K\n.....\n..RQ.\n");
-	chess_move("a4-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nB...k\np.P.p\n.b..P\n....K\n.....\n..RQ.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("21 W\n.kbQ.\n.....\n.....\nq.N.r\n...Pp\n.R..K\n");
-	chess_move("c4-d2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 B\n.kbQ.\n...N.\n.....\nq...r\n...Pp\n.R..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\n.k.r.\nB.bp.\np.p.p\nP....\n..Pqn\nRN..K\n");
-	chess_move("c2-e4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\n.k.r.\nB..p.\np.p.p\nP...b\n..Pqn\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n..b..\npqppr\nPB.k.\n...Qn\n..P.p\nR...K\n");
-	chess_move("c5-c4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\n..b..\npqppr\nPB.k.\n..PQn\n....p\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n....b\n.....\nkpp..\nPPNP.\n...Q.\nRB..K\n");
-	chess_move("b4-a3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 B\n....b\n.....\nPpp..\nP.NP.\n...Q.\nRB..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nk...r\nB.q..\npp..p\n....P\nPbP..\nR..K.\n");
-	chess_move("a6-c6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nk...r\nB.q..\npp..p\n....P\nPbP..\n..RK.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\n...Qr\npk.pp\n.....\nb....\n.PP.P\n..RQK\n");
-	chess_move("b2-a1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\nk..Qr\np..pp\n.....\nb....\n.PP.P\n..RQK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nq..nr\nkp...\n...pp\nb..K.\n..P.P\nR..Q.\n");
-	chess_move("a6-a5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nq..nr\nkp...\n...pp\nb..K.\nR.P.P\n...Q.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n....r\nkp..q\n.PN.p\nP...b\n.K..p\nR...Q\n");
-	chess_move("a6-c6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\n....r\nkp..q\n.PN.p\nP...b\n.K..p\n..R.Q\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\nk.q..\np.b.r\nP.pP.\n.....\n.pBK.\nR....\n");
-	chess_move("c2-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nk.q..\np...r\nPbpP.\n.....\n.pBK.\nR....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nq.b..\nk..pr\nP.pn.\nP.p.p\n..QBP\n.NR.K\n");
-	chess_move("a1-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 W\n.qb..\nk..pr\nP.pn.\nP.p.p\n..QBP\n.NR.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\n.....\nq.kbr\npP.pn\nP.pQP\n.BP..\nR...K\n");
-	chess_move("d4-c3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\n.....\nq.kbr\npPQpn\nP.p.P\n.BP..\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nk..br\n.N.pp\nn....\nP...q\n.Q.KP\n...R.\n");
-	chess_move("b5-d3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nk..br\n.N.pp\nn..Q.\nP...q\n...KP\n...R.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n..qbr\nkppNB\n....p\n....P\nP.pP.\n.R.KQ\n");
-	chess_move("b6-b5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\n..qbr\nkppNB\n....p\n....P\nPRpP.\n...KQ\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nkq...\np..p.\nbpp..\n.PnPr\nB...P\n.R.QK\n");
-	chess_move("a5-a6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nkq...\np..p.\nbpp..\n.PnPr\n....P\nBR.QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\n..b..\npkprB\nP.pPp\n....p\n..P..\n.R.QK\n");
-	chess_move("c1-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\n.b...\npkprB\nP.pPp\n....p\n..P..\n.R.QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nkb..q\n...rp\nPp.pn\n.pPPQ\n..R.P\n....K\n");
-	chess_move("c4-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\nkb..q\n...rp\nPP.pn\n.p.PQ\n..R.P\n....K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("21 W\n.Q...\np...Q\n..n.r\n..pP.\nPkPKP\nR....\n");
-	chess_move("e2-e1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 B\n.Q..Q\np....\n..n.r\n..pP.\nPkPKP\nR....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nkqB.r\npp.bp\nP..p.\n.....\n.RPPP\n..Q.K\n");
-	chess_move("e2-e3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\nkqB.r\npp.b.\nP..pp\n.....\n.RPPP\n..Q.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nkq.br\nppp.p\n..n..\n..PPp\n....Q\n..R.K\n");
-	chess_move("e5-b5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nkq.br\nppp.p\n..n..\n..PPp\n.Q...\n..R.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\n.k.nr\npp.pp\n..P..\nN.p.P\nP.qB.\nQ.R.K\n");
-	chess_move("b1-c1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n..knr\npp.pp\n..P..\nN.p.P\nP.qB.\nQ.R.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\n.k..r\n.n..p\n..Pp.\nQ...B\nPP.N.\nRb..K\n");
-	chess_move("b5-b4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\n.k..r\n.n..p\n..Pp.\nQP..B\nP..N.\nRb..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\n.k.N.\n...P.\n..bP.\n.p..r\nPP...\nR.B.K\n");
-	chess_move("b1-a2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\n...N.\nk..P.\n..bP.\n.p..r\nPP...\nR.B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\n...nr\n.p..p\n...P.\nPPkbp\n.RB..\nqNK.Q\n");
-	chess_move("a6-b5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\n...nr\n.p..p\n...P.\nPPkbp\n.qB..\n.NK.Q\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n.b..r\np.ppp\n.k..K\n..nP.\n.R.P.\nB.Q..\n");
-	chess_move("a6-b6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 B\n.b..r\np.ppp\n.k..K\n..nP.\n.R.P.\n.BQ..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\n..qr.\nkbp..\n..pp.\n..PpP\nP...K\nRBQ..\n");
-	chess_move("b6-d4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\n..qr.\nkbp..\n..pp.\n..PBP\nP...K\nR.Q..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\n.k..r\n.pp.Q\nPqN..\n..PBP\n...nK\n.....\n");
-	chess_move("b3-b5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\n.k..r\n.pp.Q\nP.N..\n..PBP\n.q.nK\n.....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk.br.\npRn.p\nP.pN.\n....P\n..PPK\n..BQ.\n");
-	chess_move("c2-b4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nk.br.\npR..p\nP.pN.\n.n..P\n..PPK\n..BQ.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\n.k.b.\n.p.Rr\n....n\nN.PqB\nP...P\n....K\n");
-	chess_move("e4-c6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\n.k.b.\n.p.Rr\n....n\nN.Pq.\nP...P\n..B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n.k..r\n.p...\np.n.p\nbqPpP\nPQBKN\n.....\n");
-	chess_move("b1-a1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nk...r\n.p...\np.n.p\nbqPpP\nPQBKN\n.....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\nk....\nq....\n.bP.r\np.B.p\nP....\nRN..K\n");
-	chess_move("e3-e1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nk...r\nq....\n.bP..\np.B.p\nP....\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk..nr\np..p.\n.q.pP\n..pB.\nP..p.\nR.b.K\n");
-	chess_move("b3-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nkq.nr\np..p.\n...pP\n..pB.\nP..p.\nR.b.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nk..nr\n....p\n..pp.\nbQ...\nP..PP\n...BK\n");
-	chess_move("a1-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\n...nr\n.k..p\n..pp.\nbQ...\nP..PP\n...BK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\nk.b.r\n....q\n..pP.\nBP.Qn\n...P.\nRq..K\n");
-	chess_move("e6-e5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\nk.b.r\n....q\n..pP.\nBP.Qn\n...PK\nRq...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\nkb...\n.pp.r\np....\nP...N\nB..P.\nR.Q.K\n");
-	chess_move("b1-a2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\nk....\nbpp.r\np....\nP...N\nB..P.\nR.Q.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nkq...\n..r.p\nbPn..\npNPpP\nP..P.\n.RBQK\n");
-	chess_move("b6-a6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\nkq...\n..r.p\nbPn..\npNPpP\nP..P.\nR.BQK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\nk.q..\n..pBp\nPQ.r.\n...b.\nP.R.P\n...K.\n");
-	chess_move("b3-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\nkQq..\n..pBp\nP..r.\n...b.\nP.R.P\n...K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n.....\nqkpB.\n.p.pr\npP.P.\nPnP..\nR...K\n");
-	chess_move("b2-a1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nk....\nq.pB.\n.p.pr\npP.P.\nPnP..\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk.br.\nn.ppp\nP....\n.....\n..PKP\nR..q.\n");
-	chess_move("a1-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\n.kbr.\nn.ppp\nP....\n.....\n..PKP\nR..q.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n...kr\np.b.p\nq....\nP.pP.\n.QpN.\nR.BK.\n");
-	chess_move("b5-b6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\n...kr\np.b.p\nq....\nP.pP.\n..pN.\nRQBK.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n...n.\nkrq.b\nP..Pp\nP..QP\n..P.B\n..R.K\n");
-	chess_move("a3-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\n...n.\nkPq.b\n...Pp\nP..QP\n..P.B\n..R.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nqk.nr\n.p..p\n.Ppp.\nN....\nR.PPP\n..Q.K\n");
-	chess_move("a1-a3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\n.k.nr\n.p..p\nqPpp.\nN....\nR.PPP\n..Q.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n...qr\nB....\n.kQ.b\n.....\nPp..P\nR..K.\n");
-	chess_move("d1-c2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\n....r\nB.q..\n.kQ.b\n.....\nPp..P\nR..K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\n..bnr\n.k.pp\np.pQ.\nP....\n.PPN.\nR.BK.\n");
-	chess_move("c6-b6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\n..bnr\n.k.pp\np.pQ.\nP....\n.PPN.\nRB.K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\n...r.\nkb.pp\np.p..\nQPnBq\nP..P.\n.R..K\n");
-	chess_move("d5-e4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\n...r.\nkb.pp\np.p..\nQPnBP\nP....\n.R..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\n..r..\npbn.p\nQkPK.\n..P..\nP..P.\nRB...\n");
-	chess_move("c2-e3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\n..r..\npb..p\nQkPKn\n..P..\nP..P.\nRB...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nk..r.\n..P..\nppN.p\n....B\nPqP.P\nR...K\n");
-	chess_move("a1-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\n...r.\n.kP..\nppN.p\n....B\nPqP.P\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nkqb..\np.p.K\n.pPn.\n..B.P\nPP...\nRN..r\n");
-	chess_move("c1-e3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\nkq...\np.p.K\n.pPnb\n..B.P\nPP...\nRN..r\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nq.b.r\n.k.pp\np.P.n\nP..KP\nRP...\n.NB..\n");
-	chess_move("b2-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nqkb.r\n...pp\np.P.n\nP..KP\nRP...\n.NB..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk.b.r\n.qppp\np.nP.\n...KP\npPP.B\nRNQ..\n");
-	chess_move("c6-e6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nk.b.r\n.qppp\np.nP.\n...KP\npPP.B\nRN..Q\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\n..knr\n.pp..\nq..Qp\nP.NP.\nR.P.K\n...B.\n");
-	chess_move("d6-c6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\n..knr\n.pp..\nq..Qp\nP.NP.\nR.P.K\n..B..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\n.Qq.r\np..pp\n.k..P\np.PQ.\nPP..K\n.RB..\n");
-	chess_move("c1-a3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\n.Q..r\np..pp\nqk..P\np.PQ.\nPP..K\n.RB..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n.q.br\n.kp.p\n.pPp.\npP.PP\nn.Q..\nRN.BK\n");
-	chess_move("b6-d5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\n.q.br\n.kp.p\n.pPp.\npP.PP\nn.QN.\nR..BK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nkn...\n..p.r\n....p\n..Pp.\nP..PP\n.qB.K\n");
-	chess_move("e5-d4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nkn...\n..p.r\n....p\n..PP.\nP..P.\n.qB.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\n...r.\n.Bk..\n....n\np.P..\n..P..\n..Q.K\n");
-	chess_move("d1-a1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 W\nr....\n.Bk..\n....n\np.P..\n..P..\n..Q.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("21 W\n.....\nkP...\nnQ..r\nN.PKb\nP..P.\n.RB..\n");
-	chess_move("d4-e4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 B\n.....\nkP...\nnQ..r\nN.P.K\nP..P.\n.RB..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nk....\n.q...\nP..P.\nP.n..\n.....\nRNB.K\n");
-	chess_move("d3-d2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\nk....\n.q.P.\nP....\nP.n..\n.....\nRNB.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n.k..r\n..p.p\n.pnPq\nN..P.\nP.B..\nR..QK\n");
-	chess_move("e3-d3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\n.k..r\n..p.p\n.pnq.\nN..P.\nP.B..\nR..QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\nkN..r\np...p\n..ppP\nq....\n..PPQ\n.RbK.\n");
-	chess_move("a1-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\n.k..r\np...p\n..ppP\nq....\n..PPQ\n.RbK.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk.q.r\nbp..p\np.np.\nPPPPP\nR....\n....K\n");
-	chess_move("b2-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nk.q.r\nb...p\nppnp.\nPPPPP\nR....\n....K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nkq..r\n.pb.p\nR.ppP\n.....\n.PBPQ\n.N.K.\n");
-	chess_move("d3-d4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nkq..r\n.pb.p\nR.p.P\n...p.\n.PBPQ\n.N.K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk.r..\n.qppp\np.P.P\nnP.P.\n.PQ.K\nR.B..\n");
-	chess_move("b2-c3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nk.r..\n..ppp\np.q.P\nnP.P.\n.PQ.K\nR.B..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nk..b.\n..p.r\np.p.p\nN.Q.P\nP.BP.\nR..K.\n");
-	chess_move("a6-c6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\nk..b.\n..p.r\np.p.p\nN.Q.P\nP.BP.\n..RK.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\nk.b..\n.Q.p.\n..p..\n..P..\nPp...\n.RK.r\n");
-	chess_move("c6-b5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\nk.b..\n.Q.p.\n..p..\n..P..\nPK...\n.R..r\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk..r.\npppNp\nP.P.b\n.....\nRP.KP\n..B.Q\n");
-	chess_move("b2-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nk..r.\np.pNp\nPpP.b\n.....\nRP.KP\n..B.Q\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n.q.br\nk...p\nRQ.pn\n.PpPP\n..P..\n.NBK.\n");
-	chess_move("d6-d5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\n.q.br\nk...p\nRQ.pn\n.PpPP\n..PK.\n.NB..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\nk..nr\np...P\n..B..\nN..p.\nRP.K.\n.....\n");
-	chess_move("a4-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\nk..nr\npN..P\n..B..\n...p.\nRP.K.\n.....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\nk..r.\n..p.B\n....b\nPp..P\n.Q.pK\nRnq..\n");
-	chess_move("e2-e1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\nk..rB\n..p..\n....b\nPp..P\n.Q.pK\nRnq..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk...q\npbp.p\n...rP\n...n.\nP...B\nRN..K\n");
-	chess_move("b6-a4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nk...q\npbp.p\n...rP\nN..n.\nP...B\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nkb.q.\n.pPp.\np.P..\nNP...\n..P.Q\nR..BK\n");
-	chess_move("d1-e1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nkb..q\n.pPp.\np.P..\nNP...\n..P.Q\nR..BK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n...N.\nbk.p.\n.....\n.R..r\n....P\n....K\n");
-	chess_move("e4-c4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\n...N.\nbk.p.\n.....\n.Rr..\n....P\n....K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk....\nppqbp\nP.p.P\n.RN..\n..Q.K\n..B..\n");
-	chess_move("c2-c1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nk.q..\npp.bp\nP.p.P\n.RN..\n..Q.K\n..B..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\n...nr\nkp..p\npq..K\n..P..\nP.Q..\n....R\n");
-	chess_move("b3-b4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\n...nr\nkp..p\np...K\n.qP..\nP.Q..\n....R\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\n..b..\n.qkp.\nppp..\n..P..\nPPR.Q\n..B.K\n");
-	chess_move("b2-b1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\n.qb..\n..kp.\nppp..\n..P..\nPPR.Q\n..B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nkb.n.\n.Q...\n.Pp..\n..P.p\n..R.P\n.q..K\n");
-	chess_move("b2-c1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\nkbQn.\n.....\n.Pp..\n..P.p\n..R.P\n.q..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n.k.nr\n..bp.\npPpq.\nP....\n..K..\nNR.B.\n");
-	chess_move("b6-b5");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 B\n.k.nr\n..bp.\npPpq.\nP....\n.RK..\nN..B.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\nk.qrB\n.p...\n.N.pn\nP..PP\n.bP.K\n.R.Q.\n");
-	chess_move("c1-d2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nk..rB\n.p.q.\n.N.pn\nP..PP\n.bP.K\n.R.Q.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\n.k.r.\n.bn.Q\n.p.P.\n.PBP.\nP....\nR...K\n");
-	chess_move("c2-a1");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\nnk.r.\n.b..Q\n.p.P.\n.PBP.\nP....\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk.bnr\nq....\nNp.pp\nPP.P.\n..PBP\nR..QK\n");
-	chess_move("a4-b3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nk.bnr\nq....\nNP.pp\n.P.P.\n..PBP\nR..QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nq...r\nkpp.p\n...b.\nPPp.P\nR.PP.\n.Q.K.\n");
 	chess_move("c2-c3");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nq...r\nkp..p\n..pb.\nPPp.P\nR.PP.\n.Q.K.\n") != 0) {
+	if (strcmp(charBuffer, "1 B\nkqbnr\nppppp\n.....\n..P..\nPP.PP\nRNBQK\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nk.bNr\n...p.\npp...\n..PP.\nPP...\nR.BKQ\n");
-	chess_move("e1-e4");
+	chess_boardSet("17 B\nq...r\npkp.p\n...pn\nN.Q..\nR..BP\n....K\n");
+	chess_move("a5-a4");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nk.bN.\n...p.\npp...\n..PPr\nPP...\nR.BKQ\n") != 0) {
+	if (strcmp(charBuffer, "18 W\nq...r\n.kp.p\np..pn\nN.Q..\nR..BP\n....K\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nk.bnr\n.p.pp\nQPN..\n..PqP\nP....\nR.BK.\n");
-	chess_move("c3-d1");
+	chess_boardSet("19 B\nkb...\n.....\n..P.p\n...Pp\n..P.P\n.QK..\n");
+	chess_move("b6-d4");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nk.bNr\n.p.pp\nQP...\n..PqP\nP....\nR.BK.\n") != 0) {
+	if (strcmp(charBuffer, "20 W\nk....\n.....\n..Pbp\n...Pp\n..P.P\n.QK..\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nk.b..\np...p\nN..q.\nPP.KP\n..R..\n.B...\n");
+	chess_boardSet("12 W\n.....\nkbqpr\nppp.p\n...PP\nPPPQK\nRB...\n");
+	chess_move("c2-c3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\n.....\nkbqpr\nppp.p\n..PPP\nPP.QK\nRB...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 W\nk.b.r\npp...\n.qpPQ\n...P.\n.BP..\nRN..K\n");
+	chess_move("d3-c4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\nk.b.r\npp...\n.qPPQ\n.....\n.BP..\nRN..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk.r..\np.q.p\n.b...\nNPP.K\nP..P.\n.B.RQ\n");
+	chess_move("c5-e3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk.r..\np...p\n.b...\nNPP.q\nP..P.\n.B.RQ\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.kb.r\nPp..p\n.Bp.P\n.pNPq\nR..nK\n...Q.\n");
+	chess_move("a5-a6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\nQkb.r\n.p..p\n.Bp.P\n.pNPq\nR..nK\n...Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\nQk..r\n..bqp\n..ppP\n..p..\n.P.PB\nRN..K\n");
+	chess_move("c3-c2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\nQk..r\n..bqp\n..ppP\n.....\n.PpPB\nRN..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("21 W\nk..nr\n.....\n..pqp\nP.PP.\n...Q.\nR...K\n");
+	chess_move("d2-c2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 B\nk..nr\n.....\n..pqp\nP.PP.\n..Q..\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n..b..\nk..Nr\npB..n\npq.Pp\n....P\n.R.QK\n");
+	chess_move("e1-d2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n..b..\nk..Nr\npB..n\npq.Pp\n...KP\n.R.Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\n.kr..\n...nQ\n.pp.p\n.P.p.\nBR.P.\n...K.\n");
+	chess_move("c6-e6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 W\n.k..r\n...nQ\n.pp.p\n.P.p.\nBR.P.\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\nkR...\n..p.p\nP.nPb\n....B\nP.P.K\n...Q.\n");
+	chess_move("c2-c3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\nkR...\n..p.p\nP.nPb\n..P.B\nP...K\n...Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\n.k.n.\np.b..\n..p.N\n.....\nPPp..\nR..qK\n");
+	chess_move("c5-b5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n.k.n.\npb...\n..p.N\n.....\nPPp..\nR..qK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nk...r\np.b..\n..pp.\nB.P..\nR..q.\n....K\n");
+	chess_move("a3-c5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nk...r\np.B..\n..pp.\n..P..\nR..q.\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\nk..qr\npP..p\n..n..\n.Pp.p\n..P..\n.R.K.\n");
+	chess_move("c4-b2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 W\nk..qr\npP..p\n.....\n.Pp.p\n.nP..\n.R.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\nk.r..\nP...p\n..p..\n..P..\n.PpPK\nRb...\n");
+	chess_move("a6-b6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n.kr..\nP...p\n..p..\n..P..\n.PpPK\nRb...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\nk...r\npqp..\nN....\n....n\nRP.KP\n..B..\n");
+	chess_move("d2-d1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\nk...r\npqp..\nN....\n....n\nRP..P\n..BK.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("21 W\nkn..r\n.bP.p\n...P.\n.....\n..P.P\nq...K\n");
+	chess_move("c5-b6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 B\nkQ..r\n.b..p\n...P.\n.....\n..P.P\nq...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nkbr..\np...p\n..npP\npP.PK\nP....\nq.Q.B\n");
+	chess_move("e1-b4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nkbr..\np...p\n.BnpP\npP.PK\nP....\nq.Q..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\nk.r..\n.pqb.\n.PP.p\np.n.Q\nPBp.P\n.R..K\n");
+	chess_move("e3-c1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\nk.r..\n.pqb.\n.PP.p\np.n..\nPBp.P\n.RQ.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 W\n..qbr\n.kp.p\n.pn.P\n.R.P.\nP..B.\n...QK\n");
+	chess_move("a2-a3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n..qbr\n.kp.p\n.pn.P\nPR.P.\n...B.\n...QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\n...q.\n..prp\npkP..\nP....\n.BPPK\nR..Q.\n");
+	chess_move("d5-d2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\n...q.\n..p.p\npkP..\nP....\n.BPrK\nR..Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("11 B\nq.br.\n.Qppp\n.k...\n....n\np.PP.\nRNB.K\n");
+	chess_move("b4-a4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\nq.br.\n.Qppp\nk....\n....n\np.PP.\nRNB.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\nk..br\n....p\n.pp.q\nPpPPp\n.RB..\n.N.KQ\n");
+	chess_move("a6-a5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 W\n...br\nk...p\n.pp.q\nPpPPp\n.RB..\n.N.KQ\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk.b..\n.npp.\n.P..B\npPQ..\n...r.\nR..K.\n");
+	chess_move("a3-a2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk.b..\n.npp.\n.P..B\n.PQ..\np..r.\nR..K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\n.kbnr\nq.pp.\nB.NPp\n..p.P\nP..K.\nq.Q..\n");
+	chess_move("a1-a2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 W\n.kbnr\nq.pp.\nB.NPp\n..p.P\nq..K.\n..Q..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\n.qb.r\nk.p.p\np.P.Q\n.....\nP..Pp\n.NR.K\n");
+	chess_move("b6-b4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 W\n..b.r\nk.p.p\npqP.Q\n.....\nP..Pp\n.NR.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\n...nr\np..kp\nPK...\n.P.Pb\nR.P.q\n.N...\n");
+	chess_move("e2-c2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\n...nr\np..kp\nPK...\n.P.Pb\nR.q..\n.N...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\n.q.br\n..p.p\np.k.p\n..P.P\npP.QN\nR.B.K\n");
+	chess_move("b6-b2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 W\n...br\n..p.p\np.k.p\n..P.P\npq.QN\nR.B.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("21 W\n....r\nk..p.\nb.n.P\n.PP.P\n.p...\nR..BK\n");
+	chess_move("e4-d5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 B\n....r\nk..P.\nb.n..\n.PP.P\n.p...\nR..BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.k.nr\nb..p.\n....p\nNp.PP\n..q.Q\n....K\n");
+	chess_move("a3-c2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n.k.nr\nb..p.\n....p\n.p.PP\n..N.Q\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\nk...b\npP..p\n.....\nPPrPN\nR....\n...BK\n");
+	chess_move("a2-b2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 B\nk...b\npP..p\n.....\nPPrPN\n.R...\n...BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\n..kr.\n..pp.\nQ...p\nP...P\nP.PPK\nR.B..\n");
+	chess_move("d5-d4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\n..kr.\n..p..\nQ..pp\nP...P\nP.PPK\nR.B..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 B\nkb...\n..np.\np.rPp\nNRP.P\n.....\n.Q.K.\n");
+	chess_move("a6-a5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\n.b...\nk.np.\np.rPp\nNRP.P\n.....\n.Q.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nNk.br\n....p\nPpnp.\n.P.p.\nBP..P\n..R.K\n");
+	chess_move("a6-c5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\n.k.br\n..N.p\nPpnp.\n.P.p.\nBP..P\n..R.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("11 B\n.kbn.\n....Q\n.p...\np...r\nPPPp.\nRB.NK\n");
+	chess_move("d6-c4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\n.kb..\n....Q\n.pn..\np...r\nPPPp.\nRB.NK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\n....r\nk....\nRp..p\n.Qp.q\n.P.PP\n.B.K.\n");
+	chess_move("a4-a2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\n....r\nk....\n.p..p\n.Qp.q\nRP.PP\n.B.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\nk.r..\n.qppp\n.p.KP\nPb...\nPR...\n.NB..\n");
 	chess_move("d4-c4");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "21 B\nk.b..\np...p\nN..q.\nPPK.P\n..R..\n.B...\n") != 0) {
+	if (strcmp(charBuffer, "14 B\nk.r..\n.qppp\n.pK.P\nPb...\nPR...\n.NB..\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk.r..\npQp.b\n.pPpp\nNB.Rq\nPP.KP\n.....\n");
-	chess_move("b4-a3");
+	chess_boardSet("12 B\nk..br\nq.ppp\n.p..N\nPP.BP\n..P..\n.R.QK\n");
+	chess_move("d5-e4");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\nk.r..\npQp.b\nBpPpp\nN..Rq\nPP.KP\n.....\n") != 0) {
+	if (strcmp(charBuffer, "13 W\nk..br\nq.p.p\n.p..p\nPP.BP\n..P..\n.R.QK\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nqb..r\n.kpp.\np.P..\npP.pK\n..QP.\n.N...\n");
-	chess_move("e1-e4");
+	chess_boardSet("15 W\nk.b.r\np.K.p\n....q\nPP...\n....P\nRN.Q.\n");
+	chess_move("c5-d6");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\nqb...\n.kpp.\np.P..\npP.pr\n..QP.\n.N...\n") != 0) {
+	if (strcmp(charBuffer, "15 B\nk.bKr\np...p\n....q\nPP...\n....P\nRN.Q.\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nqk..r\npb..p\nQ.ppB\nP.PPP\nRP...\n....K\n");
-	chess_move("d3-e4");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nqk..r\npb..p\nQ.p.B\nP.PPp\nRP...\n....K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nk.q..\np.N.r\n.p..P\nnP.b.\nP.Q.P\nR.B.K\n");
-	chess_move("c5-c3");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nk.q..\np.N.r\n.pQ.P\nnP.b.\nP...P\nR.B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk.q.r\n...b.\npp.Qn\n.P..B\n....P\nRN..K\n");
-	chess_move("a1-b2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n..q.r\n.k.b.\npp.Qn\n.P..B\n....P\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n.....\nknQ..\n.q..b\nP.P..\n.rB..\n.R..K\n");
-	chess_move("b5-b6");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\n.....\nknQ..\n.q..b\nP.P..\n..B..\n.r..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\n.q.r.\n.k..p\np.p.P\nPPpQb\n..P.P\nR...K\n");
-	chess_move("b2-c2");
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n.q.r.\n..k.p\np.p.P\nPPpQb\n..P.P\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\n..kbr\n...pp\np.pP.\n.N..P\nP.B.K\nR....\n");
+	chess_boardSet("16 W\nq...r\n..kb.\np..Pp\nP..Pn\n...R.\n..BQK\n");
 	chess_move("d1-a4");
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\n..k.r\n...pp\np.pP.\nbN..P\nP.B.K\nR....\n") != 0) {
+	if (strcmp(charBuffer, "16 B\nq...r\n..kb.\nQ..Pp\nP..Pn\n...R.\n..B.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\n.q...\nkpb.r\n..p.p\nPQp..\nRP.BP\n....K\n");
+	chess_move("b6-c6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n..q..\nkpb.r\n..p.p\nPQp..\nRP.BP\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\n.kb..\n...pr\np.p..\n..P..\n.P.n.\nRB.K.\n");
+	chess_move("c6-c5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\n.k...\n..bpr\np.p..\n..P..\n.P.n.\nRB.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\nk..nr\npp.b.\nq....\nQPP.p\nPBP.P\n..R.K\n");
+	chess_move("b5-b4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nk..nr\np..b.\nqp...\nQPP.p\nPBP.P\n..R.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.kbnr\n..qp.\n.ppPp\nP.NBP\n..p.K\nR..Q.\n");
+	chess_move("a3-b4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n.kbnr\n..qp.\n.PpPp\n..NBP\n..p.K\nR..Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk..nr\n...Q.\np.p.p\nPb..P\n.BPK.\nR....\n");
+	chess_move("d2-e1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\nk..nr\n...Q.\np.p.p\nPb..P\n.BP..\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 W\nkb...\np...r\n..nPp\nppQ..\nP.p.K\n.R...\n");
+	chess_move("b1-b2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 B\nkb...\np...r\n..nPp\nppQ..\nPRp.K\n.....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 B\n...br\nk...p\nN....\nq.PP.\n..R.p\n.B..K\n");
+	chess_move("d6-c5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\n....r\nk.b.p\nN....\nq.PP.\n..R.p\n.B..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\nk....\nn.r.p\nN.ppQ\nPq...\n.PP.K\nR..B.\n");
+	chess_move("c2-b3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\nk....\nn.r.p\nN.ppQ\nPP...\n.P..K\nR..B.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\nk...r\npP...\n..nqp\n.P...\nB.PP.\n.R.QK\n");
+	chess_move("c4-e3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\nk...r\npP...\n...qp\n.P..n\nB.PP.\n.R.QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\nk..b.\n.ppN.\np...Q\nP....\nP.pK.\nR.B..\n");
+	chess_move("c5-c4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\nk..b.\n.p.N.\np.p.Q\nP....\nP.pK.\nR.B..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\nkqrn.\n..p.Q\n.....\n...P.\np.PQ.\n.RK..\n");
+	chess_move("c5-c4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nkqrn.\n....Q\n..p..\n...P.\np.PQ.\n.RK..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk....\np...b\nP.np.\n.qp.p\n.QRPP\n..K..\n");
+	chess_move("b2-b1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\nk....\np...b\nP.np.\n.qp.p\n..RPP\n.QK..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\n..kr.\np.p.b\n..n.p\np.P..\nP.RPp\n...K.\n");
+	chess_move("d6-e6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 W\n..k.r\np.p.b\n..n.p\np.P..\nP.RPp\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\nk.Rr.\npN.p.\nP..bp\n...Qq\n.....\n..q.K\n");
+	chess_move("c1-e1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\nk.Rr.\npN.p.\nP..bp\n...Qq\n.....\n....q\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\n.k..r\n.nb..\n..QPp\npP.PK\nP....\nR....\n");
+	chess_move("e6-e5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n.k...\n.nb.r\n..QPp\npP.PK\nP....\nR....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\n.q.r.\npbppp\n.p..n\n.PkP.\nPQ..P\nR..BK\n");
+	chess_move("a1-b1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\n.q.r.\npbppp\n.p..n\n.PkP.\nPQ..P\n.R.BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\n..k..\n.npp.\nqp..P\n.P.P.\nP.PK.\nR....\n");
+	chess_move("d2-e2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\n..k..\n.npp.\nqp..P\n.P.P.\nP.P.K\nR....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 B\nk.bn.\n.p...\np.q.r\nQ...B\nP..p.\nR...K\n");
+	chess_move("c4-e2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\nk.bn.\n.p...\np...r\nQ...B\nP..pq\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nkq.br\np.Bpp\n.pp..\nP.nP.\n..P..\n.R..K\n");
+	chess_move("b1-b2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nkq.br\np.Bpp\n.pp..\nP.nP.\n.RP..\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("11 B\nk.bnr\n..ppp\n...qP\n.P.P.\n..PB.\n.NQ.K\n");
+	chess_move("d4-e4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\nk.bnr\n..ppp\n....q\n.P.P.\n..PB.\n.NQ.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 W\n....r\nkp..p\np..qQ\nP.PP.\n.nBK.\nRN...\n");
+	chess_move("e4-c6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 B\n..Q.r\nkp..p\np..q.\nP.PP.\n.nBK.\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\nk..n.\n.qp..\np.N.r\nPP.p.\n..P..\n..R.K\n");
+	chess_move("e1-d1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 B\nk..n.\n.qp..\np.N.r\nPP.p.\n..P..\n..RK.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\nkb.r.\n..p..\npPQpp\nn...P\nPP.P.\n.RBK.\n");
+	chess_move("a6-b5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\n.b.r.\n.kp..\npPQpp\nn...P\nPP.P.\n.RBK.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nk..nr\n..qp.\n.pb.p\nPP.QP\n..q.K\nR....\n");
+	chess_move("d3-d2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nk..nr\n..qp.\n.pb.p\nPP..P\n..qQK\nR....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nkb...\n.p.p.\n...Pn\nPpp.K\nR.PN.\n.B..Q\n");
+	chess_move("e3-d3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nkb...\n.p.p.\n...Pn\nPppK.\nR.PN.\n.B..Q\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nr....\npknpp\n..B.Q\nP.p..\n.PP..\nR...K\n");
+	chess_move("a1-a2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nr....\npknpp\n..B.Q\nP.p..\nRPP..\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\n..k.r\np...P\n...b.\n.....\nq.nK.\n.BQN.\n");
+	chess_move("c1-a3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\n..k.r\np...P\n...b.\nQ....\nq.nK.\n.B.N.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 B\nkbqn.\np....\n.P.K.\n.pP..\n.P.r.\nRN...\n");
+	chess_move("c6-c5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\nkb.n.\np.q..\n.P.K.\n.pP..\n.P.r.\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 B\n.....\npk.pr\n.p.Pp\n...PP\nPN...\nR..QK\n");
+	chess_move("b5-b6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\n.k...\np..pr\n.p.Pp\n...PP\nPN...\nR..QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nk..r.\nP.p.p\np....\n..nPP\n.Pp..\nR.BQK\n");
+	chess_move("e1-e2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nk..r.\nP.p.p\np....\n..nPP\n.Pp.K\nR.BQ.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\nk.br.\npn...\nQppPN\n....P\nPP...\n.R.BK\n");
+	chess_move("c6-d5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nk..r.\npn.b.\nQppPN\n....P\nPP...\n.R.BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\n..krb\np....\n.p..P\n.pn.P\nB....\nQR..K\n");
+	chess_move("c6-d5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n...rb\np..k.\n.p..P\n.pn.P\nB....\nQR..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nNk...\np.r..\n...pn\n....P\nq.P.P\n....K\n");
+	chess_move("a6-c5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\n.k...\np.N..\n...pn\n....P\nq.P.P\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nkb...\npn.r.\nPp...\n.pPBP\n.P..p\n..RK.\n");
+	chess_move("d3-d4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nkb...\npn.r.\nPp.B.\n.pP.P\n.P..p\n..RK.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\n.k..r\n.pb..\n.....\np.n.B\nP...P\n...RK\n");
+	chess_move("c5-b4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n.k..r\n.p...\n.b...\np.n.B\nP...P\n...RK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nk.Q.r\n.n...\n..b.p\nP...q\n.P.PP\nR.B.K\n");
+	chess_move("c1-d1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nk.Q.r\n.n...\n..b.p\nP...q\n.P.PP\nR..BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 B\n...q.\n..P..\n.p..p\npPk.P\nP.p.K\n..R..\n");
+	chess_move("d6-a6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\nq....\n..P..\n.p..p\npPk.P\nP.p.K\n..R..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\nk.bnr\n...pp\n.B..q\nP..p.\n.PK.P\nRN...\n");
+	chess_move("b4-a5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\nk.bnr\nB..pp\n....q\nP..p.\n.PK.P\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\n.k..r\nppp.q\n..b..\n.P.BP\nPNP..\nRn..K\n");
+	chess_move("a1-b1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\n.k..r\nppp.q\n..b..\n.P.BP\nPNP..\n.R..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nq..nr\np.k.p\n.p.pN\nPP.Pb\n.RPpB\n....K\n");
+	chess_move("a3-b4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nq..nr\np.k.p\n.P.pN\n.P.Pb\n.RPpB\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\nq....\n.kpbp\nr.n..\nP..KP\n..p..\nRN.B.\n");
+	chess_move("d3-c3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\nq....\n.kpbp\nr.n..\nP.K.P\n..p..\nRN.B.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nkq...\npP...\nR..r.\n..P.p\n..P.K\n....Q\n");
+	chess_move("e1-b1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\nkq...\npP...\nR..r.\n..P.p\n..P.K\n.Q...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\n.k.r.\n.p.p.\nB....\n..P.b\nP..QP\nRN..K\n");
+	chess_move("b5-a4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n.k.r.\n...p.\np....\n..P.b\nP..QP\nRN..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.b..r\n.kpp.\n.pn.p\n.P..B\n..NPP\nR.QK.\n");
+	chess_move("c2-a3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n.b..r\n.kpp.\n.pn.p\nNP..B\n...PP\nR.QK.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 W\nk....\npnp..\nbpNpq\nBPPpr\nP..Q.\nR...K\n");
+	chess_move("a1-d1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 B\nk....\npnp..\nbpNpq\nBPPpr\nP..Q.\n...RK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\n...Q.\n.k..r\nN.pp.\n..P.p\nPP.PP\nR.B.K\n");
+	chess_move("d6-a6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\nQ....\n.k..r\nN.pp.\n..P.p\nPP.PP\nR.B.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("21 W\n...Qr\np...q\np...p\nNk...\n.pP.K\n..R..\n");
+	chess_move("d6-e5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 B\n....r\np...Q\np...p\nNk...\n.pP.K\n..R..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\nk.b.r\nn.q.p\npp...\n..PPP\nP.Q.K\nRB...\n");
+	chess_move("a6-b5");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 W\n..b.r\nnkq.p\npp...\n..PPP\nP.Q.K\nRB...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\n...qb\nk.rnp\n.pPK.\nNP..P\nP...B\n..R..\n");
+	chess_move("d6-b6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 W\n.q..b\nk.rnp\n.pPK.\nNP..P\nP...B\n..R..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\nqkbn.\n.ppqr\n..p..\nK...P\nPP...\nR..Q.\n");
+	chess_move("a3-a4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 B\nqkbn.\n.ppqr\nK.p..\n....P\nPP...\nR..Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 W\n.k.br\nPp.q.\n..p.p\nPBP.p\nR...K\n.NQ..\n");
+	chess_move("a5-b6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n.Q.br\n.p.q.\n..p.p\nPBP.p\nR...K\n.NQ..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\n.q...\nNk...\n..b.r\n.PP.p\nP....\nR.QBK\n");
+	chess_move("e3-e2");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n.q...\nNk...\n..b.r\n.PP..\nP...p\nR.QBK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\n...n.\np.kQ.\nb.p.r\n.P.Kq\nP..P.\nRN...\n");
+	chess_move("c4-b3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 W\n...n.\np.kQ.\nb...r\n.p.Kq\nP..P.\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\nkbr..\np.q..\n..PQN\nPPp.K\n....P\nRB...\n");
+	chess_move("c6-d6");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\nkb.r.\np.q..\n..PQN\nPPp.K\n....P\nRB...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\nkqr..\n.pp.b\n.B...\n.PP.p\n..Q.P\nRN..K\n");
+	chess_move("c5-c4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nkqr..\n.p..b\n.Bp..\n.PP.p\n..Q.P\nRN..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\nk..n.\nB.p..\np.Ppr\nP..P.\nqQ..K\nR...b\n");
+	chess_move("b2-c3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\nk..n.\nB.p..\np.Ppr\nP.QP.\nq...K\nR...b\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\n...n.\nk...p\np.Qp.\nP....\nR.PP.\nQ..bK\n");
+	chess_move("d1-c1");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n...n.\nk...p\np.Qp.\nP....\nR.PP.\nQ.b.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 W\n.kb.r\n..ppp\n.....\nPpq..\nR.PQP\n..B.K\n");
+	chess_move("a3-a4");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n.kb.r\n..ppp\nP....\n.pq..\nR.PQP\n..B.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\n.k..r\npbppp\n....B\n.P...\n.p.KP\n.....\n");
+	chess_move("e4-e3");
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\n.k..r\npbppp\n.....\n.P..B\n.p.KP\n.....\n") != 0) {
 		return false;
 	}
 	
@@ -3231,7 +3231,7 @@ bool test_undo() {
 	char charBuffer[1024] = { };
 	
 	chess_reset();
-	chess_move("d5-d4");
+	chess_move("b2-b3");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
@@ -3239,894 +3239,894 @@ bool test_undo() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk....\np..r.\nb.p.p\nP..PP\n.qP.B\nR...K\n");
-	chess_move("e5-d5");
+	chess_boardSet("16 B\n.kQr.\n...p.\nQ.pq.\n.pn.B\nP..KP\nR....\n");
+	chess_move("c3-d1");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\nk....\np..r.\nb.p.p\nP..PP\n.qP.B\nR...K\n") != 0) {
+	if (strcmp(charBuffer, "16 B\n.kQr.\n...p.\nQ.pq.\n.pn.B\nP..KP\nR....\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n.b.nr\nk.N..\n.Ppqp\n.P...\nB.PPp\nRQ..K\n");
-	chess_move("e6-e5");
+	chess_boardSet("17 W\n..qn.\np.B.r\n.kN.p\n.....\nPP.pP\n..RK.\n");
+	chess_move("c4-d2");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\n.b.nr\nk.N..\n.Ppqp\n.P...\nB.PPp\nRQ..K\n") != 0) {
+	if (strcmp(charBuffer, "17 W\n..qn.\np.B.r\n.kN.p\n.....\nPP.pP\n..RK.\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n..qnr\nbk...\nQppp.\nP.P.B\nR..PP\n.N..K\n");
-	chess_move("b3-a4");
+	chess_boardSet("15 W\n.qQ..\npkp..\nP.n.r\n.P...\n.pP.P\n..B.K\n");
+	chess_move("c1-b1");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\n..qnr\nbk...\nQppp.\nP.P.B\nR..PP\n.N..K\n") != 0) {
+	if (strcmp(charBuffer, "15 W\n.qQ..\npkp..\nP.n.r\n.P...\n.pP.P\n..B.K\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n...br\nQ.k.p\n.....\n.....\nPp.Pp\n...RK\n");
-	chess_move("c2-c1");
+	chess_boardSet("11 B\nk.Qbr\n.....\n..pp.\nn.pPp\nP.P.P\n.R.QK\n");
+	chess_move("a3-b5");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\n...br\nQ.k.p\n.....\n.....\nPp.Pp\n...RK\n") != 0) {
+	if (strcmp(charBuffer, "11 B\nk.Qbr\n.....\n..pp.\nn.pPp\nP.P.P\n.R.QK\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nk..nb\np....\nPp..p\n..pKP\n..P..\nq..B.\n");
-	chess_move("d6-c6");
+	chess_boardSet("19 B\n...br\n..p.p\nq....\n.P.kK\n....P\n.R...\n");
+	chess_move("a4-a3");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nk..nb\np....\nPp..p\n..pKP\n..P..\nq..B.\n") != 0) {
+	if (strcmp(charBuffer, "19 B\n...br\n..p.p\nq....\n.P.kK\n....P\n.R...\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk.Q..\n.qbr.\n.n..p\nRp...\nB...P\n....K\n");
-	chess_move("c1-d1");
+	chess_boardSet("16 B\n.B.r.\nq.p.p\n...N.\n..k.P\nPpPn.\n...RK\n");
+	chess_move("c3-c4");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\nk.Q..\n.qbr.\n.n..p\nRp...\nB...P\n....K\n") != 0) {
+	if (strcmp(charBuffer, "16 B\n.B.r.\nq.p.p\n...N.\n..k.P\nPpPn.\n...RK\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.kbnr\np..p.\n..p.p\n.QP.P\nRP..B\n.N..K\n");
-	chess_move("b1-c2");
+	chess_boardSet("20 W\n.k..r\np..p.\n...bp\n.pP.q\nRQn.P\n..B.K\n");
+	chess_move("e1-d2");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "11 B\n.kbnr\np..p.\n..p.p\n.QP.P\nRP..B\n.N..K\n") != 0) {
+	if (strcmp(charBuffer, "20 W\n.k..r\np..p.\n...bp\n.pP.q\nRQn.P\n..B.K\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nk..nr\npqP.p\nP....\nP.ppB\n.Q..P\nRN..K\n");
-	chess_move("d4-e5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\nk..nr\npqP.p\nP....\nP.ppB\n.Q..P\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\nk.B.r\np.N.p\n.pp.P\nPP...\n...PK\nqR.Q.\n");
-	chess_move("a6-b5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\nk.B.r\np.N.p\n.pp.P\nPP...\n...PK\nqR.Q.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\nqb...\n.kpr.\nPp.pp\nn.P.P\n....Q\nRBN.K\n");
-	chess_move("a3-b2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nqb...\n.kpr.\nPp.pp\nn.P.P\n....Q\nRBN.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk.b.r\n..ppp\np...n\nP.PBP\n.RP..\n...QK\n");
-	chess_move("c1-d1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "11 B\nk.b.r\n..ppp\np...n\nP.PBP\n.RP..\n...QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nkq..r\npppb.\n.n.pp\nPP.PK\nR..Q.\n.N...\n");
-	chess_move("b3-a5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nkq..r\npppb.\n.n.pp\nPP.PK\nR..Q.\n.N...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nkr...\npR.B.\nP...p\n..p.Q\nn.p.P\n...K.\n");
-	chess_move("d2-e1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\nkr...\npR.B.\nP...p\n..p.Q\nn.p.P\n...K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nkb..r\np.Q..\nP.q.p\n...PP\np.P..\n.B..K\n");
-	chess_move("d4-c3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\nkb..r\np.Q..\nP.q.p\n...PP\np.P..\n.B..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nkq...\n..p.r\n.pP..\nBP...\nPK.Q.\nR....\n");
-	chess_move("a1-b2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\nkq...\n..p.r\n.pP..\nBP...\nPK.Q.\nR....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\nk...Q\np..rb\n..N.P\npBP..\n....P\n.R..K\n");
-	chess_move("b4-b3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\nk...Q\np..rb\n..N.P\npBP..\n....P\n.R..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nkbr..\np.pq.\n....p\nP.pPP\n..BQK\nR....\n");
-	chess_move("a6-b6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\nkbr..\np.pq.\n....p\nP.pPP\n..BQK\nR....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\n.qr..\npkPp.\nb..pp\n.....\nPP.NK\nR....\n");
-	chess_move("b2-b3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\n.qr..\npkPp.\nb..pp\n.....\nPP.NK\nR....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nq...b\nk..rB\nPp..p\n...Nn\nP.P.K\nRQ...\n");
-	chess_move("c5-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nq...b\nk..rB\nPp..p\n...Nn\nP.P.K\nRQ...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk.bnr\nppP..\n..ppp\nP.N.P\n.BPPQ\nR..K.\n");
-	chess_move("e1-e2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "11 B\nk.bnr\nppP..\n..ppp\nP.N.P\n.BPPQ\nR..K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk...r\n.pb.p\n..P.p\npPPKq\nP.Q..\nRB...\n");
-	chess_move("d4-d3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nk...r\n.pb.p\n..P.p\npPPKq\nP.Q..\nRB...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nkq...\n...p.\np..Pr\nbpp.P\nPPPQK\n.R.B.\n");
-	chess_move("e3-e2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nkq...\n...p.\np..Pr\nbpp.P\nPPPQK\n.R.B.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nkqn.r\n..pp.\n.b..p\nNp.P.\n.P..P\n.R.BK\n");
-	chess_move("a1-a2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nkqn.r\n..pp.\n.b..p\nNp.P.\n.P..P\n.R.BK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n...r.\nkq..Q\npB..p\nPPp..\n..P.N\n...RK\n");
-	chess_move("e2-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\n...r.\nkq..Q\npB..p\nPPp..\n..P.N\n...RK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\n..N..\nk...p\nP....\n.K.rP\n.q.n.\n.....\n");
-	chess_move("b5-a5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\n..N..\nk...p\nP....\n.K.rP\n.q.n.\n.....\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk...r\np..pN\nPpb.p\nR...P\n..P.P\n.B.QK\n");
-	chess_move("c3-a5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "11 B\nk...r\np..pN\nPpb.p\nR...P\n..P.P\n.B.QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\n.q...\nk.p.r\n...pb\nnB.P.\n....Q\nqR.K.\n");
-	chess_move("b6-c6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\n.q...\nk.p.r\n...pb\nnB.P.\n....Q\nqR.K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nqkb..\np.P.B\n.p..p\n.n.pP\nP.PKQ\n.R...\n");
-	chess_move("b6-e6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nqkb..\np.P.B\n.p..p\n.n.pP\nP.PKQ\n.R...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nk.bq.\np..N.\n.Bp.r\n.PPp.\nP..KP\n.R.Q.\n");
-	chess_move("b6-a6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nk.bq.\np..N.\n.Bp.r\n.PPp.\nP..KP\n.R.Q.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nkQBn.\np...r\n.p...\n.P.Pp\nPb.KP\nRN...\n");
-	chess_move("d5-c5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\nkQBn.\np...r\n.p...\n.P.Pp\nPb.KP\nRN...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk..qr\np.Q.p\np....\nNb...\n.pPBP\n.R..K\n");
-	chess_move("c5-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nk..qr\np.Q.p\np....\nNb...\n.pPBP\n.R..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\nk..r.\nb.pPp\n...q.\nP..K.\n..PP.\n.R.B.\n");
-	chess_move("d6-c6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nk..r.\nb.pPp\n...q.\nP..K.\n..PP.\n.R.B.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\n.r...\nq.p.p\npkP..\nP.PpP\n...K.\nQ.R..\n");
-	chess_move("a6-b6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\n.r...\nq.p.p\npkP..\nP.PpP\n...K.\nQ.R..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nq...r\nkp..p\nnp.pP\n...K.\nRP...\n..BN.\n");
-	chess_move("d6-e4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 W\nq...r\nkp..p\nnp.pP\n...K.\nRP...\n..BN.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\n.k.qr\nBpb.p\n..p.n\nP.pPP\nR....\n.Nq.K\n");
-	chess_move("c6-b5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\n.k.qr\nBpb.p\n..p.n\nP.pPP\nR....\n.Nq.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nkq.nr\n..p.p\n.P.p.\n...PP\nRBP..\n...QK\n");
-	chess_move("c2-c3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\nkq.nr\n..p.p\n.P.p.\n...PP\nRBP..\n...QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nk..r.\np.q.p\n.pP..\nN.p.P\nPP...\nRB.QK\n");
-	chess_move("c2-c1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nk..r.\np.q.p\n.pP..\nN.p.P\nPP...\nRB.QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n...kr\n..p..\n..PpB\n...p.\nP...K\nR.Q..\n");
-	chess_move("e3-d2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\n...kr\n..p..\n..PpB\n...p.\nP...K\nR.Q..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\n..q.r\n.kp..\n.p.pn\n..PPp\nP.N.P\n..RBK\n");
-	chess_move("e3-d5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\n..q.r\n.kp..\n.p.pn\n..PPp\nP.N.P\n..RBK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nq.Q..\n.....\np.kpP\nbp...\nPP.BP\n.R..K\n");
-	chess_move("d5-e4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nq.Q..\n.....\np.kpP\nbp...\nPP.BP\n.R..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nk.br.\n..pp.\nqP...\n.PN..\n..B.P\nR.K..\n");
-	chess_move("a3-b4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nk.br.\n..pp.\nqP...\n.PN..\n..B.P\nR.K..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n.qbkr\np...p\n..pPn\n.pN..\nPPPBK\nR.Q..\n");
-	chess_move("d3-e2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n.qbkr\np...p\n..pPn\n.pN..\nPPPBK\nR.Q..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nkb...\n....p\nqp..B\nP...P\n.PrP.\nR...K\n");
-	chess_move("e3-c5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nkb...\n....p\nqp..B\nP...P\n.PrP.\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\n..q.r\nkppbp\n..N..\n.P.pP\nP.K..\n.R.Q.\n");
-	chess_move("b6-b5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n..q.r\nkppbp\n..N..\n.P.pP\nP.K..\n.R.Q.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nkb...\npp.rp\n...q.\nQpPPn\nPB...\nRN..K\n");
-	chess_move("e6-d6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nkb...\npp.rp\n...q.\nQpPPn\nPB...\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n.q.br\n...pp\n..k..\np.PpP\nP.P.Q\nR..K.\n");
-	chess_move("d6-d5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\n.q.br\n...pp\n..k..\np.PpP\nP.P.Q\nR..K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\nk....\npq...\n...P.\n.P...\nR..Br\n.N.QK\n");
-	chess_move("b2-e2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\nk....\npq...\n...P.\n.P...\nR..Br\n.N.QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nk..r.\np.Bb.\n...p.\nnPQ.p\nP...P\nRN..K\n");
-	chess_move("c4-c3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nk..r.\np.Bb.\n...p.\nnPQ.p\nP...P\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\nk....\nP.pq.\n.p..r\nRB.pP\n...NP\n..QK.\n");
-	chess_move("d2-e1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\nk....\nP.pq.\n.p..r\nRB.pP\n...NP\n..QK.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nkq.br\n.p..p\npPp.n\nP..pP\n..PPQ\n.RB.K\n");
-	chess_move("d1-c2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "11 B\nkq.br\n.p..p\npPp.n\nP..pP\n..PPQ\n.RB.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n.kr..\npbp..\n....Q\nRP...\n.NP.P\n..B.K\n");
-	chess_move("b5-d4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n.kr..\npbp..\n....Q\nRP...\n.NP.P\n..B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk...r\npqp..\nPp.pp\n...P.\nb..QP\n.NB.K\n");
-	chess_move("d5-a5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nk...r\npqp..\nPp.pp\n...P.\nb..QP\n.NB.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n.k.b.\n...Qr\np....\n.q.PP\nP.p.K\nR.B..\n");
-	chess_move("e5-d5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n.k.b.\n...Qr\np....\n.q.PP\nP.p.K\nR.B..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\n.qbn.\nkpp.r\nP..p.\n.pP.P\nR....\n.NBQK\n");
-	chess_move("c6-d5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n.qbn.\nkpp.r\nP..p.\n.pP.P\nR....\n.NBQK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nk..qr\n..p.p\n.pn.P\npPP.Q\nP.b.K\nR..B.\n");
-	chess_move("c5-e3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nk..qr\n..p.p\n.pn.P\npPP.Q\nP.b.K\nR..B.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n..br.\n.nkpp\n.q...\np...P\n.BPP.\nR..QK\n");
-	chess_move("a6-a5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n..br.\n.nkpp\n.q...\np...P\n.BPP.\nR..QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk....\npqp..\nb.p..\nP..pP\nR...N\n..B.K\n");
-	chess_move("b2-b4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\nk....\npqp..\nb.p..\nP..pP\nR...N\n..B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\n..bn.\nkpp.N\n....p\nqP..p\n..PPK\n.RQ..\n");
-	chess_move("a4-c6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\n..bn.\nkpp.N\n....p\nqP..p\n..PPK\n.RQ..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\n...r.\n.k..p\np..pB\np.b..\n..PQ.\n...NK\n");
-	chess_move("c4-b4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\n...r.\n.k..p\np..pB\np.b..\n..PQ.\n...NK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk..Q.\n.p..q\np...n\nP..P.\n.P..P\nRN..K\n");
-	chess_move("d1-e2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nk..Q.\n.p..q\np...n\nP..P.\n.P..P\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n....r\nk.P.p\np..pb\npq..P\nP.PK.\n.nRQ.\n");
-	chess_move("d6-e6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n....r\nk.P.p\np..pb\npq..P\nP.PK.\n.nRQ.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\n..bnr\nqPkpp\np.p.P\n.....\nPBPp.\nRQ..K\n");
-	chess_move("d5-d6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 B\n..bnr\nqPkpp\np.p.P\n.....\nPBPp.\nRQ..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n..b.r\n..ppp\nk..KN\nPp...\n.BpPq\nR..n.\n");
-	chess_move("d3-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\n..b.r\n..ppp\nk..KN\nPp...\n.BpPq\nR..n.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nk...r\npP.qp\n..pp.\nbn...\nRB.PP\n.NQ.K\n");
-	chess_move("a1-b1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\nk...r\npP.qp\n..pp.\nbn...\nRB.PP\n.NQ.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\n.q.nr\n..b.p\nQkP.P\nB.P..\nP....\n..R.K\n");
-	chess_move("c2-d2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\n.q.nr\n..b.p\nQkP.P\nB.P..\nP....\n..R.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\nkn...\npbP..\n.....\npq...\n.B..K\nRN...\n");
-	chess_move("b5-a4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\nkn...\npbP..\n.....\npq...\n.B..K\nRN...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\n.q.br\np.p..\nk..P.\n..p.p\npPPQP\n...RK\n");
-	chess_move("d3-d2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 W\n.q.br\np.p..\nk..P.\n..p.p\npPPQP\n...RK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\n.r...\nk.bpp\npP.qP\n.....\n..PBP\nR..QK\n");
-	chess_move("d5-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n.r...\nk.bpp\npP.qP\n.....\n..PBP\nR..QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\n.kb.r\n.QN..\n.pp..\n....P\nqPKPn\nR.B..\n");
-	chess_move("e5-d3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 B\n.kb.r\n.QN..\n.pp..\n....P\nqPKPn\nR.B..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nkqb..\n..Q..\nP.n..\n....r\nP.PP.\nRN..K\n");
-	chess_move("c2-c1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nkqb..\n..Q..\nP.n..\n....r\nP.PP.\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\nBkb.r\n.p.p.\nP....\nP.P.p\nq...P\nR...K\n");
-	chess_move("a3-b2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 W\nBkb.r\n.p.p.\nP....\nP.P.p\nq...P\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\n....r\np.q.p\nB.k..\np...P\n...K.\nbRQ..\n");
-	chess_move("c2-b3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\n....r\np.q.p\nB.k..\np...P\n...K.\nbRQ..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nk.n.r\n....Q\n..ppp\n.P...\nP...q\nR.B.K\n");
-	chess_move("e5-d5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\nk.n.r\n....Q\n..ppp\n.P...\nP...q\nR.B.K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nk.br.\n....p\nPppK.\n..pq.\nPB..Q\nRN...\n");
-	chess_move("d4-e5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\nk.br.\n....p\nPppK.\n..pq.\nPB..Q\nRN...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nk...R\nPnp.p\n....b\nBP.pP\n...P.\n...QK\n");
-	chess_move("a1-b1");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\nk...R\nPnp.p\n....b\nBP.pP\n...P.\n...QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\n.k...\np.qbr\n..pP.\nB..K.\n.n...\nRNQ..\n");
-	chess_move("d2-e3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\n.k...\np.qbr\n..pP.\nB..K.\n.n...\nRNQ..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nkr...\nqpPpp\np...n\n.b.p.\nP..NQ\nRB..K\n");
-	chess_move("e5-d4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\nkr...\nqpPpp\np...n\n.b.p.\nP..NQ\nRB..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nqr...\nk.bpp\np.p.P\nn.PQ.\n.PPB.\nR..K.\n");
-	chess_move("d5-c6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nqr...\nk.bpp\np.p.P\nn.PQ.\n.PPB.\nR..K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n..b..\nnkp..\nNp.p.\n.PpPr\n.B...\nR...K\n");
-	chess_move("a3-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n..b..\nnkp..\nNp.p.\n.PpPr\n.B...\nR...K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\n..qkr\n..pbp\nPp..p\nPKPn.\n...P.\nRN..B\n");
-	chess_move("b3-c4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 B\n..qkr\n..pbp\nPp..p\nPKPn.\n...P.\nRN..B\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\n.Q.kr\n.n..p\np.p.P\npPP.p\n....P\n...RK\n");
-	chess_move("d6-d5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\n.Q.kr\n.n..p\np.p.P\npPP.p\n....P\n...RK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nb..n.\np.p.r\n..kBp\n..PP.\nRP..P\n....K\n");
+	chess_boardSet("16 B\nkq.n.\nQp.r.\n...p.\nB.bpP\nP.P..\nRN.K.\n");
 	chess_move("d4-e3");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\nb..n.\np.p.r\n..kBp\n..PP.\nRP..P\n....K\n") != 0) {
+	if (strcmp(charBuffer, "16 B\nkq.n.\nQp.r.\n...p.\nB.bpP\nP.P..\nRN.K.\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.k...\np.ppr\n...Pp\n..K.P\nb.P..\n.NBn.\n");
-	chess_move("c6-b5");
+	chess_boardSet("12 W\nk.b.r\n.p...\np.n.p\n.PpPQ\nP....\nR..BK\n");
+	chess_move("d3-d4");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\n.k...\np.ppr\n...Pp\n..K.P\nb.P..\n.NBn.\n") != 0) {
+	if (strcmp(charBuffer, "12 W\nk.b.r\n.p...\np.n.p\n.PpPQ\nP....\nR..BK\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkb.Q.\n.N...\n..ppr\nP.Pq.\n.P.KP\nRB...\n");
-	chess_move("d5-e6");
+	chess_boardSet("12 W\nk....\nqp..r\n.pNpp\npb.P.\nP.PKP\n.R.Q.\n");
+	chess_move("b1-c1");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 W\nkb.Q.\n.N...\n..ppr\nP.Pq.\n.P.KP\nRB...\n") != 0) {
+	if (strcmp(charBuffer, "12 W\nk....\nqp..r\n.pNpp\npb.P.\nP.PKP\n.R.Q.\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n.kr..\n.p.pp\n.b.Q.\np...P\nPnPK.\n.NRB.\n");
-	chess_move("d6-e5");
+	chess_boardSet("18 B\n.kb.r\n....p\n.pP..\n.Pp..\n...QP\n..R.K\n");
+	chess_move("b6-a6");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\n.kr..\n.p.pp\n.b.Q.\np...P\nPnPK.\n.NRB.\n") != 0) {
+	if (strcmp(charBuffer, "18 B\n.kb.r\n....p\n.pP..\n.Pp..\n...QP\n..R.K\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nkq.r.\np.pbp\n.p..n\nPP..P\n..QP.\nRN.BK\n");
-	chess_move("d2-d3");
+	chess_boardSet("12 B\n.b.nr\nk....\n.p...\nN.PPq\nPp...\nR.Q.K\n");
+	chess_move("b6-a6");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\nkq.r.\np.pbp\n.p..n\nPP..P\n..QP.\nRN.BK\n") != 0) {
+	if (strcmp(charBuffer, "12 B\n.b.nr\nk....\n.p...\nN.PPq\nPp...\nR.Q.K\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk..nb\n.p..r\np..Pq\nPp...\n..P.K\n.RB..\n");
-	chess_move("e5-d4");
+	chess_boardSet("11 B\nk..Nr\n.ppbp\np....\nP..B.\n..PQP\nR...K\n");
+	chess_move("c5-c4");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "15 W\nk..nb\n.p..r\np..Pq\nPp...\n..P.K\n.RB..\n") != 0) {
+	if (strcmp(charBuffer, "11 B\nk..Nr\n.ppbp\np....\nP..B.\n..PQP\nR...K\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n..Qr.\n.k...\n...QP\npP...\n.....\n.RK..\n");
-	chess_move("b2-c3");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 B\n..Qr.\n.k...\n...QP\npP...\n.....\n.RK..\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\nkn...\nP.Q.r\n..bpP\n.....\n.P.PK\nRN.B.\n");
-	chess_move("a6-a5");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "20 W\nkn...\nP.Q.r\n..bpP\n.....\n.P.PK\nRN.B.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\n.k.r.\n.nbp.\np..q.\nPpPPp\nRBK..\n.Q...\n");
-	chess_move("c2-a4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "17 B\n.k.r.\n.nbp.\np..q.\nPpPPp\nRBK..\n.Q...\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nBk.nr\n....p\n..Np.\n..RP.\n.P..P\n...K.\n");
-	chess_move("d1-b2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "16 B\nBk.nr\n....p\n..Np.\n..RP.\n.P..P\n...K.\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n.k.br\nq.pPp\npp..P\nP....\nRP.KQ\nnN..B\n");
-	chess_move("e5-b2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "18 W\n.k.br\nq.pPp\npp..P\nP....\nRP.KQ\nnN..B\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\n.kb.r\n.p...\n..N..\np.q.P\nPPQ..\nR.BqK\n");
-	chess_move("c6-b6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 W\n.kb.r\n.p...\n..N..\np.q.P\nPPQ..\nR.BqK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\n.k...\npnP.r\nP..Bp\n.P.Q.\nq...P\nRN..K\n");
-	chess_move("a5-a4");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\n.k...\npnP.r\nP..Bp\n.P.Q.\nq...P\nRN..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("13 B\nk.b..\n.Pp.r\nq..Pp\n...Pn\nPP..K\nRN..Q\n");
-	chess_move("e4-d2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "13 B\nk.b..\n.Pp.r\nq..Pp\n...Pn\nPP..K\nRN..Q\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nk...r\n.p..p\n..pb.\npP.N.\nP.BPP\nR..QK\n");
-	chess_move("d6-c6");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\nk...r\n.p..p\n..pb.\npP.N.\nP.BPP\nR..QK\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\n...b.\npk...\n.pNpr\n.P.Pp\nqBP.P\nRQ..K\n");
-	chess_move("c3-a2");
-	chess_undo();
-	
-	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "14 W\n...b.\npk...\n.pNpr\n.P.Pp\nqBP.P\nRQ..K\n") != 0) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk...r\n.p.Q.\nQ.nbp\nN..p.\nP.BPP\nR...K\n");
+	chess_boardSet("20 W\n....b\n..k..\n.rp.P\nPNP..\n....P\nR.K..\n");
 	chess_move("a1-b1");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "12 B\nk...r\n.p.Q.\nQ.nbp\nN..p.\nP.BPP\nR...K\n") != 0) {
+	if (strcmp(charBuffer, "20 W\n....b\n..k..\n.rp.P\nPNP..\n....P\nR.K..\n") != 0) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nkqn..\n...b.\nP.p..\n.QP.p\nPpPB.\nR...K\n");
-	chess_move("b1-d3");
+	chess_boardSet("13 B\n...r.\n.k.pp\n.pp.n\nP..q.\nRNPPP\nB..QK\n");
+	chess_move("b5-c6");
 	chess_undo();
 	
 	chess_boardGet(charBuffer);
-	if (strcmp(charBuffer, "19 B\nkqn..\n...b.\nP.p..\n.QP.p\nPpPB.\nR...K\n") != 0) {
+	if (strcmp(charBuffer, "13 B\n...r.\n.k.pp\n.pp.n\nP..q.\nRNPPP\nB..QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\n...nB\n.k.P.\n.R...\n....b\nP.qP.\n....K\n");
+	chess_move("b4-b2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n...nB\n.k.P.\n.R...\n....b\nP.qP.\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk....\n.Nb..\npPp.r\n.qBpP\nP..Q.\n...K.\n");
+	chess_move("b3-c2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nk....\n.Nb..\npPp.r\n.qBpP\nP..Q.\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nkr...\nb.P..\n.N.pn\np.Q.P\nRPP..\n..B.K\n");
+	chess_move("e1-d2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nkr...\nb.P..\n.N.pn\np.Q.P\nRPP..\n..B.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\n.b.r.\n.p.Pp\np.kP.\nP...Q\n.P..P\nR..BK\n");
+	chess_move("d1-a4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\n.b.r.\n.p.Pp\np.kP.\nP...Q\n.P..P\nR..BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\n..br.\n.p.p.\np.Pp.\n....p\n.kRK.\n.N...\n");
+	chess_move("c4-b5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\n..br.\n.p.p.\np.Pp.\n....p\n.kRK.\n.N...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\nkNb..\nq.p..\nBpnrp\nP..Pp\n.P.QK\n..R..\n");
+	chess_move("c6-d6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\nkNb..\nq.p..\nBpnrp\nP..Pp\n.P.QK\n..R..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk....\np....\nP....\n.P.Q.\n.nNK.\nq....\n");
+	chess_move("d3-a6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk....\np....\nP....\n.P.Q.\n.nNK.\nq....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\nkq..r\npp.b.\nP..p.\n..BpP\n.Pp..\n.NQ.K\n");
+	chess_move("e6-e5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nkq..r\npp.b.\nP..p.\n..BpP\n.Pp..\n.NQ.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\nq.br.\nB.ppp\nP.P..\n...PP\n.....\n.R.kK\n");
+	chess_move("b1-b5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nq.br.\nB.ppp\nP.P..\n...PP\n.....\n.R.kK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("11 B\nk...r\nqp...\np.b.p\n.P...\nPBPnK\nR...Q\n");
+	chess_move("e6-e5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "11 B\nk...r\nqp...\np.b.p\n.P...\nPBPnK\nR...Q\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.q.r.\n.k...\n.pppp\nPnP..\n.P...\nRN.BK\n");
+	chess_move("a1-a2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\n.q.r.\n.k...\n.pppp\nPnP..\n.P...\nRN.BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk..q.\npppN.\n..r..\n...p.\nP..PP\nR.Q.K\n");
+	chess_move("d3-e2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nk..q.\npppN.\n..r..\n...p.\nP..PP\nR.Q.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nk.br.\np.ppp\n..p.P\n.Pq..\nP....\nQ...K\n");
+	chess_move("e1-d1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\nk.br.\np.ppp\n..p.P\n.Pq..\nP....\nQ...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\n.kq.r\n.NB.Q\n.p...\np.bPp\n.PP.P\n..R.K\n");
+	chess_move("b2-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n.kq.r\n.NB.Q\n.p...\np.bPp\n.PP.P\n..R.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk....\np...p\n.P.r.\n..NqP\nRP..K\n...q.\n");
+	chess_move("d4-c4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nk....\np...p\n.P.r.\n..NqP\nRP..K\n...q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nk..n.\npp...\nP.p.r\n..b.P\nRP...\n.N.QK\n");
+	chess_move("a4-b5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\nk..n.\npp...\nP.p.r\n..b.P\nRP...\n.N.QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n...nr\nqkp..\npp.bP\n.P...\nPQP.P\n.RB.K\n");
+	chess_move("a2-a3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\n...nr\nqkp..\npp.bP\n.P...\nPQP.P\n.RB.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk..Q.\nq...p\npQb..\nP....\n.n.N.\nR.B.K\n");
+	chess_move("d6-c5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk..Q.\nq...p\npQb..\nP....\n.n.N.\nR.B.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\nk.r..\n.p.pq\nn.Q..\nP.P..\n..BPP\nR..K.\n");
+	chess_move("a1-a2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nk.r..\n.p.pq\nn.Q..\nP.P..\n..BPP\nR..K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\n...k.\n..bpB\np.q..\np...p\nP.P.P\n.Q.K.\n");
+	chess_move("b1-b6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\n...k.\n..bpB\np.q..\np...p\nP.P.P\n.Q.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\n.k...\npqp.b\nQ...p\n....B\nNP..P\n.R..K\n");
+	chess_move("e1-d1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\n.k...\npqp.b\nQ...p\n....B\nNP..P\n.R..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\nkq.nr\n..p..\nb.Pp.\n..NP.\npBQ.P\n...K.\n");
+	chess_move("b2-c1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\nkq.nr\n..p..\nb.Pp.\n..NP.\npBQ.P\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\n..kb.\n...pr\n.pN.p\n.....\n...P.\n...KQ\n");
+	chess_move("d5-c4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 B\n..kb.\n...pr\n.pN.p\n.....\n...P.\n...KQ\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\nk....\n..r..\n..pPp\n....P\nPP..P\nRBK..\n");
+	chess_move("c5-c6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\nk....\n..r..\n..pPp\n....P\nPP..P\nRBK..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 B\nk..nr\n...P.\npp.Kp\nNP...\nP.qb.\n..B..\n");
+	chess_move("d2-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\nk..nr\n...P.\npp.Kp\nNP...\nP.qb.\n..B..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk...r\n....Q\np.n.b\nPp..P\nRPpK.\nB....\n");
+	chess_move("d2-d3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk...r\n....Q\np.n.b\nPp..P\nRPpK.\nB....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\n.N...\npP...\n.k.p.\n.PQ.n\nB...r\nR..K.\n");
+	chess_move("c3-c5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\n.N...\npP...\n.k.p.\n.PQ.n\nB...r\nR..K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk..n.\n.p..r\np.bB.\n.....\nP.P.K\nRN...\n");
+	chess_move("c4-a2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nk..n.\n.p..r\np.bB.\n.....\nP.P.K\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\n..b.r\nkBQ.p\n.....\nnP.PP\nP..P.\n.R..K\n");
+	chess_move("b5-c6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n..b.r\nkBQ.p\n.....\nnP.PP\nP..P.\n.R..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\n...n.\n..p.b\n.Q.pr\nPkp.p\n.PBPP\n.R.K.\n");
+	chess_move("b3-a2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n...n.\n..p.b\n.Q.pr\nPkp.p\n.PBPP\n.R.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nk....\nppq.N\n..nP.\nP....\n.....\n..RK.\n");
+	chess_move("c1-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\nk....\nppq.N\n..nP.\nP....\n.....\n..RK.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk....\nqp..r\npbBpn\nPPP.N\n...PQ\n...RK\n");
+	chess_move("c4-b5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk....\nqp..r\npbBpn\nPPP.N\n...PQ\n...RK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\n.....\nkr...\n.PPN.\n..R..\n....P\n...K.\n");
+	chess_move("a5-b6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 B\n.....\nkr...\n.PPN.\n..R..\n....P\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\n.Q.r.\npnPb.\n.p..P\n.Pk.K\nP.PB.\nRN...\n");
+	chess_move("c3-c4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n.Q.r.\npnPb.\n.p..P\n.Pk.K\nP.PB.\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\nk.br.\n.p.p.\nq.n..\n...p.\nP.QNP\n.RB.K\n");
+	chess_move("a4-b3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nk.br.\n.p.p.\nq.n..\n...p.\nP.QNP\n.RB.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 B\n.q...\nk...r\n.p...\n.Q..K\nPp...\nRn...\n");
+	chess_move("e5-e6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 B\n.q...\nk...r\n.p...\n.Q..K\nPp...\nRn...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\n....r\n.kqpp\nb.p..\n..nQP\n..PP.\nBq..K\n");
+	chess_move("c3-a2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\n....r\n.kqpp\nb.p..\n..nQP\n..PP.\nBq..K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\n...nr\np.kpp\n.....\nNPP.P\n.Q.K.\n.R.b.\n");
+	chess_move("b2-c2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n...nr\np.kpp\n.....\nNPP.P\n.Q.K.\n.R.b.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\nq.br.\n....p\n.Pkp.\np.PQP\nP.P..\nRB.K.\n");
+	chess_move("d1-e1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\nq.br.\n....p\n.Pkp.\np.PQP\nP.P..\nRB.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\nk..br\nRp..N\n.P.p.\n...p.\n....q\n.B.QK\n");
+	chess_move("e2-b2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\nk..br\nRp..N\n.P.p.\n...p.\n....q\n.B.QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\n...br\n....p\nk..pp\nP..K.\n...nQ\nRq...\n");
+	chess_move("e2-d2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\n...br\n....p\nk..pp\nP..K.\n...nQ\nRq...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\nk.r..\nq...p\nn.p..\n.b.P.\nPPPBP\nR..QK\n");
+	chess_move("c6-c5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\nk.r..\nq...p\nn.p..\n.b.P.\nPPPBP\nR..QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nkQbn.\np..p.\n...P.\n.....\nRBP.K\n.N...\n");
+	chess_move("b6-a6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\nkQbn.\np..p.\n...P.\n.....\nRBP.K\n.N...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk.br.\n....p\n.PPpP\np....\n.nPP.\n.R.K.\n");
+	chess_move("d1-e1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk.br.\n....p\n.PPpP\np....\n.nPP.\n.R.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\n.kqr.\np.p..\n.pPQp\nP....\n.PP.K\n.RB..\n");
+	chess_move("d6-d5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n.kqr.\np.p..\n.pPQp\nP....\n.PP.K\n.RB..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\n..bn.\np.p.r\n..PPp\n...QK\n.k...\n.R...\n");
+	chess_move("c6-d5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n..bn.\np.p.r\n..PPp\n...QK\n.k...\n.R...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("11 B\n..b.r\nNQppp\n..k.P\nP....\n.PBP.\nR...K\n");
+	chess_move("c4-d4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "11 B\n..b.r\nNQppp\n..k.P\nP....\n.PBP.\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\n.k..r\npPpQb\n....p\n.P..P\n..P.P\n....K\n");
+	chess_move("e5-d4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\n.k..r\npPpQb\n....p\n.P..P\n..P.P\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\nkb..r\np.pBp\n....n\nP..PP\n..N..\nR..QK\n");
+	chess_move("c5-c4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nkb..r\np.pBp\n....n\nP..PP\n..N..\nR..QK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 B\nk...r\np..P.\nb.Ppp\nR.N.q\n....B\n...K.\n");
+	chess_move("a4-c6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 B\nk...r\np..P.\nb.Ppp\nR.N.q\n....B\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 W\n..Nnr\n.kp.Q\n.p...\n..PP.\nqP.B.\nR...K\n");
+	chess_move("e5-e4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 W\n..Nnr\n.kp.Q\n.p...\n..PP.\nqP.B.\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\nk....\npnp.r\nP.bq.\n..pP.\n....P\nRB.K.\n");
+	chess_move("a1-a3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\nk....\npnp.r\nP.bq.\n..pP.\n....P\nRB.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\n.kb.r\n..pp.\n..pBp\nPQP..\n....P\nR..K.\n");
+	chess_move("e4-e3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n.kb.r\n..pp.\n..pBp\nPQP..\n....P\nR..K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\nbk...\n...p.\npppPK\nBP...\nP.P..\nRN...\n");
+	chess_move("b3-a4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\nbk...\n...p.\npppPK\nBP...\nP.P..\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 W\nkNbnr\n..pp.\npp..p\n....P\nRqK..\n..B..\n");
+	chess_move("a2-a1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\nkNbnr\n..pp.\npp..p\n....P\nRqK..\n..B..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\nkq..r\n.n...\nPpppp\nNp..Q\nRBP.b\n....K\n");
+	chess_move("c2-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\nkq..r\n.n...\nPpppp\nNp..Q\nRBP.b\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\nk...r\n...b.\nppn..\n.P..B\nP.QPK\nR....\n");
+	chess_move("d5-c6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\nk...r\n...b.\nppn..\n.P..B\nP.QPK\nR....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\n.....\n.pB.p\n..k..\nN....\nP.Qrq\nR...K\n");
+	chess_move("c2-d2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\n.....\n.pB.p\n..k..\nN....\nP.Qrq\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\nk..r.\n...pp\nP.b.P\nN.P..\nPRB.n\n....K\n");
+	chess_move("b2-b6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\nk..r.\n...pp\nP.b.P\nN.P..\nPRB.n\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 B\nk.bnr\n..Pp.\n....p\nP.N.P\n..p.B\n...K.\n");
+	chess_move("a6-a5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 B\nk.bnr\n..Pp.\n....p\nP.N.P\n..p.B\n...K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 B\nkq...\np.bp.\n.qp.N\n...K.\nP...P\nR..Q.\n");
+	chess_move("b6-b5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 B\nkq...\np.bp.\n.qp.N\n...K.\nP...P\nR..Q.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\n...nr\n.kPbp\np.Pp.\n.P...\n.....\nRN.BK\n");
+	chess_move("b5-a6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n...nr\n.kPbp\np.Pp.\n.P...\n.....\nRN.BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 W\n...br\n..kpp\nq..Kn\nPPpPP\n.....\n.RBQ.\n");
+	chess_move("b1-a1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 W\n...br\n..kpp\nq..Kn\nPPpPP\n.....\n.RBQ.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\n.k.Qr\n..b.q\nppP.p\n....P\nPPP..\nR..BK\n");
+	chess_move("a2-a3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\n.k.Qr\n..b.q\nppP.p\n....P\nPPP..\nR..BK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\nk..br\n..p.p\npqP..\n.P.p.\nP..nP\nB.R.K\n");
+	chess_move("e1-d2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\nk..br\n..p.p\npqP..\n.P.p.\nP..nP\nB.R.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nk..qr\nppBbp\n..n..\n..Q.P\nPP.NK\n...R.\n");
+	chess_move("d2-e4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nk..qr\nppBbp\n..n..\n..Q.P\nPP.NK\n...R.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 W\n....r\nk..bp\nPNn..\nP....\n.BPP.\n.R.qK\n");
+	chess_move("c2-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 W\n....r\nk..bp\nPNn..\nP....\n.BPP.\n.R.qK\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 B\nk.b.r\n....p\np..p.\nP.B.P\n....q\nn..K.\n");
+	chess_move("e2-c2");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\nk.b.r\n....p\np..p.\nP.B.P\n....q\nn..K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("15 W\n...kr\nq...p\n.pQpP\npP...\n..P.B\nRN.K.\n");
+	chess_move("d1-c1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "15 W\n...kr\nq...p\n.pQpP\npP...\n..P.B\nRN.K.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("19 W\n.k.nr\nq.p.p\np.b..\np.PBP\nPP...\n..R.K\n");
+	chess_move("d3-e4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "19 W\n.k.nr\nq.p.p\np.b..\np.PBP\nPP...\n..R.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("14 B\n..bnr\n..k.p\nqQpP.\nK..P.\nPpP.B\n.R...\n");
+	chess_move("a4-b4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "14 B\n..bnr\n..k.p\nqQpP.\nK..P.\nPpP.B\n.R...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 B\n..n.r\n..k.p\n.pb..\n....P\nP.BP.\nR...K\n");
+	chess_move("c5-b6");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 B\n..n.r\n..k.p\n.pb..\n....P\nP.BP.\nR...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\n.....\nppkp.\nb....\nN...K\n.PQ..\n..R..\n");
+	chess_move("c2-e4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\n.....\nppkp.\nb....\nN...K\n.PQ..\n..R..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("16 B\nkr...\nQ....\nN.qp.\n.p..K\nP..RP\n.b...\n");
+	chess_move("c4-c5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "16 B\nkr...\nQ....\nN.qp.\n.p..K\nP..RP\n.b...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 B\n..bnr\n..kp.\np..P.\n.pP..\n...Kp\n..RQ.\n");
+	chess_move("c5-b4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 B\n..bnr\n..kp.\np..P.\n.pP..\n...Kp\n..RQ.\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\nk..b.\n..p..\nqp.np\nPBQ.P\nP..pK\nRN...\n");
+	chess_move("c3-c4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\nk..b.\n..p..\nqp.np\nPBQ.P\nP..pK\nRN...\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("17 W\n..br.\nk..pp\n..p.N\nqpPPP\nR....\nQ...K\n");
+	chess_move("a1-b1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "17 W\n..br.\nk..pp\n..p.N\nqpPPP\nR....\nQ...K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("21 W\nk...r\np.q.p\n.Q..n\n.PpPp\n.RP..\n....K\n");
+	chess_move("d3-d4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "21 W\nk...r\np.q.p\n.Q..n\n.PpPp\n.RP..\n....K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("12 W\n....q\npkppr\n.p..p\nP.N.Q\nb.PPK\nR.B..\n");
+	chess_move("c1-d1");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "12 W\n....q\npkppr\n.p..p\nP.N.Q\nb.PPK\nR.B..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("13 B\n...b.\n..p.r\n..kpp\nq.PPP\nRP.BK\n.NQ..\n");
+	chess_move("c4-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "13 B\n...b.\n..p.r\n..kpp\nq.PPP\nRP.BK\n.NQ..\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nkq.br\npB...\nnp.Pp\n....p\n.RPK.\n.....\n");
+	chess_move("c2-c3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nkq.br\npB...\nnp.Pp\n....p\n.RPK.\n.....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("18 W\nb...r\npk...\n.Pnpp\nBP..P\nP.R.K\n.....\n");
+	chess_move("e2-d3");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "18 W\nb...r\npk...\n.Pnpp\nBP..P\nP.R.K\n.....\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("11 B\n.qbnr\n.k.P.\n.Pp.p\nQ...P\nNP.P.\n.RB.K\n");
+	chess_move("c6-c5");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "11 B\n.qbnr\n.k.P.\n.Pp.p\nQ...P\nNP.P.\n.RB.K\n") != 0) {
+		return false;
+	}
+	
+	chess_boardSet("20 W\nk..br\n.p.Qp\n.P...\n....q\nPpK.p\n.nR..\n");
+	chess_move("d5-e4");
+	chess_undo();
+	
+	chess_boardGet(charBuffer);
+	if (strcmp(charBuffer, "20 W\nk..br\n.p.Qp\n.P...\n....q\nPpK.p\n.nR..\n") != 0) {
 		return false;
 	}
 	
@@ -4168,7 +4168,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+	chess_boardSet("13 W\n.qb.r\n.pp.p\nk..pP\n.pPP.\nPPQ.K\nR....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4177,7 +4177,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nkrb..\np...p\nPpP.B\nR....\n...nP\n..qQK\n");
+	chess_boardSet("13 W\nkr...\npq.pP\n..p.n\nP...B\nb.KQP\n.N...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4186,7 +4186,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.....\n.n.p.\nkp...\npB...\nP.q.K\n....R\n");
+	chess_boardSet("20 B\nk...r\n.b.Pp\npp...\nP..P.\n..PBK\nRN...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4195,7 +4195,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n..k.Q\n.pb.p\n....P\npP...\nR..P.\nBq.K.\n");
+	chess_boardSet("13 B\n.q.N.\npkp..\nbp..p\n..P.P\nP.p.B\n.R..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4204,7 +4204,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n....N\nk.Q.p\nbp..P\nRK..P\n.PP..\n..Br.\n");
+	chess_boardSet("16 W\n.k..r\npp..p\n.PbpP\nqRp.P\nP.PBK\n...Q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4213,7 +4213,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.k..r\np..bp\n.pP.n\nPp...\n..Qq.\nRN..K\n");
+	chess_boardSet("13 B\nkN...\n..bQr\n.pp..\n.QP.p\nPP..P\nRB..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4222,7 +4222,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\n.Q.br\nk..Qp\np....\n...P.\nPp..P\nRnBK.\n");
+	chess_boardSet("17 B\nb...r\nkp.pP\np.B..\nP..p.\nRP.KP\n.N...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4231,7 +4231,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nkN.r.\np.bp.\nP...p\n.Pn..\n.P.KP\nRB...\n");
+	chess_boardSet("17 W\n.k.n.\n..r..\np.p..\nPBppP\n.P...\nRQ..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4240,7 +4240,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n....r\nkq.p.\n..Ppp\n.P..Q\nP...P\nR...K\n");
+	chess_boardSet("13 B\nk.q..\n.n.Qr\n.P.PN\np....\n.PPP.\nRB..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4249,7 +4249,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n..b.r\n.q..p\n.p.Qn\nR.kP.\n.PP.P\n.NB.K\n");
+	chess_boardSet("18 B\n...nr\npk.b.\n..q..\nPp..P\nR.K..\n.N...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4258,7 +4258,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n....r\nn.p.p\n.Pkpb\n.R...\nB..PQ\n.N..K\n");
+	chess_boardSet("13 B\nq.b.r\np.k.p\n.ppPn\nPP..P\n.Bp..\nRN.QK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4267,7 +4267,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n..kbr\np..p.\nPP..N\nQ....\n.P.PK\n.BR..\n");
+	chess_boardSet("14 W\n.k...\npbp.p\n.p.p.\n.PPq.\nP.QNP\nR.B.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4276,7 +4276,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk.qbr\n....p\n..p..\np.P..\nP...P\nRNQ.K\n");
+	chess_boardSet("13 W\n.q.r.\npkb.p\npB.P.\nN....\n..PK.\nR..Q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4285,7 +4285,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nk.bn.\npp.q.\n.P.Q.\n.....\nP..Np\nR...K\n");
+	chess_boardSet("20 W\nk...Q\n....p\n.....\n.qP.P\nP.Bp.\nRN.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4294,7 +4294,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.k...\n.Q...\np.n.p\nPpPKP\n.P...\n.RB..\n");
+	chess_boardSet("14 W\n.qbnr\n.k...\n.p..p\npPPp.\nB..PP\n.RQKN\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4303,7 +4303,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk..n.\n..Kbr\n..qP.\n....p\n.....\nRN...\n");
+	chess_boardSet("18 W\n....r\n.pkbp\n.....\nP....\n..P.K\nB...R\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4312,7 +4312,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk.nr.\n.qp..\n.p..b\npP.P.\nP.PPK\nR.Q..\n");
+	chess_boardSet("13 B\n.qb.r\nk...p\npp..p\nnP.Q.\nP....\n..B.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4321,7 +4321,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nkqr..\n...bp\np.p.P\nN...P\nPPpQK\n..RB.\n");
+	chess_boardSet("12 B\n.k.b.\n.ppqr\np..pn\nNP.Q.\nP.PK.\nRB...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4330,7 +4330,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk.r..\n.ppb.\np..q.\nN...P\nPBP..\nR..K.\n");
+	chess_boardSet("18 B\nkb...\n.p...\npPp.p\n.....\nPB..P\nRq.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4339,7 +4339,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n..r..\nkbppp\npP..q\nP..PP\n.....\nRQB.K\n");
+	chess_boardSet("15 B\nQ..br\n..p..\nk.P.p\nPQ...\nB..Pp\nRN.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4348,7 +4348,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nk....\np.brp\n..ppP\npPQPK\n.....\n.RB..\n");
+	chess_boardSet("19 W\nkb.nQ\n..p.r\np...p\n..q.P\nPP.P.\nR...K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4357,7 +4357,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk..Nr\n..pp.\n....q\n.P...\n.pP.Q\n.RB.K\n");
+	chess_boardSet("15 B\n..b..\nq.ppP\npkPN.\n....p\nPP.nP\nRB.QK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4366,7 +4366,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nk.r.b\npK..p\n...p.\n...P.\nN.BQP\n.....\n");
+	chess_boardSet("17 B\nk...r\n.Q...\n..ppP\np..BP\nR..N.\n...K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4375,7 +4375,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nk....\npp...\nPP.bp\nN..Rp\n...K.\n...B.\n");
+	chess_boardSet("13 W\nkq...\n.n.Qr\nNp..p\nP..P.\n.PB.P\n.R.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4384,7 +4384,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.k...\npp.rp\n.b.B.\nNq..P\nPPpK.\n....R\n");
+	chess_boardSet("14 B\nkb..r\nB.q..\npQppn\n...PP\nPP..K\nR....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4393,7 +4393,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n..r..\nk..pb\np.RQ.\nP...p\nP.P.P\n...BK\n");
+	chess_boardSet("13 B\n.kq.r\np..pp\n..p.B\nb.P.P\nPP.n.\nR..K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4402,7 +4402,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk...r\npp.Pp\n..p..\nqR.P.\n.nP..\n.N.QK\n");
+	chess_boardSet("19 B\n.k.nr\nRqP.b\n.p..P\n.PB..\n..QP.\n....K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4411,7 +4411,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkq..r\n.bppp\n.....\n.pNPP\nPP..B\nn..QK\n");
+	chess_boardSet("13 B\nkb...\n..ppr\nP...p\nP.pqP\n..QN.\nR..BK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4420,7 +4420,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk..br\nq.pp.\np.PQp\nn...P\nPPBP.\nRN..K\n");
+	chess_boardSet("20 B\n.q..r\nb..pP\nk.p.P\nP.P.K\n....B\nRN...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4429,7 +4429,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk..b.\n.p.p.\npqN..\n.Pr..\n.PQPK\nR.B..\n");
+	chess_boardSet("13 B\nk...r\np.p.p\n.pPq.\nP.P..\n.Pb.P\nR.QBK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4438,7 +4438,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n...r.\npkp.p\nnPqBP\n.bP..\n...P.\nR..QK\n");
+	chess_boardSet("14 B\nk.bnr\nqpp..\nQp..p\nP.P.P\n.R.P.\n..B.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4447,7 +4447,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n..kQr\n...p.\np.q..\n..n.P\n.B.P.\nRN.K.\n");
+	chess_boardSet("21 W\n...q.\n....p\n....b\nkP..Q\n..P.P\n.KRr.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4456,7 +4456,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..q.\nPpppr\nP...p\n..PnP\n...QN\n...K.\n");
+	chess_boardSet("17 B\n...qr\np.k..\nP.npp\n..pP.\n....P\nBR.QK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4465,7 +4465,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nkqr..\n.pP.p\n.n...\npP..b\nP.PPN\nB.RQK\n");
+	chess_boardSet("15 W\nk....\nqp..p\n...Pp\n.p...\n.B.PP\nR...K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4474,7 +4474,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nq..n.\np.kB.\nP.p.p\np....\n...PP\n.R..K\n");
+	chess_boardSet("12 W\nk.b.r\np..pp\npq..n\n..Pp.\nPP.KP\nRN...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4483,7 +4483,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n.b..r\n.k.Pp\npKq..\nPp...\n.PPB.\nRN...\n");
+	chess_boardSet("11 B\n..bnr\n.kppp\nPq...\np.KP.\nP.P.P\nRB.Q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4492,7 +4492,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nkr...\np.p..\nPp.qp\nNPnb.\nB..QP\n.R..K\n");
+	chess_boardSet("13 B\n.k..Q\n.ppp.\np...r\nQ...P\n.Pq..\nR.BK.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4501,7 +4501,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n.b...\nqk.p.\n.P...\npP.P.\nP..Pr\nRN..K\n");
+	chess_boardSet("14 B\n...br\npkpNB\nPpq..\n.P..P\nR.P..\n..KQ.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4510,7 +4510,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.r..b\nkppp.\nQ.B.p\nP.P.P\n.P...\nRn..K\n");
+	chess_boardSet("17 B\n.k.br\n....p\np...p\n.q.P.\nPBQK.\n.R...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4519,7 +4519,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nkb.q.\n..pPp\np..P.\nP.N..\n.P...\nRnBK.\n");
+	chess_boardSet("17 W\n.b...\n.qr.P\nk.p..\nQ.p.B\nPP..P\nRN.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4528,7 +4528,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n..k.r\n..b.p\n.pp.n\nPP..Q\n....P\nRB..K\n");
+	chess_boardSet("16 W\nk..n.\np.bpr\n..q..\n..PP.\nP..KB\nq.Q..\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4537,7 +4537,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nq...r\n...pp\nN.Pb.\nkP..P\nRP..K\n.BQ..\n");
+	chess_boardSet("20 B\nk...r\n..pPQ\npp.PP\n.....\n.b...\n...K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4546,7 +4546,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.qr..\np..pp\n.bP.n\n..P.k\n.PB.Q\n.R..K\n");
+	chess_boardSet("19 W\n.....\nk.pNp\n...r.\n.P..P\nQ.PKp\nR....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4555,7 +4555,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nkq...\n.nb.r\n..Pp.\nPpP.p\n.PB.P\nRN..K\n");
+	chess_boardSet("17 W\n...nr\nkp..q\nN..p.\n.P.bP\nP.P..\nR.B.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4564,7 +4564,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk..r.\np.q.p\np..b.\nN..KP\n.P.Q.\nRB...\n");
+	chess_boardSet("15 B\n..r..\nkp.p.\nq.Qb.\nN...p\nPP.PP\nR..BK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4573,7 +4573,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nqr...\nbpppp\nkP...\n.....\nnQ.NP\n..R.K\n");
+	chess_boardSet("13 B\n...nr\npqpP.\npk...\n.P..p\nN.QPK\nRB...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4582,7 +4582,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nkB..r\np..pp\nb.P.N\nP....\nP..pP\nR..K.\n");
+	chess_boardSet("20 W\nq.b..\n....r\npkp..\nP..BP\n.PPp.\nR...K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4591,7 +4591,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk..nr\npN...\nq...p\nBPpp.\nP.PP.\n..RQK\n");
+	chess_boardSet("11 B\nk...r\nQ.p.p\np...n\n...P.\nPPPQ.\nRNB.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4600,7 +4600,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n..b.r\nkn...\n...q.\n..p.P\nRPP..\n..BK.\n");
+	chess_boardSet("16 B\n..kr.\nb.ppp\n.P..n\nQ.P..\nP..PP\nR...K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4609,7 +4609,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n.k.n.\n.p.br\n..pQp\n..PP.\nP.B.P\nRN..K\n");
+	chess_boardSet("20 W\n.....\nk....\nP.N.n\n.....\nP...P\n..R.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4618,7 +4618,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nk....\n...rp\n.....\npP.QP\nP..QP\n..R.K\n");
+	chess_boardSet("15 B\nk.r..\np.pbp\nPpNp.\n.P.PK\n.RP.P\n.B.Q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4627,7 +4627,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n..b.r\nkp.p.\n....p\nPn.pq\nRBPKQ\n.N...\n");
+	chess_boardSet("16 W\n...q.\n.pkpr\n.....\n..PPp\nPB...\n..R.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4636,7 +4636,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n....r\npk.qp\nPQPN.\n.n.RP\n.P..P\n....K\n");
+	chess_boardSet("12 W\nk.bnr\n...pp\npp.q.\nPp.PP\n.PP.B\nRN.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4645,7 +4645,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n...r.\n.pbBp\nqk...\nP.Pp.\n...KP\nRN...\n");
+	chess_boardSet("17 W\nkb.r.\nqp..n\n..pPP\n..P..\nPB...\n..RQK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4654,7 +4654,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk.r..\np.pKp\n..P..\nn....\nP.B.P\nR.q.Q\n");
+	chess_boardSet("16 B\n.k.r.\np.q..\nb.P.B\np.PP.\nP..N.\n.R..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4663,7 +4663,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n.....\n.bpr.\nk..Bp\nPp.nK\n.P..P\n.R...\n");
+	chess_boardSet("14 W\nk..r.\np.Q.p\nPpp.N\n.q...\nRPP.p\n.B..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4672,7 +4672,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n.q.br\nnkp..\n.ppPp\npP..P\nP.NB.\n.R.QK\n");
+	chess_boardSet("12 W\n.kb.r\nqPp.p\n...pN\nPQP..\n...PP\nR..BK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4681,7 +4681,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nk.br.\n....p\n...pP\nBq...\nP..K.\nR..q.\n");
+	chess_boardSet("19 B\nk.br.\np.qp.\n.....\n..p.R\nPPPn.\n..Q.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4690,7 +4690,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.b.r.\n.Pp..\nQk..p\nPpNp.\nR..KP\n.....\n");
+	chess_boardSet("13 W\nk.b..\nq..pr\n..p.P\np.P..\nPnKpQ\nRN...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4699,7 +4699,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.qb..\nkpp.r\n..np.\nBPPPp\nP...P\nR..KQ\n");
+	chess_boardSet("16 B\nkq..r\n.N.bp\n.p.Q.\np....\nPPPnK\n.RB..\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4708,7 +4708,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.kbnr\nRP..p\n..Pp.\n.B...\n..PPP\n..qQK\n");
+	chess_boardSet("14 B\nq..nr\npk.pB\nPb.P.\n.pp..\n..QNP\nR...K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4717,7 +4717,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nk..qr\np..b.\n...Nn\n.pP..\npQ.K.\n..RB.\n");
+	chess_boardSet("17 B\n..Q.r\n..kp.\nP.p.p\n.Rq.P\n...P.\nBN.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4726,7 +4726,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nk.qnr\npp...\n...Qp\n.....\nP.PPP\nRNBQK\n");
+	chess_boardSet("13 W\nk....\np.pp.\nN..pn\npPP.K\n....Q\nR.Brb\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4735,7 +4735,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.kQ.r\np.p.p\n...BP\n...P.\nPbP..\n.n.KQ\n");
+	chess_boardSet("19 W\n..r..\nkbp..\nP.n.p\n....P\nPp...\n.R.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4744,7 +4744,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk...r\nqppbp\np..pn\nP..P.\nRPPNP\n..BQK\n");
+	chess_boardSet("16 B\nkr...\n.P.pp\np.pQ.\nP....\n....P\n.B.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4753,7 +4753,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n..k.r\n..pp.\npRPbp\nP...P\n.B.K.\n...q.\n");
+	chess_boardSet("21 W\n.k.b.\n.NBp.\nPp...\n.p..K\n..rn.\n.R...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4762,7 +4762,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n.b.r.\np..pp\n.....\npk.P.\n.nKN.\nR..B.\n");
+	chess_boardSet("12 W\n....r\nk..pp\n.q...\nPbQ.P\n..p..\nRN.BK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4771,7 +4771,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk.q.r\n...p.\n..np.\npP...\nPBPQP\nR.K..\n");
+	chess_boardSet("13 B\nk...r\n...P.\nppNb.\n.....\nPqP.P\nR..KQ\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4780,7 +4780,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n..b.K\nk..p.\nP..PP\nNppB.\n..R..\n....Q\n");
+	chess_boardSet("13 W\nk...r\n...bQ\n.....\npp.Pn\nPPqKP\n.R...\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4789,7 +4789,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk..n.\n.P.r.\n....p\npPb.q\nPQ.p.\nRN..K\n");
+	chess_boardSet("14 W\n.qbn.\nk...r\n.p.pN\n.PP.P\nP.BPK\nR..Q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4798,7 +4798,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nRb.r.\n.kp.p\n..p..\n.p.PK\n.P..P\n...q.\n");
+	chess_boardSet("21 W\n.k...\npn.pP\n..BK.\nP..p.\n.q...\nR..Q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4807,7 +4807,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.kb.r\np.P.p\n.pqp.\n....P\nP.P.n\nRNB.K\n");
+	chess_boardSet("16 B\nk...r\n..p..\npPp..\n.B..p\nP..Pp\nRQ..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4816,7 +4816,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n..Qr.\nk....\np...p\npnp..\nR.PPB\n.N..K\n");
+	chess_boardSet("16 W\nk....\n.r..p\nPp.p.\npb.P.\nP.Q.P\n.RB.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4825,7 +4825,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk.q.r\np....\n..bpp\npNnPP\n.RP.Q\n...BK\n");
+	chess_boardSet("14 W\nk..br\np..Pp\nnq...\n.K..P\nP....\n..q.Q\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4834,7 +4834,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n.k.nr\nNqb..\n...P.\n...pQ\nP....\n...RK\n");
+	chess_boardSet("15 W\nk.q.r\np.p..\n.....\nP...p\nn.PBP\n....K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4843,7 +4843,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n..k.r\nn..Qq\np...p\nPpNP.\n.....\n...KR\n");
+	chess_boardSet("11 B\nkq..r\np.B.p\nP.p..\n.b...\n..QPP\nR..nK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4852,7 +4852,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n.br..\n.k.pp\np..P.\nR...P\n.PPKQ\n..B..\n");
+	chess_boardSet("14 B\n.k..r\nQ.nb.\n...pp\nB.P.P\nP..P.\nRN..K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4861,7 +4861,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nk....\np..p.\n..pPr\n.PP..\nq...P\n...RK\n");
+	chess_boardSet("15 B\nkq..r\n..pp.\np.B.p\nP.P.P\n...K.\n.RnQ.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4870,7 +4870,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n...br\nk..Bp\np.nP.\n.qP.P\nP...K\n.....\n");
+	chess_boardSet("12 B\nk.r..\n.qb.p\npp.p.\n...PP\nPPQ..\nRnB.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4879,7 +4879,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n..bnr\np.k.p\n..pNp\n..qK.\nP....\nR....\n");
+	chess_boardSet("14 W\nk...Q\n..bqp\n..N..\n..p.P\n....K\nR....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4888,7 +4888,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nkq...\np.p.p\n.....\n.bNrP\nPP...\nR..KB\n");
+	chess_boardSet("19 B\nk...r\n.n.p.\npP..p\nR.B.P\n..QK.\n.....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4897,7 +4897,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk...r\nq.bKp\npp..P\nPpB..\n.P.P.\nRN...\n");
+	chess_boardSet("19 W\nk.q.Q\n.Q...\n..p..\n..N..\nPB.bK\n...R.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4906,7 +4906,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nb...r\nk.pp.\n.P.P.\n...P.\nKn.NB\nR...Q\n");
+	chess_boardSet("16 B\n....r\n.b.pp\nkpP.n\nRpPQ.\n.....\n.N.BK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4915,7 +4915,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.k..b\n..p.r\n..P.p\np.qP.\nR.Q..\n.B.NK\n");
+	chess_boardSet("15 W\n.kb..\np..p.\n.P.Pr\nnQ...\n.B.KP\nRN.q.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4924,7 +4924,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkqr..\npp...\nb.pPp\n..P..\nPPB.p\n..R.K\n");
+	chess_boardSet("16 B\nkQ..r\np...p\n..ppP\n....q\nb.PP.\nR.K.Q\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4933,7 +4933,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.q.br\nk.pp.\nppPPp\nP.PKP\nQ....\nRNB..\n");
+	chess_boardSet("11 B\n..b.r\nkp.pp\np.pq.\nPQPP.\n.P..P\nRNB.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4942,7 +4942,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.k.nr\npp...\nRP.PP\n....P\n.P..K\n.B..q\n");
+	chess_boardSet("15 W\n.b.nr\n..ppp\nQR..K\n..P.P\nPk.q.\n.....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4951,7 +4951,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk.B..\np..pp\n..nN.\nbPpP.\nPRP.P\n...QK\n");
+	chess_boardSet("20 B\n.r..q\nn..kp\nP.PpP\np....\nP.bB.\n..RK.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4960,7 +4960,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.kbnr\n...pp\np.pQN\nPpP.P\n.P..P\nR.B.K\n");
+	chess_boardSet("13 W\nk...r\npp.q.\n....p\n.PbQ.\nP..N.\nR.B.K\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4969,7 +4969,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nr....\n..k.p\np.p.P\n.PQ..\nR.P..\nqBK..\n");
+	chess_boardSet("11 B\nk.b.r\nq.P.p\n..R..\np..P.\nP..P.\n..BQK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4978,7 +4978,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nk.bn.\n..P.r\np...p\nP.Nq.\nRP...\n..QBK\n");
+	chess_boardSet("14 B\n.kr..\n..b.p\n..pp.\nP.P.P\n.q...\nRNQK.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4987,7 +4987,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n.k...\nqB.rQ\npP..p\n.P.pP\nb..K.\nRN...\n");
+	chess_boardSet("21 W\n....r\nNn.Qp\n.pp.b\np..BP\nP....\nRk.K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -4996,7 +4996,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n...Qr\n.k...\n.....\n.p...\n.BPP.\nRN.QK\n");
+	chess_boardSet("20 B\n.k...\n.n.pr\nP..Pp\nq.b.P\nPpP..\nR..K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5005,7 +5005,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nkb.r.\n.pp.p\np....\nN..QP\nPq...\n.R..K\n");
+	chess_boardSet("21 W\nN..r.\n...p.\n..K.p\nP.k.P\nP.P..\n..RB.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5014,7 +5014,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nk.r..\nq...p\nP..pP\n.pp..\nPB.QP\n.R..K\n");
+	chess_boardSet("18 B\nk.r..\np..pp\nbq...\n.P..P\nR.QPK\nB....\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5023,7 +5023,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk.bn.\n..pp.\npqP.r\n....P\nPP.K.\nRB.N.\n");
+	chess_boardSet("15 W\n....r\n.kp.p\np..qb\np..PQ\nN.P.B\n...K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5032,7 +5032,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nkr...\n.P..p\n..B..\n....p\n..N.P\nR...K\n");
+	chess_boardSet("11 B\nqb.r.\n.kp.p\npPp.n\n..Np.\nPB.P.\nR.QK.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5041,7 +5041,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nk....\nq.p..\nn..p.\n..p.Q\nR..P.\n.Q..K\n");
+	chess_boardSet("17 W\n.k..r\np..p.\n.p.bp\nnP.Q.\n..PNP\nR..K.\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5050,16 +5050,7 @@ bool test_movesShuffled() {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk..qr\np.PNp\nP..p.\nP....\n..K.P\nR.n..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 10) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\nk...r\n....p\npQ.qP\nPPp..\nR.P.K\n..B..\n");
+	chess_boardSet("15 W\n....r\nkbppp\n.....\nqPPPP\n.....\n..BQK\n");
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
 		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
@@ -5100,700 +5091,693 @@ bool test_movesEvaluated() {
 		return false;
 	}
 	
-	chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+	chess_boardSet("12 B\n.kqn.\n.pr..\np..Pb\nP.pP.\n.PP.K\nRN.B.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk..qr\np..pp\nPbp.P\n..Pn.\n.Q.NK\nR....\n");
+	chess_boardSet("20 W\nb...r\n.p..p\nk.N.P\n.....\nP.PKp\nq....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n.q..r\n.ppPp\n.kn..\nPp.p.\n.B...\nR..QK\n");
+	chess_boardSet("19 B\n..Q.r\n...kp\npp.P.\nRp...\n.P.PN\n....K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\n.q.Qr\n....p\nb.k.n\nP...P\n..BP.\n.R.K.\n");
+	chess_boardSet("20 B\n.....\nk.q..\n.p...\n.Pp.B\n..n.P\nR.K..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\n..k.Q\n..p..\npb..Q\nPq.rP\n.P.K.\nR....\n");
+	chess_boardSet("12 B\n.kbn.\np..Nr\n.ppPp\n.q..P\nPBP.Q\n..RK.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n.b..r\n.Q.pp\n.....\nBkP.n\n....P\n..R.K\n");
+	chess_boardSet("13 B\nqkbr.\n.pp.n\np....\nP...p\nQP.NK\nR....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\n..b.r\npkp..\nPPnp.\n.P..p\nR.q.P\n.NBQK\n");
+	chess_boardSet("17 B\n....r\nkB.p.\n..p.p\n...Kb\np.P..\n.N...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk.b.r\np..p.\n...qp\nn.PPQ\nP.p.P\nB.RK.\n");
+	chess_boardSet("13 B\nk.bnr\np..p.\nPq.Qp\n.pN.P\nRP.PB\n....K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n.q..r\nk..np\nb.pP.\nPQ.BP\n....K\n.q...\n");
+	chess_boardSet("13 W\nkq.n.\np.p..\n.p.p.\nPbPQ.\n.P...\nRB.K.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk...r\np..qp\nPp..n\n.PP..\nRbQK.\n.....\n");
+	chess_boardSet("20 B\n.kb..\np.pp.\n..Pr.\n...P.\nP.K..\nRN.B.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk....\np.pbr\nqp..n\n.P..B\nQ.P.P\nRN.K.\n");
+	chess_boardSet("13 W\n.k.nr\n.Nbpp\nppq..\n.PPB.\nP.p.P\n.R..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n.q..r\nk....\nppppP\n.QP.P\nP....\nR...K\n");
+	chess_boardSet("19 W\n..k.r\np....\n.....\nK.n.P\n.PP..\nR..N.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nk..qr\n..p..\n.p..p\nPb.PN\n.QPB.\n...K.\n");
+	chess_boardSet("15 W\n...r.\nk.pPp\np..P.\nbP...\n.nN.K\nRB...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nnQ.br\n...p.\n.k..p\nQP..P\nP.PK.\nRN...\n");
+	chess_boardSet("17 W\nk.q.r\nPp..p\nP..Pb\n..p.P\n.nPQK\n..R..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nq.br.\n..pP.\npk...\nP.PPP\nR..p.\n.N.K.\n");
+	chess_boardSet("15 W\nq...r\n...bp\np...N\np.P..\n.k.PP\n....K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nk....\n.b.p.\n.B.pn\nPp...\nR..P.\n..Q.K\n");
+	chess_boardSet("17 B\nkq..r\np.pN.\n.P..P\n.....\n.....\n.q.RK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk...q\n.ppr.\n..Qpn\nPpP..\nR...P\n.N.BK\n");
+	chess_boardSet("12 B\n.k.nr\npq..p\nP....\n....p\nN.PP.\n..BQK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n.q.br\nk.p.p\n..p..\n.p.pN\nPB.PQ\nR...K\n");
+	chess_boardSet("18 W\nk...r\nq...p\n.....\n.pNP.\nR...P\n..K..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk...r\n.q...\nP.p.n\n.BPp.\nP..PK\nRN...\n");
+	chess_boardSet("14 W\nb...r\np.pnp\nPpk.p\nN...Q\nP..PP\n.R..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nkq..r\np.pp.\n..nPN\nPP.bP\nBRQ..\n...K.\n");
+	chess_boardSet("13 W\n.qb.r\nkNp..\n...p.\nBp.p.\nPnP.P\nRQ.K.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nqbQ..\n.kp..\npPn..\n....p\nPPKPP\n.R.B.\n");
+	chess_boardSet("12 W\n.bQ..\nkpnpp\nB.p..\n..P..\nPPN.P\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nq....\nkp.Q.\np.np.\nPP...\n..B.K\n.R.r.\n");
+	chess_boardSet("14 W\nkqbB.\npp.r.\nQ.P.p\n..pP.\nP...P\nRNK..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nkq.N.\np..p.\nbp.r.\n.PQ..\n..n.P\n.RBK.\n");
+	chess_boardSet("11 B\n..bnr\n.kpN.\np...p\nPP..q\n.P.PK\nR.B.Q\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nk..r.\n...p.\n..pnp\n.....\n.RPPK\n.QQ..\n");
+	chess_boardSet("19 W\n..r.k\np.q.p\np.KNP\n.....\nRpP.P\n...Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n..kr.\nRQpp.\n....p\n..BPP\n.....\n...qK\n");
+	chess_boardSet("13 W\nk..r.\nb....\n.Pppp\nP....\n.P.PP\n.R..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nk..br\n.qP..\np.n.p\n...pP\nP..QB\n.R..K\n");
+	chess_boardSet("18 W\nkn..r\np..p.\nP...p\nB..p.\nR...q\n.Q..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\n.Nb.r\nk.pp.\n.pQ.n\n....B\nP.P.P\nq...K\n");
+	chess_boardSet("13 W\nk.b.r\nQpq.p\n..P.p\n..p..\nP.PP.\nRN.K.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..nr\n.b...\nR...p\n..P.P\n.....\n.Q.BK\n");
+	chess_boardSet("11 B\n..bnr\n..kp.\npq.pN\nP..K.\n.PB.P\nR..Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.q...\nkP..p\np....\nR.Pnr\nQb...\n..BK.\n");
+	chess_boardSet("15 W\n.k..r\np.P.p\np....\n.Rnb.\n..PQp\n..B.K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n...br\n.k...\npn..p\nP...P\nQRP.N\n..K..\n");
+	chess_boardSet("17 W\n..b..\n.qprp\npk...\nP..PP\n.RPpK\n..B..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nkr...\np....\nb.pp.\np...B\n...q.\nR..QK\n");
+	chess_boardSet("20 B\nkb.r.\n...pp\nP..q.\np.B..\nP.QPK\nR....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk.b.r\np....\nPPp..\n.PNq.\n...RP\n....K\n");
+	chess_boardSet("12 W\nkb.r.\n.p.q.\np.ppP\nP.B..\n.PK..\nRN.Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nkq.b.\n.pPN.\np..P.\nP..P.\n.nQp.\n..B.K\n");
+	chess_boardSet("18 B\n.kbr.\n..qp.\n.p..p\n.P..P\n.R.PQ\n...NK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nk...r\nq...p\nRP.p.\n.P.pP\n...nK\n..Q..\n");
+	chess_boardSet("13 B\n.kq.r\npP.p.\nb..Pp\nN.P.K\nP...P\nR.B..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.qb..\n.k.rp\npP.p.\nP.pP.\n..PQP\nR..BK\n");
+	chess_boardSet("15 W\n.k..r\n....p\nQ..bP\nP....\n...KP\nRN.q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n...r.\nkq.pp\n..p.N\nPp..Q\n..P.P\n.R.BK\n");
+	chess_boardSet("17 W\n.b.qr\n.k..p\n...p.\nPp.pK\nRP.n.\n.....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nk.Q.r\n.bq.n\n.....\n.pPp.\n.B..P\nRQK..\n");
+	chess_boardSet("14 B\nk...r\npn..p\n.q...\nPp.bP\n..PP.\nRB.KQ\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n.b..r\nP..kp\np...P\nn..P.\nBP.Q.\n..R.K\n");
+	chess_boardSet("19 B\n.kQbr\nq...p\nP...p\n.PK..\n..P..\nRB.n.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nkN...\npb...\n.PP.p\n.P...\nR.QrP\n....K\n");
+	chess_boardSet("13 B\nkb.n.\nq.p..\np....\nPp.P.\n.PPPK\nRB.Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.k.r.\npn...\nP.p.b\n.P.pP\nRqPKP\n..BNQ\n");
+	chess_boardSet("12 W\nk...r\n..Pbp\np....\nP...P\n.q.Np\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.....\nkp..N\n...rp\nRP.pQ\n..P.P\n....K\n");
+	chess_boardSet("17 B\nkb.n.\n.p..r\n.N...\n..PQ.\n...qP\nB...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nkq.r.\n.....\npp.p.\nb.PpP\n.P.K.\n.RB..\n");
+	chess_boardSet("12 B\nk..r.\nq.p..\np.Q..\n..PP.\nP....\n.RbQK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n.q.N.\nkb..p\nppppB\n.QPP.\nPP.nP\n..R.K\n");
+	chess_boardSet("15 W\n.N.r.\n.kbpp\np..p.\n.PpK.\nPB.nP\nR...Q\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n....r\npkpb.\npK...\nPqPpP\n.B...\nR...Q\n");
+	chess_boardSet("16 W\n..bnr\n..q..\nk..pp\n.pPPP\n.Q..K\nRN...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n.q.br\np...p\n.p.kP\n.Q...\nP.PP.\n...RK\n");
+	chess_boardSet("18 B\n.k...\n.n.Br\n.p.KP\npP.q.\nP..P.\nb....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n...Qb\n....r\nppk.P\n.....\n..P.K\nRNqQ.\n");
+	chess_boardSet("15 W\n.k.nr\n...p.\n.N...\n.Pq.p\n...K.\nRQ..b\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.b...\n.p...\n.kNp.\n.....\nPqPBP\n.R.nK\n");
+	chess_boardSet("16 W\n.....\n.pprp\nk....\n.PpP.\nPRP..\n..BK.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n...nr\n.pk..\n..p.K\n...R.\n.PP.P\n...B.\n");
+	chess_boardSet("14 W\n.r...\n.qb.p\n.kp..\nPp...\nRP.nP\n..BK.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\n.....\nPk.p.\n...bp\n....P\n.nPBK\n.Q...\n");
+	chess_boardSet("13 W\n..r..\nknp..\npP.pp\n..pP.\nP..P.\nRB.QK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nk..r.\np.p.p\nP..p.\n.qPPK\nR...P\n.B.Q.\n");
+	chess_boardSet("12 B\nQ.k.r\np..pp\n....n\nRp..P\n..PK.\n..BN.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk.qr.\n...p.\n..Q..\np.P..\nRP.KP\n.B...\n");
+	chess_boardSet("19 W\n..b.r\npk.Kp\n.p...\n....q\nP.P.B\n..R..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n.....\n..Q.r\nk.p.p\n.PPpP\nP....\nR.B.K\n");
+	chess_boardSet("18 B\nkb...\n....B\n.ppr.\n.p..P\nPQ.N.\n..R.K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nQ.kbr\n....p\nqp..p\n.p...\n.PB..\n..R.K\n");
+	chess_boardSet("15 B\nkqb..\np.R..\np..P.\n.....\n.p.BP\n.N..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nkQ.nq\n.....\n..p..\n..P..\nPPBKr\nR....\n");
+	chess_boardSet("20 B\n.kr..\n..p.p\np.Pp.\n..Q.b\nP.BKP\n.R...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n.q..r\n.kpbp\n.pP..\n.P...\nP.NBP\nR...K\n");
+	chess_boardSet("15 B\nkb...\n..p.p\nP..B.\np...P\n..PrK\n.RQ..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\n.q.nr\n.b...\npkp.p\nPPPpP\n...PQ\n.RB.K\n");
+	chess_boardSet("20 W\nk.r..\np..b.\nP...N\n..qp.\n..pP.\n..K..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nq.r..\n.kppP\nppP..\nQP...\nP..bK\nRN.n.\n");
+	chess_boardSet("12 W\nkq.nr\np...p\n...pb\n...P.\n.p..P\nRBQ.K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk...r\np.qbp\n....B\n..p..\nPPQP.\nR...K\n");
+	chess_boardSet("19 B\n.k.Qb\n..B.P\npp...\nN.P.q\n.....\n...RK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nqkb.r\n....p\nP.pP.\n....P\nR....\nBN..K\n");
+	chess_boardSet("15 W\n....r\npkpbN\n...q.\nPp.PB\n.P..P\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk...r\n.N..q\nppnpp\n..B..\nP.b.P\n.RQ.K\n");
+	chess_boardSet("19 B\n...nr\n....p\n.kP..\n..pb.\n.PQBP\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n.b.nr\n.k.N.\npq.p.\nPB.Pp\n.R..P\n.Q..K\n");
+	chess_boardSet("16 B\n.k.r.\n..p.p\npp.p.\nNK..q\nPPP..\n...RQ\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nq..br\n...kp\np....\np.P.P\nB.K..\nR.QN.\n");
+	chess_boardSet("13 B\nk..b.\n.Q..r\np.p.p\nP...P\n...N.\nR.B.K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n.....\nkpbp.\n....r\n..P..\nq.K.P\n....R\n");
+	chess_boardSet("18 B\n...r.\np...p\nqkpQP\n....b\np.P..\n.NR.K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk..r.\npqp.n\nP...P\n.Pp..\nb.PKP\n.RB..\n");
+	chess_boardSet("15 W\nkr...\n..Q.p\np.bpn\nN.P.P\n.P..P\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nq.br.\nk.B.p\nQp..P\np.N..\nPP..P\nR...K\n");
+	chess_boardSet("18 B\nk...r\n.p..p\nQPPpP\nN...P\n..P.K\nR....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n.....\nkqr..\np..pp\n.pP.P\nPB...\n..RK.\n");
+	chess_boardSet("19 B\n.....\nk.r..\n..p.Q\nN.P..\nP....\nRb.K.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk.bn.\n...q.\npp.K.\nPPNpr\n..P.P\n.R...\n");
+	chess_boardSet("14 B\nk.b..\np.Bpr\nq...p\n..Pp.\n.Q.K.\nRN...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n....r\npk..p\n.ppb.\nPP..Q\n..PP.\nRnK.B\n");
+	chess_boardSet("16 W\nk....\npnqr.\n...p.\nR.NPp\n.BpPP\n...K.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nk...r\n..p.p\n.p.Pb\n.Pn.P\nNRPB.\n..Q.K\n");
+	chess_boardSet("12 W\nk.bnr\n.qpNp\n.....\nR...P\n..PPp\nB...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\n..bn.\npk.q.\nPB.p.\n..pp.\n....r\nRN.QK\n");
+	chess_boardSet("11 B\nk...r\npb.p.\n.P.Bp\n.q...\nP..PP\nR..QK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nkq..r\n....p\np..Pb\n.K.Pp\nPn.Q.\nR.B..\n");
+	chess_boardSet("17 W\n..qbr\np.p.Q\nB....\np...P\n.pkN.\n...RK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nk.r..\n.N...\npp.p.\n..n.q\nP....\nR.BK.\n");
+	chess_boardSet("15 B\nk..nr\np..qp\n..P..\nP.P..\n..BPK\n.R.Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.kB.r\n....q\nP.p..\nb.R..\n...pP\n....K\n");
+	chess_boardSet("18 W\n..kqr\n....p\n..Pbn\np.P..\nP...P\n.R.BK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nkr...\n..b..\npp...\nP.KpP\n.qP..\nR...Q\n");
+	chess_boardSet("16 W\n.q...\n.k.Nr\npP.pn\nP.B.p\n.QP.p\nR..K.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n..qnr\nkpp..\npb.pP\n..P.K\nPQ..P\nRB..N\n");
+	chess_boardSet("13 W\n..b.Q\n.k...\np.p.p\nPnP.P\n.PN.P\n..RBK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkNbr.\n..qpp\n..P..\nRP...\n..PKP\n..B.Q\n");
+	chess_boardSet("16 W\n.q..r\nPkb.p\n.Bp..\n.P.nP\n..K..\nR..Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nk....\n....p\n..rRP\n..P..\n..p..\n...BK\n");
+	chess_boardSet("15 B\nknb..\np..rp\np...p\n..PP.\n..R..\n.NBK.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkq..r\n...b.\np.Ppn\nN.pQP\nP....\nR.BK.\n");
+	chess_boardSet("12 B\n...br\nkqpp.\nPp.Pp\nN.P..\nP..P.\nRB.KQ\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nkb...\n..n..\np..r.\nP.ppp\nR...P\n.NK.B\n");
+	chess_boardSet("19 W\n.k..r\np....\nP...p\nn.p.P\nb.pPK\nRB.Q.\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\n.k.br\npN..p\n..pq.\n..PnP\nP..PK\nR....\n");
+	chess_boardSet("13 B\n...nQ\nqkp..\np...P\nPpPp.\nP.B..\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n....Q\n.p..p\n....P\n.k...\n...KP\nq....\n");
+	chess_boardSet("12 W\nk.b..\nQ..rp\nPp.Bn\n...q.\n.P.pP\nRN..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.q...\n.kpbr\npp.pP\n.nN..\nP.P.B\nR.Q.K\n");
+	chess_boardSet("17 W\n.k.nr\np.q..\nP..Pb\nBpRQp\n..P.P\n....K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..br\npn.P.\n..p.p\n.PB..\n....P\n.N..K\n");
+	chess_boardSet("20 B\n...nr\npB...\n.k..K\nP.qb.\nRPPp.\n.Q...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nkq.nr\np.b..\n....p\n..PQ.\nPK.p.\nRN..B\n");
+	chess_boardSet("13 B\nk.B.r\np.b.p\n..npP\n.qp.K\nP.PP.\nRQ...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nk...r\np.pK.\nb....\n...P.\n....P\n...q.\n");
+	chess_boardSet("17 W\nkR..r\n...pP\np.pn.\n..b.P\nP.PK.\n....Q\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nk....\nQ..pr\nn..K.\n...pP\n..PQ.\n.RB..\n");
+	chess_boardSet("14 B\nbqkr.\n..ppp\nPp...\n..QP.\nR.B.P\n....K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk....\n....r\np.qpn\n..pQ.\nP.P.P\nRK...\n");
+	chess_boardSet("12 B\nk..qr\np...p\n.pp.p\n.PnPP\nP.P.K\nR.B..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n...qr\nkp..p\n..p.P\n.bP.P\n..R.K\n.nQ..\n");
+	chess_boardSet("16 W\n.q.n.\np...r\n.P.bp\n..pp.\nP.kP.\n.RBNK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nq...r\npK.pp\n....n\nb.k.P\n.P.P.\n.RBQ.\n");
+	chess_boardSet("14 W\n..q.r\npk.pb\n.pp.p\nPPP.P\n..RP.\n.NBQK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nk..q.\np..b.\n..pp.\npPNB.\n...Q.\nR...K\n");
+	chess_boardSet("12 B\nqk.br\nn.p.p\np...P\n..pP.\nPP...\nRNB.K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n..b.r\nkR..p\nP.pp.\nP.n.P\n..PPK\n..B.Q\n");
+	chess_boardSet("17 W\n..bnr\nk...p\np.pqP\n.....\nPP.B.\nR...K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nk....\np....\n..p.Q\n..PpP\n..qP.\nRNBK.\n");
+	chess_boardSet("14 B\nkqr..\n.nb.p\n..Pp.\nBpP..\nR..QP\n.N..K\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n.kq..\nnbp..\np....\n.pPp.\nPP..B\n.RK..\n");
+	chess_boardSet("19 B\nr....\nkp..p\nQ.p..\nP.PBq\n.p...\nR.K..\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nkq...\n.bp..\np.r..\np...p\nPP..P\nRQ..K\n");
+	chess_boardSet("21 W\nk..Qr\n.b...\np.q..\n...P.\nR.n.K\n.N...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n..bnr\nkp...\n..qpp\n.P..K\nP..N.\nR....\n");
+	chess_boardSet("16 W\nkqr..\n....p\nbpppn\n.P.K.\n.....\nR....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk...r\npn.p.\nP.QPp\nb....\n...q.\nqNB.K\n");
+	chess_boardSet("15 B\nk..Kr\n.Np..\np....\nP..qp\nBPPnQ\nR....\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\nk.q..\nb..pr\npQ...\nnpP.P\n...RP\nB...K\n");
+	chess_boardSet("15 W\n.k..r\n.qp.p\nPp...\nP...P\nR.pP.\n..BQK\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nkbQ..\n.q...\n..pBr\npPPR.\n..P.P\n...K.\n");
+	chess_boardSet("19 B\n.r...\npk.pp\n...n.\nb.qPP\nP..K.\n....Q\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nkr...\n.p.Bp\np....\nP.P.q\n..P.K\n....R\n");
-	
-	intBuffer = chess_movesEvaluated(charBuffer);
-	if (test_movesOrder(intBuffer, charBuffer) != true) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nkN..r\np...p\n...q.\n...PP\nPBb..\n.RQ.K\n");
+	chess_boardSet("15 W\n.k..r\nbp...\nQ..p.\nR..PK\n.B...\n.N...\n");
 	
 	intBuffer = chess_movesEvaluated(charBuffer);
 	if (test_movesOrder(intBuffer, charBuffer) != true) {
@@ -5803,706 +5787,923 @@ bool test_movesEvaluated() {
 	return true;
 }
 
+int test_moveCount(char* charBuffer, int intCount) {
+	int intEqual = 0;
+	char charEqual[100 * 1024] = { };
+	
+	intEqual = 0;
+	charEqual[0] = '\0';
+	
+	for (int intFor1 = 0; intFor1 < intCount; intFor1 += 1) {
+		if (strstr(charEqual, &charBuffer[intFor1 * 1024]) == NULL) {
+			intEqual += 1;
+			strcat(charEqual, &charBuffer[intFor1 * 1024]);
+		}
+	}
+	
+	return intEqual;
+}
+
 bool test_moveRandom() {
-	char charBuffer[1024] = { };
+	char charBuffer[100 * 1024] = { };
 	
 	chess_reset();
-	chess_moveRandom(charBuffer);
 	
-	if (strstr("a5-a4\nb5-b4\nc5-c4\nd5-d4\ne5-e4\nb6-a4\nb6-c4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 2) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nq..b.\nkr...\n....p\n.PP.p\n..P.Q\nR..BK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\nk.br.\npqppB\n....P\n.Q...\nP.P..\nR...K\n");
 	
-	if (strstr("b4-b3\nc4-c3\ne5-e4\ne5-d5\ne5-d4\ne5-c3\ne5-b2\na6-a5\na6-a4\na6-a3\na6-a2\na6-b6\na6-c6\nd6-d5\nd6-c6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nk..r.\nq.p.p\np..p.\nBPQbP\nP.P..\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 W\n.b.qr\npk..p\n..N.p\n.P..P\n..P.Q\n.RB.K\n");
 	
-	if (strstr("a1-b1\na1-b2\nd1-c1\nd1-b1\nd1-e1\nd1-d2\na2-b2\na2-b1\na2-b3\na2-c4\nc2-c3\ne2-e3\na3-b4\nd3-c4\nd3-e4\nd4-c3\nd4-b2\nd4-e3\nd4-c5\nd4-e5\nd4-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk.r..\np.ppp\n..PP.\np....\nPR..P\n..qQK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\nq..nr\nkp...\np..Pp\nR..PP\n.P...\n.Q..K\n");
 	
-	if (strstr("c3-d2\nd3-c2\nd3-e2\nb5-b4\nb5-b3\nb5-b2\nb5-b1\nb5-c5\nb5-d5\nb5-b6\ne5-e4\nd6-d5\nd6-d4\nd6-c6\nd6-c5\nd6-b4\nd6-a3\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 2) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n.qbNr\n..p.p\nkp...\n...P.\nPP.PP\n.RBQK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 W\nk..nr\n..b..\np..Pp\nPB.p.\n...P.\nRN..K\n");
 	
-	if (strstr("d1-b2\nd1-c3\nd1-e3\nd4-d3\na5-a4\nb5-b4\ne5-e4\nb6-a6\nc6-c5\nd6-c5\nd6-b4\nd6-a3\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n..qr.\nkpB.p\np..p.\nP.PQn\n.P.RP\n...K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 B\n...nr\n.bkp.\np.p.p\n..PKP\npP.PQ\n.RB..\n");
 	
-	if (strstr("c1-b1\nc1-a1\nc1-c2\nc1-d2\nc1-e3\nd1-e1\nd1-d2\na2-a1\na2-b1\na2-b3\nb2-b3\ne2-e3\nd3-c4\ne4-c3\ne4-d2\ne4-c5\ne4-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nk....\np.P.p\n.pP..\nq.N..\n..BQ.\n...Kr\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 W\n.Rr..\n.k...\n..p.n\np.P..\nP....\n..BQK\n");
 	
-	if (strstr("c2-c1\nc4-a3\nc4-b2\nc4-e3\nc4-d2\nc4-a5\nc4-b6\nc4-e5\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-b6\nc5-b5\nc5-c6\nd5-d4\nd5-d3\nd5-d2\nd5-d1\nd5-e5\nd5-e4\nd5-c6\nd5-e6\nd6-c6\nd6-e6\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk..br\nppq..\nP.P.P\n...n.\n..PKP\nRN.Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 W\n.q.r.\nR.npp\nb.p.P\n..P..\n.B..k\n..KQ.\n");
 	
-	if (strstr("a3-b2\nc3-b2\ne3-e2\nc5-c4\nc5-d4\nd5-d4\nd5-c4\nd5-e4\nd5-c6\nd5-e6\ne5-e4\ne5-d4\na6-a5\na6-a4\nb6-a4\nb6-c4\nd6-c6\nd6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk...r\n.Pp.p\n.....\nP...q\n.BPP.\nRNQ.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 W\n..b..\n.kprn\n..qp.\nB.PpP\nP....\nqN.QK\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-b2\ne1-d1\ne1-c1\ne1-b1\nc2-c3\ne2-e3\ne4-e3\ne4-d4\ne4-c4\ne4-b4\ne4-a4\ne4-e5\ne4-e6\ne4-d3\ne4-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n.kqr.\n..p..\np...p\nPP..P\n..pB.\n.R.QK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 W\n...n.\n.kQ..\np...p\nPPN.p\n....P\nB..QK\n");
 	
-	if (strstr("b1-a1\nb1-b2\nb1-a2\nc1-b2\nc1-d2\nd1-e1\nd1-d2\nd1-d3\nd1-d4\nd1-d5\nc2-c3\na3-b4\nc5-c6\nc5-b6\nc5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 10) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk....\n.p.bp\np...n\nPp..r\nBNR..\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 B\nk.br.\n....p\np.Ppn\np.NP.\nR.q.K\n....Q\n");
 	
-	if (strstr("a5-b4\na5-b6\na5-a6\nb5-a3\nb5-d4\nb5-c3\nb5-d6\nc5-c4\nc5-c3\nc5-c2\nc5-c1\nc5-d5\nc5-e5\nc5-c6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nb..n.\n.pkpr\np.p.p\nPPNPP\n..PQK\nR.B..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\nk.Q..\np.p..\nq.b.p\nRQ...\nNnBPp\n....K\n");
 	
-	if (strstr("a1-b1\na1-a2\nb2-b3\nc2-c1\nc2-b1\nc2-b3\nc2-d3\nd2-d3\ne2-e1\na3-b4\nc3-b4\nc3-d4\ne3-d4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 10) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk.b.r\npN.Pp\n.P...\nP.p..\n..q..\n.RB.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 W\nk..qr\npp.pp\n.b.Q.\nP....\n.BP.K\nR..n.\n");
 	
-	if (strstr("b2-d1\nb2-d3\nb2-c4\nd2-d1\nd2-c1\nd2-e1\nb3-a2\na4-a3\nb6-b5\nb6-b4\nb6-a6\nc6-b5\nc6-d5\nc6-e4\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\n..bNr\n.kp.n\np...p\nPq.pP\nR.PPQ\n..BK.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 W\n.Nr..\n.k..Q\n..n..\np...q\nPPPKP\nR.BQ.\n");
 	
-	if (strstr("c1-d2\nc1-b1\ne1-d1\nb2-b1\nb2-a2\nb2-b3\nb2-a1\nb2-c3\nc2-c3\ne2-c3\nb4-b3\nb4-a4\nb4-c4\nb4-b5\nb4-b6\nb4-c3\nb4-d2\nb4-a5\nb4-c5\nd4-c5\nd4-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n.b..r\n...pq\npk...\nN.P.p\nPn.BP\n...RK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\n..kbr\np.p..\n.RK.p\nn...P\n.qPQ.\n.....\n");
 	
-	if (strstr("a4-c3\na4-b2\na4-c5\na4-b6\nc4-c3\nc4-b3\nd5-e4\nd5-c6\nd5-d4\nd5-c5\nd6-c6\nd6-b6\nd6-a6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\nkb..r\n.qp.p\np.N..\n...PP\nQ.p.K\nR.B..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 B\nkR...\n....Q\npBpp.\nP.P..\n...K.\n.N...\n");
 	
-	if (strstr("c3-a2\nc3-b1\nc3-e2\nc3-d1\nc3-a4\nc3-b5\nc3-d5\nd4-d3\ne4-e3\na5-a4\na5-a3\na5-b5\na5-c5\na5-b4\na5-b6\ne5-d5\ne5-e6\ne5-d6\na6-b6\nc6-b5\nc6-a4\nc6-d5\nc6-b6\nc6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 1) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n....q\nkbp.p\npp.rP\n...pP\nPP.NK\n.R.B.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("21 W\nk....\n..Ppr\n.....\nN...P\nbp.QB\nR..qK\n");
 	
-	if (strstr("e4-d3\na5-a4\nb5-b4\nd5-b4\nd5-c3\ne5-e6\ne5-d4\nb6-a6\nb6-c6\nd6-c5\nd6-b4\nd6-a3\nd6-c6\nd6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n...qr\n.kpPp\n.....\nppP.P\nP....\n.K...\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 W\n.qb..\nkpp.r\np....\nP...K\nnPP.P\n..R..\n");
 	
-	if (strstr("d1-c1\nd1-b1\nd1-a1\nd1-d2\nb2-b1\nb2-a2\nb2-b3\nb2-a1\nb2-c1\nb2-a3\nb2-c3\nc2-c3\ne2-e3\nb4-b5\nb4-a5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nk.N.r\n.qp.p\nP...P\n..P.p\n.p.n.\nR.B.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 W\nk..n.\nP.b.r\n..p.p\n..P.q\n.PpPB\nRN..K\n");
 	
-	if (strstr("a1-b1\na1-a2\ne1-d1\ne1-c1\nb2-b1\nb2-a2\nb2-b3\nb2-b4\nb2-c1\nb2-a3\nb2-c3\nb2-d4\nb2-e5\nc2-c3\ne4-e5\nb5-b6\nb5-a6\nb5-c6\nd5-b4\nd5-c3\nd5-e3\nd5-b6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk..q.\npp.r.\n.bpp.\nNBP..\nP..PK\nR....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\n.Qb.r\nqkPN.\npn..p\nPPp..\n....P\n...K.\n");
 	
-	if (strstr("a4-c3\na4-b2\na4-c5\na4-b6\nb4-a3\nb4-c3\nb4-c5\nb4-d6\nb4-b5\nc4-b3\nc4-d3\nd5-d4\ne5-e4\ne5-e6\ne5-d4\ne5-d6\na6-b6\na6-c6\na6-d6\na6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\nq.rb.\n..p..\n..npp\n.kNPP\n..Q..\n.R.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 B\nk....\nb.p..\np.P.p\np...p\n.r.B.\nR...K\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-a3\na1-a4\na1-a5\na1-a6\na1-b2\nc1-b1\nd1-e2\nd1-e1\nd1-d2\nc3-a2\nc3-b1\nc3-e2\nc3-a4\nc3-b5\nc3-e4\nc3-d5\nd3-c4\nd3-e4\ne3-d4\nb4-b3\nb4-a4\nb4-c4\nb4-b5\nb4-a3\nb4-a5\nb4-c5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nqb.r.\n.kppp\npP.KP\n...n.\nP.QP.\nRNB..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\n.kb.r\nq...p\n.ppp.\nPP...\nR..PP\n...NK\n");
 	
-	if (strstr("a1-a2\nb1-a2\nb1-c1\nd1-c1\nd1-e1\nb2-a2\nb2-b3\nb2-c1\nb2-c3\nc2-c3\nc2-b3\nc2-d3\nd2-e3\ne2-d3\na3-a4\nd4-b3\nd4-b5\nd4-c6\nd4-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nkB.nr\n...p.\n.....\nN....\np...K\n...q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 B\nk...b\np.npr\n.q.Pp\n.RN.P\n..PB.\n....K\n");
 	
-	if (strstr("b1-a2\nb1-c2\nb1-d3\nb1-e4\nb1-c1\nb1-b2\na4-c3\na4-b2\na4-c5\na4-b6\ne5-e4\ne5-d5\ne5-e6\ne5-d4\ne5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk.b..\nqp.pr\nqQpP.\n..B.P\n..K..\n..R..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 B\n...r.\npkpbp\n.p..n\nqPP.P\nPB.K.\nRN.Q.\n");
 	
-	if (strstr("b3-b2\nb3-a3\nb3-c3\nb3-b4\nb3-b5\nb3-b6\nb3-a2\nb3-c2\nb3-d1\nb3-a4\nd3-e2\nc4-b5\nc4-a6\nc4-d5\nc4-e6\nc4-b4\nc4-d4\ne4-e3\nc5-b5\nc5-d5\nc5-b4\nc5-d4\nc5-b6\nc5-d6\nc6-b6\nc6-a6\nc6-d6\nc6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nkn...\npp..p\n..pr.\nq.BPP\nPPp..\n...RK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 W\nk...r\n...pp\npP.bB\nP.P.q\n...nP\nRQ..K\n");
 	
-	if (strstr("c4-b3\nc4-a2\nc4-d3\nc4-d5\nc4-b4\nd4-c3\ne4-e3\ne4-d3\nb5-b4\nb5-a4\nd6-d5\nd6-c6\nd6-b6\nd6-a6\ne6-e5\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nkb.nr\n..P.p\np..p.\nPqpB.\n..PKP\n...Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\n.k..r\n.p..p\npbNqP\nP.K..\n.PBPQ\n..R..\n");
 	
-	if (strstr("a1-a2\na1-b2\nb1-a2\nb1-c2\nb1-c1\nb1-b2\nd1-b2\nd1-c3\nd1-e3\ne2-e3\nb4-b3\nb4-b2\nb4-a4\nb4-b5\nb4-b6\nb4-c3\nb4-d2\nb4-a5\nb4-c5\nc4-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\nk..n.\nqpN..\npP.rp\nP..KP\n.pPP.\n..B.Q\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\n.....\nk....\n.B..r\n.R.QP\nP...P\n....K\n");
 	
-	if (strstr("a1-b1\nd1-c3\na2-b1\na2-b3\nd3-d2\nd3-c3\nd3-b3\nd3-d4\ne3-d4\nb5-b6\nb5-c6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nkq.b.\n..p..\n..pp.\np....\nR.Q.r\n.NnqK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\n..bn.\npkpr.\nP..p.\nPQppB\nR...P\n.N.K.\n");
 	
-	if (strstr("a5-a4\na5-b5\na5-a6\nc5-c4\nc5-c3\nc5-b5\nc5-d5\nc5-e5\nc5-c6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-d6\nb6-a4\nb6-d5\nb6-c4\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n...N.\n.bB.p\nppp..\nq..p.\nPPk..\n..R.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("13 W\nqk.Qr\n....N\n.B...\n.P.P.\nP.Pn.\n.R.QK\n");
 	
-	if (strstr("d1-b2\nd1-c3\nd1-e3\nc2-b1\nc2-b3\nc2-d3\nc2-e4\nc2-c1\nc2-d2\nb5-b4\nb5-a4\nc6-c5\nc6-b6\nc6-a6\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.k.r.\n..n..\nPp...\nN.pP.\nPK...\nR..Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\nk..nr\n.q..b\np.P..\n..P..\nPP.PK\nRB...\n");
 	
-	if (strstr("b1-a1\nb1-c1\nb1-b2\nb1-a2\nd1-c1\nd1-e1\nd1-d2\nd1-d3\nd1-d4\nc2-a1\nc2-e1\nc2-a3\nc2-b4\nc2-e3\nc2-d4\nb3-b4\nb3-a4\nc4-c5\nc4-b5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n.kr..\n....p\n.ppb.\n..nPP\n..qK.\nQ.R..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 B\nk.qr.\np..b.\n..pQp\nBpP.K\nP...P\n.R...\n");
 	
-	if (strstr("b1-a1\nb1-b2\nb1-a2\nb1-c2\nc1-d1\nc1-e1\nc1-c2\ne2-e3\nb3-b4\nc3-d4\nd3-c2\nd3-e4\nd3-d2\nd3-e3\nc4-a3\nc4-b2\nc4-e3\nc4-d2\nc4-a5\nc4-b6\nc4-e5\nc4-d6\nc5-b5\nc5-a5\nc5-d5\nc5-c6\nc5-b4\nc5-a3\nc5-d4\nc5-b6\nc5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk....\np.q.r\n....P\n..p.p\nP...R\n.B..K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("21 W\n....Q\np.kp.\nQ....\n..Pp.\nP..np\n..B.K\n");
 	
-	if (strstr("a5-a4\ne5-e4\ne5-d5\ne5-c5\ne5-b5\nb6-c5\nb6-d4\nb6-b5\nb6-a6\nb6-c6\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 10) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk...r\n.b.qp\npppp.\n..NPP\nPBQ..\nR..K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 W\nk..qr\n.....\n.pb..\nn.p..\nP.B.p\nRQ..K\n");
 	
-	if (strstr("c4-a3\nc4-b2\nc4-e3\nc4-d2\nc4-b6\nc4-e5\nd4-c3\ne4-e3\ne4-d3\na5-a4\nb5-a4\nb5-c6\nb5-b4\nb5-b6\nc5-d5\nc5-e5\nc5-c6\nc5-b4\nc5-a3\nc5-b6\na6-b6\na6-c6\nd6-d5\nd6-c6\nd6-e6\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk...r\np..b.\np.n.P\nP...q\n.P...\n.RB.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\n....r\npq...\nb.k.p\n..ppP\nPP.P.\nRN.BK\n");
 	
-	if (strstr("e3-e2\ne3-d2\nb5-b4\nb6-a6\nc6-d5\nc6-e4\nc6-c5\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nkB.br\n.p..p\nnqpP.\nPPKP.\n..P..\nRN.Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 B\nkr...\n..p.p\nppK.n\nP.P.P\nB..P.\n.R.b.\n");
 	
-	if (strstr("a1-b1\na1-a2\nd1-c2\nd1-c1\nd1-d2\ne2-e3\ne2-d3\na3-c2\na3-b1\na3-c4\na3-b5\nb3-b4\nb3-a2\nb3-c2\nb3-a4\nb3-c4\nc3-b4\nc3-d4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n...n.\np..pr\nk.q..\n.pPpQ\nP....\nR..K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\nk.q.r\npbpp.\n..nQp\nPpP.P\nRPBP.\n.N.K.\n");
 	
-	if (strstr("e4-e3\ne4-e2\ne4-d4\ne4-e5\ne4-e6\ne4-d3\ne4-c2\ne4-b1\ne4-d5\ne4-c6\na5-a4\na5-b4\na6-b6\na6-c6\nd6-d5\nd6-c6\nd6-e6\nd6-c5\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk.b.r\nq..p.\np.ppn\nPpPQP\n.P..K\nRNB..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\n.qb.r\n.kp..\n...pn\npPN..\nPB.pP\nR...K\n");
 	
-	if (strstr("c4-d3\nd4-d3\nd4-d5\nd4-d6\nd4-c3\nd4-e3\nd4-c5\ne4-d3\ne5-d5\ne5-e6\ne5-d6\na6-a5\nb6-d5\nc6-d5\nc6-c5\nc6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.qb..\n.p.r.\nk.ppP\nPp..B\n.PP..\nRN.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 B\n.qbN.\n.kp..\n.P..p\nnp.PP\n..Q..\n....K\n");
 	
-	if (strstr("e3-e2\ne3-d2\ne4-d3\ne4-d5\ne4-c6\ne4-d4\ne4-e5\nc5-c4\nc5-b4\na6-a5\nb6-d5\nb6-c4\nd6-d5\nd6-c6\nd6-e6\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nk.b.r\n...p.\n.....\nB.nPp\nPp..q\nR...K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\n..b..\np...Q\nP.k..\n..Pp.\nP..nK\n....R\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-b2\nc1-b2\nc1-a3\nc1-b1\nc1-d1\nc1-c2\ne1-d1\ne1-e2\ne1-e3\nd2-d3\nc4-a3\nc4-b2\nc4-e3\nc4-a5\nc4-b6\nc4-d6\nb5-b6\nb5-a6\ne5-d5\ne5-c5\ne5-e6\ne5-d4\ne5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nq..nQ\npk.p.\nb.p..\n.p..B\nNPPKP\nR...Q\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("13 W\nk.b.r\n..Ppp\n..Q..\np.P..\nP.P.P\nR..K.\n");
 	
-	if (strstr("e1-d1\ne1-e2\ne1-e3\ne1-d2\ne4-d3\ne4-c2\ne4-b1\ne4-e3\ne4-d4\na5-c4\na5-b3\na5-c6\nc5-c4\nc5-b4\nd5-d4\nd5-d6\nd5-c4\nd5-c6\na6-b6\na6-c6\na6-d6\ne6-d6\ne6-c6\ne6-b6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n..b.r\npkp.p\nP.Q.n\nP..KP\n.B.P.\nRN...\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 B\nk..b.\n.Q..r\n....p\n....P\nPPP..\nRB..K\n");
 	
-	if (strstr("a3-b2\nc3-c2\nc3-b3\nc3-d3\nc3-e3\nc3-c4\nc3-c5\nc3-c6\nc3-b2\nc3-d2\nc3-e1\nc3-b4\nc3-a5\nd4-d3\nd4-c4\nd4-e3\nd4-c5\nd4-e5\nb5-c4\nb5-d3\nb5-e2\nb5-c6\nb5-b4\nb5-a5\nb5-c5\na6-a5\nb6-c4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk.b..\n..qQ.\npppp.\nP.NP.\n.P...\nRB.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 B\nk.r..\nqpnp.\nN..bp\nP.PP.\nP.RQ.\n...BK\n");
 	
-	if (strstr("d2-d1\nd2-c2\nd2-e2\nd2-d3\nd2-c1\nd2-e1\nd2-c3\nd2-e3\na4-b3\nc4-a3\nc4-b2\nc4-e3\nc4-a5\nc4-e5\nd4-c3\nb5-b4\na6-a5\nb6-a5\nb6-c5\nb6-c6\nd6-d5\nd6-c6\nd6-e6\nd6-c5\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nkq..r\nQ...b\n..p..\n.P.pn\nP..K.\nRNB..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\nk..r.\np.p.p\nPp.pP\nNqnP.\nP....\n.R..K\n");
 	
-	if (strstr("a2-a1\na2-b2\na2-c2\na2-d2\na2-e2\na2-a3\na2-a4\na2-b1\na2-b3\na2-c4\nb4-b3\nb4-c3\na5-a4\nd5-d4\nd5-c5\nd5-e5\nd5-d6\nd5-c4\nd5-e4\nd5-e6\nb6-a4\nb6-c4\nc6-b5\nc6-a4\nc6-c5\nc6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\nk..r.\nnp...\np...p\nPPP.q\n.BQK.\nR....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("21 W\nk..r.\npQp..\nP...p\n.qP..\n..bK.\nRN.B.\n");
 	
-	if (strstr("b4-b3\nb4-a3\nc4-c3\nb5-c6\nb5-a5\nb5-b6\nc5-c6\nc5-d4\nc5-e3\nc5-b6\nc5-d6\nd5-d4\nd5-e5\nd5-d6\nd5-e4\nd5-c6\nd5-e6\na6-a5\na6-b6\na6-c6\na6-d6\na6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk.qb.\n.pp..\np.prp\n..PKP\nRB.P.\n.N.Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\n.k..r\n.pbp.\n..NpB\nq.Q..\nPP..P\nR...K\n");
 	
-	if (strstr("c4-d3\nd4-d3\nd4-c3\nd4-e3\nd4-c5\nd4-e5\ne4-d3\na5-a4\na5-a3\na5-a6\nb5-a4\nb5-a6\nb5-c6\nb5-b4\nb5-c5\nb6-a4\nd6-c6\nd6-e6\nd6-c5\nd6-b4\nd6-a3\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 10) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n.Qr..\nk..pp\n..p..\n..N.P\n...P.\nq...K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\n...Nr\nk...p\npp.p.\nPPQbP\n.B.K.\n....R\n");
 	
-	if (strstr("c1-b1\nc1-d1\nc1-e1\nc1-c2\na2-a1\na2-b2\na2-a3\na2-b1\na2-b3\nd2-d3\ne2-e3\na6-a5\na6-a4\na6-a3\na6-b6\na6-c6\na6-d6\na6-e6\na6-b5\na6-c4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\n.k..r\np...p\nbpp.p\n..Q..\nRBPP.\n.N.nK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\nk...r\np.bq.\nP.pp.\nRpPPp\n.P.BP\n.N.Kn\n");
 	
-	if (strstr("c4-c3\nc4-b4\nc4-a4\nc4-d4\nc4-e4\nc4-b3\nc4-d3\nc4-e2\na5-a4\na5-a3\na5-a6\nb5-a4\nb5-a6\nb5-c6\nb5-b4\nd5-d4\nb6-a4\ne6-e5\ne6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nkq...\n..bP.\np.P.r\nR...p\n..PnP\n..B.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 B\n.k...\np.pQb\n..N..\nP.Bq.\n.P.PP\n.R..K\n");
 	
-	if (strstr("d2-d1\na4-a3\na4-b4\na4-c4\na4-d4\na4-e4\na4-a5\na4-a6\nc5-c4\nc6-b5\nc6-d5\nc6-b6\nc6-d6\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.b.r.\np.p.p\nk.P.n\npPN..\n.R...\n..BQK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 B\n.b..r\npk.N.\n.p..p\nn..p.\nPPBP.\nR..K.\n");
 	
-	if (strstr("b4-b3\nb4-a3\nc4-a3\nc4-b2\nc4-e3\nc4-d2\nc4-a5\nc4-b6\nc4-e5\nb5-a5\nb5-c5\nb5-d5\nb5-e5\nb5-b6\nc6-d5\nc6-e4\nc6-c5\nc6-b6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\nd6-c5\nd6-e5\ne6-e5\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n.qb..\n..pp.\nkp..r\nnP..K\n.....\nRN.B.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\nk....\n..r..\n....N\n..P.P\np..nP\n..BQK\n");
 	
-	if (strstr("b4-a3\ne4-e3\ne4-d4\ne4-e5\ne4-d3\ne4-d5\na6-a5\na6-a4\nb6-a4\nb6-d5\nb6-c4\nd6-c5\nd6-e5\nd6-d5\nd6-c6\nd6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk....\npNr.p\nn..pP\nBb.P.\nP..KQ\nR....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\nkq...\n..prp\n..P.b\np...B\nPPP.P\nR...K\n");
 	
-	if (strstr("b2-d1\nb2-d3\nb2-c4\na4-b3\na4-c2\na4-b5\na4-c6\na5-b4\nd5-c5\nd5-d6\nd5-c4\nd5-e4\nd5-c6\nd5-e6\ne5-e4\ne5-e6\ne5-d6\na6-b6\na6-c6\na6-d6\na6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n.q..r\nkp.p.\nB.p.p\n..R.P\n..PbK\n.N.n.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 W\n...nr\npkBbp\nPR...\n..ppP\n..PP.\n.Q..K\n");
 	
-	if (strstr("b1-a1\nb1-c1\nb1-d1\nb1-c2\nb1-d3\nb1-e4\ne1-d1\ne1-c1\ne1-e2\na2-a1\na2-a3\na2-b3\nb2-b3\nb2-a3\nd2-d3\nd5-c4\nd5-e4\nd5-c6\nd5-e6\nd5-d4\nd6-b5\nd6-c4\nd6-e4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkr...\np..pp\n.Q..q\nPp...\n..P..\nRnB.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 B\nk..Q.\np.p.r\nn...p\n...P.\nPRPK.\n..BQ.\n");
 	
-	if (strstr("b3-b2\nb3-b1\nb3-a3\nb3-c3\nb3-d3\nb3-e3\nb3-b4\nb3-a2\nb3-c2\nb3-d1\nb3-c4\nb3-d5\na4-a3\nc5-c4\nc5-b4\na6-a5\na6-b6\nc6-b5\nc6-d5\nc6-e4\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nkqr..\nB.p.p\nb..p.\nN..P.\nRP...\n...K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\n.R...\nkP.p.\n....Q\n..p.b\nPqP..\n.N..K\n");
 	
-	if (strstr("a2-b1\na2-b3\na2-c4\na2-d5\na2-e6\na2-b2\na4-c3\na4-b2\na4-c5\na4-b6\na5-a6\nb5-b4\nd6-d5\nd6-c6\nd6-e6\nd6-c5\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.kbr.\np..pQ\n....p\n.n..q\n.Rp..\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 W\nk.bQ.\np....\n...p.\nnPp.P\nR....\n...BK\n");
 	
-	if (strstr("e2-e1\ne2-d2\ne2-e3\ne2-d1\ne2-d3\ne2-c4\nb5-b4\nb5-a5\nb5-c5\nb5-b6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nkQ..r\n...bp\nq..p.\n..P..\nPp..P\nRN.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 W\n..rb.\np.k..\n.pN.P\n.P.p.\nq.QP.\nR...K\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-b2\ne1-d1\ne1-c1\ne1-b1\nd2-c1\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-d1\nd2-c2\ne2-e3\na3-a2\na3-b3\na3-c3\na3-a4\na3-a5\na3-b2\na3-c1\na3-b4\na3-c5\na3-d6\nd3-d4\nd3-c4\nb5-a6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n..k.r\n.Ppp.\nbp...\nP..PB\n.P..P\nR...K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 W\n..r..\nBkpq.\n.p.Pp\nbN...\nQ....\nR..nK\n");
 	
-	if (strstr("c1-b1\nc1-d1\nc1-b2\ne1-d1\ne1-e2\ne1-e3\ne1-e4\nc2-c3\nd2-d3\na3-b2\na3-b4\na3-c5\na3-d6\na3-a2\nb3-b4\nb3-a4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk....\n.p.pr\np.BP.\nP.pPp\n.nQKP\nRN...\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("13 B\nk...r\np.b.p\nBp.P.\nPn...\n.RP.N\n...QK\n");
 	
-	if (strstr("a1-b1\na1-a2\nb2-b3\nb2-c3\nd2-c3\ne2-e1\ne2-e3\nc4-d5\ne4-d5\nb5-d4\nb5-c3\nb5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n.....\np..p.\n.rpPp\n...PP\nk..b.\n.B..K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\nk...r\np....\n..ppQ\n...qN\n.K..P\nRB...\n");
 	
-	if (strstr("a2-a3\nb3-b2\nb3-b1\nb3-a3\nb3-b4\nb3-b5\nb3-b6\nc3-c4\nc3-d4\ne3-d4\na5-a4\na5-b5\na5-a6\na5-b4\na5-b6\nd5-c4\nd5-e4\nd5-c6\nd5-e6\nd5-c5\nd5-e5\nd5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nq..nr\np.pPp\nk....\npP.P.\nPQPb.\nR...K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 W\nk..br\np..pp\nB...n\n..N..\np.Q..\nR...K\n");
 	
-	if (strstr("d2-e1\nb4-b3\nb4-a3\nd4-d3\nb5-b6\nb5-a4\nb5-c4\nb5-d3\nb5-e2\nb5-c6\nc5-c4\na6-b6\na6-c6\na6-d6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk.Qnb\n.p..r\np....\nq...P\nR..pK\n.....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 W\n..kr.\n...p.\n..R..\n..KpP\nPbq..\n...Q.\n");
 	
-	if (strstr("a1-b1\na1-a2\nd1-c3\nd1-e3\ne1-d2\ne1-c3\ne1-b4\ne1-a5\nb2-b3\ne2-d2\ne2-c2\ne2-e3\ne2-e4\na4-b4\na4-c4\na4-d4\na4-e4\na4-a5\na4-b3\na4-c2\na4-b5\na4-c6\nd5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nk..qr\n.p.b.\n.PnpP\n..N.P\nP.P.K\nR.Q..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 B\n...R.\n.np..\nk.P.P\n.....\nP...P\n....K\n");
 	
-	if (strstr("a1-b1\na1-a2\nd1-c1\nd1-b1\nd1-c2\nd1-b3\nd1-e2\ne1-e2\ne1-e3\nd2-c1\nd2-e3\nd2-c2\nd2-e2\nc3-a2\nc3-b1\nc3-e2\nc3-a4\nc3-b5\nc3-e4\nc3-d5\nd3-d4\nd3-c4\nd3-e4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 2) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nk...r\n.b.N.\n..npp\nP..PP\n.p...\nR..KB\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 B\n.q...\n..r.p\npkp..\npB..Q\nR.P.K\n.....\n");
 	
-	if (strstr("a1-b1\na1-a2\ne1-d1\ne1-c1\ne1-b1\ne1-e2\nb2-c1\nb2-a3\nb2-b1\nb2-a2\nb2-c2\nb2-b3\nc3-a2\nc3-b1\nc3-e2\nc3-d1\nc3-a4\nc3-e4\nc3-d5\nd3-e4\ne3-d4\nb5-b6\nb5-a6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.....\nkQ.N.\n..n.p\np.K..\nq.P..\nR.Q..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("20 W\n..qQ.\nb.r.p\n.k.Q.\np....\n.B..P\nR...K\n");
 	
-	if (strstr("a2-a1\na2-b2\na2-a3\na2-b1\na2-b3\nc3-b1\nc3-e2\nc3-d1\nc3-b5\nc3-e4\nc3-d5\ne3-e4\na5-b5\na5-c5\na5-a6\na5-b4\na5-b6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 10) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\nkqb.r\n..ppp\nQpPn.\n...P.\nPB.KP\nRN...\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\nk..b.\n...p.\npB..p\nP.P..\nR...q\n.NQ.K\n");
 	
-	if (strstr("a3-a2\na3-a1\na3-b3\na3-a4\na3-b2\na3-c1\na3-b4\na3-c5\na3-d6\nc3-d2\na5-a4\nb5-a4\nb5-c4\nb5-d3\nb5-c6\nb5-b4\nb5-c5\nd5-c5\nd5-d6\nd5-c4\nd5-e4\nd5-c6\nd5-e6\ne5-e4\nb6-a4\nb6-c4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\n..k.r\np.P.p\np...b\nR.P.P\n.qp.Q\n.N.BK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 W\nk....\n....Q\np...P\n...qK\n.pP.b\nRN...\n");
 	
-	if (strstr("c1-b1\nc1-d1\nc1-c2\nc1-b2\nc1-d2\ne1-d1\ne3-d2\ne3-d4\ne3-d3\nb5-b4\nb5-b3\nb5-b2\nb5-b1\nb5-a5\nb5-b6\nb5-a4\nb5-c4\nb5-a6\nb5-c6\nc5-c6\nc5-b6\nc5-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.k.b.\n.pp.r\nPq.p.\n....B\n..KnP\nR....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 B\nkq.nr\n..p.b\nPp.Pp\nP.P.P\n....K\nR...Q\n");
 	
-	if (strstr("b1-a1\nb1-c1\nb1-a2\nd1-c1\nd1-e1\nd1-d2\nb2-a3\nc2-c3\ne2-e1\ne2-d2\ne2-e3\ne2-e4\nb3-a3\nb3-c3\nb3-b4\nb3-b5\nb3-b6\nb3-a2\nb3-a4\nb3-c4\nd3-d4\nd3-e4\nd5-b4\nd5-c3\nd5-e3\nd5-b6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n.Nbn.\nk.p.r\npP.p.\n...KP\n.PPB.\n.R.Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 W\n.....\npqQ..\nP.pBb\n..k.r\n.P.NK\nR.n..\n");
 	
-	if (strstr("b1-a3\nb1-d2\nb1-c3\nb3-b2\nb3-a2\nb3-c2\nd4-d3\nd4-c4\nd4-c3\nd4-e3\nd4-e5\ne4-e3\ne4-d3\nb5-b4\nc5-c4\nd5-c4\nd5-c6\nd5-e6\nd5-e5\nb6-a6\nb6-c6\nd6-c6\nd6-e6\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nkb...\n.qN.r\n.p.pP\nPp...\n.P...\nR.B.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 W\nq.br.\n..p..\n.pPpP\n.P..P\nP...B\nRk.K.\n");
 	
-	if (strstr("c2-a1\nc2-e1\nc2-a3\nc2-b4\nc2-d4\na4-a3\na4-b3\na6-a5\na6-b6\nc6-d5\nc6-e4\nc6-c5\nc6-b6\nc6-d6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nk.r..\np..pp\n.PPq.\n.....\n...Kb\n.R...\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\nkqbn.\npp.pr\n...Bp\nP.p..\n.PP.P\n.R.QK\n");
 	
-	if (strstr("a1-b1\na1-b2\nc1-b1\nc1-d1\nc1-e1\nc1-c2\nc1-c3\na2-a3\na2-b3\nd2-c3\ne2-e3\nd3-c3\nd3-e3\nd3-d4\nd3-d5\nd3-c2\nd3-b1\nd3-c4\nd3-b5\nd3-a6\nd3-e4\ne5-d4\ne5-c3\ne5-d6\ne5-e4\ne5-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\n..kbr\n.QqBp\n.p...\np.P.n\nPP...\nRN.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 W\n..knr\n...bp\n.p.P.\nPP.PP\n..p..\nR.KB.\n");
 	
-	if (strstr("c1-b1\nc1-b2\nc1-d2\nc2-b2\nc2-d2\nc2-c3\nc2-c4\nc2-b1\nc2-d3\ne2-e3\nb3-b4\nb3-c4\na4-b5\ne4-c3\ne4-d2\ne4-c5\ne4-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\nq...r\n...bp\nBkNp.\nq.PPQ\n.....\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\nr....\nk.p.p\nq.Pb.\nP.PpP\nP....\nR.QBK\n");
 	
-	if (strstr("a1-b1\na1-c1\na1-d1\na1-a2\na1-a3\na1-b2\na1-c3\ne1-d1\ne1-c1\ne1-b1\nd2-c1\nd2-c3\nd2-e3\nd2-d1\nd2-c2\ne2-e3\nb3-b2\nb3-a3\nb3-c3\nb3-b4\nb3-a2\nb3-c2\nb3-c4\nd3-c4\nd3-e4\na4-a3\na4-b4\na4-c4\na4-a5\na4-a6\na4-b5\na4-c6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nqkbrB\n.pN.p\np....\nP.Pp.\n...PP\n..RQK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\n....r\n.pk.p\np.pQn\n.....\n.PP.P\nR.BKq\n");
 	
-	if (strstr("a1-a2\nb1-a2\nb1-c2\nc1-d2\nc1-e3\nd1-e1\nd1-d2\nd1-d3\nb2-b3\ne2-e3\nd4-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk..r.\nq.P..\n.bnPp\n....P\n..BP.\n.N..K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 B\nk..qr\npQ..p\nP..p.\n.....\n..BPP\nR..qK\n");
 	
-	if (strstr("c2-c1\nc2-d1\nd3-d2\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-d6\nc5-c4\nc5-b5\nc5-c6\nd5-d4\nb6-a4\nb6-c4\ne6-e5\ne6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nkQbnr\n...p.\n.q..p\nP...P\nRpP..\n.N.BK\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("11 B\nk...r\n.qpp.\nNP..p\n.P.P.\n..PKP\nR.Q..\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-b2\nc1-b2\nc1-a3\nc1-c2\nd1-b2\nd1-c3\ne1-e2\nd2-d3\nb3-b2\nb3-b1\nb3-a3\nb3-c3\nb3-d3\nb3-b4\nb3-a2\nb3-c2\nb3-a4\nb3-c4\nb3-d5\nb3-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\nkBbr.\n...pp\n.ppq.\n...PK\nPpP.P\nRN.Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("13 W\n..bnr\nk..p.\n..pNp\nPp...\n.P.PP\nR.Q.K\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-b2\nc1-b2\nc1-a3\nc1-c2\nd1-e1\ne2-e3\nb3-b4\nc3-c4\nc3-d4\nd3-e3\nd3-d4\nd3-c2\nd3-b1\nd3-c4\nd3-e4\nb5-a6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n.qb..\n..pPr\npk..P\n.P..P\np.nBN\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 B\nbk.n.\n.p..r\n.PpPp\nP..P.\nRBPQ.\n...K.\n");
 	
-	if (strstr("b1-a1\nb1-b2\nb1-a2\nc1-b2\nc1-d2\nc1-d1\nc2-c3\ne2-e1\ne2-d2\ne2-e3\na3-a4\na3-b4\nb3-b2\nb3-c3\nb3-b4\nb3-a2\nb3-a4\nb3-c4\na5-a6\nc5-a4\nc5-e4\nc5-d3\nc5-a6\nc5-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.k.qr\np.bP.\nN.n.Q\n.p...\nPP.BK\nR....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 W\n.q...\n.np.r\npR...\nQ..bP\nP..P.\n..kK.\n");
 	
-	if (strstr("d2-e1\na3-c2\na3-b1\na3-c4\ne3-e2\ne3-e1\ne3-d3\ne3-c3\ne3-e4\ne3-d4\ne3-c5\ne3-b6\na5-a4\na5-b4\nd5-c4\nd5-b3\nd5-a2\nd5-e4\nd5-c6\nd5-e6\nd5-d4\nd5-c5\nd5-d6\ne5-e4\ne5-e6\ne5-d4\ne5-d6\na6-b6\na6-c6\na6-d6\na6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nkqb..\np.p..\nPK.P.\n...R.\n.P.n.\n.....\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("16 B\n.....\n.k.rb\nPPpp.\n.....\n.R..P\n.n.BK\n");
 	
-	if (strstr("b3-b2\nb3-c3\nb3-b4\nb3-a2\nb3-c2\nb3-a4\nb3-c4\nd3-d2\nd3-c2\nd4-c4\nd4-b4\nd4-a4\nd4-e4\nd4-d5\nb5-b4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n..k.r\np....\n..nPP\nPB...\n..pK.\nR..Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 B\nkb..r\n.qp..\np..Pp\nP.p.p\n.K.B.\n..R..\n");
 	
-	if (strstr("d3-d2\ne3-e2\na4-a3\nb4-a3\nb4-c3\nb4-a5\nb4-c5\nb4-b3\nb4-c4\nb4-b5\nd5-d4\nd5-c5\nd5-e5\nd5-c4\nd5-e4\nd5-c6\nd5-e6\na6-a5\na6-b6\na6-c6\nd6-c6\nd6-b6\nd6-e6\nd6-c5\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..r.\n..P.p\np.b.n\nN.pPp\nP.PK.\nRBQ..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 B\n....r\n.n.pN\n.kbqp\np.P.p\nP..KP\n..R..\n");
 	
-	if (strstr("a1-b1\na1-a2\na1-b2\nd1-c1\nd1-b1\nd1-e1\nd1-d2\nd1-d3\nd1-d4\nc3-b2\nc3-d2\nc3-e1\nc3-b4\nc3-a5\nc3-d4\nc3-b3\nc3-d3\ne3-c2\ne3-d5\nc4-d5\ne4-e5\ne4-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("19 W\n.k..r\np..p.\nP..pn\nPR..q\n..B..\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 W\nk.b.r\n.qP..\npP.pp\n...P.\nP..K.\nRN.Q.\n");
 	
-	if (strstr("b4-b3\nb4-b2\nb4-b1\nb4-c4\nb4-d4\nb4-e4\nb4-b5\nb4-b6\nc5-d4\nc5-e3\nc5-b6\nc5-d6\nc5-c4\nc5-b5\nc5-d5\nc5-c6\ne6-e5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk.b.r\n..p..\np...p\nPqPp.\n..KP.\nRN...\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 B\nk..r.\n.p...\nR.Q..\nP.q.p\n..P.P\n.N..K\n");
 	
-	if (strstr("c4-c3\nc5-b5\nc5-c6\nc5-b4\nc5-d4\nc5-d6\na6-a5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nkq.r.\n.p.pp\npP.bn\n..QpP\nP..B.\nRN..K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 B\nk..nr\np..p.\nbpp..\n...p.\nPP..q\nR..NK\n");
 	
-	if (strstr("c4-c3\nc4-c2\nc4-c1\nc4-b4\nc4-a4\nc4-d4\nc4-c5\nc4-c6\nc4-d3\nc4-b5\ne4-d3\na5-a4\nd5-c6\nd5-c5\nd5-e5\nd5-d6\nb6-a4\ne6-e5\ne6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n.Q.nr\n...pP\n..Pk.\np.RB.\nPPb.P\n....K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 W\nkr...\n....p\n...pn\nKp.P.\nPP..P\nRN..Q\n");
 	
-	if (strstr("b1-a1\nb1-c1\nb1-d1\nb1-b2\nb1-b3\nb1-b4\nb1-a2\nb1-c2\nb1-d3\ne2-d1\nc3-c2\nc3-d2\nc4-b4\nc4-a4\nc4-c5\nd4-e3\nd4-c5\nd4-e4\nd4-d5\nb5-b4\nb5-a4\ne5-e4\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nkb..Q\n.p...\n.P.pp\npB..P\nP.P..\nR...K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 W\nk....\n.p.rp\np.p.N\nP....\n..RPP\n..Q.K\n");
 	
-	if (strstr("a1-a2\nb1-a2\nb1-c2\nb1-c1\nd3-d4\nd3-e4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\n.q..r\nkp..p\np.p.b\nPP.pN\n..PPK\nRB.Q.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 B\nkq...\n.n.b.\n..rPp\nP....\n...pK\nR....\n");
 	
-	if (strstr("b4-b3\nb4-a3\nb4-c3\ne4-c3\ne4-d2\nc5-c4\nc5-d4\ne5-e6\ne5-d4\na6-a5\nb6-a5\nb6-b5\nb6-c6\nd6-c6\nd6-e6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\n...rB\nk.bP.\n.p...\npP..K\nP...P\nRNQ..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("14 B\n.qr..\nkp..p\n.p.pb\nNn.K.\nP.PB.\nR..Q.\n");
 	
-	if (strstr("d1-c1\nd1-b1\nd1-a1\nd1-e1\nd1-d2\na2-a1\na2-b2\na2-a3\na2-b1\nc2-b1\nc2-d3\nc2-e4\nc2-c1\nc2-b2\nc2-c3\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("13 W\n.k.nr\n.N.p.\np.p.p\nq..KP\npP...\nR.BQ.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 W\nk...r\np..pp\n...n.\npR.P.\nP..BP\n...K.\n");
 	
-	if (strstr("b2-d1\nb2-a4\nb2-d3\nb2-c4\nd4-d3\nd4-c4\nd4-d5\nd4-c3\nd4-e3\nd4-c5\nd4-e5\nb5-b4\nb5-a4\na6-a5\na6-b6\nc6-d5\nc6-c5\nc6-b6\nd6-d5\nd6-e6\nd6-c5\nd6-b4\nd6-a3\nd6-e5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.kb..\n..p..\nQ.P..\n.....\n..P.r\n.q..K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 W\nk..br\np..q.\nP.Ppp\npp..P\n...K.\n.NQB.\n");
 	
-	if (strstr("b1-a1\nb1-b2\nb1-a2\nc1-b2\nc1-a3\nc1-d2\nc1-e3\nc1-d1\ne5-e4\ne5-e3\ne5-e2\ne5-e1\ne5-d5\ne5-c5\ne5-e6\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nb6-a6\nb6-c6\nb6-d6\nb6-e6\nb6-a5\nb6-c5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk.b.r\n..Bpp\nq...n\np.QP.\nP...P\nRN..K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 B\nkq..r\np.bp.\n.ppnN\nP....\n.R.p.\n.B.QK\n");
 	
-	if (strstr("c2-b1\nc2-d1\nc2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b2\nc2-c3\nc4-c3\nc4-b4\nc4-a4\nc4-c5\nc4-c6\nc4-b3\nc4-a2\nc4-d3\nc4-e2\nc4-b5\nc4-d5\nd4-d3\nd4-e3\ne5-e4\nb6-a4\nb6-d5\ne6-d6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n...br\npk.qp\n.pp.Q\nnPP..\nP..PK\n.RB..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 W\n.....\n.kPpp\np...N\n.B...\nPPRpQ\n....K\n");
 	
-	if (strstr("d1-c2\nd1-c1\na2-a3\nb2-b1\nb2-c2\nb2-a1\nb2-c1\nb2-a3\nd2-c2\nd2-d3\nd2-d4\nd2-d5\nd2-c1\nd2-e3\nb3-c4\nc3-b4\na4-c5\na4-b6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..r.\np..Pp\n.p.B.\nq...P\n..Pp.\nRN.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 W\n..q.r\n.p.pp\n.P...\nk...P\nn.PK.\n.NQ..\n");
 	
-	if (strstr("a1-b1\na1-b2\nd1-c1\nd1-b1\nd1-e1\nd1-d2\na2-a3\ne2-e3\ne2-d3\nb3-b4\na4-a3\na4-b4\na4-c4\na4-d4\na4-e4\na4-a5\na4-a6\na4-b5\na4-c6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk.b..\npp..r\n..n.p\nP.qP.\n.P.QK\nR.B..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("18 B\nk.r..\n..pq.\np.n.N\np..P.\n.bQ..\nRB..K\n");
 	
-	if (strstr("a4-a3\nd4-d3\nd4-c3\nd4-e3\nb5-b4\nb5-c4\nd5-c5\nd5-d6\nd5-c4\nd5-e4\nd5-e6\ne5-e4\ne5-e6\ne5-d6\na6-a5\na6-b6\nc6-c5\nc6-b6\nc6-d6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk...Q\np...p\nb...B\nP.p..\nPR.P.\n..K.q\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("21 W\nq...r\n.PQ.b\n....p\n..PPP\nR....\nB.k.K\n");
 	
-	if (strstr("a1-b1\na1-b2\na3-b2\na3-c1\na3-b4\na3-c5\na3-d6\na3-b3\nc4-c5\nc4-b5\nc4-d5\ne6-e5\ne6-e4\ne6-e3\ne6-d6\ne6-c6\ne6-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("12 B\nk.b.r\npp.pp\n.....\n.Pnp.\nPqP.P\nR.BK.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("19 B\nkrQ..\np...b\n.P...\n.....\n...KQ\n.RB..\n");
 	
-	if (strstr("a1-b1\nc1-b1\nc1-d1\nc1-c2\ne1-d1\na2-a3\nb2-b3\nd2-d3\ne2-e3\nc4-a3\nc4-e3\nc4-a5\nc4-b6\nc4-e5\nc4-d6\nd4-d5\nd4-c5\nd4-e5\nb5-b4\nb5-a5\nb5-c5\nb5-b6\nb5-a4\nb5-a6\nb5-c6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nkqr..\npQp.N\nPK..P\n.....\nq....\n.bB..\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("13 B\nk...r\np.pP.\nPq..p\n....p\n..PKQ\n..nB.\n");
 	
-	if (strstr("a1-b2\nb1-b2\nc1-d1\nc1-e1\na2-b3\nc2-c3\nc2-b3\na5-a4\na5-a3\na5-b5\na5-c5\na5-d5\na5-e5\na5-a6\na5-b4\na5-c3\na5-d2\na5-e1\nb6-c5\nb6-d4\nb6-e3\nb6-b5\nb6-a6\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk.r..\nqp..p\npN..n\n...b.\nP...P\nQ.B.K\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("15 W\nk..b.\np.pr.\n...P.\nPP..P\n.Qq..\n.R.K.\n");
 	
-	if (strstr("a1-b1\nc1-b1\nc1-d1\nc1-e1\nc1-c2\nc1-c3\nc1-c4\nc1-c5\nc1-c6\na2-b1\na2-b3\na3-a4\ne3-c2\ne3-d1\ne3-c4\ne3-d5\nd4-c3\nd4-c5\nd4-b6\nd4-e5\nd4-d3\nd4-c4\nd4-e4\nd4-d5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("14 B\n...r.\nppkPp\nqPpPb\n..NK.\n..P..\nR.B.Q\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("17 W\n....r\n.Rknb\n..q.p\n.....\n.PP.P\n.NBKQ\n");
 	
-	if (strstr("d1-c1\nd1-b1\nd1-a1\nd1-e1\nd1-d2\na2-b3\nc2-c1\nc2-d2\nc2-b1\nc2-b3\nc2-d3\ne2-d3\na3-b3\na3-a4\na3-a5\na3-a6\na3-b4\na3-c5\nc3-d4\ne3-d2\ne3-d4\ne3-e4\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\nk.bnr\nR.p.p\n...p.\n.....\n.PqQP\n.B.K.\n");
-	chess_moveRandom(charBuffer);
+	chess_boardSet("12 W\n.q.n.\n..pbr\np..p.\nk.pPQ\nPP.KP\nRNB..\n");
 	
-	if (strstr("a2-a1\na2-b2\na2-c2\na2-a3\na2-a4\na2-a5\na2-a6\nb5-b4\nd5-d4\nd5-d3\nd5-c5\nd5-c4\nd5-b3\nd5-e4\nd5-c6\nd5-e6\ne5-e4\nb6-a5\nb6-c5\nb6-a6\nb6-c6\nd6-c6\nd6-e6\nd6-c5\n", charBuffer) == NULL) {
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
@@ -6707,7 +6908,7 @@ bool test_moveTungsten(int intDepth) {
 	goto IRSFRPPD;
 
 	NVDAIVJH: YLHHTYLC = 0; goto BJVOMJOC;
-	AEBQPHIX: if (YLHHTYLC > EOPKMBCE)PSEYCDGU = YUJMVAIS; goto DNJAWRBW;
+	AEBQPHIX: if (YLHHTYLC > EOPKMBCE) PSEYCDGU = YUJMVAIS; goto DNJAWRBW;
 	FPYLGNDV: if (YLHHTYLC == EOPKMBCE) PSEYCDGU = -1; goto AEBQPHIX;
 	RDHWTPNL: YUJMVAIS = 0; goto JCHATWYU;
 	IRSFRPPD: QZEQZNRG[0] = '\0'; goto ATQLOAQB;

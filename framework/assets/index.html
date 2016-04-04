@@ -332,7 +332,7 @@
 							for (var intFor1 = 0; intFor1 < chess_strMoves.length; intFor1 += 1) {
 								if (chess_strMoves[intFor1].substr(0, 2) === chess_strInput) {
 									var intX = chess_strMoves[intFor1].charCodeAt(3) - ('a').charCodeAt(0);
-									var intY = chess_strMoves[intFor1].charCodeAt(4) - ('1').charCodeAt(0);
+									var intY = ('6').charCodeAt(0) - chess_strMoves[intFor1].charCodeAt(4);
 									
 									jQuery('#idChess_Board').find('tr').eq(intY).find('td').eq(intX)
 										.css({
@@ -404,7 +404,7 @@
 							var intX = jQuery(this).index();
 							var intY = jQuery(this).parent().index();
 							
-							var strInput = String.fromCharCode(('a').charCodeAt(0) + intX, ('1').charCodeAt(0) + intY);
+							var strInput = String.fromCharCode(('a').charCodeAt(0) + intX, ('6').charCodeAt(0) - intY);
 							var strInputPrevious = chess_strInput;
 							
 							if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) === -1) {

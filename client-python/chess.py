@@ -80,13 +80,13 @@ def chess_moves():
 	
 	strOut = []
 	
-	strOut.append('a5-a4\n')
-	strOut.append('b5-b4\n')
-	strOut.append('c5-c4\n')
-	strOut.append('d5-d4\n')
-	strOut.append('e5-e4\n')
-	strOut.append('b6-a4\n')
-	strOut.append('b6-c4\n')
+	strOut.append('a2-a3\n')
+	strOut.append('b2-b3\n')
+	strOut.append('c2-c3\n')
+	strOut.append('d2-d3\n')
+	strOut.append('e2-e3\n')
+	strOut.append('b1-a3\n')
+	strOut.append('b1-c3\n')
 	
 	return strOut
 
@@ -112,25 +112,25 @@ def chess_move(strIn):
 def chess_moveRandom():
 	# perform a random move and return it - one example output is given below - note that you can call the chess_movesShuffled() function as well as the chess_move() function in here
 	
-	return 'c5-c4\n'
+	return 'a2-a3\n'
 
 
 def chess_moveGreedy():
 	# perform a greedy move and return it - one example output is given below - note that you can call the chess_movesEvaluated() function as well as the chess_move() function in here
 	
-	return 'c5-c4\n'
+	return 'a2-a3\n'
 
 
 def chess_moveNegamax(intDepth, intDuration):
 	# perform a negamax move and return it - one example output is given below - note that you can call the the other functions in here
 	
-	return 'c5-c4\n'
+	return 'a2-a3\n'
 
 
 def chess_moveAlphabeta(intDepth, intDuration):
 	# perform a alphabeta move and return it - one example output is given below - note that you can call the the other functions in here
 	
-	return 'c5-c4\n'
+	return 'a2-a3\n'
 
 
 def chess_undo():

@@ -76,25 +76,25 @@ int chess_moves(char* charOut) {
 	int intReturn = 0;
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "a5-a4\n");
+	charOut += sprintf(charOut, "a2-a3\n");
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "b5-b4\n");
+	charOut += sprintf(charOut, "b2-b3\n");
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "c5-c4\n");
+	charOut += sprintf(charOut, "c2-c3\n");
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "d5-d4\n");
+	charOut += sprintf(charOut, "d2-d3\n");
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "e5-e4\n");
+	charOut += sprintf(charOut, "e2-e3\n");
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "b6-a4\n");
+	charOut += sprintf(charOut, "b1-a3\n");
 	
 	intReturn += 1;
-	charOut += sprintf(charOut, "b6-c4\n");
+	charOut += sprintf(charOut, "b1-c3\n");
 
 	return intReturn;
 }
@@ -119,10 +119,10 @@ void chess_moveRandom(char* charOut) {
 	// perform a random move and write the chosen move into the provided argument - one example output is given below - note that you can call the chess_movesShuffled() function as well as the chess_move() function in here
 	
 	charOut[0] = 'a';
-	charOut[1] = '5';
+	charOut[1] = '2';
 	charOut[2] = '-';
 	charOut[3] = 'a';
-	charOut[4] = '4';
+	charOut[4] = '3';
 	charOut[5] = '\n';
 	charOut[6] = '\0';
 }
@@ -131,10 +131,10 @@ void chess_moveGreedy(char* charOut) {
 	// perform a greedy move and write the chosen move into the provided argument - one example output is given below - note that you can call the chess_movesEvaluated() function as well as the chess_move() function in here
 	
 	charOut[0] = 'a';
-	charOut[1] = '5';
+	charOut[1] = '2';
 	charOut[2] = '-';
 	charOut[3] = 'a';
-	charOut[4] = '4';
+	charOut[4] = '3';
 	charOut[5] = '\n';
 	charOut[6] = '\0';
 }
@@ -143,10 +143,10 @@ void chess_moveNegamax(char* charOut, int intDepth, int intDuration) {
 	// perform a negamax move and write the chosen move into the provided argument - one example output is given below - note that you can call the the other functions in here
 	
 	charOut[0] = 'a';
-	charOut[1] = '5';
+	charOut[1] = '2';
 	charOut[2] = '-';
 	charOut[3] = 'a';
-	charOut[4] = '4';
+	charOut[4] = '3';
 	charOut[5] = '\n';
 	charOut[6] = '\0';
 }
@@ -155,10 +155,10 @@ void chess_moveAlphabeta(char* charOut, int intDepth, int intDuration) {
 	// perform a alphabeta move and write the chosen move into the provided argument - one example output is given below - note that you can call the the other functions in here
 	
 	charOut[0] = 'a';
-	charOut[1] = '5';
+	charOut[1] = '2';
 	charOut[2] = '-';
 	charOut[3] = 'a';
-	charOut[4] = '4';
+	charOut[4] = '3';
 	charOut[5] = '\n';
 	charOut[6] = '\0';
 }
