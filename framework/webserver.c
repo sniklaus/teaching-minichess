@@ -459,13 +459,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_board());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -495,13 +495,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_winner());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -531,13 +531,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_isValid());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -567,13 +567,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_isEnemy());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -603,13 +603,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_isOwn());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -639,13 +639,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_isNothing());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -675,13 +675,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_eval());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -711,13 +711,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_moves());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -747,13 +747,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_move());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -783,13 +783,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_undo());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -819,13 +819,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_movesShuffled());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -855,13 +855,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_movesEvaluated());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -891,13 +891,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_moveRandom());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -927,13 +927,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_moveGreedy());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -963,13 +963,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_moveNegamax());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{
@@ -999,13 +999,13 @@ void webserver_handler(struct mg_connection* mgconnectionHandle, int intEvent, v
 						cJSON* cjsonHandle = cJSON_CreateObject();
 						
 						{
-							unsigned long long longStart = rdtscp();
+							unsigned long long longStart = milliseconds();
 							
 							cJSON_AddBoolToObject(cjsonHandle, "boolReturn", test_moveAlphabeta());
 							
-							unsigned long long longStop = rdtscp();
+							unsigned long long longStop = milliseconds();
 							
-							cJSON_AddNumberToObject(cjsonHandle, "dblRdtscp", (longStop - longStart) / 1000000.0);
+							cJSON_AddNumberToObject(cjsonHandle, "intBench", longStop - longStart);
 						}
 						
 						{

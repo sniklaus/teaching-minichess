@@ -1205,9 +1205,9 @@ bool test_winner() {
 		return false;
 	}
 	
-	chess_boardSet("41 W\n.....\n.k...\n.qr..\n.....\n..p..\n.R...\n");
+	chess_boardSet("40 W\n.....\n.k...\n.qr..\n.....\n..p..\n.R...\n");
 	
-	if (chess_winner() != '=') {
+	if (chess_winner() != 'B') {
 		return false;
 	}
 	
@@ -1613,40 +1613,66 @@ bool test_isNothing() {
 }
 
 bool test_eval() {
-	chess_reset();
+	char charBuffer[1024] = { };
 	
-	if (chess_eval() != 0) {
-		return false;
+	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
+		sprintf(charBuffer, "%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+		
+		chess_boardSet(charBuffer);
+		
+		if (chess_eval() != 0) {
+			return false;
+		}
 	}
 	
-	chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
-	
-	if (chess_eval() != 0) {
-		return false;
+	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
+		sprintf(charBuffer, "%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+		
+		chess_boardSet(charBuffer);
+		
+		if (chess_eval() != 0) {
+			return false;
+		}
 	}
 	
-	chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
-	
-	if (chess_eval() >= 0) {
-		return false;
+	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
+		sprintf(charBuffer, "%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n", intFor1);
+		
+		chess_boardSet(charBuffer);
+		
+		if (chess_eval() >= 0) {
+			return false;
+		}
 	}
 	
-	chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
-	
-	if (chess_eval() <= 0) {
-		return false;
+	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
+		sprintf(charBuffer, "%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n", intFor1);
+		
+		chess_boardSet(charBuffer);
+		
+		if (chess_eval() <= 0) {
+			return false;
+		}
 	}
 	
-	chess_boardSet("1 W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
-	
-	if (chess_eval() <= 0) {
-		return false;
+	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
+		sprintf(charBuffer, "%d W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+		
+		chess_boardSet(charBuffer);
+		
+		if (chess_eval() <= 0) {
+			return false;
+		}
 	}
 	
-	chess_boardSet("1 B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
-	
-	if (chess_eval() >= 0) {
-		return false;
+	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
+		sprintf(charBuffer, "%d B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+		
+		chess_boardSet(charBuffer);
+		
+		if (chess_eval() >= 0) {
+			return false;
+		}
 	}
 	
 	return true;

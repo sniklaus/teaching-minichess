@@ -19,7 +19,7 @@
 		
 		<link rel="stylesheet" type="text/css" href="/assets/fontawesome.css" />
 		
-		<style id="idStylesheet_General" type="text/css">
+		<style type="text/css">
 			body {
 				cursor:default;
 				
@@ -505,12 +505,12 @@
 				}
 				
 				var test_strFunction = '';
-				var test_dblRdtscp = [];
+				var test_intBench = [];
 				
 				var test_call = function(strFunction, strParameters) {
 					if (test_strFunction !== strFunction) {
 						test_strFunction = strFunction;
-						test_dblRdtscp = [];
+						test_intBench = [];
 					}
 					
 					var strUrl = '/' + strFunction;
@@ -533,14 +533,14 @@
 						'url': strUrl,
 						'dataType': 'json',
 						'success': function(objectData) {
-							test_dblRdtscp.push(objectData.dblRdtscp);
+							test_intBench.push(objectData.intBench);
 							
 							jQuery('#idTest_Return_Return')
 								.text(objectData.boolReturn)
 							;
 							
-							jQuery('#idTest_Return_Rdtscp')
-								.text(objectData.dblRdtscp.toFixed(3))
+							jQuery('#idTest_Return_Bench')
+								.text(objectData.intBench.toFixed(3))
 							;
 							
 							Plotly.newPlot('idTest_Boxplot', [{
@@ -549,7 +549,7 @@
 								'boxpoints': 'all',
 								'pointpos': 2.0,
 								'jitter': 0.0,
-								'y': test_dblRdtscp,
+								'y': test_intBench,
 								'hoverinfo': 'none'
 							}], {
 								'showlegend': false,
@@ -1074,8 +1074,8 @@
 							</div>
 							
 							<div class="input-group">
-								<div class="input-group-addon">dblRdtscp:</div>
-								<div class="form-control" id="idTest_Return_Rdtscp"></div>
+								<div class="input-group-addon">intBench:</div>
+								<div class="form-control" id="idTest_Return_Bench"></div>
 							</div>
 							
 							<div id="idTest_Boxplot"></div>

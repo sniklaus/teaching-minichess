@@ -44,13 +44,4 @@ static inline unsigned long long milliseconds() {
 	return (timevalHandle.tv_sec * 1000) + (timevalHandle.tv_usec / 1000);
 }
 
-static inline unsigned long long rdtscp() {
-	unsigned long long longRax = 0;
-	unsigned long long longRdx = 0;
-	
-	__asm volatile("rdtscp" : "=a" (longRax), "=d" (longRdx));
-	
-	return (longRdx << 32) + (longRax << 0);
-}
-
 #endif
