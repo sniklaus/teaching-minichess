@@ -264,6 +264,7 @@
 						'success': function(objectData) {
 							chess_call_board();
 							chess_call_winner();
+							chess_call_eval();
 							chess_call_moves();
 						},
 						'complete': function() {
@@ -309,6 +310,20 @@
 						'success': function(objectData) {
 							jQuery('#idChess_Winner')
 								.text(objectData.strReturn)
+							;
+						}
+					});
+				};
+				
+				var chess_call_eval = function() {
+					jQuery.ajax({
+						'async': true,
+						'type': 'GET',
+						'url': '/chess_eval',
+						'dataType': 'json',
+						'success': function(objectData) {
+							jQuery('#idChess_Eval')
+								.text(objectData.intReturn)
 							;
 						}
 					});
@@ -885,6 +900,11 @@
 							<div class="input-group">
 								<div class="input-group-addon">strWinner:</div>
 								<div class="form-control" id="idChess_Winner"></div>
+							</div>
+							
+							<div class="input-group">
+								<div class="input-group-addon">intEval:</div>
+								<div class="form-control" id="idChess_Eval"></div>
 							</div>
 							
 							<table id="idChess_Board">
