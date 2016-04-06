@@ -91,7 +91,7 @@ java -ea -jar client.jar
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
 
 ###`client-python`
-in order to be able to use the python client, it is necessary to install the `pyzmq` module. this has already been done for the machines in the linux lab, but you can use `pip` to install it on your own machine. should you be unable to install this additional module, i am afraid that there will not be individual support to resolve this issue. as mentioned earlier, you always have the option to use the correctly configured machines in the linux lab.
+in order to be able to use the python client, it is necessary to install the `pyzmq` module. this has already been done for the machines in the linux lab, but you can use `pip` to install it on your own machine. should you be unable to install this additional module, make sure that you have `python-dev` installed. i am afraid that there will not be individual support to resolve issues that are related to appropriately setting up your environment. as mentioned earlier, you always have the option to use the correctly configured machines in the linux lab.
 
 ```
 pip install pyzmq
@@ -104,6 +104,21 @@ python main.py
 ```
 
 once the client is started, it should automatically connect to the framework. of course, a the framework needs to be executed concurrently to allow this interconnection to happen. after the client as well as the framework are being executed cooperatively, you should be able to access the webinterface and to interact with the client through the said graphical user interface.
+
+##example
+to give a better impression of what the textual format is supposed to look like, an brief example is given below.
+
+```
+			b1-c3:		a5-a4:		b2-b3:
+
+1 W			1 B			2 W			2 B
+kqbnr		kqbnr		kqbnr		kqbnr
+ppppp		ppppp		.pppp		.pppp
+.....		.....		p....		p....
+.....		..N..		..N..		.PN..
+PPPPP		PPPPP		PPPPP		P.PPP
+RNBQK		R.BQK		R.BQK		R.BQK
+```
 
 ##test cases
 note that the more advanced test cases rely on the basic test cases to succeed. for this reason, the most advanced test case `test_moveAlphabeta` does succeed even with the provided empty clients. other test cases like `test_moveNegamax` might not halt without a correct implementation of the basic functions. the grading will therefore not only evaluate newly implemented features, but furthermore take the basic functionalities into consideration as well.
