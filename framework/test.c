@@ -5832,904 +5832,804 @@ int test_moveCount(char* charBuffer, int intCount) {
 
 bool test_moveRandom() {
 	char charBuffer[100 * 1024] = { };
-	
-	chess_reset();
-	
+		
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_reset();
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 2) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nk.br.\npqppB\n....P\n.Q...\nP.P..\nR...K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n.b.qr\npk..p\n..N.p\n.P..P\n..P.Q\n.RB.K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 W\n.k.nr\n.bppp\np...P\n.PP..\nP...K\n.RB.Q\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nq..nr\nkp...\np..Pp\nR..PP\n.P...\n.Q..K\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 W\nkb.n.\np...q\n..ppp\npNP.P\n.P.BK\nR....\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("21 W\nk...r\nppp..\n.q.b.\nPP.BP\nQ....\nR..K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 W\n.kbr.\n.p..p\n.....\nP..QP\n.q.PK\n.R.B.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("14 W\nkq..r\n.np..\np.Pbp\nB..Pp\nPP...\nRNQ.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 B\nk..br\npNp.p\nP...q\n.PP.K\nB....\n..RQ.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\nk.r..\n.Qb.p\np...n\np.ppP\nP....\n.R..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 B\n.qknr\n..p.p\npBP.p\n.P...\nP....\nRNQ.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 B\nk.Q..\np..Np\n....b\n.PprP\nP....\n.Rn.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 B\nk..n.\np.Ppr\n...QP\n....P\n.PP..\nqB..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 W\nkN...\np...p\n.pnp.\n.B.P.\n....P\nRQq.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("14 B\nkb.n.\nqp.pr\npPp.p\nP...P\nB..PK\nRN.Q.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 2) {
 		return false;
 	}
 	
-	chess_boardSet("16 W\nk..nr\n..b..\np..Pp\nPB.p.\n...P.\nRN..K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\n...nr\n.bkp.\np.p.p\n..PKP\npP.PQ\n.RB..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n.Rr..\n.k...\n..p.n\np.P..\nP....\n..BQK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n.q.r.\nR.npp\nb.p.P\n..P..\n.B..k\n..KQ.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\n..b..\n.kprn\n..qp.\nB.PpP\nP....\nqN.QK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\n...n.\n.kQ..\np...p\nPPN.p\n....P\nB..QK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 10) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nk.br.\n....p\np.Ppn\np.NP.\nR.q.K\n....Q\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nk.Q..\np.p..\nq.b.p\nRQ...\nNnBPp\n....K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 10) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nk..qr\npp.pp\n.b.Q.\nP....\n.BP.K\nR..n.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\nk....\nP.q.p\n.PbrP\n..nP.\nR.Q..\n.N.K.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.Nr..\n.k..Q\n..n..\np...q\nPPPKP\nR.BQ.\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 B\n.k..r\np.p.p\n.....\nR....\n.PBqn\n..Q.K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\n..kbr\np.p..\n.RK.p\nn...P\n.qPQ.\n.....\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 W\nk....\n..r..\np.R.p\n....b\n..PN.\n..BnK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 W\n.b.nr\np.p.p\n..PkP\n.P..K\np.P..\nR.B..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 W\n....r\n.Pp.p\n....K\nk..PP\n.n.Q.\nR..q.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\nkb..r\n..nQp\npP...\n....K\n..B..\n..q..\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\nkR...\n....Q\npBpp.\nP.P..\n...K.\n.N...\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 W\n..br.\nqk.Q.\np....\nPpP.P\n...P.\nRN..K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
-	if (test_moveCount(charBuffer, 100) < 1) {
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("21 W\nk....\n..Ppr\n.....\nN...P\nbp.QB\nR..qK\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\n.b..r\nkq..p\nppQ.P\n..N..\npRPP.\n..B.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nk...r\npq..p\nn.pb.\nNp.pP\nPPBPQ\n.R..K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("18 W\n.qb..\nkpp.r\np....\nP...K\nnPP.P\n..R..\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 3) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\nk..n.\nP.b.r\n..p.p\n..P.q\n.PpPB\nRN..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 3) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n.Qb.r\nqkPN.\npn..p\nPPp..\n....P\n...K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nk....\nb.p..\np.P.p\np...p\n.r.B.\nR...K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\n.kb.r\nq...p\n.ppp.\nPP...\nR..PP\n...NK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 3) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nk...b\np.npr\n.q.Pp\n.RN.P\n..PB.\n....K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\n...r.\npkpbp\n.p..n\nqPP.P\nPB.K.\nRN.Q.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nk...r\n...pp\npP.bB\nP.P.q\n...nP\nRQ..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n.k..r\n.p..p\npbNqP\nP.K..\n.PBPQ\n..R..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\n.....\nk....\n.B..r\n.R.QP\nP...P\n....K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 3) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\n..bn.\npkpr.\nP..p.\nPQppB\nR...P\n.N.K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nqk.Qr\n....N\n.B...\n.P.P.\nP.Pn.\n.R.QK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 9) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk..nr\n.q..b\np.P..\n..P..\nPP.PK\nRB...\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\nk.qr.\np..b.\n..pQp\nBpP.K\nP...P\n.R...\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("21 W\n....Q\np.kp.\nQ....\n..Pp.\nP..np\n..B.K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 10) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\nk..qr\n.....\n.pb..\nn.p..\nP.B.p\nRQ..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\n....r\npq...\nb.k.p\n..ppP\nPP.P.\nRN.BK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 9) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nkr...\n..p.p\nppK.n\nP.P.P\nB..P.\n.R.b.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk.q.r\npbpp.\n..nQp\nPpP.P\nRPBP.\n.N.K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\n.qb.r\n.kp..\n...pn\npPN..\nPB.pP\nR...K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\n.qbN.\n.kp..\n.P..p\nnp.PP\n..Q..\n....K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n..b..\np...Q\nP.k..\n..Pp.\nP..nK\n....R\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\nk.b.r\n..Ppp\n..Q..\np.P..\nP.P.P\nR..K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nk..b.\n.Q..r\n....p\n....P\nPPP..\nRB..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("20 B\nk.r..\nqpnp.\nN..bp\nP.PP.\nP.RQ.\n...BK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nk..r.\np.p.p\nPp.pP\nNqnP.\nP....\n.R..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("21 W\nk..r.\npQp..\nP...p\n.qP..\n..bK.\nRN.B.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 B\nQ.kbr\n...pB\n..pq.\n.p..P\nP....\nRn.K.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\n.k..r\n.pbp.\n..NpB\nq.Q..\nPP..P\nR...K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 10) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\n...Nr\nk...p\npp.p.\nPPQbP\n.B.K.\n....R\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 W\n...n.\nqppr.\np...b\nk.P.P\nRPB..\n.N.K.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("14 W\nk...r\np.bq.\nP.pp.\nRpPPp\n.P.BP\n.N.Kn\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\nk...r\npqp.p\n..PpQ\n...PP\n.PB..\nR.N.K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\n.k...\np.pQb\n..N..\nP.Bq.\n.P.PP\n.R..K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("12 B\n.b..r\npk.N.\n.p..p\nn..p.\nPPBP.\nR..K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\nk....\n..r..\n....N\n..P.P\np..nP\n..BQK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 W\nk.qnr\npp...\n..p.b\nP..Kp\n.PPP.\nRB.Q.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nkq...\n..prp\n..P.b\np...B\nPPP.P\nR...K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n...nr\npkBbp\nPR...\n..ppP\n..PP.\n.Q..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\nk...r\npp.bP\n...Pn\n.Pp..\n..P..\nRqB.K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("15 B\nk..Q.\np.p.r\nn...p\n...P.\nPRPK.\n..BQ.\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 W\n...q.\npkp.p\n...r.\n.PN.P\nP....\nR.KB.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 W\n..k.r\n....P\np..p.\n..P..\nb.p..\nR..K.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\n.R...\nkP.p.\n....Q\n..p.b\nPqP..\n.N..K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\nk..qr\n...bp\nBN..n\npPpQ.\nP..P.\n...RK\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveCount(charBuffer, 100) < 5) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nk.bQ.\np....\n...p.\nnPp.P\nR....\n...BK\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n..rb.\np.k..\n.pN.P\n.P.p.\nq.QP.\nR...K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\n..r..\nBkpq.\n.p.Pp\nbN...\nQ....\nR..nK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("14 W\nkq..r\np.p..\nP....\nR.p..\nB.P.P\n...QK\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk...r\np.b.p\nBp.P.\nPn...\n.RP.N\n...QK\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\nk...r\np....\n..ppQ\n...qN\n.K..P\nRB...\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nk..br\np..pp\nB...n\n..N..\np.Q..\nR...K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 9) {
-		return false;
-	}
-	
-	chess_boardSet("20 W\n..kr.\n...p.\n..R..\n..KpP\nPbq..\n...Q.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nk..r.\np.p.p\n.pP.q\nPbPBP\n...Q.\nR...K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("18 B\n...R.\n.np..\nk.P.P\n.....\nP...P\n....K\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\nkq.r.\n.pB..\n.p.pb\nn..p.\nPQP.K\nRN...\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 W\n...Q.\npk.pr\n.q...\n..p.P\nP...P\nRB.K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\n.k...\np.qp.\n..P..\n.PNK.\nb..B.\n....R\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 W\nkb..r\npp.qp\nN..BQ\nPp.P.\n.nP..\n...K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\n.r...\nk.p.p\npqP.P\n...p.\nP.NP.\n.R.BK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\n.qb..\nkPprp\np..p.\n.PQ.P\nP..Pn\nRNBK.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\n....r\n..pbp\nk..pn\np.KPP\n.Pp..\nRB.Q.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 B\nb...r\np...p\n..kP.\nN.Q..\nPP.n.\n.R..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("21 W\n...r.\n...pb\n...kp\nP.B.P\nq..P.\n..N.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nq..r.\nkp..p\npB.b.\n...PP\nP...Q\nRN..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nk...r\np..pp\n..q.n\nN..PK\nRP.B.\n.....\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\n..k..\npPp.r\n.P.Kb\n.....\n.BP..\n.R..Q\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\nkb.Q.\n.pp..\np..N.\n...KP\nP....\n.q.R.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nk..nr\npb.p.\n....R\n.P.P.\n....P\n...QK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\nk.qb.\n.p.Nr\np.p.p\nPQP.P\n.P.K.\nR.B..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\n....r\nkbqpp\nppp..\nP.P.P\n.P...\nRNBQK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 W\n.k...\n....q\np.p..\nPpP..\n.P..P\nR..K.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 2) {
 		return false;
 	}
 	
-	chess_boardSet("20 B\n.q...\n..r.p\npkp..\npB..Q\nR.P.K\n.....\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nkqb.r\npQ..p\nnp...\n.....\nP.N.P\n.RB.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("21 W\n...b.\n..pp.\np..P.\n..P..\nk..pR\n..K..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 B\nk.br.\nBpp..\nq..pp\n.P.n.\nP.PP.\n.R.K.\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("20 W\n..qQ.\nb.r.p\n.k.Q.\np....\n.B..P\nR...K\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 B\n.q...\nkN.pb\np.PP.\np....\nP.P.P\n..RK.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 W\n....r\nk....\np.pP.\n....q\nPP.K.\nR.B..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 W\n..r..\nk..Bp\nQP.p.\n..P..\n...qK\nRN...\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 B\nk..nr\npp...\nP....\nR.b.p\n.PP..\nB..QK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 B\nQ....\n.k...\n.p..p\n.Rp.B\nP.P.P\n....K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 2) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\n.k..r\nq.p.p\n...pb\n.Q.P.\n...P.\nRB..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\nk.QN.\nq...p\n.....\np.pKP\n.B.b.\n.q...\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 9) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("21 W\n.k.r.\n.pp..\nq.R.p\nPbP..\nB...p\n....K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\n.Nb.r\np.p.p\n.k..B\n.....\npP.PP\n.RQ.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\n.k...\npb.q.\n.ppp.\n.P..K\nP.p..\n.RB.Q\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 W\nN.k.r\np...q\n.Q...\n....B\n.P..P\nR...K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 10) {
 		return false;
 	}
 	
-	chess_boardSet("17 B\nk..b.\n...p.\npB..p\nP.P..\nR...q\n.NQ.K\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\nk....\n....Q\np...P\n...qK\n.pP.b\nRN...\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 W\n.q...\nPR.Pr\np.pp.\nP..Q.\n....k\n....K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("16 B\nkq.nr\n..p.b\nPp.Pp\nP.P.P\n....K\nR...Q\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("16 W\n.....\npqQ..\nP.pBb\n..k.r\n.P.NK\nR.n..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("17 B\n..b.r\nk.p.Q\np..p.\nP...P\nn.q.K\nB....\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\nq.br.\n..p..\n.pPpP\n.P..P\nP...B\nRk.K.\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\nk...Q\np.p.b\nP..p.\n....P\n.P...\n...K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 2) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 B\nkq..r\n....B\n.Pp.P\n.P.p.\n..Q.P\n...RK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\n...Q.\n..pp.\nkqb.n\n.....\n.P.QP\n.NB.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 W\n.k...\n.p.Kr\np.n.p\n..p..\n..P.P\nQ.b..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 W\nk....\n.qp.r\nP..pp\nn..PP\nRP...\n.NbBK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\n...r.\n..qbp\np.n..\nkPPP.\nP.Q..\nRB..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 B\n...n.\nk.Rp.\np..P.\nPp..r\np....\n...K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 W\n.k..r\nbp.Rp\n.n.p.\n...P.\n..P.P\n.NK..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 B\n.....\npPb.r\nkB.pp\nP....\n....P\nR...K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 B\nkq...\n..p..\nP..br\nP.p.P\n.n.N.\n.R.K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\n.....\nkbpp.\np...r\nRNP.p\n...Bn\n.Q..K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 W\nkb..r\np...p\nqpppn\n.P..N\n..PPP\nBR.QK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 B\n.k.Nr\np...p\n.p...\nRp.p.\n.PQPP\n..K..\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("11 B\nkqbn.\npp.pr\n...Bp\nP.p..\n.PP.P\n.R.QK\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\n.....\n.k.r.\n..p.N\np.Q..\nPPP.P\nRB.K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("16 B\n.qbQ.\n.kp.P\np.n..\nPpP.P\n.P.r.\nR.B.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 W\nk...b\n...r.\nQp..p\nP...P\n..PpK\nRN...\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 B\nk.b.r\n.pnp.\n..p..\nPpP.Q\n..KN.\nR.B..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 W\nkn.r.\n.p.b.\np...p\n.BP.Q\n..P..\n....K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 B\n....r\nk...p\npq..P\nP.ppQ\n.P...\nRNBK.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("18 W\n....r\n.k..p\npP.b.\n.....\nqP..P\n.B..K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 3) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n..knr\n...bp\n.p.P.\nPP.PP\n..p..\nR.KB.\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nr....\nk.p.p\nq.Pb.\nP.PpP\nP....\nR.QBK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("19 B\n....r\n.pk.p\np.pQn\n.....\n.PP.P\nR.BKq\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\nk..qr\npQ..p\nP..p.\n.....\n..BPP\nR..qK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("11 B\nk...r\n.qpp.\nNP..p\n.P.P.\n..PKP\nR.Q..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("13 W\n..bnr\nk..p.\n..pNp\nPp...\n.P.PP\nR.Q.K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\nbk.n.\n.p..r\n.PpPp\nP..P.\nRBPQ.\n...K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 3) {
-		return false;
-	}
-	
-	chess_boardSet("18 W\n.q...\n.np.r\npR...\nQ..bP\nP..P.\n..kK.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("16 B\n.....\n.k.rb\nPPpp.\n.....\n.R..P\n.n.BK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nkb..r\n.qp..\np..Pp\nP.p.p\n.K.B.\n..R..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\n....r\n.n.pN\n.kbqp\np.P.p\nP..KP\n..R..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 8) {
-		return false;
-	}
-	
-	chess_boardSet("14 W\nk.b.r\n.qP..\npP.pp\n...P.\nP..K.\nRN.Q.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 5) {
-		return false;
-	}
-	
-	chess_boardSet("15 B\nk..r.\n.p...\nR.Q..\nP.q.p\n..P.P\n.N..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 8) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\nk..nr\np..p.\nbpp..\n...p.\nPP..q\nR..NK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 8) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nkr...\n....p\n...pn\nKp.P.\nPP..P\nRN..Q\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("17 W\nk....\n.p.rp\np.p.N\nP....\n..RPP\n..Q.K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\nkq...\n.n.b.\n..rPp\nP....\n...pK\nR....\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 8) {
-		return false;
-	}
-	
-	chess_boardSet("14 B\n.qr..\nkp..p\n.p.pb\nNn.K.\nP.PB.\nR..Q.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\nk...r\np..pp\n...n.\npR.P.\nP..BP\n...K.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("12 W\nk..br\np..q.\nP.Ppp\npp..P\n...K.\n.NQB.\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 6) {
-		return false;
-	}
-	
-	chess_boardSet("17 B\nkq..r\np.bp.\n.ppnN\nP....\n.R.p.\n.B.QK\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("19 W\n.....\n.kPpp\np...N\n.B...\nPPRpQ\n....K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 7) {
-		return false;
-	}
-	
-	chess_boardSet("15 W\n..q.r\n.p.pp\n.P...\nk...P\nn.PK.\n.NQ..\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 4) {
-		return false;
-	}
-	
-	chess_boardSet("18 B\nk.r..\n..pq.\np.n.N\np..P.\n.bQ..\nRB..K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-	}
-	if (test_moveCount(charBuffer, 100) < 8) {
-		return false;
-	}
-	
-	chess_boardSet("21 W\nq...r\n.PQ.b\n....p\n..PPP\nR....\nB.k.K\n");
-	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 W\nk.b.r\np....\n.PN..\n.....\nR.Q.P\n.q..K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 9) {
 		return false;
 	}
 	
-	chess_boardSet("19 B\nkrQ..\np...b\n.P...\n.....\n...KQ\n.RB..\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\nk..nr\nppQ.p\n...p.\nN..PB\nb...P\n..R.K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 4) {
 		return false;
 	}
 	
-	chess_boardSet("13 B\nk...r\np.pP.\nPq..p\n....p\n..PKQ\n..nB.\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("11 B\n.k.nr\n.N...\n.pppp\n...P.\nPQ..P\nR..BK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("20 W\nk..r.\n.K..P\n..p.P\n.b.P.\n.qN..\nRn...\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 7) {
 		return false;
 	}
 	
-	chess_boardSet("15 W\nk..b.\np.pr.\n...P.\nPP..P\n.Qq..\n.R.K.\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\n....r\npkpqp\nBP..n\nP.PpP\n....P\nRN.QK\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
-	if (test_moveCount(charBuffer, 100) < 5) {
+	if (test_moveCount(charBuffer, 100) < 8) {
 		return false;
 	}
 	
-	chess_boardSet("17 W\n....r\n.Rknb\n..q.p\n.....\n.PP.P\n.NBKQ\n");
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("19 W\nb.knr\n..p..\np.p.p\nP.PK.\nRP.P.\n...Bq\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 4) {
+		return false;
+	}
 	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 W\n...nr\n..k.P\npQp.p\n.....\nPP.P.\nRNB.K\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
 	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	
-	chess_boardSet("12 W\n.q.n.\n..pbr\np..p.\nk.pPQ\nPP.KP\nRNB..\n");
-	
 	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 B\nk...r\n.bpp.\n...qp\nnPP.P\nP..P.\n...RK\n");
 		chess_moveRandom(&charBuffer[intFor1 * 1024]);
 	}
-	if (test_moveCount(charBuffer, 100) < 4) {
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 W\nqkbnr\n.....\nppNPp\n.Q.PB\nPP..P\n..R.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\n..br.\np.ppp\n.kn.P\nq.N..\nRP...\n.QB.K\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 B\nkq..r\n...p.\nppb.p\nP.Q..\n.RP.n\n...BK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\nk..br\nqnp..\np..QP\npP..P\nN.P.K\nR..B.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 8) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("13 W\nk..nr\np....\n..qQ.\np..P.\nPPbK.\nR.B..\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 7) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("15 W\nkr...\n.qP.p\n....P\n.....\n.n.NP\nR..K.\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 5) {
+		return false;
+	}
+	
+	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+		chess_boardSet("12 W\n.qbn.\npkp.p\np.Nr.\nP.P..\n.P...\n..RQK\n");
+		chess_moveRandom(&charBuffer[intFor1 * 1024]);
+	}
+	if (test_moveCount(charBuffer, 100) < 6) {
 		return false;
 	}
 	

@@ -106,7 +106,7 @@ int chess_movesShuffled(char* charOut) {
 }
 
 int chess_movesEvaluated(char* charOut) {
-	// with reference to the state of the game, determine the possible moves and sort them in order of an increasing evaluation score before writing the output into the provided argument and returning the number of moves - note that you can call the chess_moves() function in here
+	// with reference to the state of the game, determine the possible moves and sort them in order of an increasing evaluation score before writing the output into the provided argument and returning the number of moves - note that you can call the chess_movesShuffled() function in here
 
 	return 0;
 }

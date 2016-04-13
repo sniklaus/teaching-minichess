@@ -98,7 +98,7 @@ public class chess {
 	}
 	
 	public static Vector<String> movesEvaluated() {
-		// with reference to the state of the game, determine the possible moves and sort them in order of an increasing evaluation score before returning them - note that you can call the chess.moves() function in here
+		// with reference to the state of the game, determine the possible moves and sort them in order of an increasing evaluation score before returning them - note that you can call the chess.movesShuffled() function in here
 		
 		return new Vector<String>();
 	}
