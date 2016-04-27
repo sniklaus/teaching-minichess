@@ -202,10 +202,8 @@ ssh <username>@<machine>.cs.pdx.edu -L 8080:localhost:8080
 
 you will eventually need three ssh connections in parallel. one for the execution of the framework, one for the execution of the client as well as one for the tunnel in order to be able to access the webinterface. i am well aware that this is rather inconvenient but it is at least guaranteed to work. you are furthermore encouraged to use your own computer without connecting remotely into the linux lab. since i am afraid that there will not be individual support to get the framework to run on your own computer, this alternative had to be provided such that nobody will be left behind.
 
-##alternative workarounds
+##virtual machine
 using a virtual machine is always a viable option. i personally do this as well and developed this framework in a debian environment that is running within a virtual machine. note that there are quite a few free virtualizers to choose from and while i have a preferred one, i would like to take the liberty of not making any advertisements here. i would therefore recommend to read a few related online resources.
-
-should you only be having trouble building the framework, you can try the corresponding binary within the binaries folder of this repository. note however, that even a binary might not work in case some dependencies are not met. there so far is furthermore only one prebuilt binary for linux.
 
 ##frequently asked questions
 *why does the framework segfault when it starts?* this can happen when the port it tries for the communication with the client is invalid or in use by another instance of the framework. to solve this issue, make sure that a valid port has been chosen and that there is no other running instance of the framework. make sure to read the previous section about the linux lab, should you be using this resource to work on your artificial chess player.
@@ -225,6 +223,11 @@ since the framework consists of several components and each component has indivi
 * `zeromq`
 * `cjson`
 * `mongoose`
+
+###`webinterface`
+* `jquery` / `moment`
+* `bootstrap` / `fontawesome`
+* `plotly`
 
 ###`client-c`
 * `zeromq`
