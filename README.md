@@ -129,9 +129,7 @@ this function will be called in between individual games. it should be used to r
 the random numbers that are required for zobrist keying are one instance of internal variables that you might want to set in this function.
 
 ###`chess_boardGet`
-the framework needs to be able to obtain the current state of the game from the client. in doing so, the output is expected to be in a well defined format.
-
-this function can thus be seen as a translation between your internal representation and the format that the framework expects.
+the framework needs to be able to obtain the current state of the game from the client. in doing so, the output is expected to be in a well defined format. this function can thus be seen as a translation between your internal representation and the format that the framework expects.
 
 ```javascript
 chess_reset();
@@ -140,9 +138,7 @@ assert(strcmp(charBuffer, "1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n") == 
 ```
 
 ###`chess_boardSet`
-the framework needs to be able to override the current state of the game within the client. in doing so, the input is being provided in a well defined format.
-
-this function can thus be seen as a translation between your internal representation and the format that the framework expects.
+the framework needs to be able to override the current state of the game within the client. in doing so, the input is being provided in a well defined format. this function can thus be seen as a translation between your internal representation and the format that the framework expects.
 
 ```javascript
 chess_boardSet("18 W\n.k...\npn..r\n..p.P\n.Pp..\nP...K\nRB..Q\n");
@@ -151,9 +147,7 @@ assert(strcmp(charBuffer, "18 W\n.k...\npn..r\n..p.P\n.Pp..\nP...K\nRB..Q\n") ==
 ```
 
 ###`chess_winner`
-this function determines the winner of the current state, where `?` indicates that nobody has yet won while `=` indicates that the game ended in a draw. likewise, `W` is expected in case white has won while `B` is expected in case black has won.
-
-note that depending on the language that has been used to implement the client, this function either returns a character or a string.
+this function determines the winner of the current state, where `?` indicates that nobody has yet won while `=` indicates that the game ended in a draw. likewise, `W` is expected in case white has won while `B` is expected in case black has won. note that depending on the language that has been used to implement the client, this function either returns a character or a string.
 
 ```javascript
 chess_reset();
@@ -220,9 +214,7 @@ assert(chess_isNothing('.') == true);
 ```
 
 ###`chess_eval`
-this function determines the eval score of the current state, relative to the side on move. the exact implementation is up to you, but summing up the pieces for each player and calculating their difference is generally a good start.
-
-note that the related test cases are fairly tolerant, such that you are able to include arbitrary heuristics.
+this function determines the eval score of the current state, relative to the side on move. the exact implementation is up to you, but summing up the pieces for each player and calculating their difference is generally a good start. note that the related test cases are fairly tolerant, such that you are able to include arbitrary heuristics.
 
 ```javascript
 chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
@@ -245,9 +237,7 @@ assert(chess_eval() < 0);
 ```
 
 ###`chess_moves`
-this function determines all the possible moves of the current state. in doing so, the output is expected to be in a well defined format.
-
-note that depending on the language that has been used to implement the client, this function either returns a string or a string array.
+this function determines all the possible moves of the current state. in doing so, the output is expected to be in a well defined format. note that depending on the language that has been used to implement the client, this function either returns a string or a string array.
 
 ```javascript
 chess_reset();
@@ -265,9 +255,7 @@ this function calls the moves function to retrieve the list of possible moves, b
 note that the related test cases call the shuffled moves function several times on the same state and determine whether the entropy of the returned moves is sufficiently high.
 
 ###`chess_movesEvaluated`
-this function calls the shuffled moves function to retrieve the randomized list of possible moves, before it sorts and returns them. this function will be helpful later when implementing more advanced functions.
-
-to perform the sort, the eval score after having performed each move individually needs to be obtained. the list of possible moves then needs to be sorted in order of increasing eval scores.
+this function calls the shuffled moves function to retrieve the randomized list of possible moves, before it sorts and returns them. this function will be helpful later when implementing more advanced functions. to perform the sort, the eval score after having performed each move individually needs to be obtained. the list of possible moves then needs to be sorted in order of increasing eval scores.
 
 note that the related test cases call the eval function as well as the move and undo function. in doing so, it is being determined whether the returned moves are in the proper order.
 
@@ -297,25 +285,17 @@ this function performs a greedy move and returns the determined move as a string
 note that the related test cases let a greedy player compete against a random player. by doing this multiple times, the greedy player is expected to win most of the times.
 
 ###`chess_moveNegamax`
-this function performs a negamax search and performs as well as returns the determined move as a string.
-
-the search will try to reach the provided depth through iterative deepening while not significantly exceeding the provided duration in milliseconds.
+this function performs a negamax search and performs as well as returns the determined move as a string. the search will try to reach the provided depth through iterative deepening while not significantly exceeding the provided duration in milliseconds.
 
 note that the related test cases let a negamax player compete against a greedy player. by doing this multiple times, the negamax player is expected to win most of the times.
 
 ###`chess_moveAlphabeta`
-this function performs an alphabeta search and performs as well as returns the determined move as a string.
-
-the search will try to reach the provided depth through iterative deepening while not significantly exceeding the provided duration in milliseconds.
-
-within the tournament, the semantics of the depth as well as the duration argument will slightly deviate from this scheme. for further details, please consult the tournament mode section.
+this function performs an alphabeta search and performs as well as returns the determined move as a string. the search will try to reach the provided depth through iterative deepening while not significantly exceeding the provided duration in milliseconds. within the tournament, the semantics of the depth as well as the duration argument will slightly deviate from this scheme. for further details, please consult the tournament mode section.
 
 note that the related test cases likewise perform an alphabeta search and check whether the returned move is within the list of optimal moves.
 
 ###`chess_undo`
-this function reverts the most recent move. a history of performed moves therefore needs to be kept, for which the move function needs to be modified accordingly.
-
-note that the exact implementation is up to you and there are many ways to do this. the most basic one does for example simply keep a history of states.
+this function reverts the most recent move. a history of performed moves therefore needs to be kept, for which the move function needs to be modified accordingly. note that the exact implementation is up to you and there are many ways to do this. the most basic one does for example simply keep a history of states.
 
 ```javascript
 chess_reset();
