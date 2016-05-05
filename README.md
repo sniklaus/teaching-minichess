@@ -221,16 +221,16 @@ assert(chess_eval() == 0);
 chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
 assert(chess_eval() == 0);
 
-chess_boardSet("%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
+chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
 assert(chess_eval() < 0);
 
-chess_boardSet("%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
+chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
 asser(chess_eval() > 0);
 
-chess_boardSet("%d W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+chess_boardSet("1 W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
 assert(chess_eval() > 0);
 
-chess_boardSet("%d B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+chess_boardSet("1 B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
 assert(chess_eval() < 0);
 ```
 
