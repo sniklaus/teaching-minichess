@@ -124,58 +124,219 @@ RNBQK		R.BQK		R.BQK		R.BQK		R.BQK		R.BQK		R.BQK
 to obtain a fully functioning client, it is required to implement various functions. these functions provide a well defined interface, such that the framework can communicate with a client in a well defined format.
 
 ###`chess_reset`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function will be called in between individual games. it should be used to reset the internal variables of your implementation.
+
+the random numbers that are required for zobrist keying are one instance of internal variables that you might want to set in this function.
 
 ###`chess_boardGet`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+the framework needs to be able to obtain the current state of the game from the client. in doing so, the output is expected to be in a well defined format.
+
+this function can thus be seen as a translation between your internal representation and the format that the framework expects.
+
+```javascript
+chess_reset();
+chess_boardGet(charBuffer);
+assert(strcmp(charBuffer, "1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n") == 0);
+```
 
 ###`chess_boardSet`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+the framework needs to be able to override the current state of the game within the client. in doing so, the input is being provided in a well defined format.
+
+this function can thus be seen as a translation between your internal representation and the format that the framework expects.
+
+```javascript
+chess_boardSet("18 W\n.k...\npn..r\n..p.P\n.Pp..\nP...K\nRB..Q\n");
+chess_boardGet(charBuffer);
+assert(strcmp(charBuffer, "18 W\n.k...\npn..r\n..p.P\n.Pp..\nP...K\nRB..Q\n") == 0);
+```
 
 ###`chess_winner`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function determines the winner of the current state, where `?` indicates that nobody has yet won while `=` indicates that the game ended in a draw. likewise, `W` is expected in case white has won while `B` is expected in case black has won.
+
+note that depending on the language that has been used to implement the client, this function either returns a character or a string.
+
+```javascript
+chess_reset();
+assert(chess_winner() == '?');
+
+chess_boardSet("15 B\n...r.\nppnQ.\n..p..\nNPPp.\nP..P.\nR...K\n");
+assert(chess_winner() == 'W');
+
+chess_boardSet("39 W\n....r\n.q...\npk...\nP....\nn....\nB....\n");
+assert(chess_winner() == 'B');
+
+chess_boardSet("41 W\n..k..\n.Q..P\nP....\n....P\n.bq..\nq..K.\n");
+assert(chess_winner() == '=');
+```
 
 ###`chess_isValid`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this is a function that might help to implement other features, such as the generation of moves for example. it will return whether a given coordinate is valid, id est that it points to a valid square on the board.
+
+note that the implementation of this function has already been provided, which is why the related test cases should always pass successfully.
 
 ###`chess_isEnemy`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this is a function that might help to implement other features, such as the generation of moves for example. it will with reference to the side on move determine whether or not the provided piece is a piece from the side not on move.
+
+```javascript
+chess_reset();
+assert(chess_isEnemy('k') == true);
+assert(chess_isEnemy('K') == false);
+assert(chess_isEnemy('.') == false);
+
+chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_isEnemy('k') == false);
+assert(chess_isEnemy('K') == true);
+assert(chess_isEnemy('.') == false);
+```
 
 ###`chess_isOwn`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this is a function that might help to implement other features, such as the generation of moves for example. it will with reference to the side on move determine whether or not the provided piece is a piece from the side on move.
+
+```javascript
+chess_reset();
+assert(chess_isOwn('k') == false);
+assert(chess_isOwn('K') == true);
+assert(chess_isOwn('.') == false);
+
+chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_isOwn('k') == true);
+assert(chess_isOwn('K') == false);
+assert(chess_isOwn('.') == false);
+```
 
 ###`chess_isNothing`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this is a function that might help to implement other features, such as the generation of moves for example. it will with determine whether the provided piece represents an empty square.
+
+```javascript
+chess_reset();
+assert(chess_isNothing('k') == false);
+assert(chess_isNothing('K') == false);
+assert(chess_isNothing('.') == true);
+
+chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_isNothing('k') == false);
+assert(chess_isNothing('K') == false);
+assert(chess_isNothing('.') == true);
+```
 
 ###`chess_eval`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function determines the eval score of the current state, relative to the side on move. the exact implementation is up to you, but summing up the pieces for each player and calculating their difference is generally a good start.
+
+note that the related test cases are fairly tolerant, such that you are able to include arbitrary heuristics.
+
+```javascript
+chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_eval() == 0);
+
+chess_boardSet("1 B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_eval() == 0);
+
+chess_boardSet("%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
+assert(chess_eval() < 0);
+
+chess_boardSet("%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n");
+asser(chess_eval() > 0);
+
+chess_boardSet("%d W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_eval() > 0);
+
+chess_boardSet("%d B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+assert(chess_eval() < 0);
+```
 
 ###`chess_moves`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function determines all the possible moves of the current state. in doing so, the output is expected to be in a well defined format.
+
+note that depending on the language that has been used to implement the client, this function either returns a string or a string array.
+
+```javascript
+chess_reset();
+intBuffer = chess_moves(charBuffer);
+assert(orderless_comparison(intBuffer, charBuffer, "a2-a3\nb2-b3\nc2-c3\nd2-d3\ne2-e3\nb1-a3\nb1-c3\n") == true);
+
+chess_boardSet("14 B\n.Rkbr\n..p..\np.Ppp\nP..P.\n..B.P\n....K\n");
+intBuffer = chess_moves(charBuffer);
+assert(orderless_comparison(intBuffer, charBuffer, "c6-b6\nc6-b5\nc6-d5\nd6-e5\nd6-d5\ne6-e5\ne4-e3\ne4-d3\n") == true);
+```
 
 ###`chess_movesShuffled`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function calls the moves function to retrieve the list of possible moves, before it randomly shuffles and returns them. this function will be helpful later when implementing more advanced functions.
+
+note that the related test cases call the shuffled moves function several times on the same state and determine whether the entropy of the returned moves is sufficiently high.
 
 ###`chess_movesEvaluated`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function calls the shuffled moves function to retrieve the randomized list of possible moves, before it sorts and returns them. this function will be helpful later when implementing more advanced functions.
+
+to perform the sort, the eval score after having performed each move individually needs to be obtained. the list of possible moves then needs to be sorted in order of increasing eval scores.
+
+note that the related test cases call the eval function as well as the move and undo function. in doing so, it is being determined whether the returned moves are in the proper order.
 
 ###`chess_move`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function performs the provided move, thus modifying the current state of the game accordingly. in doing so, the input is being provided in a well defined format.
+
+```javascript
+chess_reset();
+chess_move("c2-c3\n");
+chess_boardGet(charBuffer);
+assert(strcmp(charBuffer, "1 B\nkqbnr\nppppp\n.....\n..P..\nPP.PP\nRNBQK\n") == 0);
+
+chess_boardSet("15 B\nk..nr\np..p.\n..q..\nbp..P\nPB.QP\nR..K.\n");
+chess_move("a5-a4\n");
+chess_boardGet(charBuffer);
+assert(strcmp(charBuffer, "16 W\nk..nr\n...p.\np.q..\nbp..P\nPB.QP\nR..K.\n") == 0);
+```
 
 ###`chess_moveRandom`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function performs a random move and returns the determined move as a string. to do this, this function may call the shuffled moves function to obtain a random valid move.
+
+note that the related test cases call the random move function several times on the same state and determine whether the entropy of the returned moves is sufficiently high.
 
 ###`chess_moveGreedy`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function performs a greedy move and returns the determined move as a string. to do this, this function may call the evaluated moves function to obtain the move that will put the opponent into the immediately worst state.
+
+note that the related test cases let a greedy player compete against a random player. by doing this multiple times, the greedy player is expected to win most of the times.
 
 ###`chess_moveNegamax`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function performs a negamax search and performs as well as returns the determined move as a string.
+
+the search will try to reach the provided depth through iterative deepening while not significantly exceeding the provided duration in milliseconds.
+
+note that the related test cases let a negamax player compete against a greedy player. by doing this multiple times, the negamax player is expected to win most of the times.
 
 ###`chess_moveAlphabeta`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function performs an alphabeta search and performs as well as returns the determined move as a string.
+
+the search will try to reach the provided depth through iterative deepening while not significantly exceeding the provided duration in milliseconds.
+
+within the tournament, the semantics of the depth as well as the duration argument will slightly deviate from this scheme. for further details, please consult the tournament mode section.
+
+note that the related test cases likewise perform an alphabeta search and check whether the returned move is within the list of optimal moves.
 
 ###`chess_undo`
-this section is still under construction. you can in the meantime consult the slides for a description of this function.
+this function reverts the most recent move. a history of performed moves therefore needs to be kept, for which the move function needs to be modified accordingly.
+
+note that the exact implementation is up to you and there are many ways to do this. the most basic one does for example simply keep a history of states.
+
+```javascript
+chess_reset();
+chess_move("b1-a3\n");
+chess_move("d5-d4\n");
+chess_move("d2-d3\n");
+chess_move("a5-a4\n");
+chess_move("c1-e3\n");
+chess_move("c5-c4\n");
+chess_move("e3-e4\n");
+chess_move("b6-c5\n");
+chess_undo();
+chess_undo();
+chess_undo();
+chess_undo();
+chess_undo();
+chess_undo();
+chess_undo();
+chess_boardGet(charBuffer);
+assert(strcmp(charBuffer, "1 B\nkqbnr\nppppp\n.....\nN....\nPPPPP\nR.BQK\n") == 0);
+```
 
 ##test cases
 note that the more advanced test cases rely on the basic test cases to succeed. for this reason, the most advanced test case `test_moveAlphabeta` does succeed even with the provided empty clients. other test cases like `test_moveNegamax` might not halt without a correct implementation of the basic functions. the grading will therefore not only evaluate newly implemented features, but furthermore take the basic functionalities into consideration as well.
