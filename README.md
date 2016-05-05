@@ -185,7 +185,7 @@ to compete against other players, make sure to register or login by using the pa
 
 after a game has been started via the offer and accept principle, the framework will repeatedly call the alphabeta search of the client with a negative depth to indicate that the search is being performed within a tournament. in this case, it is up to the client to do the time management for which the duration argument should be considered as it contains the total remaining time in milliseconds. to give a better impression of this, a brief example is given below.
 
-```
+```javascript
 chess_reset();
 
 // should we play as black, the opponent will make his move first
@@ -278,5 +278,3 @@ since the framework consists of several components and each component has indivi
 
 ##license
 please refer to the appropriate file within this repository.
-
-Colin M.L. Burnett.
