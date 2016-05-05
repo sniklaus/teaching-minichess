@@ -1361,6 +1361,9 @@ void webserver_broadcast(char* charEvent, char* charData) {
 			} else if (strcmp(charEvent, "imcs_buffer") == 0) {
 				cJSON_AddStringToObject(cjsonHandle, "strData", charData);
 				
+			} else if (strcmp(charEvent, "imcs_board") == 0) {
+				cJSON_AddStringToObject(cjsonHandle, "strData", charData);
+				
 			} else if (strcmp(charEvent, "imcs_operation") == 0) {
 				cJSON_AddStringToObject(cjsonHandle, "strData", charData);
 				

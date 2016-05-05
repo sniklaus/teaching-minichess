@@ -292,8 +292,29 @@
 							
 							for (var intFor1 = 1; intFor1 < 7; intFor1 += 1) {
 								for (var intFor2 = 0; intFor2 < 5; intFor2 += 1) {
-									jQuery('#idChess_Board').find('tr').eq(intFor1 - 1).find('td').eq(intFor2)
-										.text(chess_strBoard[intFor1].substr(intFor2, 1))
+									jQuery('#idChess_Board').find('tr').eq(intFor1 - 1).find('td').eq(intFor2).find('img')
+										.attr({
+											'src': '/assets/images/nothing.svg'
+										})
+										.each(function() {
+											var strPiece = chess_strBoard[intFor1].substr(intFor2, 1);
+											
+											if ((strPiece > 'a') && (strPiece < 'z')) {
+												jQuery(this)
+													.attr({
+														'src': '/assets/images/black_' + strPiece.toLowerCase() + '.svg'
+													})
+												;
+												
+											} else if ((strPiece > 'A') && (strPiece < 'Z')) {
+												jQuery(this)
+													.attr({
+														'src': '/assets/images/white_' + strPiece.toLowerCase() + '.svg'
+													})
+												;
+												
+											}
+										})
 									;
 								}
 							}
@@ -796,17 +817,50 @@
 							}
 							
 						} else if (objectData.strEvent === 'imcs_buffer') {
-							var intBottom = jQuery('#idImcs_History').scrollTop() + jQuery('#idImcs_History').innerHeight();
-							var intCurrent = jQuery('#idImcs_History')[0].scrollHeight;
-							
 							jQuery('#idImcs_History')
 								.append(window.document.createTextNode(objectData.strData))
 							;
 							
-							if (intBottom === intCurrent) {
-								jQuery('#idImcs_History')
-									.scrollTop(intBottom + 1000)
-								;
+							jQuery('#idImcs_History').get(0).scrollTop += 1000;
+							
+						} else if (objectData.strEvent === 'imcs_board') {
+							var strBoard = objectData.strData.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+							
+							jQuery('#idChess_Board_Depth')
+								.text(strBoard[0].split(' ')[0])
+							;
+							
+							jQuery('#idChess_Board_Next')
+								.text(strBoard[0].split(' ')[1])
+							;
+							
+							for (var intFor1 = 1; intFor1 < 7; intFor1 += 1) {
+								for (var intFor2 = 0; intFor2 < 5; intFor2 += 1) {
+									jQuery('#idChess_Board').find('tr').eq(intFor1 - 1).find('td').eq(intFor2).find('img')
+										.attr({
+											'src': '/assets/images/nothing.svg'
+										})
+										.each(function() {
+											var strPiece = strBoard[intFor1].substr(intFor2, 1);
+											
+											if ((strPiece > 'a') && (strPiece < 'z')) {
+												jQuery(this)
+													.attr({
+														'src': '/assets/images/black_' + strPiece.toLowerCase() + '.svg'
+													})
+												;
+												
+											} else if ((strPiece > 'A') && (strPiece < 'Z')) {
+												jQuery(this)
+													.attr({
+														'src': '/assets/images/white_' + strPiece.toLowerCase() + '.svg'
+													})
+												;
+												
+											}
+										})
+									;
+								}
 							}
 							
 						} else if (objectData.strEvent === 'imcs_operation') {
@@ -908,12 +962,12 @@
 							</div>
 							
 							<table id="idChess_Board">
-								<tr><td></td><td></td><td></td><td></td><td></td></tr>
-								<tr><td></td><td></td><td></td><td></td><td></td></tr>
-								<tr><td></td><td></td><td></td><td></td><td></td></tr>
-								<tr><td></td><td></td><td></td><td></td><td></td></tr>
-								<tr><td></td><td></td><td></td><td></td><td></td></tr>
-								<tr><td></td><td></td><td></td><td></td><td></td></tr>
+								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
 							</table>
 						</td>
 					</tr>

@@ -1,5 +1,5 @@
 #teaching-minichess
-this project provides the framework for the advanced artificial intelligence class, in which an artificial chess player is ought to be implemented.
+this project provides the framework for my advanced artificial intelligence class, in which an artificial chess player is ought to be implemented.
 
 ##overview
 the repository contains the framework itself, as well as multiple empty clients in various languages. the framework provides a generic scaffolding, while a fully implemented client represents an artificial chess player. the framework as well as a client therefore need to be executed concurrently in order to have a running system.
@@ -180,6 +180,39 @@ this section is still under construction. you can in the meantime consult the sl
 ##test cases
 note that the more advanced test cases rely on the basic test cases to succeed. for this reason, the most advanced test case `test_moveAlphabeta` does succeed even with the provided empty clients. other test cases like `test_moveNegamax` might not halt without a correct implementation of the basic functions. the grading will therefore not only evaluate newly implemented features, but furthermore take the basic functionalities into consideration as well.
 
+##tournament mode
+to compete against other players, make sure to register or login by using the panel on the bottom left. this will make it possible to offer a game or to list existing offers and accept one of those. the player to offer a game will in this regard always play as white while the player to accept a game will always play aas black.
+
+after a game has been started via the offer and accept principle, the framework will repeatedly call the alphabeta search of the client with a negative depth to indicate that the search is being performed within a tournament. in this case, it is up to the client to do the time management for which the duration argument should be considered as it contains the total remaining time in milliseconds. to give a better impression of this, a brief example is given below.
+
+```
+chess_reset();
+
+// should we play as black, the opponent will make his move first
+
+chess_boardSet(charBuffer);
+chess_moveAlphabeta(charBuffer, -1, 300000);
+chess_boardGet(charBuffer);
+
+// opponent will make his move
+
+chess_boardSet(charBuffer);
+chess_moveAlphabeta(charBuffer, -1, 292939);
+chess_boardGet(charBuffer);
+
+// opponent will make his move
+
+chess_boardSet(charBuffer);
+chess_moveAlphabeta(charBuffer, -1, 285878);
+chess_boardGet(charBuffer);
+
+// opponent will make his move
+
+chess_boardSet(charBuffer);
+chess_moveAlphabeta(charBuffer, -1, 278817);
+chess_boardGet(charBuffer);
+```
+
 ##linux lab
 when connecting remotely into the linux lab, please choose one of the machines in the [first](https://cat.pdx.edu/labstatus/labs/cslinlaba/) or the [second](https://cat.pdx.edu/labstatus/labs/cslinlabb/) lab. after selecting a machine, you can use your credentials to establish a connection through ssh. note that you can alternatively use putty as well.
 
@@ -224,7 +257,7 @@ since the framework consists of several components and each component has indivi
 * `cjson`
 * `mongoose`
 
-###`webinterface`
+###`framework-webinterface`
 * `jquery` / `moment`
 * `bootstrap` / `fontawesome`
 * `plotly`
@@ -240,5 +273,10 @@ since the framework consists of several components and each component has indivi
 ###`client-python`
 * `zmq`
 
+##images
+* [cburnett](https://en.wikipedia.org/wiki/User:Cburnett)
+
 ##license
 please refer to the appropriate file within this repository.
+
+Colin M.L. Burnett.
