@@ -124,9 +124,7 @@ RNBQK		R.BQK		R.BQK		R.BQK		R.BQK		R.BQK		R.BQK
 to obtain a fully functioning client, it is required to implement various functions. these functions provide a well defined interface, such that the framework can communicate with a client in a well defined format.
 
 ###`chess_reset`
-this function will be called in between individual games. it should be used to reset the internal variables of your implementation.
-
-the random numbers that are required for zobrist keying are one instance of internal variables that you might want to set in this function.
+this function will be called in between individual games. it should be used to reset the internal variables of your implementation. the random numbers that are required for zobrist keying are one instance of internal variables that you might want to set in this function.
 
 ###`chess_boardGet`
 the framework needs to be able to obtain the current state of the game from the client. in doing so, the output is expected to be in a well defined format. this function can thus be seen as a translation between your internal representation and the format that the framework expects.
