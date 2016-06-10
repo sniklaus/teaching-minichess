@@ -153,7 +153,7 @@
 		</style>
 		
 		<script type="text/javascript">
-			jQuery(document).ready(function () {
+			jQuery(window.document).ready(function () {
 				var zeromq_show = function() {
 					if (jQuery('#idZeromq').size() === 0) {
 						jQuery(window.document.body)
@@ -915,7 +915,7 @@
 								<input class="form-control" id="idChess_MoveNegamax_Depth" type="number" value="3" />
 							</div>
 							<div class="input-group">
-								<div class="input-group-addon">intDepth:</div>
+								<div class="input-group-addon">intDuration:</div>
 								<input class="form-control" id="idChess_MoveNegamax_Duration" type="number" value="3000" />
 							</div>
 							

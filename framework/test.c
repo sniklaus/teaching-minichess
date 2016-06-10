@@ -9492,77 +9492,6 @@ bool test_moveGreedy() {
 	return true;
 }
 
-bool test_moveNegamax() {
-	char charBuffer[1024] = { };
-	
-	int intWon = 0;
-	int intLost = 0;
-	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
-		chess_reset();
-		
-		do {
-			chess_moveNegamax(charBuffer, 2, INT_MAX);
-			
-			if (chess_winner() != '?') {
-				break;
-			}
-			
-			chess_moveGreedy(charBuffer);
-			
-			if (chess_winner() != '?') {
-				break;
-			}
-		} while (true);
-		
-		if (chess_winner() == 'W') {
-			intWon += 1;
-			
-		} else if (chess_winner() == 'B') {
-			intLost += 1;
-			
-		}
-	}
-	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
-		chess_reset();
-		
-		do {
-			chess_moveGreedy(charBuffer);
-			
-			if (chess_winner() != '?') {
-				break;
-			}
-			
-			chess_moveNegamax(charBuffer, 2, INT_MAX);
-			
-			if (chess_winner() != '?') {
-				break;
-			}
-		} while (true);
-		
-		if (chess_winner() == 'B') {
-			intWon += 1;
-			
-		} else if (chess_winner() == 'W') {
-			intLost += 1;
-			
-		}
-	}
-	
-	if (intWon < 90) {
-		printf("test: failed test_moveNegamax_001\n");
-		return false;
-		
-	} else if (intLost > 10) {
-		printf("test: failed test_moveNegamax_002\n");
-		return false;
-		
-	}
-	
-	return true;
-}
-
 int test_moveCarbide(char* charLeft, char* charRight, int intNumber) {
 	int KYTFCNLP = 0;
 	
@@ -9620,6 +9549,62 @@ int test_moveMercury(int intDepth, int LJZIZRKJ, int WFDHFQQM) {
 	QFROESLG: return CLTHIZKI;
 }
 
+bool test_moveAstatine(int intDepth) {
+	int FJSEUNEK = 0;
+	int PNNWAQLC = 0;
+	char VTLWBUGM[1024] = { };
+	int KEFHBAAB = 0;
+	int WNANHOVH = 0;
+	int CVKTFYWY = 0;
+	int PJBGTUUN = 0;
+	int DSZSTBWE = 0;
+	char BUNQUTKD[1024] = { };
+	char ZEYQESOF[16] = { };
+	
+	goto NGGJCFXW;
+	
+	BRNLNNPK: BUNQUTKD[(DSZSTBWE * 6) + 4] = VTLWBUGM[(FJSEUNEK * 6) + 4]; goto CXOINGWQ;
+	QCRQETAP: DSZSTBWE += 1; goto FJSDCMXC;
+	BUKSFDII: chess_undo(); goto CXQMDUYO;
+	YWJHGIXD: ZEYQESOF[4] = VTLWBUGM[(FJSEUNEK * 6) + 4]; goto ANIJLUDV;
+	UQFZYKSL: return true;
+	RTLREFBX: WNANHOVH = INT_MAX - SHRT_MAX; goto HGPTKRAC;
+	HGPTKRAC: CVKTFYWY = INT_MIN + SHRT_MAX; goto XTGGAMFO;
+	HOXXZGXP: BUNQUTKD[(DSZSTBWE * 6) + 3] = VTLWBUGM[(FJSEUNEK * 6) + 3]; goto BRNLNNPK;
+	PDARZFBE: FJSEUNEK = 0; goto BRQZZUTV;
+	GMXYBCBQ: if (FJSEUNEK >= PNNWAQLC) { goto JEYVPBMM; } goto KFWNVEEC;
+	HEBAHUMQ: DSZSTBWE = 0; goto XLWXAYAI;
+	CXQMDUYO: if (PJBGTUUN > CVKTFYWY) { CVKTFYWY = PJBGTUUN; DSZSTBWE = 0; } goto LLYAQCBU;
+	ANIJLUDV: ZEYQESOF[5] = '\n'; goto CAPHUCOK;
+	JITZZQDB: chess_moveNegamax(ZEYQESOF, intDepth, INT_MAX); goto PDARZFBE;
+	BRQZZUTV: if (FJSEUNEK >= DSZSTBWE) { goto TSWLVSOS; } goto PNOMCSSQ;
+	SDRMFJBG: ZEYQESOF[2] = '-'; goto QKSEGAUD;
+	QKSEGAUD: ZEYQESOF[3] = VTLWBUGM[(FJSEUNEK * 6) + 3]; goto YWJHGIXD;
+	XLWXAYAI: FJSEUNEK = 0; goto GMXYBCBQ;
+	XUVFITZP: PNNWAQLC = chess_movesEvaluated(VTLWBUGM); goto MRLKOAVH;
+	FZYRLWVV: BUNQUTKD[(DSZSTBWE * 6) + 0] = VTLWBUGM[(FJSEUNEK * 6) + 0]; goto PDHWHQXE;
+	MRLKOAVH: KEFHBAAB = INT_MIN + SHRT_MAX; goto RTLREFBX;
+	PEDCZYXG: BUNQUTKD[(DSZSTBWE * 6) + 2] = VTLWBUGM[(FJSEUNEK * 6) + 2]; goto HOXXZGXP;
+	MHBQDBFC: chess_move(&ZEYQESOF[0]); goto FLWNNPQQ;
+	BKERUKGF: FJSEUNEK += 1; goto GMXYBCBQ;
+	JEYVPBMM: ZEYQESOF[0] = '\0'; goto JITZZQDB;
+	CXOINGWQ: BUNQUTKD[(DSZSTBWE * 6) + 5] = VTLWBUGM[(FJSEUNEK * 6) + 5]; goto WGNHLVAJ;
+	FOGZAGFN: FJSEUNEK += 1; goto BRQZZUTV;
+	PNOMCSSQ: if (test_moveCarbide(&BUNQUTKD[FJSEUNEK * 6], ZEYQESOF, 6) == 0) { goto UQFZYKSL; } goto FOGZAGFN;
+	NGGJCFXW: VTLWBUGM[0] = '\0'; goto XUVFITZP;
+	FJSDCMXC: KEFHBAAB = maximum(PJBGTUUN, KEFHBAAB); goto TATRDDSL;
+	PDHWHQXE: BUNQUTKD[(DSZSTBWE * 6) + 1] = VTLWBUGM[(FJSEUNEK * 6) + 1]; goto PEDCZYXG;
+	FLWNNPQQ: PJBGTUUN = -test_moveMercury(intDepth - 1, -WNANHOVH, -KEFHBAAB); goto BUKSFDII;
+	LLYAQCBU: if (PJBGTUUN == CVKTFYWY) { goto FZYRLWVV; } goto FJSDCMXC;
+	XTGGAMFO: PJBGTUUN = 0; goto HEBAHUMQ;
+	KZLPFPNT: ZEYQESOF[1] = VTLWBUGM[(FJSEUNEK * 6) + 1]; goto SDRMFJBG;
+	KFWNVEEC: ZEYQESOF[0] = VTLWBUGM[(FJSEUNEK * 6) + 0]; goto KZLPFPNT;
+	TATRDDSL: CVKTFYWY = maximum(PJBGTUUN, CVKTFYWY); goto BKERUKGF;
+	CAPHUCOK: ZEYQESOF[6] = '\0'; goto MHBQDBFC;
+	WGNHLVAJ: BUNQUTKD[(DSZSTBWE * 6) + 6] = '\0'; goto QCRQETAP;
+	TSWLVSOS: return false;
+}
+
 bool test_moveTungsten(int intDepth) {
 	int SMAHPXNE = 0;
 	int RGVQCMLO = 0;
@@ -9674,6 +9659,370 @@ bool test_moveTungsten(int intDepth) {
 	GXSCRSUN: SMAHPXNE = 0; goto VPVRPINT;
 	WDNAZNGU: RGVQCMLO = chess_movesEvaluated(IGXNKOGV); goto PPRDNDUK;
 	EBMITSWA: return true;
+}
+
+bool test_moveNegamax() {
+	chess_reset();
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_001\n");
+		return false;
+	}
+	
+	chess_boardSet("18 B\nkq..r\n...pp\n.p...\nNp.PP\n..P.K\nb.B.Q\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_002\n");
+		return false;
+	}
+	
+	chess_boardSet("19 W\n..k.r\n....p\nB...b\n.pKPP\nR.P..\n.nQ..\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_003\n");
+		return false;
+	}
+	
+	chess_boardSet("13 W\n..br.\n.k.pp\nppnq.\nB.P.P\nP...Q\nRN..K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_004\n");
+		return false;
+	}
+	
+	chess_boardSet("16 B\nQkr..\np.p.p\nP....\nnB.KP\nP..P.\nR....\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_005\n");
+		return false;
+	}
+	
+	chess_boardSet("18 W\nkb.r.\n.p...\np.QPK\n..qP.\n.n..P\n.RN..\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_006\n");
+		return false;
+	}
+	
+	chess_boardSet("19 B\n.....\nk.Np.\nQp.P.\np.nqP\nPB...\nR...K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_007\n");
+		return false;
+	}
+	
+	chess_boardSet("18 B\nk...q\nn....\nP..p.\n.Q.P.\n.p.BP\nb..QK\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_008\n");
+		return false;
+	}
+	
+	chess_boardSet("18 B\n...nr\nQ.kbp\n..p..\n.....\nq.BpP\nRN..K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_009\n");
+		return false;
+	}
+	
+	chess_boardSet("18 W\n...k.\nq....\n.P.Qp\nn...P\nRp.K.\n.N...\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_010\n");
+		return false;
+	}
+	
+	chess_boardSet("20 W\nk..K.\n.prB.\npq.p.\nnp..P\nP.P..\n...Q.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_011\n");
+		return false;
+	}
+	
+	chess_boardSet("15 B\nk...b\npnq.r\nPpp.p\n..P.p\n..R.Q\n...BK\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_012\n");
+		return false;
+	}
+	
+	chess_boardSet("13 W\nkq.r.\n.pp..\n...pp\nQb.P.\nnPPNP\n.R..K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_013\n");
+		return false;
+	}
+	
+	chess_boardSet("11 B\n..bnr\npkBp.\nN...p\nPP...\n.P.qP\nR..QK\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_014\n");
+		return false;
+	}
+	
+	chess_boardSet("11 B\n.qb.r\n.ppp.\nk.nPp\nPpP.Q\n.BKNP\nR....\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_015\n");
+		return false;
+	}
+	
+	chess_boardSet("19 B\nk...r\n....B\n.R..p\n..p..\nPn.PP\n.q.QK\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_016\n");
+		return false;
+	}
+	
+	chess_boardSet("16 W\n.qr..\nkp...\npp..Q\n.....\nR.pBb\n...K.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_017\n");
+		return false;
+	}
+	
+	chess_boardSet("21 W\n..k..\npn.pB\n.....\n.pr.Q\n.....\n.R.qK\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_018\n");
+		return false;
+	}
+	
+	chess_boardSet("21 W\n..N..\nkp...\np.n.p\n.p.Pb\nP..PQ\nRB..K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_019\n");
+		return false;
+	}
+	
+	chess_boardSet("12 B\n.q.nr\npk.b.\n.p.PP\n.Pp.P\nPB.Q.\nR...K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_020\n");
+		return false;
+	}
+	
+	chess_boardSet("21 W\n.b...\nk..pr\npPn.p\np.q..\nP.PKB\n....R\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_021\n");
+		return false;
+	}
+	
+	chess_boardSet("13 W\n.b...\npk..q\np...P\nBPKp.\nP.P.P\nR..Q.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_022\n");
+		return false;
+	}
+	
+	chess_boardSet("19 W\n.k.B.\n.p..p\np.QpP\nP.bP.\n..P..\nRN..K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_023\n");
+		return false;
+	}
+	
+	chess_boardSet("12 W\nkq.nr\n....B\n..p..\nPp...\n.P.P.\n.Rq.K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_024\n");
+		return false;
+	}
+	
+	chess_boardSet("21 W\n.r...\nqp.Bp\np.k..\n.....\nP...P\nR.bK.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_025\n");
+		return false;
+	}
+	
+	chess_boardSet("18 W\nkq...\nb....\np.Q.p\nN...P\n.pB.K\n...R.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_026\n");
+		return false;
+	}
+	
+	chess_boardSet("17 W\nq..br\nk.p..\npPPp.\nP....\n.P.pP\nR..K.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_027\n");
+		return false;
+	}
+	
+	chess_boardSet("11 B\nk.b..\np.ppr\nQ...p\n.Pq.P\nR..nK\n.N...\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_028\n");
+		return false;
+	}
+	
+	chess_boardSet("16 B\n...b.\nkq...\np.ppr\nPpP..\n...B.\nRNQK.\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_029\n");
+		return false;
+	}
+	
+	chess_boardSet("13 W\nk.b..\np.qr.\nP.N..\n.B.p.\n.PP..\n.nRQK\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_030\n");
+		return false;
+	}
+	
+	chess_boardSet("21 W\n..kn.\np..q.\n...PP\n.p..P\n...K.\n.R...\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_031\n");
+		return false;
+	}
+	
+	chess_boardSet("18 W\n....r\np.k.p\nP...n\nN...p\nPppB.\nR...K\n");
+	if (test_moveAstatine(1) != true) {
+		printf("test: failed test_moveNegamax_032\n");
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.k.nr\n.b.Pp\npppN.\n....q\n.PPP.\n.B.QK\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_033\n");
+		return false;
+	}
+	
+	chess_boardSet("16 W\n.....\nk.Q..\n...pp\nP..q.\n.P.PP\n.R.nK\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_034\n");
+		return false;
+	}
+	
+	chess_boardSet("13 W\n.q..r\n.kpb.\n.p.pn\npPNP.\nP...K\nRBQ..\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_035\n");
+		return false;
+	}
+	
+	chess_boardSet("20 B\nk...r\n..P.P\npq...\npbP..\nP..KB\n..RQ.\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_036\n");
+		return false;
+	}
+	
+	chess_boardSet("14 B\nkb..r\n.p..p\npn...\n....p\n.B.P.\nR..QK\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_037\n");
+		return false;
+	}
+	
+	chess_boardSet("14 B\n.k.n.\npp.pr\nP.Q.p\n..P.q\n.P.NK\n.RB..\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_038\n");
+		return false;
+	}
+	
+	chess_boardSet("17 W\n.k...\np...r\nqPp..\n.bKQ.\n.P.nP\nR.B..\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_039\n");
+		return false;
+	}
+	
+	chess_boardSet("11 B\nkqb.r\n.p...\nQPp.p\nB.PpP\nP..P.\nR...K\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_040\n");
+		return false;
+	}
+	
+	chess_boardSet("18 W\n....r\nk....\n.PBpp\n.p..P\nP..q.\nR...K\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_041\n");
+		return false;
+	}
+	
+	chess_boardSet("12 B\nkQ.b.\n..pPr\np..B.\nR.qp.\n..P.P\n....K\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_042\n");
+		return false;
+	}
+	
+	chess_boardSet("12 B\nk..nr\n.p..p\np....\n..p.q\npBbPK\nRN.Q.\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_043\n");
+		return false;
+	}
+	
+	chess_boardSet("16 W\nk..r.\np...p\nP.ppP\nqK...\n.PQBb\nRN...\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_044\n");
+		return false;
+	}
+	
+	chess_boardSet("13 B\nk..q.\n..b..\nppPpr\nR.B..\n.P.PP\n...K.\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_045\n");
+		return false;
+	}
+	
+	chess_boardSet("20 W\n...nr\nk.bPp\n.K...\n...P.\nPRq..\n....Q\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_046\n");
+		return false;
+	}
+	
+	chess_boardSet("19 W\n...kr\np.b.p\n.Q..n\nPp..p\n.PPB.\n.R..K\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_047\n");
+		return false;
+	}
+	
+	chess_boardSet("14 B\n..b.q\n.k..p\np.n..\n.P.p.\nP.RpB\n.Q..K\n");
+	if (test_moveAstatine(2) != true) {
+		printf("test: failed test_moveNegamax_048\n");
+		return false;
+	}
+	
+	chess_boardSet("11 B\nk.b.r\n....p\n.pppn\n.pB..\nP.PQK\nRN...\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_049\n");
+		return false;
+	}
+	
+	chess_boardSet("19 B\n....r\nnk.pb\n..p.p\nP.P..\n.RBPP\n.N..K\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_050\n");
+		return false;
+	}
+	
+	chess_boardSet("20 W\nk...r\n.....\n....P\nn...B\n.qP..\n...K.\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_051\n");
+		return false;
+	}
+	
+	chess_boardSet("14 W\nkq..r\np.p.p\nnPP.P\nN...p\nRP..P\n....K\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_052\n");
+		return false;
+	}
+	
+	chess_boardSet("13 B\nk..nb\n..p..\np.PNr\nq..P.\nP..QP\n.R.BK\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_053\n");
+		return false;
+	}
+	
+	chess_boardSet("16 B\nk....\np.P..\nnp.r.\n.P.b.\n..PK.\n.R..B\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_054\n");
+		return false;
+	}
+	
+	chess_boardSet("14 W\n.kbnr\n...pp\n.....\nP.pPP\n..P.Q\n.RBK.\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_055\n");
+		return false;
+	}
+	
+	chess_boardSet("15 W\nk.r..\npNP.p\n..p.b\n...PP\nRPQ..\nB...K\n");
+	if (test_moveAstatine(3) != true) {
+		printf("test: failed test_moveNegamax_056\n");
+		return false;
+	}
+	
+	chess_boardSet("20 B\n....r\nqpP..\n...B.\nRpk..\n.N.KP\n.....\n");
+	if (test_moveAstatine(4) != true) {
+		printf("test: failed test_moveNegamax_057\n");
+		return false;
+	}
+	
+	chess_boardSet("13 B\nk...r\n.pp.q\np...P\nPPPbP\n.....\nR.q.K\n");
+	if (test_moveAstatine(4) != true) {
+		printf("test: failed test_moveNegamax_058\n");
+		return false;
+	}
+	
+	chess_boardSet("15 W\n..b..\n.p..n\npkq.p\nPppBP\n...P.\n..RQK\n");
+	if (test_moveAstatine(4) != true) {
+		printf("test: failed test_moveNegamax_059\n");
+		return false;
+	}
+	
+	chess_boardSet("20 W\n...n.\n....k\nppp..\nNBp.r\nP...Q\n..RK.\n");
+	if (test_moveAstatine(4) != true) {
+		printf("test: failed test_moveNegamax_060\n");
+		return false;
+	}
+	
+	return true;
 }
 
 bool test_moveAlphabeta() {
@@ -10035,6 +10384,27 @@ bool test_moveAlphabeta() {
 	if (test_moveTungsten(4) != true) {
 		printf("test: failed test_test_moveAlphabeta_060\n");
 		return false;
+	}
+	
+	{
+		char charBuffer[1024] = { };
+		
+		unsigned long long longVanadium = milliseconds();
+		
+		chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+		chess_moveNegamax(charBuffer, 5, INT_MAX);
+		
+		unsigned long long longCadmium = milliseconds();
+		
+		chess_boardSet("1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n");
+		chess_moveAlphabeta(charBuffer, 5, INT_MAX);
+		
+		unsigned long long longIridium = milliseconds();
+		
+		if ((1.0 * (longCadmium - longVanadium)) < (2.0 * (longIridium - longCadmium))) {
+			printf("test: failed test_test_moveAlphabeta_061\n");
+			return false;
+		}
 	}
 	
 	return true;

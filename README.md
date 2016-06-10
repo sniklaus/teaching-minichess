@@ -320,7 +320,7 @@ assert(strcmp(charBuffer, "1 B\nkqbnr\nppppp\n.....\nN....\nPPPPP\nR.BQK\n") == 
 note that the more advanced test cases rely on the basic test cases to succeed. for this reason, the most advanced test case `test_moveAlphabeta` does succeed even with the provided empty clients. other test cases like `test_moveNegamax` might not halt without a correct implementation of the basic functions. the grading will therefore not only evaluate newly implemented features, but furthermore take the basic functionalities into consideration as well.
 
 ##tournament mode
-to compete against other players, make sure to register or login by using the panel on the bottom left. this will make it possible to offer a game or to list existing offers and accept one of those. the player to offer a game will in this regard always play as white while the player to accept a game will always play aas black.
+to compete against other players, make sure to register or login by using the panel on the bottom left. this will make it possible to offer a game or to list existing offers and accept one of those. the player to offer a game will in this regard always play as white while the player to accept a game will always play as black.
 
 after a game has been started via the offer and accept principle, the framework will repeatedly call the alphabeta search of the client with a negative depth to indicate that the search is being performed within a tournament. in this case, it is up to the client to do the time management for which the duration argument should be considered as it contains the total remaining time in milliseconds. to give a better impression of this, a brief example is given below.
 
