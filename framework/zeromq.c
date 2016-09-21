@@ -3,65 +3,65 @@
 // TOOD: ENFORCE MUTUAL EXCLUSION
 // TODO: DO NOT EXPOSE A POINTER TO THE CLIENT BUFFER
 
-pthread_mutex_t zeromq_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t zeromq_objectRunning = PTHREAD_MUTEX_INITIALIZER;
 
-void* zeromq_socketHandle = NULL;
+void* zeromq_objectSocket = NULL;
 
 bool zeromq_boolConnected = false;
 char zeromq_charClient[256] = { };
 
 void zeromq_thread() {
 	{
-		void* contextHandle = zmq_ctx_new();
-		void* socketHandle = zmq_socket(contextHandle, ZMQ_PAIR);
+		void* objectContext = zmq_ctx_new();
+		void* objectSocket = zmq_socket(objectContext, ZMQ_PAIR);
 		
 		{
 			char charZeromq[1024] = { };
 			
 			sprintf(charZeromq, "tcp://localhost:%d", main_intZeromq);
 			
-			if (zmq_connect(socketHandle, charZeromq) == -1) {
+			if (zmq_connect(objectSocket, charZeromq) == -1) {
 				printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 			}
 		}
 		
 		{
-			zeromq_socketHandle = socketHandle;
+			zeromq_objectSocket = objectSocket;
 		}
 		
 		{
-			void* monitorHandle = zmq_socket(contextHandle, ZMQ_PAIR);
+			void* objectMonitor = zmq_socket(objectContext, ZMQ_PAIR);
 			
 			{
-				if (zmq_socket_monitor(socketHandle, "inproc://minichess-zeromq-monitor", ZMQ_EVENT_ALL) == -1) {
+				if (zmq_socket_monitor(objectSocket, "inproc://minichess-zeromq-monitor", ZMQ_EVENT_ALL) == -1) {
 					printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 				}
 				
-				if (zmq_connect(monitorHandle, "inproc://minichess-zeromq-monitor") == -1) {
+				if (zmq_connect(objectMonitor, "inproc://minichess-zeromq-monitor") == -1) {
 					printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 				}
 			}
 			
 			{
 				do {
-					zmq_event_t zmqeventHandle = { };
+					zmq_event_t objectEvent = { };
 					
 					{
-						zmq_msg_t zmqmsgHandle = { };
+						zmq_msg_t objectMessage = { };
 						
-						zmq_msg_init(&zmqmsgHandle);
+						zmq_msg_init(&objectMessage);
 						
-						if (zmq_recvmsg(monitorHandle, &zmqmsgHandle, 0) == -1) {
+						if (zmq_recvmsg(objectMonitor, &objectMessage, 0) == -1) {
 							printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 						}
 						
-						memcpy(&zmqeventHandle, zmq_msg_data(&zmqmsgHandle), sizeof(zmqeventHandle));
+						memcpy(&objectEvent, zmq_msg_data(&objectMessage), sizeof(objectEvent));
 						
-						zmq_msg_close(&zmqmsgHandle);
+						zmq_msg_close(&objectMessage);
 					}
 					
 					{
-						if (zmqeventHandle.event == ZMQ_EVENT_CONNECTED) {
+						if (objectEvent.event == ZMQ_EVENT_CONNECTED) {
 							{
 								zeromq_boolConnected = true;
 								
@@ -69,34 +69,34 @@ void zeromq_thread() {
 							}
 							
 							{
-								cJSON* cjsonOut = cJSON_CreateObject();
-								cJSON* cjsonIn = NULL;
+								cJSON* objectOut = cJSON_CreateObject();
+								cJSON* objectIn = NULL;
 								
 								{
-									cJSON_AddStringToObject(cjsonOut, "strFunction", "ping");
+									cJSON_AddStringToObject(objectOut, "strFunction", "ping");
 								}
 								
 								{
-									zeromq_send(cjsonOut);
+									zeromq_send(objectOut);
 									
-									cjsonIn = zeromq_recv();
+									objectIn = zeromq_recv();
 								}
 								
 								{
-									strcpy(zeromq_charClient, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+									strcpy(zeromq_charClient, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 									
 									webserver_broadcast("zeromq_name", NULL);
 								}
 								
-								cJSON_Delete(cjsonOut);
-								cJSON_Delete(cjsonIn);
+								cJSON_Delete(objectOut);
+								cJSON_Delete(objectIn);
 							}
 							
 							{
 								printf("zeromq: connected to %s\n", zeromq_charClient);
 							}
 							
-						} else if (zmqeventHandle.event == ZMQ_EVENT_DISCONNECTED) {
+						} else if (objectEvent.event == ZMQ_EVENT_DISCONNECTED) {
 							{
 								zeromq_boolConnected = false;
 								
@@ -111,7 +111,7 @@ void zeromq_thread() {
 					}
 					
 					{
-						if (zmqeventHandle.event == ZMQ_EVENT_CONNECTED) {
+						if (objectEvent.event == ZMQ_EVENT_CONNECTED) {
 							int intTest = 0;
 							
 							if (intTest > 0) {
@@ -199,22 +199,22 @@ void zeromq_thread() {
 							}
 						}
 					}
-				} while (pthread_mutex_trylock(&zeromq_pthreadmutexRunning) != 0);
+				} while (pthread_mutex_trylock(&zeromq_objectRunning) != 0);
 				
-				pthread_mutex_unlock(&zeromq_pthreadmutexRunning);
+				pthread_mutex_unlock(&zeromq_objectRunning);
 			}
 			
-			zmq_close(monitorHandle);
+			zmq_close(objectMonitor);
 		}
 		
-		zmq_close(socketHandle);
-		zmq_ctx_destroy(contextHandle);
+		zmq_close(objectSocket);
+		zmq_ctx_destroy(objectContext);
 	}
 }
 
 void zeromq_start() {
 	{
-		zeromq_socketHandle = NULL;
+		zeromq_objectSocket = NULL;
 	}
 	
 	{
@@ -224,23 +224,23 @@ void zeromq_start() {
 	}
 	
 	{
-		pthread_mutex_init(&zeromq_pthreadmutexRunning, NULL);
+		pthread_mutex_init(&zeromq_objectRunning, NULL);
 		
-		pthread_mutex_lock(&zeromq_pthreadmutexRunning);
+		pthread_mutex_lock(&zeromq_objectRunning);
 	}
 	
 	{
-		pthread_t pthreadHandle = 0;
+		pthread_t objectThread = 0;
 		
-		pthread_create(&pthreadHandle, NULL, (void*) (zeromq_thread), NULL);
+		pthread_create(&objectThread, NULL, (void*) (zeromq_thread), NULL);
 	}
 }
 
 void zeromq_stop() {
 	{
-		pthread_mutex_unlock(&zeromq_pthreadmutexRunning);
+		pthread_mutex_unlock(&zeromq_objectRunning);
 		
-		pthread_mutex_destroy(&zeromq_pthreadmutexRunning);
+		pthread_mutex_destroy(&zeromq_objectRunning);
 	}
 }
 
@@ -252,15 +252,15 @@ char* zeromq_name() {
 	return zeromq_charClient;
 }
 
-void zeromq_send(cJSON* cjsonHandle) {
+void zeromq_send(cJSON* objectJson) {
 	{
 		assert(zeromq_connected() == true);
 	}
 	
 	{
-		char* charJson = cJSON_PrintUnformatted(cjsonHandle);
+		char* charJson = cJSON_PrintUnformatted(objectJson);
 		
-		if (zmq_send(zeromq_socketHandle, charJson, strlen(charJson), 0) == -1) {
+		if (zmq_send(zeromq_objectSocket, charJson, strlen(charJson), 0) == -1) {
 			printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 		}
 		
@@ -269,7 +269,7 @@ void zeromq_send(cJSON* cjsonHandle) {
 }
 
 cJSON* zeromq_recv() {
-	cJSON* cjsonHandle = NULL;
+	cJSON* objectJson = NULL;
 	
 	{
 		assert(zeromq_connected() == true);
@@ -278,12 +278,12 @@ cJSON* zeromq_recv() {
 	{
 		char charJson[1024] = { };
 		
-		if (zmq_recv(zeromq_socketHandle, charJson, sizeof(charJson), 0) == -1) {
+		if (zmq_recv(zeromq_objectSocket, charJson, sizeof(charJson), 0) == -1) {
 			printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
 		}
 		
-		cjsonHandle = cJSON_Parse(charJson);
+		objectJson = cJSON_Parse(charJson);
 	}
 	
-	return cjsonHandle;
+	return objectJson;
 }

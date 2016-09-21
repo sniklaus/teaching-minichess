@@ -2,67 +2,67 @@
 
 void chess_reset() {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_reset");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_reset");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_boardGet(char* charOut) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_boardGet");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_boardGet");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_boardSet(char* charIn) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_boardSet");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_boardSet");
 
-			cJSON_AddStringToObject(cjsonOut, "strIn", charIn);
+			cJSON_AddStringToObject(objectOut, "strIn", charIn);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
@@ -70,25 +70,25 @@ char chess_winner() {
 	char charReturn = '?';
 	
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_winner");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_winner");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			charReturn = cJSON_GetObjectItem(cjsonIn, "strReturn")->valuestring[0];
+			charReturn = cJSON_GetObjectItem(objectIn, "strReturn")->valuestring[0];
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 	
 	return charReturn;
@@ -98,29 +98,29 @@ bool chess_isValid(int intX, int intY) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_isValid");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_isValid");
 			
-			cJSON_AddNumberToObject(cjsonOut, "intX", intX);
+			cJSON_AddNumberToObject(objectOut, "intX", intX);
 
-			cJSON_AddNumberToObject(cjsonOut, "intY", intY);
+			cJSON_AddNumberToObject(objectOut, "intY", intY);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(cjsonIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 	
 	return boolReturn;
@@ -130,32 +130,32 @@ bool chess_isEnemy(char charPiece) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_isEnemy");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_isEnemy");
 			
 			char charPieceWrapped[16] = { };
 			
 			charPieceWrapped[0] = charPiece;
 			charPieceWrapped[1] = '\0';
 			
-			cJSON_AddStringToObject(cjsonOut, "strPiece", charPieceWrapped);
+			cJSON_AddStringToObject(objectOut, "strPiece", charPieceWrapped);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(cjsonIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 	
 	return boolReturn;
@@ -165,32 +165,32 @@ bool chess_isOwn(char charPiece) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_isOwn");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_isOwn");
 			
 			char charPieceWrapped[16] = { };
 			
 			charPieceWrapped[0] = charPiece;
 			charPieceWrapped[1] = '\0';
 			
-			cJSON_AddStringToObject(cjsonOut, "strPiece", charPieceWrapped);
+			cJSON_AddStringToObject(objectOut, "strPiece", charPieceWrapped);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(cjsonIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 	
 	return boolReturn;
@@ -200,32 +200,32 @@ bool chess_isNothing(char charPiece) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_isNothing");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_isNothing");
 			
 			char charPieceWrapped[16] = { };
 			
 			charPieceWrapped[0] = charPiece;
 			charPieceWrapped[1] = '\0';
 			
-			cJSON_AddStringToObject(cjsonOut, "strPiece", charPieceWrapped);
+			cJSON_AddStringToObject(objectOut, "strPiece", charPieceWrapped);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(cjsonIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 	
 	return boolReturn;
@@ -235,25 +235,25 @@ int chess_eval() {
 	int intReturn = 0;
 	
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_eval");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_eval");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(cjsonIn, "intReturn")->valueint;
+			intReturn = cJSON_GetObjectItem(objectIn, "intReturn")->valueint;
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 	
 	return intReturn;
@@ -263,27 +263,27 @@ int chess_moves(char* charOut) {
 	int intReturn = 0;
 
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_moves");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_moves");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(cjsonIn, "intOut")->valueint;
+			intReturn = cJSON_GetObjectItem(objectIn, "intOut")->valueint;
 			
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 
 	return intReturn;
@@ -293,27 +293,27 @@ int chess_movesShuffled(char* charOut) {
 	int intReturn = 0;
 
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_movesShuffled");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_movesShuffled");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(cjsonIn, "intOut")->valueint;
+			intReturn = cJSON_GetObjectItem(objectIn, "intOut")->valueint;
 			
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 
 	return intReturn;
@@ -323,27 +323,27 @@ int chess_movesEvaluated(char* charOut) {
 	int intReturn = 0;
 
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_movesEvaluated");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_movesEvaluated");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(cjsonIn, "intOut")->valueint;
+			intReturn = cJSON_GetObjectItem(objectIn, "intOut")->valueint;
 			
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 
 	return intReturn;
@@ -351,146 +351,146 @@ int chess_movesEvaluated(char* charOut) {
 
 void chess_move(char* charIn) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_move");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_move");
 
-			cJSON_AddStringToObject(cjsonOut, "strIn", charIn);
+			cJSON_AddStringToObject(objectOut, "strIn", charIn);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_moveRandom(char* charOut) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_moveRandom");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_moveRandom");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_moveGreedy(char* charOut) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_moveGreedy");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_moveGreedy");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_moveNegamax(char* charOut, int intDepth, int intDuration) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_moveNegamax");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_moveNegamax");
 			
-			cJSON_AddNumberToObject(cjsonOut, "intDepth", intDepth);
+			cJSON_AddNumberToObject(objectOut, "intDepth", intDepth);
 
-			cJSON_AddNumberToObject(cjsonOut, "intDuration", intDuration);
+			cJSON_AddNumberToObject(objectOut, "intDuration", intDuration);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_moveAlphabeta(char* charOut, int intDepth, int intDuration) {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_moveAlphabeta");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_moveAlphabeta");
 			
-			cJSON_AddNumberToObject(cjsonOut, "intDepth", intDepth);
+			cJSON_AddNumberToObject(objectOut, "intDepth", intDepth);
 
-			cJSON_AddNumberToObject(cjsonOut, "intDuration", intDuration);
+			cJSON_AddNumberToObject(objectOut, "intDuration", intDuration);
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(cjsonIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }
 
 void chess_undo() {
 	{
-		cJSON* cjsonOut = cJSON_CreateObject();
-		cJSON* cjsonIn = NULL;
+		cJSON* objectOut = cJSON_CreateObject();
+		cJSON* objectIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(cjsonOut, "strFunction", "chess_undo");
+			cJSON_AddStringToObject(objectOut, "strFunction", "chess_undo");
 		}
 		
 		{
-			zeromq_send(cjsonOut);
+			zeromq_send(objectOut);
 			
-			cjsonIn = zeromq_recv();
+			objectIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(cjsonOut);
-		cJSON_Delete(cjsonIn);
+		cJSON_Delete(objectOut);
+		cJSON_Delete(objectIn);
 	}
 }

@@ -3,10 +3,10 @@
 // TOOD: ENFORCE MUTUAL EXCLUSION
 // TODO: IN THE TOURNAMENT, THE RESET FUNCTION MIGHT BE CALLED MULTIPLE TIMES
 
-pthread_mutex_t imcs_pthreadmutexRunning = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t imcs_objectRunning = PTHREAD_MUTEX_INITIALIZER;
 
-struct mg_mgr* imcs_mgmgrHandle = NULL;
-struct mg_connection* imcs_mgconnectionHandle = NULL;
+struct mg_mgr* imcs_objectMongoose = NULL;
+struct mg_connection* imcs_objectConnection = NULL;
 char* imcs_charServer = "tcp://svcs.cs.pdx.edu:3589";
 
 bool imcs_boolConnected = false;
@@ -16,7 +16,7 @@ char imcs_charBuffer[1024] = { };
 char imcs_charOperation[16] = { };
 char imcs_charTermination[16] = { };
 
-void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* voidData) {
+void imcs_handler(struct mg_connection* objectConnection, int intEvent, void* voidData) {
 	if (intEvent == MG_EV_CONNECT) {
 		{
 			printf("imcs: connected\n");
@@ -44,21 +44,21 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 		}
 		
 		{
-			imcs_mgconnectionHandle = mg_connect(imcs_mgmgrHandle, imcs_charServer, imcs_handler);
+			imcs_objectConnection = mg_connect(imcs_objectMongoose, imcs_charServer, imcs_handler);
 		}
 		
 	} else if (intEvent == MG_EV_RECV) {
 		{
-			mgconnectionHandle->recv_mbuf.buf[mgconnectionHandle->recv_mbuf.len] = '\0';
+			objectConnection->recv_mbuf.buf[objectConnection->recv_mbuf.len] = '\0';
 		}
 		
 		{
-			if (strstr(mgconnectionHandle->recv_mbuf.buf, "201 hello") != NULL) {
+			if (strstr(objectConnection->recv_mbuf.buf, "201 hello") != NULL) {
 				imcs_boolAuthorized = true;
 				
 				webserver_broadcast("imcs_status", NULL);
 				
-			} else if (strstr(mgconnectionHandle->recv_mbuf.buf, "202 hello new user") != NULL) {
+			} else if (strstr(objectConnection->recv_mbuf.buf, "202 hello new user") != NULL) {
 				imcs_boolAuthorized = true;
 				
 				webserver_broadcast("imcs_status", NULL);
@@ -67,11 +67,11 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 		}
 		
 		{
-			webserver_broadcast("imcs_buffer", mgconnectionHandle->recv_mbuf.buf);
+			webserver_broadcast("imcs_buffer", objectConnection->recv_mbuf.buf);
 		}
 		
 		{
-			strncat(imcs_charBuffer, mgconnectionHandle->recv_mbuf.buf, mgconnectionHandle->recv_mbuf.len);
+			strncat(imcs_charBuffer, objectConnection->recv_mbuf.buf, objectConnection->recv_mbuf.len);
 		}
 		
 		{
@@ -151,7 +151,7 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 					}
 					
 					{
-						mg_printf(imcs_mgconnectionHandle, "%.5s\r\n", charMove);
+						mg_printf(imcs_objectConnection, "%.5s\r\n", charMove);
 					}
 					
 					{
@@ -183,7 +183,7 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 		}
 		
 		{
-			mbuf_remove(&mgconnectionHandle->recv_mbuf, mgconnectionHandle->recv_mbuf.len);
+			mbuf_remove(&objectConnection->recv_mbuf, objectConnection->recv_mbuf.len);
 		}
 		
 	}
@@ -191,37 +191,37 @@ void imcs_handler(struct mg_connection* mgconnectionHandle, int intEvent, void* 
 
 void imcs_thread() {
 	{
-		mg_mgr_init(imcs_mgmgrHandle, NULL);
+		mg_mgr_init(imcs_objectMongoose, NULL);
 	}
 	
 	{
-		imcs_mgconnectionHandle = mg_connect(imcs_mgmgrHandle, imcs_charServer, imcs_handler);
+		imcs_objectConnection = mg_connect(imcs_objectMongoose, imcs_charServer, imcs_handler);
 	}
 	
 	{
 		do {
-			mg_mgr_poll(imcs_mgmgrHandle, 1000);
-		} while (pthread_mutex_trylock(&imcs_pthreadmutexRunning) != 0);
+			mg_mgr_poll(imcs_objectMongoose, 1000);
+		} while (pthread_mutex_trylock(&imcs_objectRunning) != 0);
 		
-		pthread_mutex_unlock(&imcs_pthreadmutexRunning);
+		pthread_mutex_unlock(&imcs_objectRunning);
 	}
 	
 	{
-		mg_mgr_free(imcs_mgmgrHandle);
+		mg_mgr_free(imcs_objectMongoose);
 	}
 }
 
 void imcs_start() {
 	{
-		pthread_mutex_init(&imcs_pthreadmutexRunning, NULL);
+		pthread_mutex_init(&imcs_objectRunning, NULL);
 		
-		pthread_mutex_lock(&imcs_pthreadmutexRunning);
+		pthread_mutex_lock(&imcs_objectRunning);
 	}
 	
 	{
-		imcs_mgmgrHandle = (struct mg_mgr*) (malloc(sizeof(struct mg_mgr)));
+		imcs_objectMongoose = (struct mg_mgr*) (malloc(sizeof(struct mg_mgr)));
 		
-		imcs_mgconnectionHandle = NULL;
+		imcs_objectConnection = NULL;
 	}
 	
 	{
@@ -239,17 +239,17 @@ void imcs_start() {
 	}
 	
 	{
-		pthread_t pthreadHandle = 0;
+		pthread_t objectThread = 0;
 		
-		pthread_create(&pthreadHandle, NULL, (void*) (imcs_thread), NULL);
+		pthread_create(&objectThread, NULL, (void*) (imcs_thread), NULL);
 	}
 }
 
 void imcs_stop() {
 	{
-		pthread_mutex_unlock(&imcs_pthreadmutexRunning);
+		pthread_mutex_unlock(&imcs_objectRunning);
 		
-		pthread_mutex_destroy(&imcs_pthreadmutexRunning);
+		pthread_mutex_destroy(&imcs_objectRunning);
 	}
 }
 
@@ -279,7 +279,7 @@ void imcs_register(char* charUser, char* charPass) {
 		sprintf(imcs_charOperation, "imcs_register");
 		sprintf(imcs_charTermination, "\r\n");
 		
-		mg_printf(imcs_mgconnectionHandle, "register %s %s\n", charUser, charPass);
+		mg_printf(imcs_objectConnection, "register %s %s\n", charUser, charPass);
 	}
 }
 
@@ -301,7 +301,7 @@ void imcs_login(char* charUser, char* charPass) {
 		sprintf(imcs_charOperation, "imcs_login");
 		sprintf(imcs_charTermination, "\r\n");
 		
-		mg_printf(imcs_mgconnectionHandle, "me %s %s\n", charUser, charPass);
+		mg_printf(imcs_objectConnection, "me %s %s\n", charUser, charPass);
 	}
 }
 
@@ -319,7 +319,7 @@ void imcs_list() {
 		sprintf(imcs_charOperation, "imcs_list");
 		sprintf(imcs_charTermination, ".\r\n");
 		
-		mg_printf(imcs_mgconnectionHandle, "list\n");
+		mg_printf(imcs_objectConnection, "list\n");
 	}
 }
 
@@ -337,7 +337,7 @@ void imcs_offer() {
 		sprintf(imcs_charOperation, "imcs_offer");
 		imcs_charTermination[0] = '\0';
 		
-		mg_printf(imcs_mgconnectionHandle, "offer W\n");
+		mg_printf(imcs_objectConnection, "offer W\n");
 	}
 }
 
@@ -359,7 +359,7 @@ void imcs_accept(int intIdent) {
 		sprintf(imcs_charOperation, "imcs_accept");
 		imcs_charTermination[0] = '\0';
 		
-		mg_printf(imcs_mgconnectionHandle, "accept %d B\n", intIdent);
+		mg_printf(imcs_objectConnection, "accept %d B\n", intIdent);
 	}
 }
 
@@ -377,6 +377,6 @@ void imcs_ratings() {
 		sprintf(imcs_charOperation, "imcs_ratings");
 		sprintf(imcs_charTermination, ".\r\n");
 		
-		mg_printf(imcs_mgconnectionHandle, "ratings\n");
+		mg_printf(imcs_objectConnection, "ratings\n");
 	}
 }

@@ -41,11 +41,11 @@ static inline int maximum(int intA, int intB) {
 }
 
 static inline unsigned long long milliseconds() {
-	struct timeval timevalHandle = { };
+	struct timeval objectTimeval = { };
 	
-	gettimeofday(&timevalHandle, NULL);
+	gettimeofday(&objectTimeval, NULL);
 	
-	return (timevalHandle.tv_sec * 1000) + (timevalHandle.tv_usec / 1000);
+	return (objectTimeval.tv_sec * 1000) + (objectTimeval.tv_usec / 1000);
 }
 
 #endif
