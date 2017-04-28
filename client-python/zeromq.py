@@ -91,17 +91,21 @@ def zeromq_start():
 			
 		elif objectIn["strFunction"] == "chess_undo":
 			chess_undo()
+
+		# end
 		
 		objectSocket.send_string(json.dumps(objectOut))
 		
 		objectIn = None
 		objectOut = None
+	# end
 	
 	objectSocket.close()
 	objectContext.destroy()
-
+# end
 
 def zeromq_stop():
 	global zeromq_boolRunning
 
 	zeromq_boolRunning = false
+# end

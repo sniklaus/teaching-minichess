@@ -44,24 +44,67 @@ void zeromq_thread() {
 			
 			{
 				do {
-					zmq_event_t objectEvent = { };
+					int intEventspecifier = 0;
+					int intEventvalue = 0;
+					char charEventaddress[256] = { };
 					
-					{
-						zmq_msg_t objectMessage = { };
-						
-						zmq_msg_init(&objectMessage);
-						
-						if (zmq_recvmsg(objectMonitor, &objectMessage, 0) == -1) {
-							printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
+					#if (ZMQ_VERSION_MAJOR == 3)
+						{
+							zmq_msg_t objectMessage = { };
+							
+							zmq_msg_init(&objectMessage);
+							
+							if (zmq_recvmsg(objectMonitor, &objectMessage, 0) == -1) {
+								printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
+							}
+							
+							zmq_event_t objectEvent = { };
+							
+							memcpy(&objectEvent, zmq_msg_data(&objectMessage), sizeof(objectEvent));
+							
+							intEventspecifier = objectEvent.event;
+							intEventvalue = 0
+							charEventaddress[0] = '\0';
+							
+							zmq_msg_close(&objectMessage);
 						}
 						
-						memcpy(&objectEvent, zmq_msg_data(&objectMessage), sizeof(objectEvent));
+					#elif (ZMQ_VERSION_MAJOR == 4)
+						{
+							zmq_msg_t objectMessage = { };
+							
+							zmq_msg_init(&objectMessage);
+							
+							if (zmq_recvmsg(objectMonitor, &objectMessage, 0) == -1) {
+								printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
+							}
+							
+							uint8_t* intData = (uint8_t*) (zmq_msg_data(&objectMessage));
+							
+							intEventspecifier = *(uint16_t*) (intData + 0);
+							intEventvalue = *(uint32_t*) (intData + 2);
+							
+							zmq_msg_close(&objectMessage);
+						}
 						
-						zmq_msg_close(&objectMessage);
-					}
+						{
+							zmq_msg_t objectMessage = { };
+							
+							zmq_msg_init(&objectMessage);
+							
+							if (zmq_recvmsg(objectMonitor, &objectMessage, 0) == -1) {
+								printf("zeromq: %s\n", zmq_strerror(zmq_errno()));
+							}
+							
+							charEventaddress[0] = '\0';
+							
+							zmq_msg_close(&objectMessage);
+						}
+						
+					#endif
 					
 					{
-						if (objectEvent.event == ZMQ_EVENT_CONNECTED) {
+						if (intEventspecifier == ZMQ_EVENT_CONNECTED) {
 							{
 								zeromq_boolConnected = true;
 								
@@ -96,7 +139,7 @@ void zeromq_thread() {
 								printf("zeromq: connected to %s\n", zeromq_charClient);
 							}
 							
-						} else if (objectEvent.event == ZMQ_EVENT_DISCONNECTED) {
+						} else if (intEventspecifier == ZMQ_EVENT_DISCONNECTED) {
 							{
 								zeromq_boolConnected = false;
 								
@@ -111,7 +154,7 @@ void zeromq_thread() {
 					}
 					
 					{
-						if (objectEvent.event == ZMQ_EVENT_CONNECTED) {
+						if (intEventspecifier == ZMQ_EVENT_CONNECTED) {
 							int intTest = 0;
 							
 							if (intTest > 0) {
