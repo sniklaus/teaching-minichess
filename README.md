@@ -6,7 +6,7 @@ the repository contains the framework itself, as well as multiple empty clients 
 
 the framework provides a graphical user interface that is accessible through a webbrowser, as well as several test cases to validate the implementation of a client. to let artificial chess players compete against each other, the framework furthermore provides a network interoperability through an external server.
 
-<p align="center"><img src="http://content.coderect.com/ChessRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
+<p align="center"><img src="http://content.sniklaus.com/ChessRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
 
 ## prerequisites
 while you are able to choose between different languages to implement the client, the framework itself is written in c. therefore, the `gcc` compiler must be present to build the framework. unless you are making use of the linux lab, you might have to separately install the appropriate compiler toolchain. should you be able to use `apt-get`, you can install the following package to do so.
@@ -29,7 +29,7 @@ should you not be able to use `apt-get` or should you experience any issues duri
 to download this framework, you can either use the button on the top of this page or clone the repository with the following command. the latter option is recommended as you are encouraged to manage your code in a source repository, even though you might have to install [git](http://git-scm.com) before you will be able to do so.
 
 ```
-git clone https://github.com/CodeRect/teaching-minichess
+git clone https://github.com/sniklaus/teaching-minichess
 ```
 
 after downloading and choosing a client, please change the name of your implementation in the main file. note that there are certain restrictions for a valid name. it must not contain non printable characters and must not exceed the length limitation of fifteen characters.
@@ -109,15 +109,15 @@ once the client is started, it should automatically connect to the framework. of
 to give a better impression of what the textual format is supposed to look like, an brief example is given below.
 
 ```
-			b1-c3:		a5-a4:		b2-b3:		c5-c4:		a2-a3:		a4-b3:
+            b1-c3:      a5-a4:      b2-b3:      c5-c4:      a2-a3:      a4-b3:
 
-1 W			1 B			2 W			2 B			3 W			3 B			4 W
-kqbnr		kqbnr		kqbnr		kqbnr		kqbnr		kqbnr		kqbnr
-ppppp		ppppp		.pppp		.pppp		.p.pp		.p.pp		.p.pp
-.....		.....		p....		p....		p.p..		p.p..		..p..
-.....		..N..		..N..		.PN..		.PN..		PPN..		PpN..
-PPPPP		PPPPP		PPPPP		P.PPP		P.PPP		..PPP		..PPP
-RNBQK		R.BQK		R.BQK		R.BQK		R.BQK		R.BQK		R.BQK
+1 W         1 B         2 W         2 B         3 W         3 B         4 W
+kqbnr       kqbnr       kqbnr       kqbnr       kqbnr       kqbnr       kqbnr
+ppppp       ppppp       .pppp       .pppp       .p.pp       .p.pp       .p.pp
+.....       .....       p....       p....       p.p..       p.p..       ..p..
+.....       ..N..       ..N..       .PN..       .PN..       PPN..       PpN..
+PPPPP       PPPPP       PPPPP       P.PPP       P.PPP       ..PPP       ..PPP
+RNBQK       R.BQK       R.BQK       R.BQK       R.BQK       R.BQK       R.BQK
 ```
 
 ## functions
