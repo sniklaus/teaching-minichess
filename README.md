@@ -1,5 +1,5 @@
 # teaching-minichess
-This project provides the framework for my advanced artificial intelligence class, in which an artificial chess player is ought to be implemented.
+This project provides the framework for my advanced artificial intelligence class in which an artificial chess player is ought to be implemented.
 
 ## overview
 The repository contains the framework itself, as well as multiple empty clients in various languages. The framework provides a generic scaffolding, while a fully implemented client represents an artificial chess player. Therefore, the framework as well as a client need to be executed concurrently in order to have a running system.
