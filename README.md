@@ -353,7 +353,7 @@ chess_boardGet(charBuffer);
 ```
 
 ## linux lab
-When connecting remotely into the Linux lab, please choose one of the machines in the [first](https://cat.pdx.edu/labstatus/labs/cslinlaba/) or the [second](https://cat.pdx.edu/labstatus/labs/cslinlabb/) lab. After selecting a machine, you can use your credentials to establish a connection through ssh. Note that you can alternatively use putty as well.
+When connecting remotely into the Linux lab, please choose one of the machines in the [first](https://cat.pdx.edu/labstatus/labs/cslinlaba/) or the [second](https://cat.pdx.edu/labstatus/labs/cslinlabb/) lab. After selecting a machine, you can use your credentials to establish a connection through ssh. Note that you can alternatively use PuTTY as well.
 
 ```
 ssh <username>@<machine>.cs.pdx.edu
@@ -366,7 +366,7 @@ Webserver = 8080; // CHANGE THIS - OPTIONAL
 Zeromq = 54361; // CHANGE THIS - OPTIONAL
 ```
 
-In order to be able to access the webinterface of the framework on the remote machine in the Linux lab, you need to establish an ssh tunnel such that you can use the webbrowser on your local computer. There a few online resources that describe how this can be done and it eventually boils down to the following command. Note that there is an equivalent way when using putty.
+In order to be able to access the webinterface of the framework on the remote machine in the Linux lab, you need to establish an ssh tunnel such that you can use the webbrowser on your local computer. There a few online resources that describe how this can be done and it eventually boils down to the following command. Note that there is an equivalent way when using PuTTY.
 
 ```
 ssh <username>@<machine>.cs.pdx.edu -L 8080:localhost:8080
