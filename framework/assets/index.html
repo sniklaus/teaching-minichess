@@ -24,45 +24,36 @@
 				cursor:default;
 			}
 			
-			.btn {
+			.btn, .input-group, .input-group-text, .form-control {
 				font-size:0.9rem;
 			}
 			
-			.input-group {
-				font-size:0.9rem;
+			.btn > .pull-right {
+				margin:3px 0px 0px -30px;
+			}
+
+			.nav-link > .pull-right {
+				margin:3px 0px 0px 0px;
 			}
 			
-			.input-group-text {
-				font-size:0.9rem;
+			.card {
+				margin:0px 20px 40px 20px;
 			}
-			
-			.form-control {
-				font-size:0.9rem;
+
+			.card-body > p {
+				text-align:justify;
+			}
+
+			.card-body > p:last-child {
+				margin-bottom:0px;
 			}
 			
 			body > table {
 				margin:40px auto 0px auto;
 			}
 			
-			button.btn {
-				display:block;
-				position:static;
-				
-				width:100%;
-				
-				text-align:left;
-			}
-			
-			button.btn > i.pull-right {
-				margin:3px 0px 0px -30px;
-			}
-			
 			table > tbody > tr > td {
 				vertical-align:top;
-			}
-			
-			div.card {
-				margin:0px 20px 40px 20px;
 			}
 			
 			div.card-body > table > tbody > tr > td:nth-child(1) {
@@ -73,36 +64,9 @@
 				width:270px;
 			}
 			
-			div.card-body > table > tbody > tr > td > button.btn {
-				margin:10px 0px 0px 0px;
-			}
-			
-			div.card-body > table > tbody > tr > td > button.btn:nth-child(1) {
-				margin:0px;
-			}
-			
-			div.card-body > table > tbody > tr > td > div.input-group {
-				margin:0px 0px 5px 0px;
-			}
-			
-			div.card-body > table > tbody > tr > td > div.input-group > div.input-group-prepend > span.input-group-text {
-				display:block;
-				position:static;
-
-				width:110px;
-				
-				text-align:right;
-			}
-			
-			#idChess > div.card-body > table > tbody > tr > td:nth-child(1) > div.input-group {
-				width:auto;
-				
-				margin:5px 0px 0px 30px;
-			}
-			
 			#idChess > div.card-body > table > tbody > tr > td:nth-child(2) > div {
 				width:1px;
-				height:486px;
+				height:501px;
 				
 				margin:0px 15px 0px 15px;
 				
@@ -134,15 +98,9 @@
 				background-color:#F5F5F5;
 			}
 			
-			#idImcs > div.card-body > table > tbody > tr > td:nth-child(1) > div.input-group {
-				width:auto;
-				
-				margin:5px 0px 0px 30px;
-			}
-			
 			#idImcs > div.card-body > table > tbody > tr > td:nth-child(2) > div {
 				width:1px;
-				height:449px;
+				height:472px;
 				
 				margin:0px 15px 0px 15px;
 				
@@ -161,7 +119,7 @@
 			
 			#idTest > div.card-body > table > tbody > tr > td:nth-child(2) > div {
 				width:1px;
-				height:694px;
+				height:690px;
 				
 				margin:0px 15px 0px 15px;
 				
@@ -908,48 +866,48 @@
 				<table>
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" id="idChess_Reset">
+							<button class="btn btn-primary btn-block text-left" id="idChess_Reset">
 								chess_reset();
 								<i class="fa fa-repeat pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idChess_MoveRandom">
+							<button class="btn btn-primary btn-block text-left" id="idChess_MoveRandom">
 								chess_moveRandom();
 								<i class="fa fa-random pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idChess_MoveGreedy">
+							<button class="btn btn-primary btn-block text-left" id="idChess_MoveGreedy">
 								chess_moveGreedy();
 								<i class="fa fa-bicycle pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idChess_MoveNegamax">
+							<button class="btn btn-primary btn-block text-left" id="idChess_MoveNegamax">
 								chess_moveNegamax(int);
 								<i class="fa fa-car pull-right"></i>
 							</button>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intDepth:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
 								<input class="form-control" id="idChess_MoveNegamax_Depth" type="number" value="3" />
 							</div>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intDuration:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
 								<input class="form-control" id="idChess_MoveNegamax_Duration" type="number" value="3000" />
 							</div>
 							
-							<button type="button" class="btn btn-primary" id="idChess_MoveAlphabeta">
+							<button class="btn btn-primary btn-block text-left" id="idChess_MoveAlphabeta">
 								chess_moveAlphabeta(int, int);
 								<i class="fa fa-plane pull-right"></i>
 							</button>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intDepth:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
 								<input class="form-control" id="idChess_MoveAlphabeta_Depth" type="number" value="3" />
 							</div>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intDuration:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
 								<input class="form-control" id="idChess_MoveAlphabeta_Duration" type="number" value="3000" />
 							</div>
 							
-							<button type="button" class="btn btn-primary" id="idChess_Undo">
+							<button class="btn btn-primary btn-block text-left" id="idChess_Undo">
 								chess_undo();
 								<i class="fa fa-undo pull-right"></i>
 							</button>
@@ -958,23 +916,23 @@
 							<div></div>
 						</td>
 						<td>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intDepth:</span></div>
+							<div class="input-group btn-block">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
 								<div class="form-control" id="idChess_Board_Depth"></div>
 							</div>
 							
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">strNext:</span></div>
+							<div class="input-group btn-block">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strNext:</span></div>
 								<div class="form-control" id="idChess_Board_Next"></div>
 							</div>
 							
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">strWinner:</span></div>
+							<div class="input-group btn-block">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strWinner:</span></div>
 								<div class="form-control" id="idChess_Winner"></div>
 							</div>
 							
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intEval:</span></div>
+							<div class="input-group btn-block">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intEval:</span></div>
 								<div class="form-control" id="idChess_Eval"></div>
 							</div>
 							
@@ -1004,52 +962,52 @@
 				<table>
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" id="idImcs_Register">
+							<button class="btn btn-primary btn-block text-left" id="idImcs_Register">
 								imcs_register(char*, char*);
 								<i class="fa fa-lock pull-right"></i>
 							</button>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">strUser:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strUser:</span></div>
 								<input class="form-control" id="idImcs_Register_User" type="text" value="" />
 							</div>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">strPass:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strPass:</span></div>
 								<input class="form-control" id="idImcs_Register_Pass" type="password" value="" />
 							</div>
 							
-							<button type="button" class="btn btn-primary" id="idImcs_Login">
+							<button class="btn btn-primary btn-block text-left" id="idImcs_Login">
 								imcs_login(char*, char*);
 								<i class="fa fa-lock pull-right"></i>
 							</button>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">strUser:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strUser:</span></div>
 								<input class="form-control" id="idImcs_Login_User" type="text" value="" />
 							</div>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">strPass:</span></div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strPass:</span></div>
 								<input class="form-control" id="idImcs_Login_Pass" type="password" value="" />
 							</div>
 							
-							<button type="button" class="btn btn-primary" id="idImcs_List">
+							<button class="btn btn-primary btn-block text-left" id="idImcs_List">
 								imcs_list();
 								<i class="fa fa-list pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idImcs_Offer">
+							<button class="btn btn-primary btn-block text-left" id="idImcs_Offer">
 								imcs_offer();
 								<i class="fa fa-compress pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idImcs_Accept">
+							<button class="btn btn-primary btn-block text-left" id="idImcs_Accept">
 								imcs_accept();
 								<i class="fa fa-compress pull-right"></i>
 							</button>
-							<div class="input-group">
-								<div class="input-group-prepend">intIdent:</div>
+							<div class="input-group btn-block ml-4 pr-4">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intIdent:</span></div>
 								<input class="form-control" id="idImcs_Accept_Ident" type="number" value="9999" />
 							</div>
 							
-							<button type="button" class="btn btn-primary" id="idImcs_Ratings">
+							<button class="btn btn-primary btn-block text-left" id="idImcs_Ratings">
 								imcs_ratings();
 								<i class="fa fa-trophy pull-right"></i>
 							</button>
@@ -1058,7 +1016,7 @@
 							<div></div>
 						</td>
 						<td>
-							<pre id="idImcs_History"></pre>
+							<pre class="alert alert-secondary" id="idImcs_History"></pre>
 						</td>
 					</tr>
 				</table>
@@ -1075,82 +1033,82 @@
 				<table>
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" id="idTest_Board">
+							<button class="btn btn-primary btn-block text-left" id="idTest_Board">
 								test_board();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_Winner">
+							<button class="btn btn-primary btn-block text-left" id="idTest_Winner">
 								test_winner();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_IsValid">
+							<button class="btn btn-primary btn-block text-left" id="idTest_IsValid">
 								test_isValid();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_IsEnemy">
+							<button class="btn btn-primary btn-block text-left" id="idTest_IsEnemy">
 								test_isEnemy();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_IsOwn">
+							<button class="btn btn-primary btn-block text-left" id="idTest_IsOwn">
 								test_isOwn();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_IsNothing">
+							<button class="btn btn-primary btn-block text-left" id="idTest_IsNothing">
 								test_isNothing();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_Eval">
+							<button class="btn btn-primary btn-block text-left" id="idTest_Eval">
 								test_eval();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_Moves">
+							<button class="btn btn-primary btn-block text-left" id="idTest_Moves">
 								test_moves();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_Move">
+							<button class="btn btn-primary btn-block text-left" id="idTest_Move">
 								test_move();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_Undo">
+							<button class="btn btn-primary btn-block text-left" id="idTest_Undo">
 								test_undo();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_MovesShuffled">
+							<button class="btn btn-primary btn-block text-left" id="idTest_MovesShuffled">
 								test_movesShuffled();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_MovesEvaluated">
+							<button class="btn btn-primary btn-block text-left" id="idTest_MovesEvaluated">
 								test_movesEvaluated();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_MoveRandom">
+							<button class="btn btn-primary btn-block text-left" id="idTest_MoveRandom">
 								test_moveRandom();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_MoveGreedy">
+							<button class="btn btn-primary btn-block text-left" id="idTest_MoveGreedy">
 								test_moveGreedy();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_MoveNegamax">
+							<button class="btn btn-primary btn-block text-left" id="idTest_MoveNegamax">
 								test_moveNegamax();
 								<i class="fa fa-question pull-right"></i>
 							</button>
 							
-							<button type="button" class="btn btn-primary" id="idTest_MoveAlphabeta">
+							<button class="btn btn-primary btn-block text-left" id="idTest_MoveAlphabeta">
 								test_moveAlphabeta();
 								<i class="fa fa-question pull-right"></i>
 							</button>
@@ -1159,13 +1117,13 @@
 							<div></div>
 						</td>
 						<td>
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">boolReturn:</span></div>
+							<div class="input-group btn-block">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">boolReturn:</span></div>
 								<div class="form-control" id="idTest_Return_Return"></div>
 							</div>
 							
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">intBench:</span></div>
+							<div class="input-group btn-block">
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intBench:</span></div>
 								<div class="form-control" id="idTest_Return_Bench"></div>
 							</div>
 							
