@@ -5,7 +5,7 @@
 		
 		<meta name="viewport" content="width=1000" />
 		
-		<title>Mini Chess</title>
+		<title>minichess</title>
 		
 		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAxlBMVEUAAABOWZ5BTZhCTZhHUpt7g7d5gbZ5grZ5grZ6grZsda9tdq9tdrBtd7Bsdq9ye7Jye7JzfLN0fbNxerJdaKdeaadfaahfaqhha6ldZ6dfaahfaqhjbat/h7mAh7mFjLx8hLh3gLV6grZ6grdfaahgaqlibKpha6ljbapRXKBSXKBUX6JTXqFSXaH///+uuNXEzOHx9Pvb4O+5wtv8/f+zvdi+x97m6vXr7/edqcujrs6/x97V2+vg5fGNmcKXo8jJ0eXQ1ucIdJUyAAAALnRSTlMACR0dI1BRUVJSiIiIiIi8vb29vdbW1tbW4uLi4uzs7Ozs7Ozx8fHx8f39/f39FstVagAAALZJREFUeNptz8cWgkAMBVAYR8Xee1fAnoQBBOz+/0+ZgaVmlXcX7ySG8TumKLV3x6PbsoSZZlkbLq7JlWb9itQiqtMn+vEDIn9cFgzWgBDD8AHB5dazGFqzAHk88PCzbDK45KUZgjuSw3BS4N85A1xQHTRE4PlxCqHaM2yJdyKKAGKydemcQde8AVYdhmKfMsCAugV9WGXCohAVjdLDTFnvremWvDbdssyeEYWmc97bjXzO/PP7F9bvG7XExUxsAAAAAElFTkSuQmCC" />
 		
@@ -44,7 +44,7 @@
 				text-align:justify;
 			}
 
-			.card-body > p:last-child {
+			.card-body > :last-child {
 				margin-bottom:0px;
 			}
 			
@@ -362,28 +362,24 @@
 				
 				{
 					jQuery('#idChess_Reset')
-						.off('click')
 						.on('click', function() {
 							chess_call('chess_reset', {});
 						})
 					;
 					
 					jQuery('#idChess_MoveRandom')
-						.off('click')
 						.on('click', function() {
 							chess_call('chess_moveRandom', {});
 						})
 					;
 					
 					jQuery('#idChess_MoveGreedy')
-						.off('click')
 						.on('click', function() {
 							chess_call('chess_moveGreedy', {});
 						})
 					;
 					
 					jQuery('#idChess_MoveNegamax')
-						.off('click')
 						.on('click', function() {
 							chess_call('chess_moveNegamax', {
 								'intDepth': jQuery('#idChess_MoveNegamax_Depth').val(),
@@ -393,7 +389,6 @@
 					;
 					
 					jQuery('#idChess_MoveAlphabeta')
-						.off('click')
 						.on('click', function() {
 							chess_call('chess_moveAlphabeta', {
 								'intDepth': jQuery('#idChess_MoveAlphabeta_Depth').val(),
@@ -403,14 +398,12 @@
 					;
 					
 					jQuery('#idChess_Undo')
-						.off('click')
 						.on('click', function() {
 							chess_call('chess_undo', {});
 						})
 					;
 					
 					jQuery('#idChess_Board').find('td')
-						.off('click')
 						.on('click', function() {
 							var intX = jQuery(this).index();
 							var intY = jQuery(this).parent().index();
@@ -465,7 +458,6 @@
 				
 				{
 					jQuery('#idImcs_Register')
-						.off('click')
 						.on('click', function() {
 							imcs_call('imcs_register', {
 								'strUser': jQuery('#idImcs_Register_User').val(),
@@ -475,7 +467,6 @@
 					;
 					
 					jQuery('#idImcs_Login')
-						.off('click')
 						.on('click', function() {
 							imcs_call('imcs_login', {
 								'strUser': jQuery('#idImcs_Login_User').val(),
@@ -485,21 +476,18 @@
 					;
 					
 					jQuery('#idImcs_List')
-						.off('click')
 						.on('click', function() {
 							imcs_call('imcs_list');
 						})
 					;
 					
 					jQuery('#idImcs_Offer')
-						.off('click')
 						.on('click', function() {
 							imcs_call('imcs_offer');
 						})
 					;
 					
 					jQuery('#idImcs_Accept')
-						.off('click')
 						.on('click', function() {
 							imcs_call('imcs_accept', {
 								'intIdent': jQuery('#idImcs_Accept_Ident').val()
@@ -508,7 +496,6 @@
 					;
 					
 					jQuery('#idImcs_Ratings')
-						.off('click')
 						.on('click', function() {
 							imcs_call('imcs_ratings');
 						})
@@ -610,112 +597,96 @@
 				
 				{
 					jQuery('#idTest_Board')
-						.off('click')
 						.on('click', function() {
 							test_call('test_board');
 						})
 					;
 					
 					jQuery('#idTest_Winner')
-						.off('click')
 						.on('click', function() {
 							test_call('test_winner');
 						})
 					;
 					
 					jQuery('#idTest_IsValid')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isValid');
 						})
 					;
 					
 					jQuery('#idTest_IsEnemy')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isEnemy');
 						})
 					;
 					
 					jQuery('#idTest_IsOwn')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isOwn');
 						})
 					;
 					
 					jQuery('#idTest_IsNothing')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isNothing');
 						})
 					;
 					
 					jQuery('#idTest_Eval')
-						.off('click')
 						.on('click', function() {
 							test_call('test_eval');
 						})
 					;
 					
 					jQuery('#idTest_Moves')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moves');
 						})
 					;
 					
 					jQuery('#idTest_Move')
-						.off('click')
 						.on('click', function() {
 							test_call('test_move');
 						})
 					;
 					
 					jQuery('#idTest_Undo')
-						.off('click')
 						.on('click', function() {
 							test_call('test_undo');
 						})
 					;
 					
 					jQuery('#idTest_MovesShuffled')
-						.off('click')
 						.on('click', function() {
 							test_call('test_movesShuffled');
 						})
 					;
 					
 					jQuery('#idTest_MovesEvaluated')
-						.off('click')
 						.on('click', function() {
 							test_call('test_movesEvaluated');
 						})
 					;
 					
 					jQuery('#idTest_MoveRandom')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveRandom');
 						})
 					;
 					
 					jQuery('#idTest_MoveGreedy')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveGreedy');
 						})
 					;
 					
 					jQuery('#idTest_MoveNegamax')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveNegamax');
 						})
 					;
 					
 					jQuery('#idTest_MoveAlphabeta')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveAlphabeta');
 						})
