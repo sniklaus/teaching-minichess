@@ -1313,27 +1313,27 @@ bool test_winner() {
 bool test_isValid() {
 	chess_reset();
 	
-	for (int intFor1 = -1; intFor1 < 6; intFor1 += 1) {
-		for (int intFor2 = -1; intFor2 < 7; intFor2 += 1) {
+	for (int intX = -1; intX < 6; intX += 1) {
+		for (int intY = -1; intY < 7; intY += 1) {
 			bool boolValid = true;
 			
-			if (intFor1 < 0) {
+			if (intX < 0) {
 				boolValid = false;
 				
-			} else if (intFor1 > 4) {
-				boolValid = false;
-				
-			}
-			
-			if (intFor2 < 0) {
-				boolValid = false;
-				
-			} else if (intFor2 > 5) {
+			} else if (intX > 4) {
 				boolValid = false;
 				
 			}
 			
-			if (chess_isValid(intFor1, intFor2) != boolValid) {
+			if (intY < 0) {
+				boolValid = false;
+				
+			} else if (intY > 5) {
+				boolValid = false;
+				
+			}
+			
+			if (chess_isValid(intX, intY) != boolValid) {
 				return false;
 			}
 		}
@@ -1693,8 +1693,8 @@ bool test_isNothing() {
 bool test_eval() {
 	char charBuffer[1024] = { };
 	
-	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
-		sprintf(charBuffer, "%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+	for (int intTrial = 1; intTrial < 40; intTrial += 1) {
+		sprintf(charBuffer, "%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intTrial);
 		
 		chess_boardSet(charBuffer);
 		
@@ -1704,8 +1704,8 @@ bool test_eval() {
 		}
 	}
 	
-	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
-		sprintf(charBuffer, "%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+	for (int intTrial = 1; intTrial < 40; intTrial += 1) {
+		sprintf(charBuffer, "%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intTrial);
 		
 		chess_boardSet(charBuffer);
 		
@@ -1715,8 +1715,8 @@ bool test_eval() {
 		}
 	}
 	
-	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
-		sprintf(charBuffer, "%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n", intFor1);
+	for (int intTrial = 1; intTrial < 40; intTrial += 1) {
+		sprintf(charBuffer, "%d W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n", intTrial);
 		
 		chess_boardSet(charBuffer);
 		
@@ -1726,8 +1726,8 @@ bool test_eval() {
 		}
 	}
 	
-	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
-		sprintf(charBuffer, "%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n", intFor1);
+	for (int intTrial = 1; intTrial < 40; intTrial += 1) {
+		sprintf(charBuffer, "%d B\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQ.\n", intTrial);
 		
 		chess_boardSet(charBuffer);
 		
@@ -1737,8 +1737,8 @@ bool test_eval() {
 		}
 	}
 	
-	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
-		sprintf(charBuffer, "%d W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+	for (int intTrial = 1; intTrial < 40; intTrial += 1) {
+		sprintf(charBuffer, "%d W\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intTrial);
 		
 		chess_boardSet(charBuffer);
 		
@@ -1748,8 +1748,8 @@ bool test_eval() {
 		}
 	}
 	
-	for (int intFor1 = 1; intFor1 < 40; intFor1 += 1) {
-		sprintf(charBuffer, "%d B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intFor1);
+	for (int intTrial = 1; intTrial < 40; intTrial += 1) {
+		sprintf(charBuffer, "%d B\n.qbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n", intTrial);
 		
 		chess_boardSet(charBuffer);
 		
@@ -1774,49 +1774,49 @@ bool test_movesCompare(int intMoves, char* charA, char* charB) {
 	int intA[256] = { };
 	int intB[256] = { };
 	
-	for (int intFor1 = 0; intFor1 < intMoves; intFor1 += 1) {
-		intA[intFor1] = (charA[(intFor1 * 6) + 0] * 1) + (charA[(intFor1 * 6) + 1] * 100) + (charA[(intFor1 * 6) + 3] * 10000) + (charA[(intFor1 * 6) + 4] * 1000000);
-		intB[intFor1] = (charB[(intFor1 * 6) + 0] * 1) + (charB[(intFor1 * 6) + 1] * 100) + (charB[(intFor1 * 6) + 3] * 10000) + (charB[(intFor1 * 6) + 4] * 1000000);
+	for (int intMove = 0; intMove < intMoves; intMove += 1) {
+		intA[intMove] = (charA[(intMove * 6) + 0] * 1) + (charA[(intMove * 6) + 1] * 100) + (charA[(intMove * 6) + 3] * 10000) + (charA[(intMove * 6) + 4] * 1000000);
+		intB[intMove] = (charB[(intMove * 6) + 0] * 1) + (charB[(intMove * 6) + 1] * 100) + (charB[(intMove * 6) + 3] * 10000) + (charB[(intMove * 6) + 4] * 1000000);
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves - 1; intFor1 += 1) {
-		int intMin = intFor1;
+	for (int intMove = 0; intMove < intMoves - 1; intMove += 1) {
+		int intMin = intMove;
 		
-		for (int intFor2 = intFor1 + 1; intFor2 < intMoves; intFor2 += 1) {
-			if (intA[intFor2] < intA[intMin]) {
-				intMin = intFor2;
+		for (int intIndex = intMove + 1; intIndex < intMoves; intIndex += 1) {
+			if (intA[intIndex] < intA[intMin]) {
+				intMin = intIndex;
 			}
 		}
 		
-		if (intFor1 == intMin) {
+		if (intMove == intMin) {
 			continue;
 		}
 		
-		int intSwap = intA[intFor1];
-		intA[intFor1] = intA[intMin];
+		int intSwap = intA[intMove];
+		intA[intMove] = intA[intMin];
 		intA[intMin] = intSwap;
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves - 1; intFor1 += 1) {
-		int intMin = intFor1;
+	for (int intMove = 0; intMove < intMoves - 1; intMove += 1) {
+		int intMin = intMove;
 		
-		for (int intFor2 = intFor1 + 1; intFor2 < intMoves; intFor2 += 1) {
-			if (intB[intFor2] < intB[intMin]) {
-				intMin = intFor2;
+		for (int intIndex = intMove + 1; intIndex < intMoves; intIndex += 1) {
+			if (intB[intIndex] < intB[intMin]) {
+				intMin = intIndex;
 			}
 		}
 		
-		if (intFor1 == intMin) {
+		if (intMove == intMin) {
 			continue;
 		}
 		
-		int intSwap = intB[intFor1];
-		intB[intFor1] = intB[intMin];
+		int intSwap = intB[intMove];
+		intB[intMove] = intB[intMin];
 		intB[intMin] = intSwap;
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves; intFor1 += 1) {
-		if (intA[intFor1] != intB[intFor1]) {
+	for (int intMove = 0; intMove < intMoves; intMove += 1) {
+		if (intA[intMove] != intB[intMove]) {
 			return false;
 		}
 	}
@@ -5042,18 +5042,18 @@ bool test_undo() {
 	return true;
 }
 
-int test_movesCount(int* intBuffer, char* charBuffer, int intCount) {
-	int intEqual = 0;
+int test_movesSame(int* intBuffer, char* charBuffer, int intCount) {
+	int intSame = 0;
 	
-	for (int intFor1 = 0; intFor1 < intCount; intFor1 += 1) {
-		for (int intFor2 = intFor1 + 1; intFor2 < intCount; intFor2 += 1) {
-			if (strcmp(&charBuffer[intFor1 * 1024], &charBuffer[intFor2 * 1024]) == 0) {
-				intEqual += 1;
+	for (int intTrial = 0; intTrial < intCount; intTrial += 1) {
+		for (int intSubsequent = intTrial + 1; intSubsequent < intCount; intSubsequent += 1) {
+			if (strcmp(&charBuffer[intTrial * 1024], &charBuffer[intSubsequent * 1024]) == 0) {
+				intSame += 1;
 			}
 		}
 	}
 	
-	return intEqual;
+	return intSame;
 }
 
 bool test_movesShuffled() {
@@ -5061,1301 +5061,1301 @@ bool test_movesShuffled() {
 	char charBuffer[100 * 1024] = { };
 	
 	chess_reset();
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a2-a3\nb2-b3\nc2-c3\nd2-d3\ne2-e3\nb1-a3\nb1-c3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a2-a3\nb2-b3\nc2-c3\nd2-d3\ne2-e3\nb1-a3\nb1-c3\n") != true) {
 			printf("test: failed test_movesShuffled_001\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 7) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 7) {
 		printf("test: failed test_movesShuffled_001\n");
 		return false;
 	}
 	
 	chess_boardSet("21 W\n...nr\nkqb.K\n..PB.\np...Q\nR.P..\n.N...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "e5-d6\ne5-e6\ne5-d5\ne5-e4\nc4-b5\nd4-c5\nd4-c3\nd4-b2\nd4-a1\nd4-d5\nd4-e4\nd4-d3\ne3-e4\ne3-d3\ne3-c3\ne3-b3\ne3-a3\ne3-d2\ne3-c1\ne3-e2\ne3-e1\na2-a3\na2-b2\na2-a1\nc2-c3\nb1-a3\nb1-c3\nb1-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "e5-d6\ne5-e6\ne5-d5\ne5-e4\nc4-b5\nd4-c5\nd4-c3\nd4-b2\nd4-a1\nd4-d5\nd4-e4\nd4-d3\ne3-e4\ne3-d3\ne3-c3\ne3-b3\ne3-a3\ne3-d2\ne3-c1\ne3-e2\ne3-e1\na2-a3\na2-b2\na2-a1\nc2-c3\nb1-a3\nb1-c3\nb1-d2\n") != true) {
 			printf("test: failed test_movesShuffled_002\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 28) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 28) {
 		printf("test: failed test_movesShuffled_002\n");
 		return false;
 	}
 	
 	chess_boardSet("18 B\n..qr.\n.kp..\nNRP..\np..Pp\npBPQP\n....K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-a6\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nb5-a6\nb5-b6\nb5-a5\nb5-a4\nb5-b4\nb5-c4\nc5-b4\na3-b2\ne3-d2\na2-a1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-a6\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nb5-a6\nb5-b6\nb5-a5\nb5-a4\nb5-b4\nb5-c4\nc5-b4\na3-b2\ne3-d2\na2-a1\n") != true) {
 			printf("test: failed test_movesShuffled_003\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_003\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\n..q.r\nk.p.p\n.pP.P\n...Q.\np..P.\nR...K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d3-d4\nd3-d5\nd3-d6\nd3-c3\nd3-b3\nd3-a3\nd3-e3\nd3-c2\nd3-b1\nd3-e2\na1-a2\na1-b1\na1-c1\na1-d1\ne1-e2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d3-d4\nd3-d5\nd3-d6\nd3-c3\nd3-b3\nd3-a3\nd3-e3\nd3-c2\nd3-b1\nd3-e2\na1-a2\na1-b1\na1-c1\na1-d1\ne1-e2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_004\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_004\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nk.bn.\n.....\nQqp.r\np.PpP\n.P...\nRNB.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-b6\nc6-c5\nd6-b5\nb4-a5\nb4-b5\nb4-b6\nb4-c5\nb4-a4\nb4-b3\nb4-b2\nb4-c3\ne4-e5\ne4-e6\ne4-d4\ne4-e3\na3-a2\na3-b2\nd3-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-b6\nc6-c5\nd6-b5\nb4-a5\nb4-b5\nb4-b6\nb4-c5\nb4-a4\nb4-b3\nb4-b2\nb4-c3\ne4-e5\ne4-e6\ne4-d4\ne4-e3\na3-a2\na3-b2\nd3-d2\n") != true) {
 			printf("test: failed test_movesShuffled_005\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 24) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 24) {
 		printf("test: failed test_movesShuffled_005\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\n.kb.r\nB.p.p\nN..p.\n.P.Pn\n.P..P\n...QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-a5\nb6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-d6\ne6-d6\nc5-c4\ne5-e4\ne3-d5\ne3-c4\ne3-c2\ne3-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-a5\nb6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-d6\ne6-d6\nc5-c4\ne5-e4\ne3-d5\ne3-c4\ne3-c2\ne3-d1\n") != true) {
 			printf("test: failed test_movesShuffled_006\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_006\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\nk.q.r\n..p.P\npPPP.\n.....\n.....\n.bBnK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\na6-b5\nc6-b6\nc6-d6\nc6-b5\nc6-d5\nc6-e4\ne6-d6\ne6-e5\nc5-b4\nc5-d4\na4-a3\nb1-a2\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-a1\nd1-c3\nd1-e3\nd1-b2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\na6-b5\nc6-b6\nc6-d6\nc6-b5\nc6-d5\nc6-e4\ne6-d6\ne6-e5\nc5-b4\nc5-d4\na4-a3\nb1-a2\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-a1\nd1-c3\nd1-e3\nd1-b2\n") != true) {
 			printf("test: failed test_movesShuffled_007\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_007\n");
 		return false;
 	}
 	
 	chess_boardSet("17 W\nk.n..\np...p\nPp...\n..PP.\nq...P\nR..QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c3-c4\nc3-b4\nd3-d4\ne2-e3\na1-a2\na1-b1\na1-c1\nd1-c2\nd1-b3\nd1-d2\nd1-c1\nd1-b1\ne1-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c3-c4\nc3-b4\nd3-d4\ne2-e3\na1-a2\na1-b1\na1-c1\nd1-c2\nd1-b3\nd1-d2\nd1-c1\nd1-b1\ne1-d2\n") != true) {
 			printf("test: failed test_movesShuffled_008\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 13) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 13) {
 		printf("test: failed test_movesShuffled_008\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nk..qr\np.p.b\nPpN.p\n....P\nR.P.n\n....K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\nd6-c6\nd6-b6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\ne5-d4\ne5-c3\ne5-b2\ne5-a1\ne5-d5\nb4-b3\ne2-d4\ne2-c3\ne2-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\nd6-c6\nd6-b6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\ne5-d4\ne5-c3\ne5-b2\ne5-a1\ne5-d5\nb4-b3\ne2-d4\ne2-c3\ne2-c1\n") != true) {
 			printf("test: failed test_movesShuffled_009\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_009\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\n.kb.r\n.n.p.\nP.pPp\nPPN.q\n...BP\n.R.QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-a5\nb6-c5\nc6-d6\nc6-c5\ne6-d6\ne6-e5\nb5-d6\nb5-d4\nb5-a3\nb5-c3\nc4-b3\ne3-d4\ne3-d3\ne3-c3\ne3-d2\ne3-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-a5\nb6-c5\nc6-d6\nc6-c5\ne6-d6\ne6-e5\nb5-d6\nb5-d4\nb5-a3\nb5-c3\nc4-b3\ne3-d4\ne3-d3\ne3-c3\ne3-d2\ne3-e2\n") != true) {
 			printf("test: failed test_movesShuffled_010\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 17) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 17) {
 		printf("test: failed test_movesShuffled_010\n");
 		return false;
 	}
 	
 	chess_boardSet("16 B\n.k.nr\np...p\n.P..b\nPP...\n..QPB\nRN..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-b5\nb6-c5\nd6-b5\nd6-c4\na5-a4\na5-b4\ne4-d5\ne4-c6\ne4-d3\ne4-c2\ne4-d4\ne4-e3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-b5\nb6-c5\nd6-b5\nd6-c4\na5-a4\na5-b4\ne4-d5\ne4-c6\ne4-d3\ne4-c2\ne4-d4\ne4-e3\n") != true) {
 			printf("test: failed test_movesShuffled_011\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 14) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 14) {
 		printf("test: failed test_movesShuffled_011\n");
 		return false;
 	}
 	
 	chess_boardSet("16 B\n..qnr\n.kp..\n.....\n.P.K.\n.....\nR..N.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-a6\nc6-d5\nc6-e4\nd6-c4\nd6-e4\ne6-e5\ne6-e4\ne6-e3\ne6-e2\ne6-e1\nb5-a6\nb5-b6\nb5-a5\nb5-a4\nb5-b4\nb5-c4\nc5-c4\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-a6\nc6-d5\nc6-e4\nd6-c4\nd6-e4\ne6-e5\ne6-e4\ne6-e3\ne6-e2\ne6-e1\nb5-a6\nb5-b6\nb5-a5\nb5-a4\nb5-b4\nb5-c4\nc5-c4\n") != true) {
 			printf("test: failed test_movesShuffled_012\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_012\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\n.q.br\np..p.\nn.k.p\n.pP.P\nP.P..\nRB.QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a2-a3\na2-b3\nc2-b3\nb1-b2\nb1-c1\nd1-d2\nd1-d3\nd1-d4\nd1-d5\nd1-e2\nd1-c1\ne1-d2\ne1-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a2-a3\na2-b3\nc2-b3\nb1-b2\nb1-c1\nd1-d2\nd1-d3\nd1-d4\nd1-d5\nd1-e2\nd1-c1\ne1-d2\ne1-e2\n") != true) {
 			printf("test: failed test_movesShuffled_013\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 13) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 13) {
 		printf("test: failed test_movesShuffled_013\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nkQ..r\nppp..\n...n.\nBPPPp\nR...p\n.N..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\ne6-d6\ne6-c6\ne6-b6\ne6-e5\ne6-e4\na5-a4\nb5-b4\nc5-c4\nd4-c6\nd4-b3\nd4-c2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\ne6-d6\ne6-c6\ne6-b6\ne6-e5\ne6-e4\na5-a4\nb5-b4\nc5-c4\nd4-c6\nd4-b3\nd4-c2\n") != true) {
 			printf("test: failed test_movesShuffled_014\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 12) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 12) {
 		printf("test: failed test_movesShuffled_014\n");
 		return false;
 	}
 	
 	chess_boardSet("16 W\nk.b.r\n.n..P\nP.p.K\npB...\n.P.P.\n.N...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a4-a5\na4-b5\ne4-d5\ne4-d4\ne4-d3\ne4-e3\nb3-c4\nb3-a2\nb3-c2\nb3-d1\nb3-b4\nb3-c3\nb2-a3\nd2-d3\nb1-a3\nb1-c3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a4-a5\na4-b5\ne4-d5\ne4-d4\ne4-d3\ne4-e3\nb3-c4\nb3-a2\nb3-c2\nb3-d1\nb3-b4\nb3-c3\nb2-a3\nd2-d3\nb1-a3\nb1-c3\n") != true) {
 			printf("test: failed test_movesShuffled_015\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_015\n");
 		return false;
 	}
 	
 	chess_boardSet("13 W\n.q.br\n.pppp\n.P..K\nk..P.\n.R..P\n.NB..\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b4-c5\ne4-d5\ne4-e5\ne4-d4\ne4-e3\nd3-d4\nb2-b3\nb2-a2\nb2-c2\nb2-d2\ne2-e3\nb1-a3\nb1-c3\nb1-d2\nc1-d2\nc1-e3\nc1-c2\nc1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b4-c5\ne4-d5\ne4-e5\ne4-d4\ne4-e3\nd3-d4\nb2-b3\nb2-a2\nb2-c2\nb2-d2\ne2-e3\nb1-a3\nb1-c3\nb1-d2\nc1-d2\nc1-e3\nc1-c2\nc1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_016\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_016\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n.k.nr\n...Np\n.Q...\npP...\nP.p.q\n.R..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d5-b6\nd5-c3\nd5-e3\nb4-a5\nb4-b5\nb4-b6\nb4-c5\nb4-d6\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-a3\nb4-c3\nb4-d2\nb1-b2\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-e2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d5-b6\nd5-c3\nd5-e3\nb4-a5\nb4-b5\nb4-b6\nb4-c5\nb4-d6\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-a3\nb4-c3\nb4-d2\nb1-b2\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-e2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_017\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_017\n");
 		return false;
 	}
 	
 	chess_boardSet("19 W\nk.qn.\nP.p.r\n.pP.p\n..b.P\n..BPK\n.....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-d1\nc2-b2\nc2-c1\nd2-d3\nd2-c3\ne2-d3\ne2-d1\ne2-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-d1\nc2-b2\nc2-c1\nd2-d3\nd2-c3\ne2-d3\ne2-d1\ne2-e1\n") != true) {
 			printf("test: failed test_movesShuffled_018\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 13) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 13) {
 		printf("test: failed test_movesShuffled_018\n");
 		return false;
 	}
 	
 	chess_boardSet("17 B\nr....\n.pkbP\np.P..\n.....\nP...P\n..QRK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-c6\na6-d6\na6-e6\na6-a5\nb5-b4\nb5-c4\nc5-b6\nc5-c6\nc5-d6\nc5-b4\nc5-c4\nc5-d4\nd5-c6\nd5-e6\nd5-c4\nd5-e4\nd5-d6\nd5-d4\na4-a3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-c6\na6-d6\na6-e6\na6-a5\nb5-b4\nb5-c4\nc5-b6\nc5-c6\nc5-d6\nc5-b4\nc5-c4\nc5-d4\nd5-c6\nd5-e6\nd5-c4\nd5-e4\nd5-d6\nd5-d4\na4-a3\n") != true) {
 			printf("test: failed test_movesShuffled_019\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 20) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 20) {
 		printf("test: failed test_movesShuffled_019\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\nk..br\np.p.p\nNP..n\n..qP.\n.Pp.P\nRQBK.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\nd6-c6\nd6-d5\na5-b4\nc5-c4\nc5-b4\ne4-d2\nc3-b4\nc3-c4\nc3-d4\nc3-b3\nc3-a3\nc3-d3\nc3-b2\nc3-d2\nc3-e1\nc2-b1\nc2-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\nd6-c6\nd6-d5\na5-b4\nc5-c4\nc5-b4\ne4-d2\nc3-b4\nc3-c4\nc3-d4\nc3-b3\nc3-a3\nc3-d3\nc3-b2\nc3-d2\nc3-e1\nc2-b1\nc2-d1\n") != true) {
 			printf("test: failed test_movesShuffled_020\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_020\n");
 		return false;
 	}
 	
 	chess_boardSet("12 W\nk..r.\npqp.p\nP.Qp.\nNp...\n...P.\nRB..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a4-b5\nc4-b5\nc4-c5\nc4-d5\nc4-e6\nc4-b4\nc4-d4\nc4-b3\nc4-c3\nc4-c2\nc4-c1\nc4-d3\nc4-e2\na3-b5\na3-c2\nd2-d3\na1-a2\nb1-a2\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-c1\ne1-e2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a4-b5\nc4-b5\nc4-c5\nc4-d5\nc4-e6\nc4-b4\nc4-d4\nc4-b3\nc4-c3\nc4-c2\nc4-c1\nc4-d3\nc4-e2\na3-b5\na3-c2\nd2-d3\na1-a2\nb1-a2\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-c1\ne1-e2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_021\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 25) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 25) {
 		printf("test: failed test_movesShuffled_021\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\nk...r\npPppb\nNp...\n..B.p\nP.PPP\n.R.QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\nc5-c4\nd5-d4\ne5-d6\ne5-d4\ne5-c3\ne5-e4\nb4-b3\nb4-c3\ne3-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\nc5-c4\nd5-d4\ne5-d6\ne5-d4\ne5-c3\ne5-e4\nb4-b3\nb4-c3\ne3-d2\n") != true) {
 			printf("test: failed test_movesShuffled_022\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 14) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 14) {
 		printf("test: failed test_movesShuffled_022\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nk.b.r\n.ppNp\n...qP\n.....\nRBPP.\n...QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\nc6-d5\nc6-b6\nc6-d6\ne6-d6\nb5-b4\nc5-c4\nd4-d5\nd4-c4\nd4-b4\nd4-a4\nd4-e4\nd4-c3\nd4-b2\nd4-d3\nd4-d2\nd4-e3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\nc6-d5\nc6-b6\nc6-d6\ne6-d6\nb5-b4\nc5-c4\nd4-d5\nd4-c4\nd4-b4\nd4-a4\nd4-e4\nd4-c3\nd4-b2\nd4-d3\nd4-d2\nd4-e3\n") != true) {
 			printf("test: failed test_movesShuffled_023\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_023\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\n.kbr.\np..pp\n..Ppn\np..PB\nPP..K\n.R..Q\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c4-c5\nc4-d5\nd3-e4\ne3-d4\ne3-d2\ne3-c1\nb2-b3\nb2-a3\ne2-d2\ne2-d1\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-c3\ne1-b4\ne1-a5\ne1-d1\ne1-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c4-c5\nc4-d5\nd3-e4\ne3-d4\ne3-d2\ne3-c1\nb2-b3\nb2-a3\ne2-d2\ne2-d1\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-c3\ne1-b4\ne1-a5\ne1-d1\ne1-c1\n") != true) {
 			printf("test: failed test_movesShuffled_024\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_024\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n....r\nk...p\n.q.pp\np.Q.P\nR..P.\n...K.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c3-b4\nc3-c4\nc3-c5\nc3-c6\nc3-d4\nc3-b3\nc3-a3\nc3-d3\nc3-b2\nc3-a1\nc3-c2\nc3-c1\ne3-d4\na2-a3\na2-b2\na2-c2\na2-a1\nd2-d3\nd1-c2\nd1-e2\nd1-c1\nd1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c3-b4\nc3-c4\nc3-c5\nc3-c6\nc3-d4\nc3-b3\nc3-a3\nc3-d3\nc3-b2\nc3-a1\nc3-c2\nc3-c1\ne3-d4\na2-a3\na2-b2\na2-c2\na2-a1\nd2-d3\nd1-c2\nd1-e2\nd1-c1\nd1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_025\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_025\n");
 		return false;
 	}
 	
 	chess_boardSet("14 B\n.q..r\nk.bpQ\n.B...\n...pP\nPP...\n.R..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-d6\nb6-b5\nb6-b4\ne6-d6\ne6-c6\ne6-e5\na5-a6\na5-b5\na5-a4\na5-b4\nc5-d6\nc5-b4\nc5-d4\nc5-e3\nc5-c6\nc5-b5\nc5-c4\nd5-d4\nd3-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-d6\nb6-b5\nb6-b4\ne6-d6\ne6-c6\ne6-e5\na5-a6\na5-b5\na5-a4\na5-b4\nc5-d6\nc5-b4\nc5-d4\nc5-e3\nc5-c6\nc5-b5\nc5-c4\nd5-d4\nd3-d2\n") != true) {
 			printf("test: failed test_movesShuffled_026\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 21) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 21) {
 		printf("test: failed test_movesShuffled_026\n");
 		return false;
 	}
 	
 	chess_boardSet("18 B\n.b..r\np.p.Q\nk..P.\n.PN.P\nR...q\n..B.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-b5\ne6-d6\ne6-c6\ne6-e5\nc5-c4\nc5-d4\na4-b5\na4-b4\na4-a3\na4-b3\ne2-d3\ne2-c4\ne2-b5\ne2-a6\ne2-e3\ne2-d2\ne2-c2\ne2-b2\ne2-a2\ne2-d1\ne2-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-b5\ne6-d6\ne6-c6\ne6-e5\nc5-c4\nc5-d4\na4-b5\na4-b4\na4-a3\na4-b3\ne2-d3\ne2-c4\ne2-b5\ne2-a6\ne2-e3\ne2-d2\ne2-c2\ne2-b2\ne2-a2\ne2-d1\ne2-e1\n") != true) {
 			printf("test: failed test_movesShuffled_027\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_027\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\nk..Qr\n...p.\np.nNp\nP....\nR.PQP\nq...K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d6-c6\nd6-b6\nd6-a6\nd6-e6\nd6-c5\nd6-b4\nd6-d5\nd6-e5\nd4-c6\nd4-e6\nd4-b5\nd4-b3\na2-b2\na2-a1\nc2-c3\nd2-c3\nd2-b4\nd2-a5\nd2-d3\nd2-e3\nd2-c1\nd2-d1\ne2-e3\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d6-c6\nd6-b6\nd6-a6\nd6-e6\nd6-c5\nd6-b4\nd6-d5\nd6-e5\nd4-c6\nd4-e6\nd4-b5\nd4-b3\na2-b2\na2-a1\nc2-c3\nd2-c3\nd2-b4\nd2-a5\nd2-d3\nd2-e3\nd2-c1\nd2-d1\ne2-e3\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_028\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 24) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 24) {
 		printf("test: failed test_movesShuffled_028\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\n..Qnr\nk....\n...p.\n....P\nP.qBP\n.R..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-a6\nc6-d6\nc6-b5\nc6-a4\nc6-c5\nc6-c4\nc6-c3\nc6-c2\nc6-d5\nc6-e4\ne3-e4\ne3-d4\na2-a3\nd2-c3\nd2-b4\nd2-a5\nd2-c1\nd2-d3\nd2-d1\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a1\nb1-c1\nb1-d1\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-a6\nc6-d6\nc6-b5\nc6-a4\nc6-c5\nc6-c4\nc6-c3\nc6-c2\nc6-d5\nc6-e4\ne3-e4\ne3-d4\na2-a3\nd2-c3\nd2-b4\nd2-a5\nd2-c1\nd2-d3\nd2-d1\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a1\nb1-c1\nb1-d1\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_029\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 29) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 29) {
 		printf("test: failed test_movesShuffled_029\n");
 		return false;
 	}
 	
 	chess_boardSet("16 W\nk..b.\npnBp.\nQ...p\n...q.\nN.PP.\n....K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c5-b6\nc5-d6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-c6\nc5-c4\na4-a5\na4-b5\na4-b4\na4-c4\na4-d4\na4-e4\na4-a3\na4-b3\na2-b4\na2-c3\na2-c1\nc2-c3\nc2-d3\ne1-e2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c5-b6\nc5-d6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-c6\nc5-c4\na4-a5\na4-b5\na4-b4\na4-c4\na4-d4\na4-e4\na4-a3\na4-b3\na2-b4\na2-c3\na2-c1\nc2-c3\nc2-d3\ne1-e2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_030\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_030\n");
 		return false;
 	}
 	
 	chess_boardSet("18 W\n...nr\nkb..p\n.....\n...Q.\n...PP\nqB..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d3-c4\nd3-b5\nd3-d4\nd3-d5\nd3-d6\nd3-e4\nd3-c3\nd3-b3\nd3-a3\nd3-e3\nd3-c2\ne2-e3\nb1-a2\nb1-c2\nb1-b2\nb1-c1\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d3-c4\nd3-b5\nd3-d4\nd3-d5\nd3-d6\nd3-e4\nd3-c3\nd3-b3\nd3-a3\nd3-e3\nd3-c2\ne2-e3\nb1-a2\nb1-c2\nb1-b2\nb1-c1\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_031\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 17) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 17) {
 		printf("test: failed test_movesShuffled_031\n");
 		return false;
 	}
 	
 	chess_boardSet("16 W\nk...r\nR.pbB\nq..p.\n.KPPp\n....P\nQ.n..\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a5-a6\na5-b5\na5-c5\na5-a4\ne5-d6\ne5-d4\ne5-e4\nb3-a4\nb3-b4\nb3-c4\nb3-a3\nb3-a2\nb3-b2\nb3-c2\nc3-c4\nc3-d4\na1-a2\na1-a3\na1-a4\na1-b2\na1-b1\na1-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a5-a6\na5-b5\na5-c5\na5-a4\ne5-d6\ne5-d4\ne5-e4\nb3-a4\nb3-b4\nb3-c4\nb3-a3\nb3-a2\nb3-b2\nb3-c2\nc3-c4\nc3-d4\na1-a2\na1-a3\na1-a4\na1-b2\na1-b1\na1-c1\n") != true) {
 			printf("test: failed test_movesShuffled_032\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_032\n");
 		return false;
 	}
 	
 	chess_boardSet("15 B\n..qr.\npkp..\n.P.pp\np.P.P\nb.BK.\n.Q...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-a6\nc6-d5\nd6-e6\nd6-d5\na5-a4\na5-b4\nb5-a6\nb5-b6\nb5-a4\nb5-b4\nb5-c4\nc5-c4\nc5-b4\nd4-d3\nd4-c3\nd4-e3\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-b2\na2-a1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-a6\nc6-d5\nd6-e6\nd6-d5\na5-a4\na5-b4\nb5-a6\nb5-b6\nb5-a4\nb5-b4\nb5-c4\nc5-c4\nc5-b4\nd4-d3\nd4-c3\nd4-e3\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-b2\na2-a1\n") != true) {
 			printf("test: failed test_movesShuffled_033\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 24) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 24) {
 		printf("test: failed test_movesShuffled_033\n");
 		return false;
 	}
 	
 	chess_boardSet("18 B\nkn..r\np.p.b\nP...p\n...PP\n..q.K\nB.R..\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b5\nb6-d5\nb6-a4\nb6-c4\ne6-d6\ne6-c6\nc5-c4\ne5-d6\ne5-d4\ne5-c3\ne5-b2\ne5-a1\ne5-d5\ne4-d3\nc2-b3\nc2-a4\nc2-c3\nc2-c4\nc2-d3\nc2-b2\nc2-a2\nc2-d2\nc2-e2\nc2-b1\nc2-c1\nc2-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b5\nb6-d5\nb6-a4\nb6-c4\ne6-d6\ne6-c6\nc5-c4\ne5-d6\ne5-d4\ne5-c3\ne5-b2\ne5-a1\ne5-d5\ne4-d3\nc2-b3\nc2-a4\nc2-c3\nc2-c4\nc2-d3\nc2-b2\nc2-a2\nc2-d2\nc2-e2\nc2-b1\nc2-c1\nc2-d1\n") != true) {
 			printf("test: failed test_movesShuffled_034\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 26) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 26) {
 		printf("test: failed test_movesShuffled_034\n");
 		return false;
 	}
 	
 	chess_boardSet("17 B\nq.b.r\n.ppPp\npk...\nn...p\n.PPKN\n...RQ\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\nc6-d5\nc6-b6\nc6-d6\ne6-d6\nc5-c4\ne5-e4\nb4-a5\nb4-c4\nb4-b3\nb4-c3\na3-c4\na3-c2\na3-b1\ne3-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\nc6-d5\nc6-b6\nc6-d6\ne6-d6\nc5-c4\ne5-e4\nb4-a5\nb4-c4\nb4-b3\nb4-c3\na3-c4\na3-c2\na3-b1\ne3-d2\n") != true) {
 			printf("test: failed test_movesShuffled_035\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_035\n");
 		return false;
 	}
 	
 	chess_boardSet("18 W\nq..r.\n....p\nkQ...\nnBPPP\nbP...\n.R..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b4-a5\nb4-b5\nb4-b6\nb4-c5\nb4-d6\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-a3\nb3-a4\nb3-c4\nb3-d5\nb3-e6\nb3-a2\nb3-c2\nb3-d1\nc3-c4\nd3-d4\ne3-e4\nb2-a3\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-e2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b4-a5\nb4-b5\nb4-b6\nb4-c5\nb4-d6\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-a3\nb3-a4\nb3-c4\nb3-d5\nb3-e6\nb3-a2\nb3-c2\nb3-d1\nc3-c4\nd3-d4\ne3-e4\nb2-a3\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-e2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_036\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 27) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 27) {
 		printf("test: failed test_movesShuffled_036\n");
 		return false;
 	}
 	
 	chess_boardSet("18 B\n.q.r.\n.kpPp\npQ...\nP.b..\n...pP\n..RK.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-a5\nd6-c6\nd6-e6\nd6-d5\nb5-a6\nb5-c6\nb5-a5\nb5-b4\nb5-c4\nc5-c4\nc5-b4\ne5-e4\nc3-b4\nc3-d4\nc3-b2\nc3-a1\nc3-c4\nc3-b3\nc3-d3\nc3-c2\nd2-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-a5\nd6-c6\nd6-e6\nd6-d5\nb5-a6\nb5-c6\nb5-a5\nb5-b4\nb5-c4\nc5-c4\nc5-b4\ne5-e4\nc3-b4\nc3-d4\nc3-b2\nc3-a1\nc3-c4\nc3-b3\nc3-d3\nc3-c2\nd2-c1\n") != true) {
 			printf("test: failed test_movesShuffled_037\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_037\n");
 		return false;
 	}
 	
 	chess_boardSet("21 W\n..r..\nkp..p\npPp.B\nP..K.\n.....\nRN..b\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b4-a5\ne4-d5\ne4-c6\ne4-d4\ne4-e3\nd3-c4\nd3-d4\nd3-c3\nd3-e3\nd3-c2\nd3-d2\nd3-e2\na1-a2\nb1-c3\nb1-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b4-a5\ne4-d5\ne4-c6\ne4-d4\ne4-e3\nd3-c4\nd3-d4\nd3-c3\nd3-e3\nd3-c2\nd3-d2\nd3-e2\na1-a2\nb1-c3\nb1-d2\n") != true) {
 			printf("test: failed test_movesShuffled_038\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_038\n");
 		return false;
 	}
 	
 	chess_boardSet("17 B\n....r\n.k..q\n.pppp\n.B.PP\n...K.\nRN...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "e6-d6\ne6-c6\ne6-b6\ne6-a6\nb5-a6\nb5-b6\nb5-c6\nb5-a5\nb5-c5\nb5-a4\ne5-d6\ne5-d5\ne5-c5\nc4-c3\nc4-b3\nc4-d3\nd4-e3\ne4-d3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "e6-d6\ne6-c6\ne6-b6\ne6-a6\nb5-a6\nb5-b6\nb5-c6\nb5-a5\nb5-c5\nb5-a4\ne5-d6\ne5-d5\ne5-c5\nc4-c3\nc4-b3\nc4-d3\nd4-e3\ne4-d3\n") != true) {
 			printf("test: failed test_movesShuffled_039\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_039\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\n.qb.r\np.pp.\nPpk..\n.P..p\nR.PPP\nB..QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-b5\nc6-b5\nc6-a4\nc6-d6\ne6-d6\ne6-e5\ne6-e4\nd5-d4\nc4-b5\nc4-d4\nc4-b3\nc4-c3\nc4-d3\ne3-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-b5\nc6-b5\nc6-a4\nc6-d6\ne6-d6\ne6-e5\ne6-e4\nd5-d4\nc4-b5\nc4-d4\nc4-b3\nc4-c3\nc4-d3\ne3-d2\n") != true) {
 			printf("test: failed test_movesShuffled_040\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_040\n");
 		return false;
 	}
 	
 	chess_boardSet("17 W\n.kr..\np.p..\nq.Pb.\n..P.p\n..NKP\n.....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c3-d4\nc2-b4\nc2-d4\nc2-a3\nc2-e3\nc2-a1\nc2-e1\nd2-d3\nd2-e3\nd2-c1\nd2-d1\nd2-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c3-d4\nc2-b4\nc2-d4\nc2-a3\nc2-e3\nc2-a1\nc2-e1\nd2-d3\nd2-e3\nd2-c1\nd2-d1\nd2-e1\n") != true) {
 			printf("test: failed test_movesShuffled_041\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 12) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 12) {
 		printf("test: failed test_movesShuffled_041\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nk..br\n...pp\nN.qR.\npQ..B\nPPP.P\n....K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\na6-b5\nd6-c5\nd6-b4\nd6-c6\ne5-e4\ne5-d4\nc4-b5\nc4-c5\nc4-c6\nc4-b4\nc4-a4\nc4-d4\nc4-b3\nc4-c3\nc4-c2\nc4-d3\nc4-e2\na3-b2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\na6-b5\nd6-c5\nd6-b4\nd6-c6\ne5-e4\ne5-d4\nc4-b5\nc4-c5\nc4-c6\nc4-b4\nc4-a4\nc4-d4\nc4-b3\nc4-c3\nc4-c2\nc4-d3\nc4-e2\na3-b2\n") != true) {
 			printf("test: failed test_movesShuffled_042\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 20) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 20) {
 		printf("test: failed test_movesShuffled_042\n");
 		return false;
 	}
 	
 	chess_boardSet("20 W\n...r.\nk....\npR.pB\nP..Pq\n..P..\n.b.NK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b4-b5\nb4-b6\nb4-a4\nb4-c4\nb4-d4\nb4-b3\nb4-b2\nb4-b1\ne4-d5\ne4-c6\ne4-e5\nc2-c3\nd1-c3\nd1-e3\nd1-b2\ne1-d2\ne1-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b4-b5\nb4-b6\nb4-a4\nb4-c4\nb4-d4\nb4-b3\nb4-b2\nb4-b1\ne4-d5\ne4-c6\ne4-e5\nc2-c3\nd1-c3\nd1-e3\nd1-b2\ne1-d2\ne1-e2\n") != true) {
 			printf("test: failed test_movesShuffled_043\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 17) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 17) {
 		printf("test: failed test_movesShuffled_043\n");
 		return false;
 	}
 	
 	chess_boardSet("13 W\n.nb.r\n.kqp.\np.p..\nPP..Q\n..P.P\nR..K.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b3-b4\nb3-a4\nb3-c4\ne3-d4\ne3-c5\ne3-e4\ne3-e5\ne3-e6\ne3-d3\ne3-c3\ne3-d2\ne3-c1\nc2-c3\na1-a2\na1-b1\na1-c1\nd1-d2\nd1-c1\nd1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b3-b4\nb3-a4\nb3-c4\ne3-d4\ne3-c5\ne3-e4\ne3-e5\ne3-e6\ne3-d3\ne3-c3\ne3-d2\ne3-c1\nc2-c3\na1-a2\na1-b1\na1-c1\nd1-d2\nd1-c1\nd1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_044\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_044\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\n..b.r\nPk...\nBPn.p\n..p.P\n.....\nRN..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-d5\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\nb5-a6\nb5-b6\nb5-a5\nb5-c5\nb5-a4\nb5-b4\nc4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\nc4-d2\nc3-c2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-d5\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\nb5-a6\nb5-b6\nb5-a5\nb5-c5\nb5-a4\nb5-b4\nc4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\nc4-d2\nc3-c2\n") != true) {
 			printf("test: failed test_movesShuffled_045\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 21) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 21) {
 		printf("test: failed test_movesShuffled_045\n");
 		return false;
 	}
 	
 	chess_boardSet("15 B\nk.b.r\np.N.p\n.q..P\n..P..\n.P.pK\n..RB.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-b6\nc6-d6\ne6-d6\na5-a4\nb4-b5\nb4-b6\nb4-c5\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-a3\nb4-b3\nb4-b2\nb4-c3\nd2-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-b6\nc6-d6\ne6-d6\na5-a4\nb4-b5\nb4-b6\nb4-c5\nb4-a4\nb4-c4\nb4-d4\nb4-e4\nb4-a3\nb4-b3\nb4-b2\nb4-c3\nd2-c1\n") != true) {
 			printf("test: failed test_movesShuffled_046\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_046\n");
 		return false;
 	}
 	
 	chess_boardSet("21 W\nkr..b\n.Qp.p\npp.pP\n.....\n..P..\n...K.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b5-a6\nb5-b6\nb5-c6\nb5-a5\nb5-c5\nb5-a4\nb5-b4\nb5-c4\nb5-d3\nb5-e2\nc2-c3\nd1-d2\nd1-e2\nd1-c1\nd1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b5-a6\nb5-b6\nb5-c6\nb5-a5\nb5-c5\nb5-a4\nb5-b4\nb5-c4\nb5-d3\nb5-e2\nc2-c3\nd1-d2\nd1-e2\nd1-c1\nd1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_047\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_047\n");
 		return false;
 	}
 	
 	chess_boardSet("20 B\n...b.\nq.pp.\npkp..\nP.P.P\n..BK.\nRQ...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d6-e5\nd6-c6\nd6-e6\na5-a6\na5-b6\na5-b5\nd5-d4\nb4-b5\nb4-a3\nb4-b3\nb4-c3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d6-e5\nd6-c6\nd6-e6\na5-a6\na5-b6\na5-b5\nd5-d4\nb4-b5\nb4-a3\nb4-b3\nb4-c3\n") != true) {
 			printf("test: failed test_movesShuffled_048\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 11) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 11) {
 		printf("test: failed test_movesShuffled_048\n");
 		return false;
 	}
 	
 	chess_boardSet("17 B\nk..q.\nPpp.r\n.p.qp\n....P\nb....\n.BK..\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\nd6-c6\nd6-b6\nd6-e6\nd6-d5\nc5-c4\ne5-e6\ne5-d5\nb4-b3\nd4-d5\nd4-c4\nd4-c3\nd4-b2\nd4-a1\nd4-d3\nd4-d2\nd4-d1\nd4-e3\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-a3\na2-b2\na2-a1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\nd6-c6\nd6-b6\nd6-e6\nd6-d5\nc5-c4\ne5-e6\ne5-d5\nb4-b3\nd4-d5\nd4-c4\nd4-c3\nd4-b2\nd4-a1\nd4-d3\nd4-d2\nd4-d1\nd4-e3\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-a3\na2-b2\na2-a1\n") != true) {
 			printf("test: failed test_movesShuffled_049\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 27) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 27) {
 		printf("test: failed test_movesShuffled_049\n");
 		return false;
 	}
 	
 	chess_boardSet("20 B\nk...r\npP...\nP..B.\nR.N..\n...PP\nb.Q.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\ne6-e5\ne6-e4\ne6-e3\ne6-e2\na1-b2\na1-c3\na1-a2\na1-b1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\ne6-e5\ne6-e4\ne6-e3\ne6-e2\na1-b2\na1-c3\na1-a2\na1-b1\n") != true) {
 			printf("test: failed test_movesShuffled_050\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 13) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 13) {
 		printf("test: failed test_movesShuffled_050\n");
 		return false;
 	}
 	
 	chess_boardSet("16 B\n...nB\npk.p.\nr.pb.\n..K..\nP..PP\nRN...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d6-e4\nb5-a6\nb5-b6\nb5-c6\nb5-c5\nb5-b4\na4-b4\na4-a3\na4-a2\nd4-c5\nd4-b6\nd4-e5\nd4-c3\nd4-e3\nd4-e4\nd4-d3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d6-e4\nb5-a6\nb5-b6\nb5-c6\nb5-c5\nb5-b4\na4-b4\na4-a3\na4-a2\nd4-c5\nd4-b6\nd4-e5\nd4-c3\nd4-e3\nd4-e4\nd4-d3\n") != true) {
 			printf("test: failed test_movesShuffled_051\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_051\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\nkq.br\np....\np..Pp\nN.n..\nPP.PP\n..R.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b5\nb6-c6\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nb6-c5\nb6-d4\nd6-c5\nd6-b4\nd6-a3\nd6-e5\nd6-c6\nd6-d5\ne6-e5\ne4-e3\nc3-b5\nc3-d5\nc3-a2\nc3-e2\nc3-b1\nc3-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b5\nb6-c6\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nb6-c5\nb6-d4\nd6-c5\nd6-b4\nd6-a3\nd6-e5\nd6-c6\nd6-d5\ne6-e5\ne4-e3\nc3-b5\nc3-d5\nc3-a2\nc3-e2\nc3-b1\nc3-d1\n") != true) {
 			printf("test: failed test_movesShuffled_052\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_052\n");
 		return false;
 	}
 	
 	chess_boardSet("15 B\n..Qnr\npk...\n...pp\n.....\nPR.qP\n..B.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d6-c4\ne6-e5\na5-a4\nb5-a6\nb5-b6\nb5-c6\nb5-c5\nb5-a4\nb5-b4\nb5-c4\nd4-d3\ne4-e3\nd2-c3\nd2-b4\nd2-d3\nd2-e3\nd2-c2\nd2-b2\nd2-e2\nd2-c1\nd2-d1\nd2-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d6-c4\ne6-e5\na5-a4\nb5-a6\nb5-b6\nb5-c6\nb5-c5\nb5-a4\nb5-b4\nb5-c4\nd4-d3\ne4-e3\nd2-c3\nd2-b4\nd2-d3\nd2-e3\nd2-c2\nd2-b2\nd2-e2\nd2-c1\nd2-d1\nd2-e1\n") != true) {
 			printf("test: failed test_movesShuffled_053\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_053\n");
 		return false;
 	}
 	
 	chess_boardSet("18 B\nk...q\np...p\n....R\n...pN\n..rP.\n...QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\ne6-d5\ne6-c4\ne6-b3\ne6-a2\na5-a4\nc2-c3\nc2-c4\nc2-c5\nc2-c6\nc2-b2\nc2-a2\nc2-d2\nc2-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\ne6-d5\ne6-c4\ne6-b3\ne6-a2\na5-a4\nc2-c3\nc2-c4\nc2-c5\nc2-c6\nc2-b2\nc2-a2\nc2-d2\nc2-c1\n") != true) {
 			printf("test: failed test_movesShuffled_054\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_054\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\nq..n.\npkp..\nbpr..\n..N.P\nPB..K\nR...Q\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c3-b5\nc3-d5\nc3-a4\nc3-e4\nc3-b1\nc3-d1\ne3-e4\na2-a3\nb2-a3\nb2-c1\nb2-b3\nb2-c2\nb2-b1\ne2-d3\ne2-d2\ne2-d1\na1-b1\na1-c1\na1-d1\ne1-d2\ne1-d1\ne1-c1\ne1-b1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c3-b5\nc3-d5\nc3-a4\nc3-e4\nc3-b1\nc3-d1\ne3-e4\na2-a3\nb2-a3\nb2-c1\nb2-b3\nb2-c2\nb2-b1\ne2-d3\ne2-d2\ne2-d1\na1-b1\na1-c1\na1-d1\ne1-d2\ne1-d1\ne1-c1\ne1-b1\n") != true) {
 			printf("test: failed test_movesShuffled_055\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_055\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n...r.\np.pk.\n...Pp\nB.p..\nPQ..P\nR..bK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d4-c5\na3-b4\na3-c5\na3-a4\na3-b3\nb2-b3\nb2-b4\nb2-b5\nb2-b6\nb2-c3\nb2-c2\nb2-d2\nb2-b1\nb2-c1\ne2-e3\na1-b1\na1-c1\na1-d1\ne1-d2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d4-c5\na3-b4\na3-c5\na3-a4\na3-b3\nb2-b3\nb2-b4\nb2-b5\nb2-b6\nb2-c3\nb2-c2\nb2-d2\nb2-b1\nb2-c1\ne2-e3\na1-b1\na1-c1\na1-d1\ne1-d2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_056\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 20) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 20) {
 		printf("test: failed test_movesShuffled_056\n");
 		return false;
 	}
 	
 	chess_boardSet("17 W\nk.r..\np.p.p\nb....\n.PqPK\nP..nQ\n.R...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b3-b4\nb3-a4\nd3-d4\ne3-d4\ne3-e4\ne3-d2\na2-a3\ne2-d2\ne2-d1\ne2-e1\nb1-b2\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b3-b4\nb3-a4\nd3-d4\ne3-d4\ne3-e4\ne3-d2\na2-a3\ne2-d2\ne2-d1\ne2-e1\nb1-b2\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_057\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_057\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\nk...r\npP.pp\n....n\nP....\n.PP.Q\n.RbK.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b5-b6\nb5-a6\na3-a4\nb2-b3\nc2-c3\ne2-d3\ne2-c4\ne2-e3\ne2-e4\ne2-d2\ne2-e1\nb1-a1\nb1-c1\nd1-d2\nd1-c1\nd1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b5-b6\nb5-a6\na3-a4\nb2-b3\nc2-c3\ne2-d3\ne2-c4\ne2-e3\ne2-e4\ne2-d2\ne2-e1\nb1-a1\nb1-c1\nd1-d2\nd1-c1\nd1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_058\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_058\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\n.kb..\nn.P.r\npp..P\nPQ..P\n.B..K\nRN...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c5-b6\na3-b4\nb3-a4\nb3-b4\nb3-c4\nb3-d5\nb3-e6\nb3-c3\nb3-d3\nb3-a2\nb3-c2\nb3-d1\nb2-c3\nb2-d4\nb2-e5\nb2-c1\nb2-a2\nb2-c2\ne2-d3\ne2-d2\ne2-d1\ne2-e1\na1-a2\nb1-c3\nb1-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c5-b6\na3-b4\nb3-a4\nb3-b4\nb3-c4\nb3-d5\nb3-e6\nb3-c3\nb3-d3\nb3-a2\nb3-c2\nb3-d1\nb2-c3\nb2-d4\nb2-e5\nb2-c1\nb2-a2\nb2-c2\ne2-d3\ne2-d2\ne2-d1\ne2-e1\na1-a2\nb1-c3\nb1-d2\n") != true) {
 			printf("test: failed test_movesShuffled_059\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 25) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 25) {
 		printf("test: failed test_movesShuffled_059\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\n.bq.r\npkQ.p\n...PP\nN..P.\nPP..K\n.RB..\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-c5\nb6-a6\nc6-d6\nc6-c5\nc6-d5\nc6-e4\ne6-d6\na5-a4\nb5-a6\nb5-c5\nb5-a4\nb5-b4\nb5-c4\ne5-d4\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-c5\nb6-a6\nc6-d6\nc6-c5\nc6-d5\nc6-e4\ne6-d6\na5-a4\nb5-a6\nb5-c5\nb5-a4\nb5-b4\nb5-c4\ne5-d4\n") != true) {
 			printf("test: failed test_movesShuffled_060\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 14) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 14) {
 		printf("test: failed test_movesShuffled_060\n");
 		return false;
 	}
 	
 	chess_boardSet("12 W\nk.qnQ\n..pb.\npp..P\n.....\nPPP.P\nRNB.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "e6-d6\ne6-d5\ne6-e5\ne4-e5\ne4-d5\na2-a3\nb2-b3\nc2-c3\ne2-e3\nb1-a3\nb1-c3\nb1-d2\nc1-d2\nc1-e3\nc1-d1\ne1-d2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "e6-d6\ne6-d5\ne6-e5\ne4-e5\ne4-d5\na2-a3\nb2-b3\nc2-c3\ne2-e3\nb1-a3\nb1-c3\nb1-d2\nc1-d2\nc1-e3\nc1-d1\ne1-d2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_061\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 17) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 17) {
 		printf("test: failed test_movesShuffled_061\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n.k.q.\nb.Ppp\n.p..P\np.PPK\nP...n\nRB...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c5-c6\nc5-b6\nc5-d6\ne4-d5\nc3-c4\nc3-b4\nd3-d4\ne3-d4\ne3-d2\ne3-e2\nb1-c2\nb1-b2\nb1-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c5-c6\nc5-b6\nc5-d6\ne4-d5\nc3-c4\nc3-b4\nd3-d4\ne3-d4\ne3-d2\ne3-e2\nb1-c2\nb1-b2\nb1-c1\n") != true) {
 			printf("test: failed test_movesShuffled_062\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 13) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 13) {
 		printf("test: failed test_movesShuffled_062\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n.r...\n.np.p\nk.N.P\n.pPp.\nP..P.\n.R..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\na2-a3\na2-b3\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\ne1-e2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\na2-a3\na2-b3\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\ne1-e2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_063\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_063\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\nk..nr\nbq...\npp..p\nPPpP.\nRBQ.P\n....K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\nd6-c4\ne6-e5\na5-b6\nb5-b6\nb5-c6\nb5-c5\nb5-d5\nb5-e5\nb5-c4\nb5-d3\na4-b3\nb4-a3\ne4-e3\ne4-d3\nc3-b2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\nd6-c4\ne6-e5\na5-b6\nb5-b6\nb5-c6\nb5-c5\nb5-d5\nb5-e5\nb5-c4\nb5-d3\na4-b3\nb4-a3\ne4-e3\ne4-d3\nc3-b2\n") != true) {
 			printf("test: failed test_movesShuffled_064\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_064\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n.qb..\nkpP.r\np...N\nP...p\nB.P.P\nRnQ.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c5-b6\ne4-d6\ne4-c3\ne4-d2\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-b2\nc2-c3\na1-b1\nc1-b2\nc1-d2\nc1-e3\nc1-b1\nc1-d1\ne1-d2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c5-b6\ne4-d6\ne4-c3\ne4-d2\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-b2\nc2-c3\na1-b1\nc1-b2\nc1-d2\nc1-e3\nc1-b1\nc1-d1\ne1-d2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_065\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_065\n");
 		return false;
 	}
 	
 	chess_boardSet("21 W\n.....\n.kp..\np.PPn\nP....\n.B.Kr\nR...Q\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c4-b5\nd4-d5\nd4-c5\nb2-c3\nb2-c1\nb2-b3\nb2-a2\nb2-c2\nb2-b1\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-e2\nd2-c1\nd2-d1\na1-a2\na1-b1\na1-c1\na1-d1\ne1-e2\ne1-d1\ne1-c1\ne1-b1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c4-b5\nd4-d5\nd4-c5\nb2-c3\nb2-c1\nb2-b3\nb2-a2\nb2-c2\nb2-b1\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-e2\nd2-c1\nd2-d1\na1-a2\na1-b1\na1-c1\na1-d1\ne1-e2\ne1-d1\ne1-c1\ne1-b1\n") != true) {
 			printf("test: failed test_movesShuffled_066\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 24) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 24) {
 		printf("test: failed test_movesShuffled_066\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\n.b.nr\nk....\n..p.p\nP.NpP\n.P.P.\nR..BK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a3-a4\nc3-b5\nc3-d5\nc3-a4\nc3-e4\nc3-a2\nc3-e2\nc3-b1\nb2-b3\na1-a2\na1-b1\na1-c1\nd1-c2\nd1-b3\nd1-a4\nd1-e2\nd1-c1\ne1-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a3-a4\nc3-b5\nc3-d5\nc3-a4\nc3-e4\nc3-a2\nc3-e2\nc3-b1\nb2-b3\na1-a2\na1-b1\na1-c1\nd1-c2\nd1-b3\nd1-a4\nd1-e2\nd1-c1\ne1-e2\n") != true) {
 			printf("test: failed test_movesShuffled_067\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_067\n");
 		return false;
 	}
 	
 	chess_boardSet("12 W\n.k.b.\nPq..n\n..p.r\nQ..p.\nPP.PP\nRBK..\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a5-a6\na5-b6\na3-a4\na3-b4\na3-c5\na3-d6\na3-b3\na3-c3\na3-d3\nb2-b3\ne2-e3\ne2-d3\nb1-c2\nb1-d3\nc1-c2\nc1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a5-a6\na5-b6\na3-a4\na3-b4\na3-c5\na3-d6\na3-b3\na3-c3\na3-d3\nb2-b3\ne2-e3\ne2-d3\nb1-c2\nb1-d3\nc1-c2\nc1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_068\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_068\n");
 		return false;
 	}
 	
 	chess_boardSet("19 W\n....r\n.kpp.\nR...N\n.Pq.P\n..P.K\n...B.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a4-a5\na4-a6\na4-b4\na4-c4\na4-d4\na4-a3\na4-a2\na4-a1\ne4-d6\ne4-c5\ne4-c3\ne4-d2\nb3-b4\ne2-d3\ne2-d2\ne2-e1\nd1-d2\nd1-c1\nd1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a4-a5\na4-a6\na4-b4\na4-c4\na4-d4\na4-a3\na4-a2\na4-a1\ne4-d6\ne4-c5\ne4-c3\ne4-d2\nb3-b4\ne2-d3\ne2-d2\ne2-e1\nd1-d2\nd1-c1\nd1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_069\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_069\n");
 		return false;
 	}
 	
 	chess_boardSet("18 W\nk..br\np..p.\nPPpq.\n..P.P\n...K.\n.....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b4-b5\nb4-a5\nc3-d4\ne3-e4\ne3-d4\nd2-d3\nd2-c2\nd2-e2\nd2-c1\nd2-d1\nd2-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b4-b5\nb4-a5\nc3-d4\ne3-e4\ne3-d4\nd2-d3\nd2-c2\nd2-e2\nd2-c1\nd2-d1\nd2-e1\n") != true) {
 			printf("test: failed test_movesShuffled_070\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 11) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 11) {
 		printf("test: failed test_movesShuffled_070\n");
 		return false;
 	}
 	
 	chess_boardSet("20 B\n.b..r\n.k..p\npB..p\nn.R.q\n...P.\nQ...K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a5\nb6-c5\nb6-d4\nb6-a6\nb6-c6\ne6-d6\ne6-c6\nb5-a6\nb5-c6\nb5-a5\nb5-c5\nb5-b4\nb5-c4\na3-c4\na3-c2\na3-b1\ne3-d4\ne3-c5\ne3-d3\ne3-c3\ne3-d2\ne3-e2\ne3-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a5\nb6-c5\nb6-d4\nb6-a6\nb6-c6\ne6-d6\ne6-c6\nb5-a6\nb5-c6\nb5-a5\nb5-c5\nb5-b4\nb5-c4\na3-c4\na3-c2\na3-b1\ne3-d4\ne3-c5\ne3-d3\ne3-c3\ne3-d2\ne3-e2\ne3-e1\n") != true) {
 			printf("test: failed test_movesShuffled_071\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_071\n");
 		return false;
 	}
 	
 	chess_boardSet("19 B\n..k..\nr....\n.ppPp\n...PP\n.B..K\nR....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-d6\nc6-b5\nc6-c5\nc6-d5\na5-a6\na5-b5\na5-c5\na5-d5\na5-e5\na5-a4\na5-a3\na5-a2\na5-a1\nb4-b3\nc4-c3\nc4-d3\ne4-d3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-d6\nc6-b5\nc6-c5\nc6-d5\na5-a6\na5-b5\na5-c5\na5-d5\na5-e5\na5-a4\na5-a3\na5-a2\na5-a1\nb4-b3\nc4-c3\nc4-d3\ne4-d3\n") != true) {
 			printf("test: failed test_movesShuffled_072\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_072\n");
 		return false;
 	}
 	
 	chess_boardSet("19 B\n..r..\n.kp..\nbp.pp\n....P\n.BP.Q\n.R..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-a6\nc6-d6\nc6-e6\nb5-a6\nb5-b6\nb5-a5\nb5-c4\nc5-c4\na4-b3\na4-c2\na4-a5\na4-a3\nb4-b3\nd4-d3\nd4-e3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-a6\nc6-d6\nc6-e6\nb5-a6\nb5-b6\nb5-a5\nb5-c4\nc5-c4\na4-b3\na4-c2\na4-a5\na4-a3\nb4-b3\nd4-d3\nd4-e3\n") != true) {
 			printf("test: failed test_movesShuffled_073\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_073\n");
 		return false;
 	}
 	
 	chess_boardSet("15 W\nk...r\npb...\n.Pq..\nN.Pp.\nR.B.K\n.Q...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b4-a5\na3-b5\na3-c4\na2-b2\na2-a1\nc2-b3\nc2-a4\nc2-d3\nc2-d1\nc2-b2\nc2-d2\nc2-c1\ne2-d3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b4-a5\na3-b5\na3-c4\na2-b2\na2-a1\nc2-b3\nc2-a4\nc2-d3\nc2-d1\nc2-b2\nc2-d2\nc2-c1\ne2-d3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_074\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_074\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\nk.b..\np...n\n.qp.r\n...Q.\nPP..P\n..RBK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-b6\nc6-d6\nc6-c5\na5-a4\ne5-d3\nb4-b5\nb4-b6\nb4-c5\nb4-d6\nb4-a4\nb4-a3\nb4-b3\nb4-b2\nb4-c3\nb4-d2\nb4-e1\nc4-c3\nc4-d3\ne4-d4\ne4-e3\ne4-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\nc6-b5\nc6-a4\nc6-d5\nc6-b6\nc6-d6\nc6-c5\na5-a4\ne5-d3\nb4-b5\nb4-b6\nb4-c5\nb4-d6\nb4-a4\nb4-a3\nb4-b3\nb4-b2\nb4-c3\nb4-d2\nb4-e1\nc4-c3\nc4-d3\ne4-d4\ne4-e3\ne4-e2\n") != true) {
 			printf("test: failed test_movesShuffled_075\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 26) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 26) {
 		printf("test: failed test_movesShuffled_075\n");
 		return false;
 	}
 	
 	chess_boardSet("19 B\n.k.n.\n....r\n..Bpp\nP..K.\n....P\nRN...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-a5\nb6-b5\nb6-c5\nd6-b5\nd6-c4\ne5-e6\ne5-d5\ne5-c5\ne5-b5\ne5-a5\ne4-e3\ne4-d3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-a5\nb6-b5\nb6-c5\nd6-b5\nd6-c4\ne5-e6\ne5-d5\ne5-c5\ne5-b5\ne5-a5\ne4-e3\ne4-d3\n") != true) {
 			printf("test: failed test_movesShuffled_076\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 14) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 14) {
 		printf("test: failed test_movesShuffled_076\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nkq..r\npn.p.\n.p.Pp\n.p..P\nP.PN.\nRB..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-c6\nb6-d6\nb6-c5\nb6-d4\ne6-d6\ne6-c6\ne6-e5\na5-a4\nb5-d6\nb5-d4\nb5-a3\nb5-c3\nb3-b2\nb3-a2\nb3-c2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-c6\nb6-d6\nb6-c5\nb6-d4\ne6-d6\ne6-c6\ne6-e5\na5-a4\nb5-d6\nb5-d4\nb5-a3\nb5-c3\nb3-b2\nb3-a2\nb3-c2\n") != true) {
 			printf("test: failed test_movesShuffled_077\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_077\n");
 		return false;
 	}
 	
 	chess_boardSet("17 B\nk.b.r\n.p...\np.n..\n...p.\nNPq.P\nR.B.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-a5\nc6-d5\nc6-e4\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\ne6-e4\ne6-e3\ne6-e2\nb5-b4\na4-a3\nc4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\nc4-d2\nd3-d2\nd3-e2\nc2-b3\nc2-c3\nc2-b2\nc2-d2\nc2-e2\nc2-b1\nc2-c1\nc2-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-a5\nc6-d5\nc6-e4\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\ne6-e4\ne6-e3\ne6-e2\nb5-b4\na4-a3\nc4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\nc4-d2\nd3-d2\nd3-e2\nc2-b3\nc2-c3\nc2-b2\nc2-d2\nc2-e2\nc2-b1\nc2-c1\nc2-d1\n") != true) {
 			printf("test: failed test_movesShuffled_078\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 32) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 32) {
 		printf("test: failed test_movesShuffled_078\n");
 		return false;
 	}
 	
 	chess_boardSet("14 B\n.q..r\n.k..p\nP.p.p\nbpQBK\nRPP..\n.N...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-d6\nb6-a5\nb6-c5\nb6-d4\nb6-e3\ne6-d6\ne6-c6\nb5-a6\nb5-c6\nb5-a5\nb5-c5\nb5-a4\nb5-b4\nc4-d3\ne4-d3\na3-b4\na3-c5\na3-d6\na3-b2\nb3-a2\nb3-c2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-d6\nb6-a5\nb6-c5\nb6-d4\nb6-e3\ne6-d6\ne6-c6\nb5-a6\nb5-c6\nb5-a5\nb5-c5\nb5-a4\nb5-b4\nc4-d3\ne4-d3\na3-b4\na3-c5\na3-d6\na3-b2\nb3-a2\nb3-c2\n") != true) {
 			printf("test: failed test_movesShuffled_079\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_079\n");
 		return false;
 	}
 	
 	chess_boardSet("15 B\nkq.nr\n.p..p\n.p.P.\n..Pb.\nP..B.\nRNQK.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-a5\nb6-c6\nb6-a5\nb6-c5\nb6-d4\nd6-c4\nd6-e4\ne5-e4\ne5-d4\nb4-b3\nb4-c3\nd3-c4\nd3-e4\nd3-c2\nd3-b1\nd3-e2\nd3-e3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-a5\nb6-c6\nb6-a5\nb6-c5\nb6-d4\nd6-c4\nd6-e4\ne5-e4\ne5-d4\nb4-b3\nb4-c3\nd3-c4\nd3-e4\nd3-c2\nd3-b1\nd3-e2\nd3-e3\n") != true) {
 			printf("test: failed test_movesShuffled_080\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 17) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 17) {
 		printf("test: failed test_movesShuffled_080\n");
 		return false;
 	}
 	
 	chess_boardSet("16 B\n.....\npk..p\nqbp.n\nRP...\n..prP\n.NQ.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b5-a6\nb5-b6\nb5-c6\nb5-c5\na4-a3\na4-b3\nb4-c5\nb4-d6\nb4-a3\nb4-c3\nc4-c3\nc4-b3\ne4-d6\ne4-c5\ne4-c3\nc2-b1\nd2-d3\nd2-d4\nd2-d5\nd2-d6\nd2-e2\nd2-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b5-a6\nb5-b6\nb5-c6\nb5-c5\na4-a3\na4-b3\nb4-c5\nb4-d6\nb4-a3\nb4-c3\nc4-c3\nc4-b3\ne4-d6\ne4-c5\ne4-c3\nc2-b1\nd2-d3\nd2-d4\nd2-d5\nd2-d6\nd2-e2\nd2-d1\n") != true) {
 			printf("test: failed test_movesShuffled_081\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 22) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 22) {
 		printf("test: failed test_movesShuffled_081\n");
 		return false;
 	}
 	
 	chess_boardSet("21 W\n..kr.\nn.pbp\nP..q.\nP.P.p\n..B..\nQ.RK.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c3-c4\nc3-d4\nc2-b3\nc2-d3\nc2-e4\nc2-b1\nc2-b2\nc2-d2\na1-a2\na1-b2\na1-b1\nc1-b1\nd1-d2\nd1-e2\nd1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c3-c4\nc3-d4\nc2-b3\nc2-d3\nc2-e4\nc2-b1\nc2-b2\nc2-d2\na1-a2\na1-b2\na1-b1\nc1-b1\nd1-d2\nd1-e2\nd1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_082\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_082\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\n..bn.\n.p.qr\n.kppp\n.PPPP\nP..BK\nR....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-c5\nd5-e6\nd5-c5\ne5-e6\nb4-a5\nb4-c5\nb4-a4\nb4-a3\nb4-b3\nb4-c3\nc4-b3\nc4-d3\nd4-c3\nd4-e3\ne4-d3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-c5\nd5-e6\nd5-c5\ne5-e6\nb4-a5\nb4-c5\nb4-a4\nb4-a3\nb4-b3\nb4-c3\nc4-b3\nc4-d3\nd4-c3\nd4-e3\ne4-d3\n") != true) {
 			printf("test: failed test_movesShuffled_083\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_083\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nk....\npq.r.\n.pppb\nP..P.\nP.PB.\nRN..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na5-a4\nb5-b6\nb5-c6\nb5-c5\nb5-a4\nd5-d6\nd5-c5\nd5-e5\nb4-b3\nb4-a3\nc4-c3\nc4-d3\ne4-d3\ne4-e5\ne4-e3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na5-a4\nb5-b6\nb5-c6\nb5-c5\nb5-a4\nd5-d6\nd5-c5\nd5-e5\nb4-b3\nb4-a3\nc4-c3\nc4-d3\ne4-d3\ne4-e5\ne4-e3\n") != true) {
 			printf("test: failed test_movesShuffled_084\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_084\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\nbkqr.\n..ppp\n.....\n.p..P\nP....\nRB.QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b5\na6-c4\na6-d3\na6-e2\na6-a5\nb6-a5\nb6-b5\nc6-b5\nc6-a4\nd6-e6\nc5-c4\nd5-d4\ne5-e4\nb3-b2\nb3-a2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b5\na6-c4\na6-d3\na6-e2\na6-a5\nb6-a5\nb6-b5\nc6-b5\nc6-a4\nd6-e6\nc5-c4\nd5-d4\ne5-e4\nb3-b2\nb3-a2\n") != true) {
 			printf("test: failed test_movesShuffled_085\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_085\n");
 		return false;
 	}
 	
 	chess_boardSet("14 W\nkb..r\n..pp.\n.p.n.\n.q.pQ\nP..KP\nRN...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "e3-d4\ne3-e4\ne3-e5\ne3-e6\ne3-d3\na2-a3\na2-b3\nd2-c3\nd2-d3\nd2-c2\nd2-c1\nd2-d1\nd2-e1\ne2-d3\nb1-a3\nb1-c3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "e3-d4\ne3-e4\ne3-e5\ne3-e6\ne3-d3\na2-a3\na2-b3\nd2-c3\nd2-d3\nd2-c2\nd2-c1\nd2-d1\nd2-e1\ne2-d3\nb1-a3\nb1-c3\n") != true) {
 			printf("test: failed test_movesShuffled_086\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 16) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 16) {
 		printf("test: failed test_movesShuffled_086\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nkqb.r\nP.p..\n...p.\nn.PPp\n.B..P\nR.Q.K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-a5\na6-b5\nb6-a5\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-d6\ne6-d6\ne6-e5\ne6-e4\nc5-c4\nd4-c3\na3-b5\na3-c4\na3-c2\na3-b1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-a5\na6-b5\nb6-a5\nb6-b5\nb6-b4\nb6-b3\nb6-b2\nc6-b5\nc6-a4\nc6-d5\nc6-e4\nc6-d6\ne6-d6\ne6-e5\ne6-e4\nc5-c4\nd4-c3\na3-b5\na3-c4\na3-c2\na3-b1\n") != true) {
 			printf("test: failed test_movesShuffled_087\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 21) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 21) {
 		printf("test: failed test_movesShuffled_087\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\n..bnr\n.kpPp\nRp..P\n.p.K.\n..QP.\n.q...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-d5\nc6-b6\nd6-c4\nd6-e4\nb5-a6\nb5-b6\nb5-a5\nb5-a4\nb5-c4\nc5-c4\nb3-b2\nb3-c2\nb1-a2\nb1-b2\nb1-c2\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-d5\nc6-b6\nd6-c4\nd6-e4\nb5-a6\nb5-b6\nb5-a5\nb5-a4\nb5-c4\nc5-c4\nb3-b2\nb3-c2\nb1-a2\nb1-b2\nb1-c2\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n") != true) {
 			printf("test: failed test_movesShuffled_088\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_088\n");
 		return false;
 	}
 	
 	chess_boardSet("21 W\nk.q.r\n.....\nppbpp\n....P\n..B..\nR..QK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "e3-d4\nc2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-c3\nc2-b2\nc2-d2\nc2-c1\na1-a2\na1-a3\na1-a4\na1-b1\na1-c1\nd1-d2\nd1-d3\nd1-d4\nd1-e2\nd1-c1\nd1-b1\ne1-d2\ne1-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "e3-d4\nc2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-c3\nc2-b2\nc2-d2\nc2-c1\na1-a2\na1-a3\na1-a4\na1-b1\na1-c1\nd1-d2\nd1-d3\nd1-d4\nd1-e2\nd1-c1\nd1-b1\ne1-d2\ne1-e2\n") != true) {
 			printf("test: failed test_movesShuffled_089\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_089\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nk..rq\nn.p.p\n.p..b\nN.PPp\nP..KP\n..RQ.\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\nd6-c6\nd6-b6\nd6-d5\nd6-d4\nd6-d3\ne6-d5\ne6-c4\ne6-b3\ne6-a2\na5-c6\na5-c4\na5-b3\nc5-c4\nb4-b3\nb4-a3\nb4-c3\ne4-d5\ne4-c6\ne4-d3\ne4-d4\ne3-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\nd6-c6\nd6-b6\nd6-d5\nd6-d4\nd6-d3\ne6-d5\ne6-c4\ne6-b3\ne6-a2\na5-c6\na5-c4\na5-b3\nc5-c4\nb4-b3\nb4-a3\nb4-c3\ne4-d5\ne4-c6\ne4-d3\ne4-d4\ne3-d2\n") != true) {
 			printf("test: failed test_movesShuffled_090\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_090\n");
 		return false;
 	}
 	
 	chess_boardSet("11 B\nkb.nr\n.p..p\nP..p.\nPB.q.\n...NP\nR...K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-a5\nb6-a5\nb6-c5\nb6-c6\nd6-c4\nd6-e4\nb5-b4\nb5-a4\ne5-e4\nd3-c4\nd3-e4\nd3-c3\nd3-b3\nd3-e3\nd3-c2\nd3-b1\nd3-d2\nd3-e2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-a5\nb6-a5\nb6-c5\nb6-c6\nd6-c4\nd6-e4\nb5-b4\nb5-a4\ne5-e4\nd3-c4\nd3-e4\nd3-c3\nd3-b3\nd3-e3\nd3-c2\nd3-b1\nd3-d2\nd3-e2\n") != true) {
 			printf("test: failed test_movesShuffled_091\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 18) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 18) {
 		printf("test: failed test_movesShuffled_091\n");
 		return false;
 	}
 	
 	chess_boardSet("13 B\nk...r\np...p\n..qpn\nP..PP\nRpQK.\n.....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\na5-a4\nc4-b5\nc4-c5\nc4-c6\nc4-d5\nc4-b4\nc4-a4\nc4-b3\nc4-a2\nc4-c3\nc4-c2\nc4-d3\nd4-e3\ne4-d6\ne4-c5\ne4-c3\ne4-d2\nb2-b1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-b6\na6-b5\ne6-d6\ne6-c6\ne6-b6\na5-a4\nc4-b5\nc4-c5\nc4-c6\nc4-d5\nc4-b4\nc4-a4\nc4-b3\nc4-a2\nc4-c3\nc4-c2\nc4-d3\nd4-e3\ne4-d6\ne4-c5\ne4-c3\ne4-d2\nb2-b1\n") != true) {
 			printf("test: failed test_movesShuffled_092\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 23) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 23) {
 		printf("test: failed test_movesShuffled_092\n");
 		return false;
 	}
 	
 	chess_boardSet("20 W\nbQ...\nk..p.\n.p.P.\npp..n\nP..KP\nRB...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-c6\nb6-d6\nb6-e6\nb6-a5\nb6-b5\nb6-b4\nb6-c5\na2-b3\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-c1\nd2-d1\nd2-e1\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-c1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-c6\nb6-d6\nb6-e6\nb6-a5\nb6-b5\nb6-b4\nb6-c5\na2-b3\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-c1\nd2-d1\nd2-e1\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-c1\n") != true) {
 			printf("test: failed test_movesShuffled_093\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 21) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 21) {
 		printf("test: failed test_movesShuffled_093\n");
 		return false;
 	}
 	
 	chess_boardSet("12 B\n.qr..\n.k..p\np.p.P\nPP.p.\nBP.P.\nRQ..K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "b6-a6\nb6-a5\nb6-c5\nb6-d4\nb6-e3\nc6-d6\nc6-e6\nc6-c5\nb5-a6\nb5-a5\nb5-c5\nb5-b4\na4-b3\nc4-c3\nc4-b3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "b6-a6\nb6-a5\nb6-c5\nb6-d4\nb6-e3\nc6-d6\nc6-e6\nc6-c5\nb5-a6\nb5-a5\nb5-c5\nb5-b4\na4-b3\nc4-c3\nc4-b3\n") != true) {
 			printf("test: failed test_movesShuffled_094\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 15) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 15) {
 		printf("test: failed test_movesShuffled_094\n");
 		return false;
 	}
 	
 	chess_boardSet("20 B\n..r..\nkb.np\nP.pq.\n.P...\nRB.P.\n...NK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-c5\na5-a6\na5-b6\na5-a4\na5-b4\nb5-a6\nb5-a4\nb5-b6\nb5-c5\nb5-b4\nd5-b6\nd5-b4\nd5-c3\nd5-e3\ne5-e4\nc4-c3\nc4-b3\nd4-c5\nd4-b6\nd4-e4\nd4-c3\nd4-b2\nd4-d3\nd4-d2\nd4-e3\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-c5\na5-a6\na5-b6\na5-a4\na5-b4\nb5-a6\nb5-a4\nb5-b6\nb5-c5\nb5-b4\nd5-b6\nd5-b4\nd5-c3\nd5-e3\ne5-e4\nc4-c3\nc4-b3\nd4-c5\nd4-b6\nd4-e4\nd4-c3\nd4-b2\nd4-d3\nd4-d2\nd4-e3\n") != true) {
 			printf("test: failed test_movesShuffled_095\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 29) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 29) {
 		printf("test: failed test_movesShuffled_095\n");
 		return false;
 	}
 	
 	chess_boardSet("14 B\nkr...\n.qpb.\nPpP..\nn....\nB.P.P\n..RQK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "a6-a5\nb6-c6\nb6-d6\nb6-e6\nb5-c6\nb5-a5\nb5-a4\nb5-c4\nd5-c6\nd5-e6\nd5-c4\nd5-e4\nd5-d6\nd5-e5\nd5-d4\nb4-b3\na3-c4\na3-c2\na3-b1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "a6-a5\nb6-c6\nb6-d6\nb6-e6\nb5-c6\nb5-a5\nb5-a4\nb5-c4\nd5-c6\nd5-e6\nd5-c4\nd5-e4\nd5-d6\nd5-e5\nd5-d4\nb4-b3\na3-c4\na3-c2\na3-b1\n") != true) {
 			printf("test: failed test_movesShuffled_096\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_096\n");
 		return false;
 	}
 	
 	chess_boardSet("17 W\n.kqr.\n.pb..\n.pPpp\nP..Q.\n.RP.K\n.....\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c4-b5\na3-a4\na3-b4\nd3-d4\nd3-e4\nd3-c3\nd3-b3\nd3-e3\nd3-d2\nd3-d1\nb2-b3\nb2-b4\nb2-a2\nb2-b1\nc2-c3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c4-b5\na3-a4\na3-b4\nd3-d4\nd3-e4\nd3-c3\nd3-b3\nd3-e3\nd3-d2\nd3-d1\nb2-b3\nb2-b4\nb2-a2\nb2-b1\nc2-c3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\n") != true) {
 			printf("test: failed test_movesShuffled_097\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 19) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 19) {
 		printf("test: failed test_movesShuffled_097\n");
 		return false;
 	}
 	
 	chess_boardSet("14 B\n...br\n.p.pp\n.k..n\n..PP.\nP..KQ\n.R...\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "d6-c5\nd6-c6\nd5-d4\nb4-a5\nb4-c5\nb4-a4\nb4-c4\nb4-a3\nb4-b3\nb4-c3\ne4-c5\ne4-c3\ne4-d2\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "d6-c5\nd6-c6\nd5-d4\nb4-a5\nb4-c5\nb4-a4\nb4-c4\nb4-a3\nb4-b3\nb4-c3\ne4-c5\ne4-c3\ne4-d2\n") != true) {
 			printf("test: failed test_movesShuffled_098\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 13) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 13) {
 		printf("test: failed test_movesShuffled_098\n");
 		return false;
 	}
 	
 	chess_boardSet("20 W\nkq..r\n.pQ..\n...p.\nR..P.\n...NP\n...bK\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c5-b6\nc5-c6\nc5-d6\nc5-b5\nc5-d5\nc5-e5\nc5-b4\nc5-c4\nc5-c3\nc5-c2\nc5-c1\nc5-d4\na3-a4\na3-a5\na3-a6\na3-b3\na3-c3\na3-a2\na3-a1\nd2-c4\nd2-e4\nd2-b3\nd2-b1\ne2-e3\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c5-b6\nc5-c6\nc5-d6\nc5-b5\nc5-d5\nc5-e5\nc5-b4\nc5-c4\nc5-c3\nc5-c2\nc5-c1\nc5-d4\na3-a4\na3-a5\na3-a6\na3-b3\na3-c3\na3-a2\na3-a1\nd2-c4\nd2-e4\nd2-b3\nd2-b1\ne2-e3\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_099\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 25) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 25) {
 		printf("test: failed test_movesShuffled_099\n");
 		return false;
 	}
 	
 	chess_boardSet("20 W\nk.b..\nq.Nr.\npQ.Pp\nP.B..\nR.P.P\n....K\n");
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
-		intBuffer[intFor1] = chess_movesShuffled(&charBuffer[intFor1 * 1024]);
-		if (test_movesCompare(intBuffer[intFor1], &charBuffer[intFor1 * 1024], "c5-a6\nc5-e6\nc5-a4\nc5-e4\nc5-b3\nc5-d3\nb4-a5\nb4-b5\nb4-b6\nb4-a4\nb4-c4\nb4-b3\nb4-b2\nb4-b1\nc3-b2\nc3-a1\nc3-d2\nc3-c4\nc3-b3\nc3-d3\na2-b2\na2-a1\ne2-e3\ne1-d2\ne1-d1\n") != true) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
+		intBuffer[intTrial] = chess_movesShuffled(&charBuffer[intTrial * 1024]);
+		if (test_movesCompare(intBuffer[intTrial], &charBuffer[intTrial * 1024], "c5-a6\nc5-e6\nc5-a4\nc5-e4\nc5-b3\nc5-d3\nb4-a5\nb4-b5\nb4-b6\nb4-a4\nb4-c4\nb4-b3\nb4-b2\nb4-b1\nc3-b2\nc3-a1\nc3-d2\nc3-c4\nc3-b3\nc3-d3\na2-b2\na2-a1\ne2-e3\ne1-d2\ne1-d1\n") != true) {
 			printf("test: failed test_movesShuffled_100\n");
 			return false;
 		}
 	}
-	if (test_movesCount(intBuffer, charBuffer, 100) > 25) {
+	if (test_movesSame(intBuffer, charBuffer, 100) > 25) {
 		printf("test: failed test_movesShuffled_100\n");
 		return false;
 	}
@@ -6366,24 +6366,24 @@ bool test_movesShuffled() {
 bool test_movesOrder(int intMoves, char* charMoves) {
 	int intEval[256] = { };
 	
-	for (int intFor1 = 0; intFor1 < intMoves; intFor1 += 1) {
+	for (int intMove = 0; intMove < intMoves; intMove += 1) {
 		char charMove[16] = { };
 		
-		charMove[0] = charMoves[(intFor1 * 6) + 0];
-		charMove[1] = charMoves[(intFor1 * 6) + 1];
+		charMove[0] = charMoves[(intMove * 6) + 0];
+		charMove[1] = charMoves[(intMove * 6) + 1];
 		charMove[2] = '-';
-		charMove[3] = charMoves[(intFor1 * 6) + 3];
-		charMove[4] = charMoves[(intFor1 * 6) + 4];
+		charMove[3] = charMoves[(intMove * 6) + 3];
+		charMove[4] = charMoves[(intMove * 6) + 4];
 		charMove[5] = '\n';
 		charMove[6] = '\0';
 		
 		chess_move(&charMove[0]);
-		intEval[intFor1] = chess_eval();
+		intEval[intMove] = chess_eval();
 		chess_undo();
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves - 1; intFor1 += 1) {
-		if (intEval[intFor1] > intEval[intFor1 + 1]) {
+	for (int intMove = 0; intMove < intMoves - 1; intMove += 1) {
+		if (intEval[intMove] > intEval[intMove + 1]) {
 			return false;
 		}
 	}
@@ -7498,1922 +7498,1922 @@ bool test_movesEvaluated() {
 	return true;
 }
 
-int test_moveCount(char* charBuffer, int intCount) {
-	int intEqual = 0;
+int test_moveSame(char* charBuffer, int intCount) {
+	int intSame = 0;
 	char charEqual[100 * 1024] = { };
 	
-	intEqual = 0;
+	intSame = 0;
 	charEqual[0] = '\0';
 	
-	for (int intFor1 = 0; intFor1 < intCount; intFor1 += 1) {
-		if (strstr(charEqual, &charBuffer[intFor1 * 1024]) == NULL) {
-			intEqual += 1;
-			strcat(charEqual, &charBuffer[intFor1 * 1024]);
+	for (int intTrial = 0; intTrial < intCount; intTrial += 1) {
+		if (strstr(charEqual, &charBuffer[intTrial * 1024]) == NULL) {
+			intSame += 1;
+			strcat(charEqual, &charBuffer[intTrial * 1024]);
 		}
 	}
 	
-	return intEqual;
+	return intSame;
 }
 
 bool test_moveRandom() {
 	char charBuffer[100 * 1024] = { };
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_reset();
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a2-a3\nb2-b3\nc2-c3\nd2-d3\ne2-e3\nb1-a3\nb1-c3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a2-a3\nb2-b3\nc2-c3\nd2-d3\ne2-e3\nb1-a3\nb1-c3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_001\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "1 W\nkqbnr\nppppp\n.....\n.....\nPPPPP\nRNBQK\n") != 0) {
 			printf("test: failed test_moveRandom_001\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 3) {
+	if (test_moveSame(charBuffer, 100) < 3) {
 		printf("test: failed test_moveRandom_001\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 B\nk..n.\n...B.\nPp.P.\nR....\n.....\n....K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nd6-b5\nd6-c4\nd6-e4\nb4-b3\nb4-a3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nd6-b5\nd6-c4\nd6-e4\nb4-b3\nb4-a3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_002\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 B\nk..n.\n...B.\nPp.P.\nR....\n.....\n....K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 B\nk..n.\n...B.\nPp.P.\nR....\n.....\n....K\n") != 0) {
 			printf("test: failed test_moveRandom_002\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 4) {
+	if (test_moveSame(charBuffer, 100) < 4) {
 		printf("test: failed test_moveRandom_002\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 B\nkb.r.\np.ppp\n....B\npP.Q.\nPP..n\nR...K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b5\nb6-c6\nb6-b5\nd6-c6\nd6-e6\na5-a4\nc5-c4\nd5-d4\nd5-e4\na3-b2\ne2-d4\ne2-c3\ne2-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b5\nb6-c6\nb6-b5\nd6-c6\nd6-e6\na5-a4\nc5-c4\nd5-d4\nd5-e4\na3-b2\ne2-d4\ne2-c3\ne2-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_003\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 B\nkb.r.\np.ppp\n....B\npP.Q.\nPP..n\nR...K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 B\nkb.r.\np.ppp\n....B\npP.Q.\nPP..n\nR...K\n") != 0) {
 			printf("test: failed test_moveRandom_003\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 9) {
+	if (test_moveSame(charBuffer, 100) < 9) {
 		printf("test: failed test_moveRandom_003\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("11 B\nkq.br\nQpp..\np....\nP..pn\n.P.NK\nR.B..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-a5\nb6-c6\nb6-a5\nd6-e5\nd6-c6\nd6-d5\ne6-e5\ne6-e4\nb5-b4\nc5-c4\nd3-e2\ne3-d5\ne3-c4\ne3-c2\ne3-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-a5\nb6-c6\nb6-a5\nd6-e5\nd6-c6\nd6-d5\ne6-e5\ne6-e4\nb5-b4\nc5-c4\nd3-e2\ne3-d5\ne3-c4\ne3-c2\ne3-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_004\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "11 B\nkq.br\nQpp..\np....\nP..pn\n.P.NK\nR.B..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "11 B\nkq.br\nQpp..\np....\nP..pn\n.P.NK\nR.B..\n") != 0) {
 			printf("test: failed test_moveRandom_004\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_004\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\nk..nr\n....p\n...q.\n..PpP\nPBP..\n.R.QK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nd6-b5\nd6-c4\nd6-e4\ne5-e4\nd4-c5\nd4-b6\nd4-d5\nd4-c4\nd4-b4\nd4-a4\nd4-e4\nd4-c3\nd4-e3\nd3-d2\nd3-c2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nd6-b5\nd6-c4\nd6-e4\ne5-e4\nd4-c5\nd4-b6\nd4-d5\nd4-c4\nd4-b4\nd4-a4\nd4-e4\nd4-c3\nd4-e3\nd3-d2\nd3-c2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_005\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\nk..nr\n....p\n...q.\n..PpP\nPBP..\n.R.QK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\nk..nr\n....p\n...q.\n..PpP\nPBP..\n.R.QK\n") != 0) {
 			printf("test: failed test_moveRandom_005\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_005\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 B\nkr...\nbpqpp\n..p..\n.p.PP\nPQB..\nNn..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-c6\nb6-d6\nb6-e6\na5-b4\na5-c3\na5-d2\na5-e1\na5-a4\nb5-b4\nc5-c6\nc5-d6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nd5-d4\ne5-e4\nc4-c3\nc4-d3\nb3-a2\nb3-c2\nb1-a3\nb1-c3\nb1-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-c6\nb6-d6\nb6-e6\na5-b4\na5-c3\na5-d2\na5-e1\na5-a4\nb5-b4\nc5-c6\nc5-d6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nd5-d4\ne5-e4\nc4-c3\nc4-d3\nb3-a2\nb3-c2\nb1-a3\nb1-c3\nb1-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_006\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 B\nkr...\nbpqpp\n..p..\n.p.PP\nPQB..\nNn..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 B\nkr...\nbpqpp\n..p..\n.p.PP\nPQB..\nNn..K\n") != 0) {
 			printf("test: failed test_moveRandom_006\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 20) {
+	if (test_moveSame(charBuffer, 100) < 20) {
 		printf("test: failed test_moveRandom_006\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 B\nq..r.\nkpp.Q\nP....\n.....\nb...P\nRB.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-c6\nd6-c6\nd6-b6\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\na5-b6\na5-a4\na5-b4\nb5-b4\nb5-a4\nc5-c4\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-a3\na2-b2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-c6\nd6-c6\nd6-b6\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nd6-d2\nd6-d1\na5-b6\na5-a4\na5-b4\nb5-b4\nb5-a4\nc5-c4\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\na2-a3\na2-b2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_007\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 B\nq..r.\nkpp.Q\nP....\n.....\nb...P\nRB.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 B\nq..r.\nkpp.Q\nP....\n.....\nb...P\nRB.K.\n") != 0) {
 			printf("test: failed test_moveRandom_007\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 19) {
+	if (test_moveSame(charBuffer, 100) < 19) {
 		printf("test: failed test_moveRandom_007\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 W\nkr...\npb...\n..nPp\nPp...\nR..K.\n.B.Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d4-d5\na3-a4\na2-b2\na2-c2\na2-a1\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-e2\nd2-c1\nd2-e1\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-a1\nb1-c1\nd1-c2\nd1-b3\nd1-e2\nd1-c1\nd1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d4-d5\na3-a4\na2-b2\na2-c2\na2-a1\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-e2\nd2-c1\nd2-e1\nb1-c2\nb1-d3\nb1-e4\nb1-b2\nb1-a1\nb1-c1\nd1-c2\nd1-b3\nd1-e2\nd1-c1\nd1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_008\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 W\nkr...\npb...\n..nPp\nPp...\nR..K.\n.B.Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 W\nkr...\npb...\n..nPp\nPp...\nR..K.\n.B.Q.\n") != 0) {
 			printf("test: failed test_moveRandom_008\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 19) {
+	if (test_moveSame(charBuffer, 100) < 19) {
 		printf("test: failed test_moveRandom_008\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 W\nQ..kr\n.np.p\n.....\n.....\n.p.q.\n..B.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-c6\na6-d6\na6-a5\na6-a4\na6-a3\na6-a2\na6-a1\na6-b5\nc1-b2\nc1-d2\nc1-c2\nc1-b1\nc1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-c6\na6-d6\na6-a5\na6-a4\na6-a3\na6-a2\na6-a1\na6-b5\nc1-b2\nc1-d2\nc1-c2\nc1-b1\nc1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_009\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 W\nQ..kr\n.np.p\n.....\n.....\n.p.q.\n..B.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 W\nQ..kr\n.np.p\n.....\n.....\n.p.q.\n..B.K\n") != 0) {
 			printf("test: failed test_moveRandom_009\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_009\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 W\n...br\nk.p..\npp..q\n.P...\nPBPpP\n.R.QK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b3-a4\na2-a3\nb2-a3\nb2-c3\nb2-d4\nb2-e5\nb2-a1\nb2-c1\nc2-c3\ne2-e3\nb1-a1\nb1-c1\nd1-d2\nd1-c1\ne1-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b3-a4\na2-a3\nb2-a3\nb2-c3\nb2-d4\nb2-e5\nb2-a1\nb2-c1\nc2-c3\ne2-e3\nb1-a1\nb1-c1\nd1-d2\nd1-c1\ne1-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_010\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 W\n...br\nk.p..\npp..q\n.P...\nPBPpP\n.R.QK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 W\n...br\nk.p..\npp..q\n.P...\nPBPpP\n.R.QK\n") != 0) {
 			printf("test: failed test_moveRandom_010\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_010\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\nk....\npP.pr\n..bPp\np.Bp.\nP.q.K\nRQ...\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-b5\na5-a4\ne5-e6\nc4-b5\nc4-b3\nc4-a2\nc4-c5\nc4-b4\ne4-e3\nd3-d2\nd3-e2\nc2-b3\nc2-a4\nc2-c3\nc2-b2\nc2-a2\nc2-d2\nc2-e2\nc2-b1\nc2-c1\nc2-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-b5\na5-a4\ne5-e6\nc4-b5\nc4-b3\nc4-a2\nc4-c5\nc4-b4\ne4-e3\nd3-d2\nd3-e2\nc2-b3\nc2-a4\nc2-c3\nc2-b2\nc2-a2\nc2-d2\nc2-e2\nc2-b1\nc2-c1\nc2-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_011\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\nk....\npP.pr\n..bPp\np.Bp.\nP.q.K\nRQ...\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\nk....\npP.pr\n..bPp\np.Bp.\nP.q.K\nRQ...\n") != 0) {
 			printf("test: failed test_moveRandom_011\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 18) {
+	if (test_moveSame(charBuffer, 100) < 18) {
 		printf("test: failed test_moveRandom_011\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\n.....\nkpp.r\n..P.B\nq...P\nPp...\nR...K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c4-b5\ne4-d5\ne4-c6\ne4-d3\ne4-c2\ne4-b1\ne4-d4\na1-b1\na1-c1\na1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c4-b5\ne4-d5\ne4-c6\ne4-d3\ne4-c2\ne4-b1\ne4-d4\na1-b1\na1-c1\na1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_012\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\n.....\nkpp.r\n..P.B\nq...P\nPp...\nR...K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\n.....\nkpp.r\n..P.B\nq...P\nPp...\nR...K\n") != 0) {
 			printf("test: failed test_moveRandom_012\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 9) {
+	if (test_moveSame(charBuffer, 100) < 9) {
 		printf("test: failed test_moveRandom_012\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 B\n..b..\nkp.rp\np.p..\n.BPP.\n..PKp\nRN.Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b6\nc6-d6\nc6-c5\na5-a6\na5-b6\na5-b4\nb5-b4\nd5-d6\nd5-c5\nd5-d4\nd5-d3\ne5-e4\na4-a3\na4-b3\nc4-b3\nc4-d3\ne2-e1\ne2-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b6\nc6-d6\nc6-c5\na5-a6\na5-b6\na5-b4\nb5-b4\nd5-d6\nd5-c5\nd5-d4\nd5-d3\ne5-e4\na4-a3\na4-b3\nc4-b3\nc4-d3\ne2-e1\ne2-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_013\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 B\n..b..\nkp.rp\np.p..\n.BPP.\n..PKp\nRN.Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 B\n..b..\nkp.rp\np.p..\n.BPP.\n..PKp\nRN.Q.\n") != 0) {
 			printf("test: failed test_moveRandom_013\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_013\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 W\nk....\npprqp\n..NPb\n.....\nPpP..\nRB.QK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\nc4-d2\nd4-c5\nd4-e5\na2-a3\nc2-c3\nb1-c1\nd1-d2\nd1-d3\nd1-e2\nd1-c1\ne1-d2\ne1-e2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c4-b6\nc4-d6\nc4-a5\nc4-e5\nc4-a3\nc4-e3\nc4-b2\nc4-d2\nd4-c5\nd4-e5\na2-a3\nc2-c3\nb1-c1\nd1-d2\nd1-d3\nd1-e2\nd1-c1\ne1-d2\ne1-e2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_014\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 W\nk....\npprqp\n..NPb\n.....\nPpP..\nRB.QK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 W\nk....\npprqp\n..NPb\n.....\nPpP..\nRB.QK\n") != 0) {
 			printf("test: failed test_moveRandom_014\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 15) {
+	if (test_moveSame(charBuffer, 100) < 15) {
 		printf("test: failed test_moveRandom_014\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 B\nkqr..\n..p..\nPp.pP\nP.pK.\n..P.Q\n.nR..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-a5\na6-b5\nb6-a5\nb6-b5\nc6-d6\nc6-e6\nc5-c4\nb4-b3\nb4-a3\nb1-a3\nb1-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-a5\na6-b5\nb6-a5\nb6-b5\nc6-d6\nc6-e6\nc5-c4\nb4-b3\nb4-a3\nb1-a3\nb1-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_015\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 B\nkqr..\n..p..\nPp.pP\nP.pK.\n..P.Q\n.nR..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 B\nkqr..\n..p..\nPp.pP\nP.pK.\n..P.Q\n.nR..\n") != 0) {
 			printf("test: failed test_moveRandom_015\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_015\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\nq..bN\n.p...\nk.pp.\n.Q.P.\nP.P.P\nR..K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-c6\na6-a5\nd6-c5\nd6-b4\nd6-a3\nd6-e5\nd6-c6\nd6-d5\nb5-b4\na4-a5\na4-b4\na4-a3\na4-b3\nc4-c3\nc4-b3\nc4-d3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-c6\na6-a5\nd6-c5\nd6-b4\nd6-a3\nd6-e5\nd6-c6\nd6-d5\nb5-b4\na4-a5\na4-b4\na4-a3\na4-b3\nc4-c3\nc4-b3\nc4-d3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_016\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\nq..bN\n.p...\nk.pp.\n.Q.P.\nP.P.P\nR..K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\nq..bN\n.p...\nk.pp.\n.Q.P.\nP.P.P\nR..K.\n") != 0) {
 			printf("test: failed test_moveRandom_016\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_016\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 W\n..k.r\n..P.p\n.....\n..P.P\n...Pp\n.n..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c3-c4\ne3-e4\nd2-d3\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c3-c4\ne3-e4\nd2-d3\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_017\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 W\n..k.r\n..P.p\n.....\n..P.P\n...Pp\n.n..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 W\n..k.r\n..P.p\n.....\n..P.P\n...Pp\n.n..K\n") != 0) {
 			printf("test: failed test_moveRandom_017\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 1) {
+	if (test_moveSame(charBuffer, 100) < 1) {
 		printf("test: failed test_moveRandom_017\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 W\nk...q\n..pbK\np.Pr.\np..P.\n.P.B.\nR...Q\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e5-d6\ne5-e6\ne5-d5\ne5-d4\ne5-e4\nc4-d5\nb2-b3\nb2-a3\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-c1\nd2-c2\nd2-e2\nd2-d1\na1-a2\na1-a3\na1-b1\na1-c1\na1-d1\ne1-e2\ne1-e3\ne1-e4\ne1-d1\ne1-c1\ne1-b1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e5-d6\ne5-e6\ne5-d5\ne5-d4\ne5-e4\nc4-d5\nb2-b3\nb2-a3\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-c1\nd2-c2\nd2-e2\nd2-d1\na1-a2\na1-a3\na1-b1\na1-c1\na1-d1\ne1-e2\ne1-e3\ne1-e4\ne1-d1\ne1-c1\ne1-b1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_018\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 W\nk...q\n..pbK\np.Pr.\np..P.\n.P.B.\nR...Q\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 W\nk...q\n..pbK\np.Pr.\np..P.\n.P.B.\nR...Q\n") != 0) {
 			printf("test: failed test_moveRandom_018\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 23) {
+	if (test_moveSame(charBuffer, 100) < 23) {
 		printf("test: failed test_moveRandom_018\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\nk.b.r\n...pp\np....\nBPq.P\nPnPK.\nR.Q..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nc6-b5\nc6-b6\nc6-d6\nc6-c5\ne6-d6\nd5-d4\ne5-e4\na4-b3\nc3-b4\nc3-a5\nc3-c4\nc3-c5\nc3-d4\nc3-b3\nc3-d3\nc3-e3\nc3-c2\nc3-d2\nb2-c4\nb2-d3\nb2-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nc6-b5\nc6-b6\nc6-d6\nc6-c5\ne6-d6\nd5-d4\ne5-e4\na4-b3\nc3-b4\nc3-a5\nc3-c4\nc3-c5\nc3-d4\nc3-b3\nc3-d3\nc3-e3\nc3-c2\nc3-d2\nb2-c4\nb2-d3\nb2-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_019\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\nk.b.r\n...pp\np....\nBPq.P\nPnPK.\nR.Q..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\nk.b.r\n...pp\np....\nBPq.P\nPnPK.\nR.Q..\n") != 0) {
 			printf("test: failed test_moveRandom_019\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 20) {
+	if (test_moveSame(charBuffer, 100) < 20) {
 		printf("test: failed test_moveRandom_019\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\n.N.br\n.ppq.\nk....\np.PpB\nP.P.K\nR..Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-e5\nd6-c6\ne6-e5\ne6-e4\ne6-e3\nb5-b4\nc5-c4\nd5-c6\nd5-e5\nd5-c4\nd5-b3\nd5-a2\nd5-d4\nd5-e4\na4-a5\na4-b4\na4-b3\nd3-d2\nd3-c2\nd3-e2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-e5\nd6-c6\ne6-e5\ne6-e4\ne6-e3\nb5-b4\nc5-c4\nd5-c6\nd5-e5\nd5-c4\nd5-b3\nd5-a2\nd5-d4\nd5-e4\na4-a5\na4-b4\na4-b3\nd3-d2\nd3-c2\nd3-e2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_020\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\n.N.br\n.ppq.\nk....\np.PpB\nP.P.K\nR..Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\n.N.br\n.ppq.\nk....\np.PpB\nP.P.K\nR..Q.\n") != 0) {
 			printf("test: failed test_moveRandom_020\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_020\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\n..b.r\n.k..p\np.pp.\n.....\nPK.q.\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a2-a3\nb2-a3\nb2-b3\nb2-c3\nb2-c2\nb2-b1\nb2-c1\na1-b1\na1-c1\na1-d1\na1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a2-a3\nb2-a3\nb2-b3\nb2-c3\nb2-c2\nb2-b1\nb2-c1\na1-b1\na1-c1\na1-d1\na1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_021\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\n..b.r\n.k..p\np.pp.\n.....\nPK.q.\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\n..b.r\n.k..p\np.pp.\n.....\nPK.q.\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_021\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_021\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 W\nkq...\npnp..\n...pr\np..b.\n.PP..\n..RK.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b2-b3\nb2-a3\nc2-c3\nc2-d3\nc1-b1\nc1-a1\nd1-d2\nd1-e2\nd1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b2-b3\nb2-a3\nc2-c3\nc2-d3\nc1-b1\nc1-a1\nd1-d2\nd1-e2\nd1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_022\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 W\nkq...\npnp..\n...pr\np..b.\n.PP..\n..RK.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 W\nkq...\npnp..\n...pr\np..b.\n.PP..\n..RK.\n") != 0) {
 			printf("test: failed test_moveRandom_022\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 5) {
+	if (test_moveSame(charBuffer, 100) < 5) {
 		printf("test: failed test_moveRandom_022\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 B\n.kb.r\np.p..\npqN..\n.B.Pp\n.RPKQ\n.....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-b5\nc6-b5\nc6-d5\nc6-e4\nc6-d6\ne6-d6\ne6-e5\ne6-e4\na4-a3\na4-b3\nb4-b5\nb4-c4\nb4-a3\nb4-b3\nb4-c3\nb4-d2\ne3-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-b5\nc6-b5\nc6-d5\nc6-e4\nc6-d6\ne6-d6\ne6-e5\ne6-e4\na4-a3\na4-b3\nb4-b5\nb4-c4\nb4-a3\nb4-b3\nb4-c3\nb4-d2\ne3-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_023\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 B\n.kb.r\np.p..\npqN..\n.B.Pp\n.RPKQ\n.....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 B\n.kb.r\np.p..\npqN..\n.B.Pp\n.RPKQ\n.....\n") != 0) {
 			printf("test: failed test_moveRandom_023\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_023\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\n.b...\n.kp..\n.QPp.\nN...r\nPPB.K\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b4-a5\nb4-b5\nb4-c5\nb4-a4\nb4-b3\nb4-c3\nb4-d2\nb4-e1\nc4-b5\na3-b5\na3-b1\nb2-b3\nc2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-d1\nc2-c3\nc2-d2\nc2-c1\ne2-d3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\na1-b1\na1-c1\na1-d1\na1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b4-a5\nb4-b5\nb4-c5\nb4-a4\nb4-b3\nb4-c3\nb4-d2\nb4-e1\nc4-b5\na3-b5\na3-b1\nb2-b3\nc2-b3\nc2-a4\nc2-d3\nc2-e4\nc2-b1\nc2-d1\nc2-c3\nc2-d2\nc2-c1\ne2-d3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\na1-b1\na1-c1\na1-d1\na1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_024\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\n.b...\n.kp..\n.QPp.\nN...r\nPPB.K\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\n.b...\n.kp..\n.QPp.\nN...r\nPPB.K\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_024\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 26) {
+	if (test_moveSame(charBuffer, 100) < 26) {
 		printf("test: failed test_moveRandom_024\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 B\n.q..b\nkp..r\n..ppP\nP.NQP\nn....\n..B.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-c6\nb6-d6\nb6-c5\ne6-d5\ne6-d6\na5-a6\na5-a4\na5-b4\nb5-b4\ne5-d5\ne5-c5\ne5-e4\nc4-d3\nd4-c3\nd4-e3\na2-b4\na2-c3\na2-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-c6\nb6-d6\nb6-c5\ne6-d5\ne6-d6\na5-a6\na5-a4\na5-b4\nb5-b4\ne5-d5\ne5-c5\ne5-e4\nc4-d3\nd4-c3\nd4-e3\na2-b4\na2-c3\na2-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_025\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 B\n.q..b\nkp..r\n..ppP\nP.NQP\nn....\n..B.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 B\n.q..b\nkp..r\n..ppP\nP.NQP\nn....\n..B.K\n") != 0) {
 			printf("test: failed test_moveRandom_025\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 15) {
+	if (test_moveSame(charBuffer, 100) < 15) {
 		printf("test: failed test_moveRandom_025\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\n..qnr\n.kb..\np.p.P\nP.P..\nRP.N.\n...KB\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b6\nc6-a6\nc6-d5\nc6-e4\nd6-e4\ne6-e5\ne6-e4\nb5-a6\nb5-b6\nb5-a5\nb5-b4\nc5-b6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-d5\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b6\nc6-a6\nc6-d5\nc6-e4\nd6-e4\ne6-e5\ne6-e4\nb5-a6\nb5-b6\nb5-a5\nb5-b4\nc5-b6\nc5-b4\nc5-a3\nc5-d4\nc5-e3\nc5-d5\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_026\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\n..qnr\n.kb..\np.p.P\nP.P..\nRP.N.\n...KB\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\n..qnr\n.kb..\np.p.P\nP.P..\nRP.N.\n...KB\n") != 0) {
 			printf("test: failed test_moveRandom_026\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_026\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\nkqb.r\n.pp.p\n.....\npPPPn\n.....\nRB.KQ\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-a5\nb6-a5\nc6-d5\nc6-e4\nc6-d6\ne6-d6\nb5-b4\nc5-c4\ne5-e4\na3-a2\ne3-d5\ne3-c4\ne3-c2\ne3-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-a5\nb6-a5\nc6-d5\nc6-e4\nc6-d6\ne6-d6\nb5-b4\nc5-c4\ne5-e4\na3-a2\ne3-d5\ne3-c4\ne3-c2\ne3-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_027\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\nkqb.r\n.pp.p\n.....\npPPPn\n.....\nRB.KQ\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\nkqb.r\n.pp.p\n.....\npPPPn\n.....\nRB.KQ\n") != 0) {
 			printf("test: failed test_moveRandom_027\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 10) {
+	if (test_moveSame(charBuffer, 100) < 10) {
 		printf("test: failed test_moveRandom_027\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 W\n.nbr.\npp.p.\n...kp\nP.P.P\n.R...\n.N..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a3-a4\nc3-c4\nc3-d4\ne3-d4\nb2-b3\nb2-b4\nb2-b5\nb2-a2\nb2-c2\nb2-d2\nb2-e2\nb1-d2\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a3-a4\nc3-c4\nc3-d4\ne3-d4\nb2-b3\nb2-b4\nb2-b5\nb2-a2\nb2-c2\nb2-d2\nb2-e2\nb1-d2\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_028\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 W\n.nbr.\npp.p.\n...kp\nP.P.P\n.R...\n.N..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 W\n.nbr.\npp.p.\n...kp\nP.P.P\n.R...\n.N..K\n") != 0) {
 			printf("test: failed test_moveRandom_028\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_028\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\n.kb.r\n.p.pn\nRN.Kp\nB.p..\n....P\n.....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-a5\nb6-c5\nc6-d6\nc6-c5\ne6-d6\nb5-a4\ne5-c4\ne5-d3\ne4-e3\nc3-c2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-a5\nb6-c5\nc6-d6\nc6-c5\ne6-d6\nb5-a4\ne5-c4\ne5-d3\ne4-e3\nc3-c2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_029\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\n.kb.r\n.p.pn\nRN.Kp\nB.p..\n....P\n.....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\n.kb.r\n.p.pn\nRN.Kp\nB.p..\n....P\n.....\n") != 0) {
 			printf("test: failed test_moveRandom_029\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_029\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 B\n..bnr\n..P.q\npP..P\nPK.kp\n.B.NP\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b5\nc6-d5\nc6-e4\nc6-b6\nd6-b5\nd6-c4\nd6-e4\ne5-d5\ne5-c5\ne5-d4\ne5-c3\ne5-b2\ne5-e4\na4-b3\nd3-c4\nd3-d4\nd3-e4\nd3-c3\nd3-c2\nd3-d2\nd3-e2\ne3-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b5\nc6-d5\nc6-e4\nc6-b6\nd6-b5\nd6-c4\nd6-e4\ne5-d5\ne5-c5\ne5-d4\ne5-c3\ne5-b2\ne5-e4\na4-b3\nd3-c4\nd3-d4\nd3-e4\nd3-c3\nd3-c2\nd3-d2\nd3-e2\ne3-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_030\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 B\n..bnr\n..P.q\npP..P\nPK.kp\n.B.NP\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 B\n..bnr\n..P.q\npP..P\nPK.kp\n.B.NP\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_030\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 18) {
+	if (test_moveSame(charBuffer, 100) < 18) {
 		printf("test: failed test_moveRandom_030\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\nkqbNr\n.n..p\np.p..\np..Pp\n.PPQ.\nR.B.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-b5\nd6-c4\nd6-e4\nd3-d4\nd3-c4\nb2-b3\nb2-a3\nc2-c3\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-e2\nd2-d1\na1-a2\na1-a3\na1-b1\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-b5\nd6-c4\nd6-e4\nd3-d4\nd3-c4\nb2-b3\nb2-a3\nc2-c3\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-e2\nd2-d1\na1-a2\na1-a3\na1-b1\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_031\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\nkqbNr\n.n..p\np.p..\np..Pp\n.PPQ.\nR.B.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\nkqbNr\n.n..p\np.p..\np..Pp\n.PPQ.\nR.B.K\n") != 0) {
 			printf("test: failed test_moveRandom_031\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 17) {
+	if (test_moveSame(charBuffer, 100) < 17) {
 		printf("test: failed test_moveRandom_031\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 B\nkb.nr\n.p...\np.p.p\nQPP..\nP..Bp\nRN.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-a5\nb6-a5\nb6-c5\nb6-d4\nb6-e3\nb6-c6\ne6-e5\nb5-b4\na4-b3\nc4-b3\ne4-e3\ne2-e1\ne2-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-a5\nb6-a5\nb6-c5\nb6-d4\nb6-e3\nb6-c6\ne6-e5\nb5-b4\na4-b3\nc4-b3\ne4-e3\ne2-e1\ne2-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_032\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 B\nkb.nr\n.p...\np.p.p\nQPP..\nP..Bp\nRN.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 B\nkb.nr\n.p...\np.p.p\nQPP..\nP..Bp\nRN.K.\n") != 0) {
 			printf("test: failed test_moveRandom_032\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 9) {
+	if (test_moveSame(charBuffer, 100) < 9) {
 		printf("test: failed test_moveRandom_032\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 W\n.kbn.\n....r\npP.qp\nP.p.P\nR..PK\nB..Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b4-b5\ne3-d4\na2-b2\na2-c2\nd2-d3\nd2-c3\ne2-d3\ne2-e1\na1-b2\na1-c3\na1-b1\nd1-c2\nd1-b3\nd1-a4\nd1-c1\nd1-b1\nd1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b4-b5\ne3-d4\na2-b2\na2-c2\nd2-d3\nd2-c3\ne2-d3\ne2-e1\na1-b2\na1-c3\na1-b1\nd1-c2\nd1-b3\nd1-a4\nd1-c1\nd1-b1\nd1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_033\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 W\n.kbn.\n....r\npP.qp\nP.p.P\nR..PK\nB..Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 W\n.kbn.\n....r\npP.qp\nP.p.P\nR..PK\nB..Q.\n") != 0) {
 			printf("test: failed test_moveRandom_033\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_033\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 W\nk..r.\n.P..p\np..p.\nb.q..\nBQ.NP\nR..nK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b5-b6\nb5-a6\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\nb2-a3\nb2-b3\nb2-b4\nb2-c3\nb2-c2\nb2-b1\nb2-c1\nd2-c4\nd2-e4\nd2-b3\nd2-b1\ne2-e3\na1-b1\na1-c1\na1-d1\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b5-b6\nb5-a6\na2-b3\na2-c4\na2-d5\na2-e6\na2-b1\nb2-a3\nb2-b3\nb2-b4\nb2-c3\nb2-c2\nb2-b1\nb2-c1\nd2-c4\nd2-e4\nd2-b3\nd2-b1\ne2-e3\na1-b1\na1-c1\na1-d1\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_034\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 W\nk..r.\n.P..p\np..p.\nb.q..\nBQ.NP\nR..nK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 W\nk..r.\n.P..p\np..p.\nb.q..\nBQ.NP\nR..nK\n") != 0) {
 			printf("test: failed test_moveRandom_034\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 19) {
+	if (test_moveSame(charBuffer, 100) < 19) {
 		printf("test: failed test_moveRandom_034\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("21 W\nk.b.r\nNP...\np....\n.P..p\nR.PnP\n..K..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a5-c6\na5-c4\nb5-b6\nb5-a6\nb5-c6\nb3-b4\nb3-a4\na2-a3\na2-a4\na2-b2\na2-a1\nc2-c3\nc1-b2\nc1-d2\nc1-b1\nc1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a5-c6\na5-c4\nb5-b6\nb5-a6\nb5-c6\nb3-b4\nb3-a4\na2-a3\na2-a4\na2-b2\na2-a1\nc2-c3\nc1-b2\nc1-d2\nc1-b1\nc1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_035\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "21 W\nk.b.r\nNP...\np....\n.P..p\nR.PnP\n..K..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "21 W\nk.b.r\nNP...\np....\n.P..p\nR.PnP\n..K..\n") != 0) {
 			printf("test: failed test_moveRandom_035\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_035\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 W\nk....\npqp.r\n.pP..\n.b.P.\nPR.pP\n....K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c4-b5\nd3-d4\na2-a3\na2-b3\nb2-b3\nb2-c2\nb2-d2\nb2-b1\ne2-e3\ne1-d2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c4-b5\nd3-d4\na2-a3\na2-b3\nb2-b3\nb2-c2\nb2-d2\nb2-b1\ne2-e3\ne1-d2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_036\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 W\nk....\npqp.r\n.pP..\n.b.P.\nPR.pP\n....K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 W\nk....\npqp.r\n.pP..\n.b.P.\nPR.pP\n....K\n") != 0) {
 			printf("test: failed test_moveRandom_036\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_036\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 W\n.qbr.\nk..pp\n..p..\npp..P\n.P.B.\nRK...\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e3-e4\nb2-a3\nd2-c3\nd2-b4\nd2-a5\nd2-c1\nd2-e1\nd2-d3\nd2-c2\nd2-e2\nd2-d1\na1-a2\na1-a3\nb1-a2\nb1-c2\nb1-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e3-e4\nb2-a3\nd2-c3\nd2-b4\nd2-a5\nd2-c1\nd2-e1\nd2-d3\nd2-c2\nd2-e2\nd2-d1\na1-a2\na1-a3\nb1-a2\nb1-c2\nb1-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_037\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 W\n.qbr.\nk..pp\n..p..\npp..P\n.P.B.\nRK...\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 W\n.qbr.\nk..pp\n..p..\npp..P\n.P.B.\nRK...\n") != 0) {
 			printf("test: failed test_moveRandom_037\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_037\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\nk.b.r\n.Q...\n..ppP\nqnN..\nR.P..\n...BK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nc6-b5\nc6-d5\nc6-e4\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\ne6-e4\nd4-d3\nd4-c3\na3-a4\na3-a5\na3-b4\na3-c5\na3-d6\na3-a2\na3-b2\na3-c1\nb3-a5\nb3-c5\nb3-d2\nb3-a1\nb3-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nc6-b5\nc6-d5\nc6-e4\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\ne6-e4\nd4-d3\nd4-c3\na3-a4\na3-a5\na3-b4\na3-c5\na3-d6\na3-a2\na3-b2\na3-c1\nb3-a5\nb3-c5\nb3-d2\nb3-a1\nb3-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_038\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\nk.b.r\n.Q...\n..ppP\nqnN..\nR.P..\n...BK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\nk.b.r\n.Q...\n..ppP\nqnN..\nR.P..\n...BK\n") != 0) {
 			printf("test: failed test_moveRandom_038\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 23) {
+	if (test_moveSame(charBuffer, 100) < 23) {
 		printf("test: failed test_moveRandom_038\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\n..knN\np.r..\nqpp.p\n.P...\nP.PP.\nRB.QK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e6-c5\ne6-d4\nb3-a4\nb3-c4\na2-a3\nc2-c3\nd2-d3\nb1-b2\nb1-c1\nd1-e2\nd1-c1\ne1-e2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e6-c5\ne6-d4\nb3-a4\nb3-c4\na2-a3\nc2-c3\nd2-d3\nb1-b2\nb1-c1\nd1-e2\nd1-c1\ne1-e2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_039\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\n..knN\np.r..\nqpp.p\n.P...\nP.PP.\nRB.QK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\n..knN\np.r..\nqpp.p\n.P...\nP.PP.\nRB.QK\n") != 0) {
 			printf("test: failed test_moveRandom_039\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 8) {
+	if (test_moveSame(charBuffer, 100) < 8) {
 		printf("test: failed test_moveRandom_039\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 B\n.k.q.\n.p..b\np..pK\n..Pp.\nPP..P\nR.BQ.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-c6\nb6-a5\nb6-c5\nd6-c6\nd6-e6\nd6-c5\nd6-b4\nd6-a3\nd6-d5\nb5-b4\ne5-e6\ne5-d5\na4-a3\nd4-c3\nd3-d2\nd3-e2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-c6\nb6-a5\nb6-c5\nd6-c6\nd6-e6\nd6-c5\nd6-b4\nd6-a3\nd6-d5\nb5-b4\ne5-e6\ne5-d5\na4-a3\nd4-c3\nd3-d2\nd3-e2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_040\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 B\n.k.q.\n.p..b\np..pK\n..Pp.\nPP..P\nR.BQ.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 B\n.k.q.\n.p..b\np..pK\n..Pp.\nPP..P\nR.BQ.\n") != 0) {
 			printf("test: failed test_moveRandom_040\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_040\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 B\nk.qNr\np....\n.p.Pp\n.P...\n..PB.\nR...K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-b5\nc6-b6\nc6-d6\nc6-b5\nc6-a4\nc6-c5\nc6-c4\nc6-c3\nc6-c2\nc6-d5\ne6-d6\ne6-e5\na5-a4\ne4-e3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-b5\nc6-b6\nc6-d6\nc6-b5\nc6-a4\nc6-c5\nc6-c4\nc6-c3\nc6-c2\nc6-d5\ne6-d6\ne6-e5\na5-a4\ne4-e3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_041\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 B\nk.qNr\np....\n.p.Pp\n.P...\n..PB.\nR...K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 B\nk.qNr\np....\n.p.Pp\n.P...\n..PB.\nR...K\n") != 0) {
 			printf("test: failed test_moveRandom_041\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_041\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\n....r\nk..b.\n..pp.\npPpKN\nP...P\nR.Q..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e6-d6\ne6-c6\ne6-b6\ne6-a6\ne6-e5\ne6-e4\ne6-e3\na5-a6\na5-b6\na5-b5\na5-a4\na5-b4\nd5-c6\nd5-e4\nd5-d6\nd5-c5\nd5-e5\nc4-b3\nc4-d3\nd4-e3\nc3-c2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e6-d6\ne6-c6\ne6-b6\ne6-a6\ne6-e5\ne6-e4\ne6-e3\na5-a6\na5-b6\na5-b5\na5-a4\na5-b4\nd5-c6\nd5-e4\nd5-d6\nd5-c5\nd5-e5\nc4-b3\nc4-d3\nd4-e3\nc3-c2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_042\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\n....r\nk..b.\n..pp.\npPpKN\nP...P\nR.Q..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\n....r\nk..b.\n..pp.\npPpKN\nP...P\nR.Q..\n") != 0) {
 			printf("test: failed test_moveRandom_042\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 17) {
+	if (test_moveSame(charBuffer, 100) < 17) {
 		printf("test: failed test_moveRandom_042\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("11 B\nk.b..\np.q.B\npP..r\nn.Pp.\n....P\nRN.QK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-b5\nc6-b5\nc6-d5\nc6-b6\nc6-d6\na5-b4\nc5-b6\nc5-d6\nc5-b5\nc5-d5\nc5-e5\nc5-b4\nc5-c4\nc5-c3\nc5-d4\nc5-e3\ne4-e5\ne4-d4\ne4-c4\ne4-b4\ne4-e3\ne4-e2\na3-b5\na3-c4\na3-c2\na3-b1\nd3-d2\nd3-e2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-b5\nc6-b5\nc6-d5\nc6-b6\nc6-d6\na5-b4\nc5-b6\nc5-d6\nc5-b5\nc5-d5\nc5-e5\nc5-b4\nc5-c4\nc5-c3\nc5-d4\nc5-e3\ne4-e5\ne4-d4\ne4-c4\ne4-b4\ne4-e3\ne4-e2\na3-b5\na3-c4\na3-c2\na3-b1\nd3-d2\nd3-e2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_043\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "11 B\nk.b..\np.q.B\npP..r\nn.Pp.\n....P\nRN.QK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "11 B\nk.b..\np.q.B\npP..r\nn.Pp.\n....P\nRN.QK\n") != 0) {
 			printf("test: failed test_moveRandom_043\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 25) {
+	if (test_moveSame(charBuffer, 100) < 25) {
 		printf("test: failed test_moveRandom_043\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 W\n.b..r\npk...\n.....\nP.PqQ\n.P..P\n..R.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a3-a4\nc3-c4\ne3-d4\ne3-c5\ne3-b6\ne3-e4\ne3-e5\ne3-e6\ne3-d3\ne3-d2\nb2-b3\ne2-d3\nc1-c2\nc1-b1\nc1-a1\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a3-a4\nc3-c4\ne3-d4\ne3-c5\ne3-b6\ne3-e4\ne3-e5\ne3-e6\ne3-d3\ne3-d2\nb2-b3\ne2-d3\nc1-c2\nc1-b1\nc1-a1\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_044\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 W\n.b..r\npk...\n.....\nP.PqQ\n.P..P\n..R.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 W\n.b..r\npk...\n.....\nP.PqQ\n.P..P\n..R.K\n") != 0) {
 			printf("test: failed test_moveRandom_044\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_044\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 W\n.kbNr\n.q..p\npP.p.\n.P.P.\n..PQP\n.n..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-b5\nd6-c4\nd6-e4\nb3-a4\nc2-c3\nd2-c3\nd2-e3\nd2-c1\nd2-d1\ne2-e3\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-b5\nd6-c4\nd6-e4\nb3-a4\nc2-c3\nd2-c3\nd2-e3\nd2-c1\nd2-d1\ne2-e3\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_045\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 W\n.kbNr\n.q..p\npP.p.\n.P.P.\n..PQP\n.n..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 W\n.kbNr\n.q..p\npP.p.\n.P.P.\n..PQP\n.n..K\n") != 0) {
 			printf("test: failed test_moveRandom_045\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_045\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("11 B\n.qbnr\nkp.N.\n..pp.\np...P\nPPp.Q\nRB..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-c5\nc6-d5\nc6-c5\nd6-e4\ne6-e5\ne6-e4\ne6-e3\na5-a6\na5-a4\na5-b4\nb5-b4\nc4-c3\nd4-d3\nd4-e3\na3-b2\nc2-c1\nc2-b1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-c5\nc6-d5\nc6-c5\nd6-e4\ne6-e5\ne6-e4\ne6-e3\na5-a6\na5-a4\na5-b4\nb5-b4\nc4-c3\nd4-d3\nd4-e3\na3-b2\nc2-c1\nc2-b1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_046\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "11 B\n.qbnr\nkp.N.\n..pp.\np...P\nPPp.Q\nRB..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "11 B\n.qbnr\nkp.N.\n..pp.\np...P\nPPp.Q\nRB..K\n") != 0) {
 			printf("test: failed test_moveRandom_046\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_046\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\nk..nr\nb...p\nPNpp.\nP....\n..PPP\n.RBQK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b4-a6\nb4-c6\nb4-d5\nb4-d3\nb4-a2\nc2-c3\nd2-d3\ne2-e3\nb1-b2\nb1-b3\nb1-a1\nc1-b2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b4-a6\nb4-c6\nb4-d5\nb4-d3\nb4-a2\nc2-c3\nd2-d3\ne2-e3\nb1-b2\nb1-b3\nb1-a1\nc1-b2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_047\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\nk..nr\nb...p\nPNpp.\nP....\n..PPP\n.RBQK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\nk..nr\nb...p\nPNpp.\nP....\n..PPP\n.RBQK\n") != 0) {
 			printf("test: failed test_moveRandom_047\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 8) {
+	if (test_moveSame(charBuffer, 100) < 8) {
 		printf("test: failed test_moveRandom_047\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 W\n..q.r\n.p.bp\npkp.n\nPP.PP\n.RBPK\n...Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a3-b4\nb3-a4\nb3-c4\nd3-d4\nd3-c4\nd3-e4\nb2-a2\nb2-b1\nc2-b1\nc2-c3\nc2-c1\ne2-e1\nd1-c1\nd1-b1\nd1-a1\nd1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a3-b4\nb3-a4\nb3-c4\nd3-d4\nd3-c4\nd3-e4\nb2-a2\nb2-b1\nc2-b1\nc2-c3\nc2-c1\ne2-e1\nd1-c1\nd1-b1\nd1-a1\nd1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_048\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 W\n..q.r\n.p.bp\npkp.n\nPP.PP\n.RBPK\n...Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 W\n..q.r\n.p.bp\npkp.n\nPP.PP\n.RBPK\n...Q.\n") != 0) {
 			printf("test: failed test_moveRandom_048\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_048\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("11 B\n..b.r\nk..p.\nNp.np\nPP..p\n..PKP\nRQ...\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b5\nc6-a4\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\na5-a6\na5-b6\na5-b5\na5-a4\nb4-a3\nd4-b5\nd4-b3\nd4-c2\nd4-e2\ne3-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b5\nc6-a4\nc6-b6\nc6-d6\nc6-c5\ne6-d6\ne6-e5\na5-a6\na5-b6\na5-b5\na5-a4\nb4-a3\nd4-b5\nd4-b3\nd4-c2\nd4-e2\ne3-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_049\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "11 B\n..b.r\nk..p.\nNp.np\nPP..p\n..PKP\nRQ...\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "11 B\n..b.r\nk..p.\nNp.np\nPP..p\n..PKP\nRQ...\n") != 0) {
 			printf("test: failed test_moveRandom_049\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_049\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\nknqbr\n..pp.\n.p..P\nBpPp.\nP..P.\nRN..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e4-e5\ne4-d5\na3-b4\na3-b2\na3-c1\na3-a4\nc3-c4\nc3-b4\na2-b3\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e4-e5\ne4-d5\na3-b4\na3-b2\na3-c1\na3-a4\nc3-c4\nc3-b4\na2-b3\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_050\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\nknqbr\n..pp.\n.p..P\nBpPp.\nP..P.\nRN..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\nknqbr\n..pp.\n.p..P\nBpPp.\nP..P.\nRN..K\n") != 0) {
 			printf("test: failed test_moveRandom_050\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_050\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\n..q.r\npkPNp\n.....\nPP..Q\nR..b.\n..B.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d5-b6\nd5-b4\nd5-c3\na3-a4\nb3-b4\ne3-d4\ne3-e4\ne3-e5\ne3-d3\ne3-c3\ne3-d2\ne3-e2\na2-b2\na2-c2\na2-d2\na2-a1\nc1-b2\nc1-d2\nc1-c2\nc1-b1\nc1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d5-b6\nd5-b4\nd5-c3\na3-a4\nb3-b4\ne3-d4\ne3-e4\ne3-e5\ne3-d3\ne3-c3\ne3-d2\ne3-e2\na2-b2\na2-c2\na2-d2\na2-a1\nc1-b2\nc1-d2\nc1-c2\nc1-b1\nc1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_051\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\n..q.r\npkPNp\n.....\nPP..Q\nR..b.\n..B.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\n..q.r\npkPNp\n.....\nPP..Q\nR..b.\n..B.K\n") != 0) {
 			printf("test: failed test_moveRandom_051\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 20) {
+	if (test_moveSame(charBuffer, 100) < 20) {
 		printf("test: failed test_moveRandom_051\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 W\nb..N.\nk.qp.\npPpPp\n..P..\n.P.BP\n..RQK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-b5\nd6-c4\nd6-e4\nb4-b5\nb4-a5\nb4-c5\nd4-c5\nb2-b3\nd2-e3\nd2-d3\nd2-c2\ne2-e3\nc1-c2\nc1-b1\nc1-a1\nd1-c2\nd1-b3\nd1-a4\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-b5\nd6-c4\nd6-e4\nb4-b5\nb4-a5\nb4-c5\nd4-c5\nb2-b3\nd2-e3\nd2-d3\nd2-c2\ne2-e3\nc1-c2\nc1-b1\nc1-a1\nd1-c2\nd1-b3\nd1-a4\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_052\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 W\nb..N.\nk.qp.\npPpPp\n..P..\n.P.BP\n..RQK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 W\nb..N.\nk.qp.\npPpPp\n..P..\n.P.BP\n..RQK\n") != 0) {
 			printf("test: failed test_moveRandom_052\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_052\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 W\nbk.n.\np.pP.\n.....\n.P...\n.PNB.\nq...K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b3-b4\nc2-b4\nc2-d4\nc2-a3\nc2-e3\nc2-a1\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-c1\nd2-d3\nd2-e2\nd2-d1\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b3-b4\nc2-b4\nc2-d4\nc2-a3\nc2-e3\nc2-a1\nd2-c3\nd2-b4\nd2-a5\nd2-e3\nd2-c1\nd2-d3\nd2-e2\nd2-d1\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_053\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 W\nbk.n.\np.pP.\n.....\n.P...\n.PNB.\nq...K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 W\nbk.n.\np.pP.\n.....\n.P...\n.PNB.\nq...K\n") != 0) {
 			printf("test: failed test_moveRandom_053\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_053\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 B\n.k.r.\n.Pp.p\npP.Pb\nP...P\n..N..\nR.BQK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-c6\nb6-a5\nb6-b5\nd6-c6\nd6-e6\nd6-d5\nd6-d4\nc5-c4\nc5-b4\nc5-d4\ne5-d4\ne4-d5\ne4-c6\ne4-d3\ne4-c2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-c6\nb6-a5\nb6-b5\nd6-c6\nd6-e6\nd6-d5\nd6-d4\nc5-c4\nc5-b4\nc5-d4\ne5-d4\ne4-d5\ne4-c6\ne4-d3\ne4-c2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_054\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 B\n.k.r.\n.Pp.p\npP.Pb\nP...P\n..N..\nR.BQK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 B\n.k.r.\n.Pp.p\npP.Pb\nP...P\n..N..\nR.BQK\n") != 0) {
 			printf("test: failed test_moveRandom_054\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_054\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\nq...r\nk..bp\np.ppn\nP.PP.\nRB..P\n.NQ.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c3-d4\nd3-c4\nd3-e4\na2-a1\nb2-a1\nb2-b3\nb2-c2\ne2-e3\nb1-d2\nc1-c2\nc1-d2\nc1-e3\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c3-d4\nd3-c4\nd3-e4\na2-a1\nb2-a1\nb2-b3\nb2-c2\ne2-e3\nb1-d2\nc1-c2\nc1-d2\nc1-e3\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_055\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\nq...r\nk..bp\np.ppn\nP.PP.\nRB..P\n.NQ.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\nq...r\nk..bp\np.ppn\nP.PP.\nRB..P\n.NQ.K\n") != 0) {
 			printf("test: failed test_moveRandom_055\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_055\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 B\n...Br\np.R..\n.k..p\nNP.pP\n.q.PK\n...Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e6-d6\ne6-e5\na5-a4\nb4-b5\nb4-c5\nb4-a4\nb4-c4\nb4-a3\nb4-b3\nb4-c3\nd3-e2\nb2-a3\nb2-b3\nb2-c3\nb2-d4\nb2-e5\nb2-a2\nb2-c2\nb2-d2\nb2-a1\nb2-b1\nb2-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e6-d6\ne6-e5\na5-a4\nb4-b5\nb4-c5\nb4-a4\nb4-c4\nb4-a3\nb4-b3\nb4-c3\nd3-e2\nb2-a3\nb2-b3\nb2-c3\nb2-d4\nb2-e5\nb2-a2\nb2-c2\nb2-d2\nb2-a1\nb2-b1\nb2-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_056\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 B\n...Br\np.R..\n.k..p\nNP.pP\n.q.PK\n...Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 B\n...Br\np.R..\n.k..p\nNP.pP\n.q.PK\n...Q.\n") != 0) {
 			printf("test: failed test_moveRandom_056\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 18) {
+	if (test_moveSame(charBuffer, 100) < 18) {
 		printf("test: failed test_moveRandom_056\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("11 B\nk..nr\npqp..\nPP.pb\n...Pp\n.BPKP\nR..Q.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\nd6-c4\ne6-e5\na5-b4\nb5-b6\nb5-c6\nb5-a4\nb5-b4\nb5-c4\nb5-d3\nc5-c4\nc5-b4\ne4-d5\ne4-c6\ne4-d3\ne4-e5\ne3-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\nd6-c4\ne6-e5\na5-b4\nb5-b6\nb5-c6\nb5-a4\nb5-b4\nb5-c4\nb5-d3\nc5-c4\nc5-b4\ne4-d5\ne4-c6\ne4-d3\ne4-e5\ne3-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_057\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "11 B\nk..nr\npqp..\nPP.pb\n...Pp\n.BPKP\nR..Q.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "11 B\nk..nr\npqp..\nPP.pb\n...Pp\n.BPKP\nR..Q.\n") != 0) {
 			printf("test: failed test_moveRandom_057\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_057\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\n.....\nQnk.r\n.P..p\n...P.\nP...P\nRB.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b5-d6\nb5-d4\nb5-a3\nb5-c3\nc5-b6\nc5-c6\nc5-d6\nc5-d5\nc5-b4\nc5-c4\nc5-d4\ne5-e6\ne5-d5\ne4-e3\ne4-d3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b5-d6\nb5-d4\nb5-a3\nb5-c3\nc5-b6\nc5-c6\nc5-d6\nc5-d5\nc5-b4\nc5-c4\nc5-d4\ne5-e6\ne5-d5\ne4-e3\ne4-d3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_058\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\n.....\nQnk.r\n.P..p\n...P.\nP...P\nRB.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\n.....\nQnk.r\n.P..p\n...P.\nP...P\nRB.K.\n") != 0) {
 			printf("test: failed test_moveRandom_058\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_058\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 B\n...nr\npkp..\nP....\n.p.p.\n.B.KQ\n...R.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-c4\nd6-e4\ne6-e5\ne6-e4\ne6-e3\ne6-e2\nb5-a6\nb5-b6\nb5-c6\nb5-a4\nb5-b4\nb5-c4\nc5-c4\nd3-e2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-c4\nd6-e4\ne6-e5\ne6-e4\ne6-e3\ne6-e2\nb5-a6\nb5-b6\nb5-c6\nb5-a4\nb5-b4\nb5-c4\nc5-c4\nd3-e2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_059\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 B\n...nr\npkp..\nP....\n.p.p.\n.B.KQ\n...R.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 B\n...nr\npkp..\nP....\n.p.p.\n.B.KQ\n...R.\n") != 0) {
 			printf("test: failed test_moveRandom_059\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 10) {
+	if (test_moveSame(charBuffer, 100) < 10) {
 		printf("test: failed test_moveRandom_059\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\nk...r\n.p..p\np.K.b\nq..QB\nNPP..\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\ne6-d6\ne6-c6\ne6-b6\nb5-b4\nb5-c4\ne4-d5\ne4-c6\ne4-d3\ne4-d4\na3-b4\na3-c5\na3-d6\na3-b3\na3-c3\na3-d3\na3-a2\na3-b2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\ne6-d6\ne6-c6\ne6-b6\nb5-b4\nb5-c4\ne4-d5\ne4-c6\ne4-d3\ne4-d4\na3-b4\na3-c5\na3-d6\na3-b3\na3-c3\na3-d3\na3-a2\na3-b2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_060\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\nk...r\n.p..p\np.K.b\nq..QB\nNPP..\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\nk...r\n.p..p\np.K.b\nq..QB\nNPP..\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_060\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 15) {
+	if (test_moveSame(charBuffer, 100) < 15) {
 		printf("test: failed test_moveRandom_060\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 B\nqQr..\n..p.p\n...p.\n.QB..\nk.KNP\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-a4\na6-a3\na6-b5\na6-c4\na6-d3\na6-e2\nc6-b6\nc6-d6\nc6-e6\nc5-c4\ne5-e4\nd4-d3\nd4-c3\na2-a3\na2-b3\na2-b2\na2-a1\na2-b1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-a4\na6-a3\na6-b5\na6-c4\na6-d3\na6-e2\nc6-b6\nc6-d6\nc6-e6\nc5-c4\ne5-e4\nd4-d3\nd4-c3\na2-a3\na2-b3\na2-b2\na2-a1\na2-b1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_061\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 B\nqQr..\n..p.p\n...p.\n.QB..\nk.KNP\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 B\nqQr..\n..p.p\n...p.\n.QB..\nk.KNP\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_061\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_061\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 B\n..qb.\np....\nnkNPp\nPp..p\n....P\nR.QK.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b6\nc6-a6\nc6-b5\nc6-c5\nc6-c4\nc6-d5\nd6-c5\nd6-e5\nd6-e6\nd6-d5\na4-b6\na4-c5\na4-c3\na4-b2\nb4-b5\nb4-c5\nb4-c4\nb4-a3\nb4-c3\nb3-b2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b6\nc6-a6\nc6-b5\nc6-c5\nc6-c4\nc6-d5\nd6-c5\nd6-e5\nd6-e6\nd6-d5\na4-b6\na4-c5\na4-c3\na4-b2\nb4-b5\nb4-c5\nb4-c4\nb4-a3\nb4-c3\nb3-b2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_062\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 B\n..qb.\np....\nnkNPp\nPp..p\n....P\nR.QK.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 B\n..qb.\np....\nnkNPp\nPp..p\n....P\nR.QK.\n") != 0) {
 			printf("test: failed test_moveRandom_062\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_062\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\n.qr..\npk..p\nPp..b\nP.p.P\n.BpP.\nR.Q.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a4-b5\na3-b4\nb2-c3\nb2-b3\nb2-a2\nb2-b1\nd2-d3\nd2-c3\na1-a2\na1-b1\nc1-c2\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a4-b5\na3-b4\nb2-c3\nb2-b3\nb2-a2\nb2-b1\nd2-d3\nd2-c3\na1-a2\na1-b1\nc1-c2\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_063\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\n.qr..\npk..p\nPp..b\nP.p.P\n.BpP.\nR.Q.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\n.qr..\npk..p\nPp..b\nP.p.P\n.BpP.\nR.Q.K\n") != 0) {
 			printf("test: failed test_moveRandom_063\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_063\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 W\n.b.r.\nk.p..\npp..Q\nPP..P\n.RPNP\n...BK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e4-d5\ne4-c6\ne4-e5\ne4-e6\ne4-d4\ne4-c4\ne4-b4\ne4-d3\na3-b4\nb3-a4\nb2-a2\nb2-b1\nc2-c3\nd2-c4\nd2-b1\nd1-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e4-d5\ne4-c6\ne4-e5\ne4-e6\ne4-d4\ne4-c4\ne4-b4\ne4-d3\na3-b4\nb3-a4\nb2-a2\nb2-b1\nc2-c3\nd2-c4\nd2-b1\nd1-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_064\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 W\n.b.r.\nk.p..\npp..Q\nPP..P\n.RPNP\n...BK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 W\n.b.r.\nk.p..\npp..Q\nPP..P\n.RPNP\n...BK\n") != 0) {
 			printf("test: failed test_moveRandom_064\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_064\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 W\nk....\n.....\np....\nP.P.B\nb..nP\nRN..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c3-c4\ne3-d4\ne3-c5\ne3-b6\ne3-d2\ne3-e4\ne3-d3\na1-a2\nb1-d2\ne1-d2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c3-c4\ne3-d4\ne3-c5\ne3-b6\ne3-d2\ne3-e4\ne3-d3\na1-a2\nb1-d2\ne1-d2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_065\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 W\nk....\n.....\np....\nP.P.B\nb..nP\nRN..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 W\nk....\n.....\np....\nP.P.B\nb..nP\nRN..K\n") != 0) {
 			printf("test: failed test_moveRandom_065\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_065\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 B\n.kn.r\npb.Q.\n..P.N\n.PP.p\n.q..P\n..BK.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-c5\nc6-e5\nc6-b4\nc6-d4\ne6-d6\ne6-e5\ne6-e4\na5-a4\nb5-a6\nb5-a4\nb5-c4\nb5-c5\nb5-b4\nb2-a3\nb2-b3\nb2-c3\nb2-a2\nb2-c2\nb2-d2\nb2-e2\nb2-a1\nb2-b1\nb2-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-c5\nc6-e5\nc6-b4\nc6-d4\ne6-d6\ne6-e5\ne6-e4\na5-a4\nb5-a6\nb5-a4\nb5-c4\nb5-c5\nb5-b4\nb2-a3\nb2-b3\nb2-c3\nb2-a2\nb2-c2\nb2-d2\nb2-e2\nb2-a1\nb2-b1\nb2-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_066\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 B\n.kn.r\npb.Q.\n..P.N\n.PP.p\n.q..P\n..BK.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 B\n.kn.r\npb.Q.\n..P.N\n.PP.p\n.q..P\n..BK.\n") != 0) {
 			printf("test: failed test_moveRandom_066\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 20) {
+	if (test_moveSame(charBuffer, 100) < 20) {
 		printf("test: failed test_moveRandom_066\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\nk....\n....p\n.Pr.P\np.p..\nRbP..\n....K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b4-b5\na2-a3\na2-b2\na2-a1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b4-b5\na2-a3\na2-b2\na2-a1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_067\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\nk....\n....p\n.Pr.P\np.p..\nRbP..\n....K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\nk....\n....p\n.Pr.P\np.p..\nRbP..\n....K\n") != 0) {
 			printf("test: failed test_moveRandom_067\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 3) {
+	if (test_moveSame(charBuffer, 100) < 3) {
 		printf("test: failed test_moveRandom_067\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\n..Q..\nnk.p.\n.p...\nNp..p\nP...P\nRQ.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-b5\nc6-c5\nc6-c4\nc6-c3\nc6-c2\nc6-c1\nc6-d5\na3-b5\na3-c4\na3-c2\na2-b3\nb1-b2\nb1-b3\nb1-c2\nb1-d3\nb1-e4\nb1-c1\nd1-c2\nd1-d2\nd1-c1\nd1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b6\nc6-a6\nc6-d6\nc6-e6\nc6-b5\nc6-c5\nc6-c4\nc6-c3\nc6-c2\nc6-c1\nc6-d5\na3-b5\na3-c4\na3-c2\na2-b3\nb1-b2\nb1-b3\nb1-c2\nb1-d3\nb1-e4\nb1-c1\nd1-c2\nd1-d2\nd1-c1\nd1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_068\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\n..Q..\nnk.p.\n.p...\nNp..p\nP...P\nRQ.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\n..Q..\nnk.p.\n.p...\nNp..p\nP...P\nRQ.K.\n") != 0) {
 			printf("test: failed test_moveRandom_068\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 21) {
+	if (test_moveSame(charBuffer, 100) < 21) {
 		printf("test: failed test_moveRandom_068\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\n.q.n.\nk..p.\nppPr.\nN.P.p\nRBQ.P\n....K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-c6\nb6-b5\nb6-c5\nd6-b5\nd6-c4\nd6-e4\na5-a6\na5-b5\nd5-c4\nb4-b3\nb4-a3\nb4-c3\nd4-c4\nd4-e4\nd4-d3\nd4-d2\nd4-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-c6\nb6-b5\nb6-c5\nd6-b5\nd6-c4\nd6-e4\na5-a6\na5-b5\nd5-c4\nb4-b3\nb4-a3\nb4-c3\nd4-c4\nd4-e4\nd4-d3\nd4-d2\nd4-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_069\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\n.q.n.\nk..p.\nppPr.\nN.P.p\nRBQ.P\n....K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\n.q.n.\nk..p.\nppPr.\nN.P.p\nRBQ.P\n....K\n") != 0) {
 			printf("test: failed test_moveRandom_069\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_069\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("11 B\nk..br\n..q..\npPp.p\nP.p..\nB..nP\nRN.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nd6-e5\nd6-c6\nd6-d5\ne6-e5\nc5-b6\nc5-c6\nc5-b5\nc5-a5\nc5-d5\nc5-e5\nc5-b4\nc5-d4\nc5-e3\ne4-e3\nc3-c2\nd2-b3\nd2-b1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nd6-e5\nd6-c6\nd6-d5\ne6-e5\nc5-b6\nc5-c6\nc5-b5\nc5-a5\nc5-d5\nc5-e5\nc5-b4\nc5-d4\nc5-e3\ne4-e3\nc3-c2\nd2-b3\nd2-b1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_070\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "11 B\nk..br\n..q..\npPp.p\nP.p..\nB..nP\nRN.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "11 B\nk..br\n..q..\npPp.p\nP.p..\nB..nP\nRN.K.\n") != 0) {
 			printf("test: failed test_moveRandom_070\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_070\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 B\n.....\nP..pp\n..k..\n..p.n\npRP..\n..BQK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d5-d4\ne5-e4\nc4-b5\nc4-c5\nc4-b4\nc4-d4\nc4-b3\nc4-d3\nc3-b2\ne3-c2\ne3-d1\na2-a1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d5-d4\ne5-e4\nc4-b5\nc4-c5\nc4-b4\nc4-d4\nc4-b3\nc4-d3\nc3-b2\ne3-c2\ne3-d1\na2-a1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_071\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 B\n.....\nP..pp\n..k..\n..p.n\npRP..\n..BQK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 B\n.....\nP..pp\n..k..\n..p.n\npRP..\n..BQK\n") != 0) {
 			printf("test: failed test_moveRandom_071\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 8) {
+	if (test_moveSame(charBuffer, 100) < 8) {
 		printf("test: failed test_moveRandom_071\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 B\nk.b..\n.Qpp.\n....r\nn...P\n...K.\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nc6-b5\nc6-b6\nc6-d6\nc5-c4\nd5-d4\ne4-e5\ne4-e6\ne4-d4\ne4-c4\ne4-b4\ne4-a4\ne4-e3\na3-b5\na3-c4\na3-c2\na3-b1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nc6-b5\nc6-b6\nc6-d6\nc5-c4\nd5-d4\ne4-e5\ne4-e6\ne4-d4\ne4-c4\ne4-b4\ne4-a4\ne4-e3\na3-b5\na3-c4\na3-c2\na3-b1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_072\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 B\nk.b..\n.Qpp.\n....r\nn...P\n...K.\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 B\nk.b..\n.Qpp.\n....r\nn...P\n...K.\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_072\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 15) {
+	if (test_moveSame(charBuffer, 100) < 15) {
 		printf("test: failed test_moveRandom_072\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\nk....\npqbr.\n.pPpQ\n.B.P.\nP.P.P\nRn.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na5-a4\nb5-b6\nb5-c6\nb5-a4\nb5-c4\nc5-b6\nc5-d6\nc5-c6\nd5-d6\nd5-e5\nb1-a3\nb1-c3\nb1-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na5-a4\nb5-b6\nb5-c6\nb5-a4\nb5-c4\nc5-b6\nc5-d6\nc5-c6\nd5-d6\nd5-e5\nb1-a3\nb1-c3\nb1-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_073\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\nk....\npqbr.\n.pPpQ\n.B.P.\nP.P.P\nRn.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\nk....\npqbr.\n.pPpQ\n.B.P.\nP.P.P\nRn.K.\n") != 0) {
 			printf("test: failed test_moveRandom_073\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 10) {
+	if (test_moveSame(charBuffer, 100) < 10) {
 		printf("test: failed test_moveRandom_073\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 B\n..qr.\n.b...\nk.pp.\npPNPP\n..P..\nRQK..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b6\nc6-a6\nc6-c5\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nb5-a6\nb5-b6\nb5-a5\nb5-c5\nb5-b4\na4-a5\na4-b4\na4-b3\nc4-b3\nc4-d3\nd4-c3\nd4-e3\na3-a2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b6\nc6-a6\nc6-c5\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nb5-a6\nb5-b6\nb5-a5\nb5-c5\nb5-b4\na4-a5\na4-b4\na4-b3\nc4-b3\nc4-d3\nd4-c3\nd4-e3\na3-a2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_074\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 B\n..qr.\n.b...\nk.pp.\npPNPP\n..P..\nRQK..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 B\n..qr.\n.b...\nk.pp.\npPNPP\n..P..\nRQK..\n") != 0) {
 			printf("test: failed test_moveRandom_074\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_074\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 B\n....r\nRkq..\n.pbPp\nBPn..\n...P.\n.N.QK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e6-d6\ne6-c6\ne6-b6\ne6-a6\ne6-e5\nb5-a6\nb5-b6\nb5-c6\nb5-a5\nb5-a4\nc5-b6\nc5-c6\nc5-d6\nc5-d5\nc5-e5\nc5-d4\nb4-a3\nc4-d5\nc4-b3\nc4-d3\nc4-e2\ne4-e3\nc3-d5\nc3-a4\nc3-a2\nc3-e2\nc3-b1\nc3-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e6-d6\ne6-c6\ne6-b6\ne6-a6\ne6-e5\nb5-a6\nb5-b6\nb5-c6\nb5-a5\nb5-a4\nc5-b6\nc5-c6\nc5-d6\nc5-d5\nc5-e5\nc5-d4\nb4-a3\nc4-d5\nc4-b3\nc4-d3\nc4-e2\ne4-e3\nc3-d5\nc3-a4\nc3-a2\nc3-e2\nc3-b1\nc3-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_075\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 B\n....r\nRkq..\n.pbPp\nBPn..\n...P.\n.N.QK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 B\n....r\nRkq..\n.pbPp\nBPn..\n...P.\n.N.QK\n") != 0) {
 			printf("test: failed test_moveRandom_075\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 24) {
+	if (test_moveSame(charBuffer, 100) < 24) {
 		printf("test: failed test_moveRandom_075\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 B\n.Rbr.\n.k..p\np.p.P\nP..Q.\nn.PB.\n.N.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-d5\nc6-e4\nc6-c5\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nb5-a6\nb5-b6\nb5-a5\nb5-c5\nb5-b4\nc4-c3\nc4-d3\na2-b4\na2-c3\na2-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-d5\nc6-e4\nc6-c5\nd6-e6\nd6-d5\nd6-d4\nd6-d3\nb5-a6\nb5-b6\nb5-a5\nb5-c5\nb5-b4\nc4-c3\nc4-d3\na2-b4\na2-c3\na2-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_076\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 B\n.Rbr.\n.k..p\np.p.P\nP..Q.\nn.PB.\n.N.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 B\n.Rbr.\n.k..p\np.p.P\nP..Q.\nn.PB.\n.N.K.\n") != 0) {
 			printf("test: failed test_moveRandom_076\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_076\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\n...nr\n...bq\nkPp.p\nP...p\n...P.\nRNBKQ\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b4-b5\nd2-d3\nd2-e3\na1-a2\nb1-c3\nc1-b2\nc1-c2\nd1-c2\nd1-e2\ne1-e2\ne1-e3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b4-b5\nd2-d3\nd2-e3\na1-a2\nb1-c3\nc1-b2\nc1-c2\nd1-c2\nd1-e2\ne1-e2\ne1-e3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_077\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\n...nr\n...bq\nkPp.p\nP...p\n...P.\nRNBKQ\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\n...nr\n...bq\nkPp.p\nP...p\n...P.\nRNBKQ\n") != 0) {
 			printf("test: failed test_moveRandom_077\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 7) {
+	if (test_moveSame(charBuffer, 100) < 7) {
 		printf("test: failed test_moveRandom_077\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 W\nk..nr\n....p\nqpP.b\nNp.BP\nP..Q.\n.R..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c4-c5\na3-b5\na3-c2\nd3-e4\nd3-c2\nd3-e2\nd3-d4\nd3-c3\na2-b3\nd2-c3\nd2-b4\nd2-c2\nd2-b2\nd2-e2\nd2-c1\nd2-d1\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c4-c5\na3-b5\na3-c2\nd3-e4\nd3-c2\nd3-e2\nd3-d4\nd3-c3\na2-b3\nd2-c3\nd2-b4\nd2-c2\nd2-b2\nd2-e2\nd2-c1\nd2-d1\nb1-b2\nb1-b3\nb1-a1\nb1-c1\nb1-d1\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_078\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 W\nk..nr\n....p\nqpP.b\nNp.BP\nP..Q.\n.R..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 W\nk..nr\n....p\nqpP.b\nNp.BP\nP..Q.\n.R..K\n") != 0) {
 			printf("test: failed test_moveRandom_078\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 19) {
+	if (test_moveSame(charBuffer, 100) < 19) {
 		printf("test: failed test_moveRandom_078\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 W\n....B\np.k.p\nP...n\npp..Q\n..P.p\n.N.K.\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e6-d5\ne6-c4\ne6-b3\ne6-d6\ne3-d4\ne3-c5\ne3-e4\ne3-d3\ne3-c3\ne3-b3\ne3-d2\ne3-c1\ne3-e2\nc2-c3\nc2-b3\nb1-a3\nb1-c3\nb1-d2\nd1-d2\nd1-e2\nd1-c1\nd1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e6-d5\ne6-c4\ne6-b3\ne6-d6\ne3-d4\ne3-c5\ne3-e4\ne3-d3\ne3-c3\ne3-b3\ne3-d2\ne3-c1\ne3-e2\nc2-c3\nc2-b3\nb1-a3\nb1-c3\nb1-d2\nd1-d2\nd1-e2\nd1-c1\nd1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_079\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 W\n....B\np.k.p\nP...n\npp..Q\n..P.p\n.N.K.\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 W\n....B\np.k.p\nP...n\npp..Q\n..P.p\n.N.K.\n") != 0) {
 			printf("test: failed test_moveRandom_079\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 18) {
+	if (test_moveSame(charBuffer, 100) < 18) {
 		printf("test: failed test_moveRandom_079\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("16 B\n...Qr\nq.p.N\n..k..\n.b..P\nP...K\nR.B..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e6-d6\ne6-e5\na5-a6\na5-b6\na5-b5\na5-a4\na5-a3\na5-a2\na5-b4\na5-c3\na5-d2\na5-e1\nc4-b5\nc4-d5\nc4-b4\nc4-d4\nc4-c3\nc4-d3\nb3-a4\nb3-a2\nb3-c2\nb3-d1\nb3-b4\nb3-a3\nb3-c3\nb3-b2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e6-d6\ne6-e5\na5-a6\na5-b6\na5-b5\na5-a4\na5-a3\na5-a2\na5-b4\na5-c3\na5-d2\na5-e1\nc4-b5\nc4-d5\nc4-b4\nc4-d4\nc4-c3\nc4-d3\nb3-a4\nb3-a2\nb3-c2\nb3-d1\nb3-b4\nb3-a3\nb3-c3\nb3-b2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_080\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "16 B\n...Qr\nq.p.N\n..k..\n.b..P\nP...K\nR.B..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "16 B\n...Qr\nq.p.N\n..k..\n.b..P\nP...K\nR.B..\n") != 0) {
 			printf("test: failed test_moveRandom_080\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 22) {
+	if (test_moveSame(charBuffer, 100) < 22) {
 		printf("test: failed test_moveRandom_080\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 B\n.kqr.\n.nQ..\n.P...\nR..p.\n.PPpK\n..B..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-a6\nb6-a5\nb6-c5\nc6-c5\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nd6-d4\nb5-d4\nb5-a3\nb5-c3\nd3-c2\nd3-e2\nd2-d1\nd2-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-a6\nb6-a5\nb6-c5\nc6-c5\nc6-d5\nc6-e4\nd6-e6\nd6-d5\nd6-d4\nb5-d4\nb5-a3\nb5-c3\nd3-c2\nd3-e2\nd2-d1\nd2-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_081\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 B\n.kqr.\n.nQ..\n.P...\nR..p.\n.PPpK\n..B..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 B\n.kqr.\n.nQ..\n.P...\nR..p.\n.PPpK\n..B..\n") != 0) {
 			printf("test: failed test_moveRandom_081\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_081\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\n..bnr\n.p...\n..ppp\n.Bq.P\n.k.PQ\nRK...\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b3-a4\nb3-c4\nb3-a2\nb3-c2\nb3-d1\nb3-b4\nb3-a3\ne3-d4\nd2-d3\nd2-c3\ne2-d3\ne2-c4\ne2-d1\ne2-e1\na1-a2\na1-a3\na1-a4\na1-a5\na1-a6\nb1-a2\nb1-b2\nb1-c2\nb1-c1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b3-a4\nb3-c4\nb3-a2\nb3-c2\nb3-d1\nb3-b4\nb3-a3\ne3-d4\nd2-d3\nd2-c3\ne2-d3\ne2-c4\ne2-d1\ne2-e1\na1-a2\na1-a3\na1-a4\na1-a5\na1-a6\nb1-a2\nb1-b2\nb1-c2\nb1-c1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_082\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\n..bnr\n.p...\n..ppp\n.Bq.P\n.k.PQ\nRK...\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\n..bnr\n.p...\n..ppp\n.Bq.P\n.k.PQ\nRK...\n") != 0) {
 			printf("test: failed test_moveRandom_082\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 19) {
+	if (test_moveSame(charBuffer, 100) < 19) {
 		printf("test: failed test_moveRandom_082\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 W\n.k.r.\n.n...\nQp.Pp\n.Pp..\nP..Nq\nR.B.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a4-a5\na4-a6\na4-b5\na4-b4\na4-a3\nd4-d5\na2-a3\nd2-c4\nd2-e4\nd2-b1\na1-b1\nc1-b2\nc1-a3\nc1-c2\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a4-a5\na4-a6\na4-b5\na4-b4\na4-a3\nd4-d5\na2-a3\nd2-c4\nd2-e4\nd2-b1\na1-b1\nc1-b2\nc1-a3\nc1-c2\nc1-b1\nc1-d1\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_083\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 W\n.k.r.\n.n...\nQp.Pp\n.Pp..\nP..Nq\nR.B.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 W\n.k.r.\n.n...\nQp.Pp\n.Pp..\nP..Nq\nR.B.K\n") != 0) {
 			printf("test: failed test_moveRandom_083\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 14) {
+	if (test_moveSame(charBuffer, 100) < 14) {
 		printf("test: failed test_moveRandom_083\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 B\nkQ.nr\n.Bq..\n....p\n..bpP\nPP.p.\nR...K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a6-b6\na6-a5\na6-b5\nd6-b5\nd6-c4\ne6-e5\nc5-b6\nc5-c6\nc5-b5\nc5-d5\nc5-e5\nc5-b4\nc5-a3\nc5-c4\nc5-d4\nc5-e3\nc3-b4\nc3-a5\nc3-d4\nc3-e5\nc3-b2\nc3-c4\nc3-b3\nc3-c2\nd2-d1\nd2-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a6-b6\na6-a5\na6-b5\nd6-b5\nd6-c4\ne6-e5\nc5-b6\nc5-c6\nc5-b5\nc5-d5\nc5-e5\nc5-b4\nc5-a3\nc5-c4\nc5-d4\nc5-e3\nc3-b4\nc3-a5\nc3-d4\nc3-e5\nc3-b2\nc3-c4\nc3-b3\nc3-c2\nd2-d1\nd2-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_084\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 B\nkQ.nr\n.Bq..\n....p\n..bpP\nPP.p.\nR...K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 B\nkQ.nr\n.Bq..\n....p\n..bpP\nPP.p.\nR...K\n") != 0) {
 			printf("test: failed test_moveRandom_084\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 22) {
+	if (test_moveSame(charBuffer, 100) < 22) {
 		printf("test: failed test_moveRandom_084\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("13 B\nkb.r.\npqpp.\nn....\n.Q.p.\nPPK..\n.R...\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-c6\nd6-c6\nd6-e6\nb5-c6\nb5-b4\nb5-b3\nb5-c4\nc5-c4\nd5-d4\na4-c3\na4-b2\nd3-d2\nd3-c2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-c6\nd6-c6\nd6-e6\nb5-c6\nb5-b4\nb5-b3\nb5-c4\nc5-c4\nd5-d4\na4-c3\na4-b2\nd3-d2\nd3-c2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_085\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "13 B\nkb.r.\npqpp.\nn....\n.Q.p.\nPPK..\n.R...\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "13 B\nkb.r.\npqpp.\nn....\n.Q.p.\nPPK..\n.R...\n") != 0) {
 			printf("test: failed test_moveRandom_085\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 9) {
+	if (test_moveSame(charBuffer, 100) < 9) {
 		printf("test: failed test_moveRandom_085\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\nkr...\n..Q..\npPp..\nN.b.P\nR..P.\n..BnK\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c5-b6\nc5-c6\nc5-d6\nc5-b5\nc5-a5\nc5-d5\nc5-e5\nc5-c4\nc5-d4\nb4-b5\na3-b5\na3-c4\na3-c2\na3-b1\ne3-e4\na2-b2\na2-c2\na2-a1\nd2-d3\nd2-c3\nc1-b2\nc1-c2\nc1-b1\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c5-b6\nc5-c6\nc5-d6\nc5-b5\nc5-a5\nc5-d5\nc5-e5\nc5-c4\nc5-d4\nb4-b5\na3-b5\na3-c4\na3-c2\na3-b1\ne3-e4\na2-b2\na2-c2\na2-a1\nd2-d3\nd2-c3\nc1-b2\nc1-c2\nc1-b1\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_086\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\nkr...\n..Q..\npPp..\nN.b.P\nR..P.\n..BnK\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\nkr...\n..Q..\npPp..\nN.b.P\nR..P.\n..BnK\n") != 0) {
 			printf("test: failed test_moveRandom_086\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 21) {
+	if (test_moveSame(charBuffer, 100) < 21) {
 		printf("test: failed test_moveRandom_086\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\n.kb.r\n..ppp\n...q.\n.Bn..\nPP.PP\nRN..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b3-a4\nb3-c4\nb3-d5\nb3-c2\nb3-d1\nb3-b4\nb3-a3\na2-a3\nb2-c3\nd2-d3\nd2-c3\ne2-e3\nb1-a3\nb1-c3\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b3-a4\nb3-c4\nb3-d5\nb3-c2\nb3-d1\nb3-b4\nb3-a3\na2-a3\nb2-c3\nd2-d3\nd2-c3\ne2-e3\nb1-a3\nb1-c3\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_087\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\n.kb.r\n..ppp\n...q.\n.Bn..\nPP.PP\nRN..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\n.kb.r\n..ppp\n...q.\n.Bn..\nPP.PP\nRN..K\n") != 0) {
 			printf("test: failed test_moveRandom_087\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_087\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 B\n..br.\nk..pp\nRqp..\n.PPPP\n....K\n....Q\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c6-b5\nc6-a4\nc6-b6\nc6-c5\nd6-e6\na5-a6\na5-b6\na5-b5\na5-a4\nd5-d4\ne5-e4\nb4-b5\nb4-b6\nb4-c5\nb4-a4\nb4-a3\nb4-b3\nb4-c3\nc4-b3\nc4-d3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c6-b5\nc6-a4\nc6-b6\nc6-c5\nd6-e6\na5-a6\na5-b6\na5-b5\na5-a4\nd5-d4\ne5-e4\nb4-b5\nb4-b6\nb4-c5\nb4-a4\nb4-a3\nb4-b3\nb4-c3\nc4-b3\nc4-d3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_088\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 B\n..br.\nk..pp\nRqp..\n.PPPP\n....K\n....Q\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 B\n..br.\nk..pp\nRqp..\n.PPPP\n....K\n....Q\n") != 0) {
 			printf("test: failed test_moveRandom_088\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_088\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\n.k.NQ\n..p..\n.....\n.Pp..\nq..KP\n.RB..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-b5\nd6-c4\nd6-e4\ne6-d5\ne6-c4\ne6-e5\ne6-e4\ne6-e3\nb3-b4\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-d1\nd2-e1\ne2-e3\nb1-b2\nb1-a1\nc1-b2\nc1-a3\nc1-c2\nc1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-b5\nd6-c4\nd6-e4\ne6-d5\ne6-c4\ne6-e5\ne6-e4\ne6-e3\nb3-b4\nd2-c3\nd2-d3\nd2-e3\nd2-c2\nd2-d1\nd2-e1\ne2-e3\nb1-b2\nb1-a1\nc1-b2\nc1-a3\nc1-c2\nc1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_089\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\n.k.NQ\n..p..\n.....\n.Pp..\nq..KP\n.RB..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\n.k.NQ\n..p..\n.....\n.Pp..\nq..KP\n.RB..\n") != 0) {
 			printf("test: failed test_moveRandom_089\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 18) {
+	if (test_moveSame(charBuffer, 100) < 18) {
 		printf("test: failed test_moveRandom_089\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\nk..b.\np...p\n..P.n\nP....\n..P.P\nqRB.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c4-c5\na3-a4\nc2-c3\ne2-e3\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a1\nc1-b2\nc1-d2\nc1-e3\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c4-c5\na3-a4\nc2-c3\ne2-e3\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a1\nc1-b2\nc1-d2\nc1-e3\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_090\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\nk..b.\np...p\n..P.n\nP....\n..P.P\nqRB.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\nk..b.\np...p\n..P.n\nP....\n..P.P\nqRB.K\n") != 0) {
 			printf("test: failed test_moveRandom_090\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_090\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("18 B\nkn..r\npqb.p\nBp...\nPP.pP\nRQ...\n....K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b6-d5\nb6-a4\nb6-c4\ne6-d6\ne6-c6\nb5-c6\nb5-a4\nb5-c4\nc5-d6\nc5-d4\nc5-e3\nc5-c6\nc5-d5\nc5-c4\ne5-e4\nb4-a3\nd3-d2\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b6-d5\nb6-a4\nb6-c4\ne6-d6\ne6-c6\nb5-c6\nb5-a4\nb5-c4\nc5-d6\nc5-d4\nc5-e3\nc5-c6\nc5-d5\nc5-c4\ne5-e4\nb4-a3\nd3-d2\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_091\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "18 B\nkn..r\npqb.p\nBp...\nPP.pP\nRQ...\n....K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "18 B\nkn..r\npqb.p\nBp...\nPP.pP\nRQ...\n....K\n") != 0) {
 			printf("test: failed test_moveRandom_091\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 13) {
+	if (test_moveSame(charBuffer, 100) < 13) {
 		printf("test: failed test_moveRandom_091\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\n...nr\n.k.pP\np.p..\nRPb.Q\n..P.P\n..B.K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e5-d6\na3-a4\na3-a2\na3-a1\nb3-b4\nb3-a4\nb3-c4\ne3-d4\ne3-c5\ne3-b6\ne3-e4\ne3-d3\ne3-c3\ne3-d2\nc1-b2\nc1-d2\nc1-b1\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e5-d6\na3-a4\na3-a2\na3-a1\nb3-b4\nb3-a4\nb3-c4\ne3-d4\ne3-c5\ne3-b6\ne3-e4\ne3-d3\ne3-c3\ne3-d2\nc1-b2\nc1-d2\nc1-b1\nc1-d1\ne1-d2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_092\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\n...nr\n.k.pP\np.p..\nRPb.Q\n..P.P\n..B.K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\n...nr\n.k.pP\np.p..\nRPb.Q\n..P.P\n..B.K\n") != 0) {
 			printf("test: failed test_moveRandom_092\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_092\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("15 W\nr....\n..p.p\npkpQP\n.P...\nP...q\nRB..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d4-c5\nd4-d5\nd4-d6\nd4-e5\nd4-c4\nd4-c3\nd4-b2\nd4-d3\nd4-d2\nd4-d1\nd4-e3\nb3-a4\nb3-c4\na2-a3\nb1-c2\nb1-d3\nb1-b2\nb1-c1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d4-c5\nd4-d5\nd4-d6\nd4-e5\nd4-c4\nd4-c3\nd4-b2\nd4-d3\nd4-d2\nd4-d1\nd4-e3\nb3-a4\nb3-c4\na2-a3\nb1-c2\nb1-d3\nb1-b2\nb1-c1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_093\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "15 W\nr....\n..p.p\npkpQP\n.P...\nP...q\nRB..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "15 W\nr....\n..p.p\npkpQP\n.P...\nP...q\nRB..K\n") != 0) {
 			printf("test: failed test_moveRandom_093\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 17) {
+	if (test_moveSame(charBuffer, 100) < 17) {
 		printf("test: failed test_moveRandom_093\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("21 W\n...Br\n..p..\nk..N.\n..P.q\n....K\n.R...\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("d6-c5\nd6-e5\nd6-c6\nd6-d5\nd4-c6\nd4-e6\nd4-b5\nd4-b3\nd4-c2\nc3-c4\ne2-d3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("d6-c5\nd6-e5\nd6-c6\nd6-d5\nd4-c6\nd4-e6\nd4-b5\nd4-b3\nd4-c2\nc3-c4\ne2-d3\ne2-e3\ne2-d2\ne2-d1\ne2-e1\nb1-b2\nb1-b3\nb1-b4\nb1-b5\nb1-b6\nb1-a1\nb1-c1\nb1-d1\nb1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_094\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "21 W\n...Br\n..p..\nk..N.\n..P.q\n....K\n.R...\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "21 W\n...Br\n..p..\nk..N.\n..P.q\n....K\n.R...\n") != 0) {
 			printf("test: failed test_moveRandom_094\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 20) {
+	if (test_moveSame(charBuffer, 100) < 20) {
 		printf("test: failed test_moveRandom_094\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("12 W\nk...r\n..qpp\nbP...\nP.NPP\n...nK\nR....\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b4-b5\nb4-c5\nc3-b5\nc3-d5\nc3-a4\nc3-e4\nc3-a2\nc3-b1\nc3-d1\nd3-d4\ne3-e4\ne2-d2\ne2-d1\ne2-e1\na1-a2\na1-b1\na1-c1\na1-d1\na1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b4-b5\nb4-c5\nc3-b5\nc3-d5\nc3-a4\nc3-e4\nc3-a2\nc3-b1\nc3-d1\nd3-d4\ne3-e4\ne2-d2\ne2-d1\ne2-e1\na1-a2\na1-b1\na1-c1\na1-d1\na1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_095\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "12 W\nk...r\n..qpp\nbP...\nP.NPP\n...nK\nR....\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "12 W\nk...r\n..qpp\nbP...\nP.NPP\n...nK\nR....\n") != 0) {
 			printf("test: failed test_moveRandom_095\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 15) {
+	if (test_moveSame(charBuffer, 100) < 15) {
 		printf("test: failed test_moveRandom_095\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("19 W\n....r\n.kb.P\np.q.P\n.P...\n.P...\nR.BKQ\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("b3-b4\nb3-a4\nb3-c4\na1-a2\na1-a3\na1-a4\na1-b1\nc1-d2\nc1-e3\nc1-c2\nc1-b1\nd1-c2\nd1-d2\nd1-e2\ne1-d2\ne1-c3\ne1-b4\ne1-a5\ne1-e2\ne1-e3\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("b3-b4\nb3-a4\nb3-c4\na1-a2\na1-a3\na1-a4\na1-b1\nc1-d2\nc1-e3\nc1-c2\nc1-b1\nd1-c2\nd1-d2\nd1-e2\ne1-d2\ne1-c3\ne1-b4\ne1-a5\ne1-e2\ne1-e3\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_096\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "19 W\n....r\n.kb.P\np.q.P\n.P...\n.P...\nR.BKQ\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "19 W\n....r\n.kb.P\np.q.P\n.P...\n.P...\nR.BKQ\n") != 0) {
 			printf("test: failed test_moveRandom_096\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 16) {
+	if (test_moveSame(charBuffer, 100) < 16) {
 		printf("test: failed test_moveRandom_096\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\n.q..r\n.p.pp\nkbn..\nP.P.Q\n.B...\n.R..K\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a3-b4\nc3-b4\ne3-d4\ne3-c5\ne3-b6\ne3-e4\ne3-e5\ne3-d3\ne3-d2\ne3-c1\ne3-e2\nb2-a1\nb2-c1\nb2-b3\nb2-a2\nb2-c2\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a3-b4\nc3-b4\ne3-d4\ne3-c5\ne3-b6\ne3-e4\ne3-e5\ne3-d3\ne3-d2\ne3-c1\ne3-e2\nb2-a1\nb2-c1\nb2-b3\nb2-a2\nb2-c2\nb1-a1\nb1-c1\nb1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_097\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\n.q..r\n.p.pp\nkbn..\nP.P.Q\n.B...\n.R..K\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\n.q..r\n.p.pp\nkbn..\nP.P.Q\n.B...\n.R..K\n") != 0) {
 			printf("test: failed test_moveRandom_097\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 18) {
+	if (test_moveSame(charBuffer, 100) < 18) {
 		printf("test: failed test_moveRandom_097\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("20 W\n.q...\n.b..r\n..ppP\n..k.P\nP...K\nRBQ..\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("e3-d4\na2-a3\ne2-d3\ne2-d2\ne2-d1\ne2-e1\nb1-c2\nb1-d3\nb1-b2\nc1-b2\nc1-a3\nc1-c2\nc1-c3\nc1-d2\nc1-d1\nc1-e1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("e3-d4\na2-a3\ne2-d3\ne2-d2\ne2-d1\ne2-e1\nb1-c2\nb1-d3\nb1-b2\nc1-b2\nc1-a3\nc1-c2\nc1-c3\nc1-d2\nc1-d1\nc1-e1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_098\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "20 W\n.q...\n.b..r\n..ppP\n..k.P\nP...K\nRBQ..\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "20 W\n.q...\n.b..r\n..ppP\n..k.P\nP...K\nRBQ..\n") != 0) {
 			printf("test: failed test_moveRandom_098\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_098\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("17 W\nk....\nprb..\n.pB.p\nRPKP.\n.....\n....q\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("c4-b5\nc4-d5\nc4-e6\nc4-d4\na3-a4\na3-a5\na3-a2\na3-a1\nc3-b4\nc3-d4\nc3-b2\nc3-c2\nc3-d2\nd3-d4\nd3-e4\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("c4-b5\nc4-d5\nc4-e6\nc4-d4\na3-a4\na3-a5\na3-a2\na3-a1\nc3-b4\nc3-d4\nc3-b2\nc3-c2\nc3-d2\nd3-d4\nd3-e4\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_099\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "17 W\nk....\nprb..\n.pB.p\nRPKP.\n.....\n....q\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "17 W\nk....\nprb..\n.pB.p\nRPKP.\n.....\n....q\n") != 0) {
 			printf("test: failed test_moveRandom_099\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 11) {
+	if (test_moveSame(charBuffer, 100) < 11) {
 		printf("test: failed test_moveRandom_099\n");
 		return false;
 	}
 	
-	for (int intFor1 = 0; intFor1 < 100; intFor1 += 1) {
+	for (int intTrial = 0; intTrial < 100; intTrial += 1) {
 		chess_boardSet("14 W\nkqr..\np..p.\n..p.p\nPpK.P\n.P...\nRNB.Q\n");
-		chess_moveRandom(&charBuffer[intFor1 * 1024]);
-		if (strstr("a3-a4\nc3-b4\nc3-c4\nc3-d4\nc3-b3\nc3-d3\nc3-c2\nc3-d2\na1-a2\nb1-d2\nc1-d2\nc1-c2\nc1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intFor1 * 1024]) == NULL) {
+		chess_moveRandom(&charBuffer[intTrial * 1024]);
+		if (strstr("a3-a4\nc3-b4\nc3-c4\nc3-d4\nc3-b3\nc3-d3\nc3-c2\nc3-d2\na1-a2\nb1-d2\nc1-d2\nc1-c2\nc1-d1\ne1-d2\ne1-e2\ne1-d1\n", &charBuffer[intTrial * 1024]) == NULL) {
 			printf("test: failed test_moveRandom_100\n");
 			return false;
 		}
 		chess_undo();
-		chess_boardGet(&charBuffer[(intFor1 * 1024) + 256]);
-		if (strcmp(&charBuffer[(intFor1 * 1024) + 256], "14 W\nkqr..\np..p.\n..p.p\nPpK.P\n.P...\nRNB.Q\n") != 0) {
+		chess_boardGet(&charBuffer[(intTrial * 1024) + 256]);
+		if (strcmp(&charBuffer[(intTrial * 1024) + 256], "14 W\nkqr..\np..p.\n..p.p\nPpK.P\n.P...\nRNB.Q\n") != 0) {
 			printf("test: failed test_moveRandom_100\n");
 			return false;
 		}
 	}
-	if (test_moveCount(charBuffer, 100) < 12) {
+	if (test_moveSame(charBuffer, 100) < 12) {
 		printf("test: failed test_moveRandom_100\n");
 		return false;
 	}
@@ -9427,7 +9427,7 @@ bool test_moveGreedy() {
 	int intWon = 0;
 	int intLost = 0;
 	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
+	for (int intGame = 0; intGame < 50; intGame += 1) {
 		chess_reset();
 		
 		do {
@@ -9453,7 +9453,7 @@ bool test_moveGreedy() {
 		}
 	}
 	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
+	for (int intGame = 0; intGame < 50; intGame += 1) {
 		chess_reset();
 		
 		do {

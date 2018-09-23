@@ -119,13 +119,13 @@ public class chess {
 		return "a2-a3\n";
 	}
 	
-	public static String moveNegamax(int intDepth, int intDuration) {
+	public static String moveNegamax(int intMaxdepth, int intDuration) {
 		// perform a negamax move and return it - one example output is given below - note that you can call the the other functions in here
 		
 		return "a2-a3\n";
 	}
 	
-	public static String moveAlphabeta(int intDepth, int intDuration) {
+	public static String moveAlphabeta(int intMaxdepth, int intDuration) {
 		// perform a alphabeta move and return it - one example output is given below - note that you can call the the other functions in here
 		
 		return "a2-a3\n";

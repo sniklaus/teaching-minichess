@@ -126,13 +126,13 @@ def chess_moveGreedy():
 	return 'a2-a3\n'
 # end
 
-def chess_moveNegamax(intDepth, intDuration):
+def chess_moveNegamax(intMaxdepth, intDuration):
 	# perform a negamax move and return it - one example output is given below - note that you can call the the other functions in here
 	
 	return 'a2-a3\n'
 # end
 
-def chess_moveAlphabeta(intDepth, intDuration):
+def chess_moveAlphabeta(intMaxdepth, intDuration):
 	# perform a alphabeta move and return it - one example output is given below - note that you can call the the other functions in here
 	
 	return 'a2-a3\n'

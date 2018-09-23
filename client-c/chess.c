@@ -139,7 +139,7 @@ void chess_moveGreedy(char* charOut) {
 	charOut[6] = '\0';
 }
 
-void chess_moveNegamax(char* charOut, int intDepth, int intDuration) {
+void chess_moveNegamax(char* charOut, int intMaxdepth, int intDuration) {
 	// perform a negamax move and write the chosen move into the provided argument - one example output is given below - note that you can call the the other functions in here
 	
 	charOut[0] = 'a';
@@ -151,7 +151,7 @@ void chess_moveNegamax(char* charOut, int intDepth, int intDuration) {
 	charOut[6] = '\0';
 }
 
-void chess_moveAlphabeta(char* charOut, int intDepth, int intDuration) {
+void chess_moveAlphabeta(char* charOut, int intMaxdepth, int intDuration) {
 	// perform a alphabeta move and write the chosen move into the provided argument - one example output is given below - note that you can call the the other functions in here
 	
 	charOut[0] = 'a';

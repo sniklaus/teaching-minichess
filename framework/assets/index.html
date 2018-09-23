@@ -382,7 +382,7 @@
 					jQuery('#idChess_MoveNegamax')
 						.on('click', function() {
 							chess_call('chess_moveNegamax', {
-								'intDepth': jQuery('#idChess_MoveNegamax_Depth').val(),
+								'intMaxdepth': jQuery('#idChess_MoveNegamax_Maxdepth').val(),
 								'intDuration': jQuery('#idChess_MoveNegamax_Duration').val()
 							});
 						})
@@ -391,7 +391,7 @@
 					jQuery('#idChess_MoveAlphabeta')
 						.on('click', function() {
 							chess_call('chess_moveAlphabeta', {
-								'intDepth': jQuery('#idChess_MoveAlphabeta_Depth').val(),
+								'intMaxdepth': jQuery('#idChess_MoveAlphabeta_Maxdepth').val(),
 								'intDuration': jQuery('#idChess_MoveAlphabeta_Duration').val()
 							});
 						})
@@ -857,8 +857,8 @@
 								<i class="fa fa-car pull-right"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
-								<input class="form-control" id="idChess_MoveNegamax_Depth" type="number" value="3" />
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
+								<input class="form-control" id="idChess_MoveNegamax_Maxdepth" type="number" value="3" />
 							</div>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
@@ -870,8 +870,8 @@
 								<i class="fa fa-plane pull-right"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
-								<input class="form-control" id="idChess_MoveAlphabeta_Depth" type="number" value="3" />
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
+								<input class="form-control" id="idChess_MoveAlphabeta_Maxdepth" type="number" value="3" />
 							</div>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
@@ -888,7 +888,7 @@
 						</td>
 						<td>
 							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
 								<div class="form-control" id="idChess_Board_Depth"></div>
 							</div>
 							

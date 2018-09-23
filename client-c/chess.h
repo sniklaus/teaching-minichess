@@ -16,8 +16,8 @@ int chess_movesEvaluated(char* charOut);
 void chess_move(char* charIn);
 void chess_moveRandom(char* charOut);
 void chess_moveGreedy(char* charOut);
-void chess_moveNegamax(char* charOut, int intDepth, int intDuration);
-void chess_moveAlphabeta(char* charOut, int intDepth, int intDuration);
+void chess_moveNegamax(char* charOut, int intMaxdepth, int intDuration);
+void chess_moveAlphabeta(char* charOut, int intMaxdepth, int intDuration);
 void chess_undo();
 
 #endif
