@@ -15,86 +15,86 @@ def zeromq_start():
 	
 	zeromq_boolRunning = True
 	
-	objectContext = zmq.Context()
-	objectSocket = objectContext.socket(zmq.PAIR); objectSocket.bind('tcp://*:' + str(main_intZeromq))
+	objContext = zmq.Context()
+	objSocket = objContext.socket(zmq.PAIR); objSocket.bind('tcp://*:' + str(main_intZeromq))
 	
 	while zeromq_boolRunning == True:
-		objectIn = json.loads(objectSocket.recv().decode())
-		objectOut = {}
+		objIn = json.loads(objSocket.recv().decode())
+		objOut = {}
 		
-		if objectIn['strFunction'] == 'ping':
-			objectOut['strOut'] = main_strName
+		if objIn['strFunction'] == 'ping':
+			objOut['strOut'] = main_strName
 			
-		elif objectIn['strFunction'] == 'chess_reset':
+		elif objIn['strFunction'] == 'chess_reset':
 			chess_reset()
 			
-		elif objectIn['strFunction'] == 'chess_boardGet':
-			objectOut['strOut'] = chess_boardGet()
+		elif objIn['strFunction'] == 'chess_boardGet':
+			objOut['strOut'] = chess_boardGet()
 			
-		elif objectIn['strFunction'] == 'chess_boardSet':
-			chess_boardSet(objectIn['strIn'])
+		elif objIn['strFunction'] == 'chess_boardSet':
+			chess_boardSet(objIn['strIn'])
 			
-		elif objectIn['strFunction'] == 'chess_winner':
-			objectOut['strReturn'] = chess_winner()
+		elif objIn['strFunction'] == 'chess_winner':
+			objOut['strReturn'] = chess_winner()
 			
-		elif objectIn['strFunction'] == 'chess_isValid':
-			objectOut['boolReturn'] = chess_isValid(objectIn['intX'], objectIn['intY'])
+		elif objIn['strFunction'] == 'chess_isValid':
+			objOut['boolReturn'] = chess_isValid(objIn['intX'], objIn['intY'])
 			
-		elif objectIn['strFunction'] == 'chess_isEnemy':
-			objectOut['boolReturn'] = chess_isEnemy(objectIn['strPiece'])
+		elif objIn['strFunction'] == 'chess_isEnemy':
+			objOut['boolReturn'] = chess_isEnemy(objIn['strPiece'])
 			
-		elif objectIn['strFunction'] == 'chess_isOwn':
-			objectOut['boolReturn'] = chess_isOwn(objectIn['strPiece'])
+		elif objIn['strFunction'] == 'chess_isOwn':
+			objOut['boolReturn'] = chess_isOwn(objIn['strPiece'])
 			
-		elif objectIn['strFunction'] == 'chess_isNothing':
-			objectOut['boolReturn'] = chess_isNothing(objectIn['strPiece'])
+		elif objIn['strFunction'] == 'chess_isNothing':
+			objOut['boolReturn'] = chess_isNothing(objIn['strPiece'])
 			
-		elif objectIn['strFunction'] == 'chess_eval':
-			objectOut['intReturn'] = chess_eval()
+		elif objIn['strFunction'] == 'chess_eval':
+			objOut['intReturn'] = chess_eval()
 			
-		elif objectIn['strFunction'] == 'chess_moves':
+		elif objIn['strFunction'] == 'chess_moves':
 			strOut = chess_moves()
 			
-			objectOut['intOut'] = len(strOut)
-			objectOut['strOut'] = str.join('', strOut)
+			objOut['intOut'] = len(strOut)
+			objOut['strOut'] = str.join('', strOut)
 			
-		elif objectIn['strFunction'] == 'chess_movesShuffled':
+		elif objIn['strFunction'] == 'chess_movesShuffled':
 			strOut = chess_movesShuffled()
 			
-			objectOut['intOut'] = len(strOut)
-			objectOut['strOut'] = str.join('', strOut)
+			objOut['intOut'] = len(strOut)
+			objOut['strOut'] = str.join('', strOut)
 			
-		elif objectIn['strFunction'] == 'chess_movesEvaluated':
+		elif objIn['strFunction'] == 'chess_movesEvaluated':
 			strOut = chess_movesEvaluated()
 			
-			objectOut['intOut'] = len(strOut)
-			objectOut['strOut'] = str.join('', strOut)
+			objOut['intOut'] = len(strOut)
+			objOut['strOut'] = str.join('', strOut)
 			
-		elif objectIn['strFunction'] == 'chess_move':
-			chess_move(objectIn['strIn'])
+		elif objIn['strFunction'] == 'chess_move':
+			chess_move(objIn['strIn'])
 			
-		elif objectIn['strFunction'] == 'chess_moveRandom':
-			objectOut['strOut'] = chess_moveRandom()
+		elif objIn['strFunction'] == 'chess_moveRandom':
+			objOut['strOut'] = chess_moveRandom()
 			
-		elif objectIn['strFunction'] == 'chess_moveGreedy':
-			objectOut['strOut'] = chess_moveGreedy()
+		elif objIn['strFunction'] == 'chess_moveGreedy':
+			objOut['strOut'] = chess_moveGreedy()
 			
-		elif objectIn['strFunction'] == 'chess_moveNegamax':
-			objectOut['strOut'] = chess_moveNegamax(objectIn['intMaxdepth'], objectIn['intDuration'])
+		elif objIn['strFunction'] == 'chess_moveNegamax':
+			objOut['strOut'] = chess_moveNegamax(objIn['intMaxdepth'], objIn['intDuration'])
 			
-		elif objectIn['strFunction'] == 'chess_moveAlphabeta':
-			objectOut['strOut'] = chess_moveAlphabeta(objectIn['intMaxdepth'], objectIn['intDuration'])
+		elif objIn['strFunction'] == 'chess_moveAlphabeta':
+			objOut['strOut'] = chess_moveAlphabeta(objIn['intMaxdepth'], objIn['intDuration'])
 			
-		elif objectIn['strFunction'] == 'chess_undo':
+		elif objIn['strFunction'] == 'chess_undo':
 			chess_undo()
 
 		# end
 		
-		objectSocket.send_string(json.dumps(objectOut))
+		objSocket.send_string(json.dumps(objOut))
 	# end
 	
-	objectSocket.close()
-	objectContext.destroy()
+	objSocket.close()
+	objContext.destroy()
 # end
 
 def zeromq_stop():

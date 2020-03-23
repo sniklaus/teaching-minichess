@@ -47,7 +47,9 @@
 			.card-body > :last-child {
 				margin-bottom:0px;
 			}
-			
+		</style>
+
+		<style type="text/css">
 			body > table {
 				margin:40px auto 0px auto;
 			}
@@ -236,7 +238,7 @@
 						'type': 'GET',
 						'url': strUrl,
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							chess_call_board();
 							chess_call_winner();
 							chess_call_eval();
@@ -254,8 +256,8 @@
 						'type': 'GET',
 						'url': '/chess_boardGet',
 						'dataType': 'json',
-						'success': function(objectData) {
-							chess_strBoard = objectData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+						'success': function(objData) {
+							chess_strBoard = objData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
 							
 							jQuery('#idChess_Board_Depth')
 								.text(chess_strBoard[0].split(' ')[0])
@@ -303,9 +305,9 @@
 						'type': 'GET',
 						'url': '/chess_winner',
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							jQuery('#idChess_Winner')
-								.text(objectData.strReturn)
+								.text(objData.strReturn)
 							;
 						}
 					});
@@ -317,9 +319,9 @@
 						'type': 'GET',
 						'url': '/chess_eval',
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							jQuery('#idChess_Eval')
-								.text(objectData.intReturn)
+								.text(objData.intReturn)
 							;
 						}
 					});
@@ -331,8 +333,8 @@
 						'type': 'GET',
 						'url': '/chess_moves',
 						'dataType': 'json',
-						'success': function(objectData) {
-							chess_strMoves = objectData.strOut.split('\n');
+						'success': function(objData) {
+							chess_strMoves = objData.strOut.split('\n');
 							
 							jQuery('#idChess_Board').find('td')
 								.css({
@@ -450,7 +452,7 @@
 						'type': 'GET',
 						'url': strUrl,
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							
 						}
 					});
@@ -530,15 +532,15 @@
 						'type': 'GET',
 						'url': strUrl,
 						'dataType': 'json',
-						'success': function(objectData) {
-							test_intBench.push(objectData.intBench);
+						'success': function(objData) {
+							test_intBench.push(objData.intBench);
 							
 							jQuery('#idTest_Return_Return')
-								.text(objectData.boolReturn)
+								.text(objData.boolReturn)
 							;
 							
 							jQuery('#idTest_Return_Bench')
-								.text(objectData.intBench.toFixed(3))
+								.text(objData.intBench.toFixed(3))
 							;
 							
 							Plotly.newPlot('idTest_Boxplot', [{
@@ -569,7 +571,7 @@
 								'displayModeBar': false
 							});
 							
-							if (objectData.boolReturn === true) {
+							if (objData.boolReturn === true) {
 								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
 									.removeClass()
 									.addClass('fa')
@@ -577,7 +579,7 @@
 									.addClass('pull-right')
 								;
 								
-							} else if (objectData.boolReturn === false) {
+							} else if (objData.boolReturn === false) {
 								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
 									.removeClass()
 									.addClass('fa')
@@ -694,30 +696,30 @@
 				}
 				
 				var websocket_connect = function() {
-					var objectWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
+					var objWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
 					
-					objectWebsocket.onmessage = function(objectEvent) {
-						var objectData = JSON.parse(objectEvent.data);
+					objWebsocket.onmessage = function(objEvent) {
+						var objData = JSON.parse(objEvent.data);
 						
-						if (objectData.strEvent === 'zeromq_status') {
-							if (objectData.strData === 'disconnected') {
+						if (objData.strEvent === 'zeromq_status') {
+							if (objData.strData === 'disconnected') {
 								zeromq_show();
 								
-							} else if (objectData.strData === 'connected') {
+							} else if (objData.strData === 'connected') {
 								zeromq_hide();
 								
 							}
 							
-						} else if (objectData.strEvent === 'zeromq_name') {
+						} else if (objData.strEvent === 'zeromq_name') {
 							jQuery('#idImcs_Register_User')
-								.val(objectData.strData)
+								.val(objData.strData)
 							;
 							
 							jQuery('#idImcs_Login_User')
-								.val(objectData.strData)
+								.val(objData.strData)
 							;
 							
-						} else if (objectData.strEvent === 'imcs_status') {
+						} else if (objData.strEvent === 'imcs_status') {
 							jQuery('#idImcs').find('div.alert')
 								.css({
 									'display': 'none'
@@ -733,14 +735,14 @@
 								.end()
 							;
 							
-							if (objectData.strData === 'disconnected') {
+							if (objData.strData === 'disconnected') {
 								jQuery('#idImcs').find('div.alert')
 									.css({
 										'display': 'block'
 									})
 								;
 								
-							} else if (objectData.strData === 'connected') {
+							} else if (objData.strData === 'connected') {
 								jQuery('#idImcs').find('td').eq(0).children().slice(0, 6)
 									.filter('a.btn')
 										.removeClass('disabled')
@@ -750,7 +752,7 @@
 									.end()
 								;
 								
-							} else if (objectData.strData === 'authorized') {
+							} else if (objData.strData === 'authorized') {
 								jQuery('#idImcs').find('td').eq(0).children().slice(6, 11)
 									.filter('a.btn')
 										.removeClass('disabled')
@@ -762,15 +764,15 @@
 								
 							}
 							
-						} else if (objectData.strEvent === 'imcs_buffer') {
+						} else if (objData.strEvent === 'imcs_buffer') {
 							jQuery('#idImcs_History')
-								.append(window.document.createTextNode(objectData.strData))
+								.append(window.document.createTextNode(objData.strData))
 							;
 							
 							jQuery('#idImcs_History').get(0).scrollTop += 1000;
 							
-						} else if (objectData.strEvent === 'imcs_board') {
-							var strBoard = objectData.strData.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+						} else if (objData.strEvent === 'imcs_board') {
+							var strBoard = objData.strData.replace(new RegExp('\\.', 'g'), ' ').split('\n');
 							
 							jQuery('#idChess_Board_Depth')
 								.text(strBoard[0].split(' ')[0])
@@ -809,13 +811,13 @@
 								}
 							}
 							
-						} else if (objectData.strEvent === 'imcs_operation') {
+						} else if (objData.strEvent === 'imcs_operation') {
 							loading_hide();
 							
 						}
 					};
 					
-					objectWebsocket.onclose = function(objectEvent) {
+					objWebsocket.onclose = function(objEvent) {
 						window.setTimeout(websocket_connect, 1000);
 					};
 				};

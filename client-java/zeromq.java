@@ -9,98 +9,98 @@ public class zeromq {
 	public static void start() {
 		zeromq.boolRunning = true;
 
-		ZMQ.Context objectContext = ZMQ.context(1);
-		ZMQ.Socket objectSocket = objectContext.socket(ZMQ.PAIR); objectSocket.bind("tcp://*:" + main.intZeromq);
+		ZMQ.Context objContext = ZMQ.context(1);
+		ZMQ.Socket objSocket = objContext.socket(ZMQ.PAIR); objSocket.bind("tcp://*:" + main.intZeromq);
 	
 		do {
-			JSONObject objectIn = new JSONObject(objectSocket.recvStr());
-			JSONObject objectOut = new JSONObject();
+			JSONObject objIn = new JSONObject(objSocket.recvStr());
+			JSONObject objOut = new JSONObject();
 		
-			if (objectIn.getString("strFunction").equals("ping") == true) {
-				objectOut.put("strOut", main.strName);
+			if (objIn.getString("strFunction").equals("ping") == true) {
+				objOut.put("strOut", main.strName);
 				
-			} else if (objectIn.getString("strFunction").equals("chess_reset") == true) {
+			} else if (objIn.getString("strFunction").equals("chess_reset") == true) {
 				chess.reset();
 				
-			} else if (objectIn.getString("strFunction").equals("chess_boardGet") == true) {
-				objectOut.put("strOut", chess.boardGet());
+			} else if (objIn.getString("strFunction").equals("chess_boardGet") == true) {
+				objOut.put("strOut", chess.boardGet());
 				
-			} else if (objectIn.getString("strFunction").equals("chess_boardSet") == true) {
-				chess.boardSet(objectIn.getString("strIn"));
+			} else if (objIn.getString("strFunction").equals("chess_boardSet") == true) {
+				chess.boardSet(objIn.getString("strIn"));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_winner") == true) {
-				objectOut.put("strReturn", chess.winner() + "\0");
+			} else if (objIn.getString("strFunction").equals("chess_winner") == true) {
+				objOut.put("strReturn", chess.winner() + "\0");
 				
-			} else if (objectIn.getString("strFunction").equals("chess_isValid") == true) {
-				objectOut.put("boolReturn", chess.isValid(objectIn.getInt("intX"), objectIn.getInt("intY")));
+			} else if (objIn.getString("strFunction").equals("chess_isValid") == true) {
+				objOut.put("boolReturn", chess.isValid(objIn.getInt("intX"), objIn.getInt("intY")));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_isEnemy") == true) {
-				objectOut.put("boolReturn", chess.isEnemy(objectIn.getString("strPiece").charAt(0)));
+			} else if (objIn.getString("strFunction").equals("chess_isEnemy") == true) {
+				objOut.put("boolReturn", chess.isEnemy(objIn.getString("strPiece").charAt(0)));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_isOwn") == true) {
-				objectOut.put("boolReturn", chess.isOwn(objectIn.getString("strPiece").charAt(0)));
+			} else if (objIn.getString("strFunction").equals("chess_isOwn") == true) {
+				objOut.put("boolReturn", chess.isOwn(objIn.getString("strPiece").charAt(0)));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_isNothing") == true) {
-				objectOut.put("boolReturn", chess.isNothing(objectIn.getString("strPiece").charAt(0)));
+			} else if (objIn.getString("strFunction").equals("chess_isNothing") == true) {
+				objOut.put("boolReturn", chess.isNothing(objIn.getString("strPiece").charAt(0)));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_eval") == true) {
-				objectOut.put("intReturn", chess.eval());
+			} else if (objIn.getString("strFunction").equals("chess_eval") == true) {
+				objOut.put("intReturn", chess.eval());
 				
-			} else if (objectIn.getString("strFunction").equals("chess_moves") == true) {
+			} else if (objIn.getString("strFunction").equals("chess_moves") == true) {
 				Vector<String> strOut = chess.moves();
 				
-				objectOut.put("intOut", strOut.size());
-				objectOut.put("strOut", "");
+				objOut.put("intOut", strOut.size());
+				objOut.put("strOut", "");
 				
 				for (int intMove = 0; intMove < strOut.size(); intMove += 1) {
-					objectOut.put("strOut", objectOut.get("strOut") + strOut.get(intMove));
+					objOut.put("strOut", objOut.get("strOut") + strOut.get(intMove));
 				}
 				
-			} else if (objectIn.getString("strFunction").equals("chess_movesShuffled") == true) {
+			} else if (objIn.getString("strFunction").equals("chess_movesShuffled") == true) {
 				Vector<String> strOut = chess.movesShuffled();
 				
-				objectOut.put("intOut", strOut.size());
-				objectOut.put("strOut", "");
+				objOut.put("intOut", strOut.size());
+				objOut.put("strOut", "");
 				
 				for (int intMove = 0; intMove < strOut.size(); intMove += 1) {
-					objectOut.put("strOut", objectOut.get("strOut") + strOut.get(intMove));
+					objOut.put("strOut", objOut.get("strOut") + strOut.get(intMove));
 				}
 				
-			} else if (objectIn.getString("strFunction").equals("chess_movesEvaluated") == true) {
+			} else if (objIn.getString("strFunction").equals("chess_movesEvaluated") == true) {
 				Vector<String> strOut = chess.movesEvaluated();
 				
-				objectOut.put("intOut", strOut.size());
-				objectOut.put("strOut", "");
+				objOut.put("intOut", strOut.size());
+				objOut.put("strOut", "");
 				
 				for (int intMove = 0; intMove < strOut.size(); intMove += 1) {
-					objectOut.put("strOut", objectOut.get("strOut") + strOut.get(intMove));
+					objOut.put("strOut", objOut.get("strOut") + strOut.get(intMove));
 				}
 				
-			} else if (objectIn.getString("strFunction").equals("chess_move") == true) {
-				chess.move(objectIn.getString("strIn"));
+			} else if (objIn.getString("strFunction").equals("chess_move") == true) {
+				chess.move(objIn.getString("strIn"));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_moveRandom") == true) {
-				objectOut.put("strOut", chess.moveRandom());
+			} else if (objIn.getString("strFunction").equals("chess_moveRandom") == true) {
+				objOut.put("strOut", chess.moveRandom());
 				
-			} else if (objectIn.getString("strFunction").equals("chess_moveGreedy") == true) {
-				objectOut.put("strOut", chess.moveGreedy());
+			} else if (objIn.getString("strFunction").equals("chess_moveGreedy") == true) {
+				objOut.put("strOut", chess.moveGreedy());
 				
-			} else if (objectIn.getString("strFunction").equals("chess_moveNegamax") == true) {
-				objectOut.put("strOut", chess.moveNegamax(objectIn.getInt("intMaxdepth"), objectIn.getInt("intDuration")));
+			} else if (objIn.getString("strFunction").equals("chess_moveNegamax") == true) {
+				objOut.put("strOut", chess.moveNegamax(objIn.getInt("intMaxdepth"), objIn.getInt("intDuration")));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_moveAlphabeta") == true) {
-				objectOut.put("strOut", chess.moveAlphabeta(objectIn.getInt("intMaxdepth"), objectIn.getInt("intDuration")));
+			} else if (objIn.getString("strFunction").equals("chess_moveAlphabeta") == true) {
+				objOut.put("strOut", chess.moveAlphabeta(objIn.getInt("intMaxdepth"), objIn.getInt("intDuration")));
 				
-			} else if (objectIn.getString("strFunction").equals("chess_undo") == true) {
+			} else if (objIn.getString("strFunction").equals("chess_undo") == true) {
 				chess.undo();
 				
 			}
 
-			objectSocket.send(objectOut.toString());
+			objSocket.send(objOut.toString());
 		} while (zeromq.boolRunning == true);
 		
-		objectSocket.close();
-		objectContext.term();
+		objSocket.close();
+		objContext.term();
 	}
 	
 	public static void stop() {

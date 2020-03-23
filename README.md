@@ -6,7 +6,7 @@ The repository contains the framework itself, as well as multiple empty clients 
 
 The framework provides a graphical user interface that is accessible through a browser, as well as several test cases to validate the implementation of a client. To let artificial chess players compete against each other, the framework furthermore provides a network interoperability through an external server.
 
-<p align="center"><img src="http://content.sniklaus.com/ChessRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
+<p align="center"><img src="http://content.sniklaus.com/minichess/screenshot.png" alt="Screenshot"></p>
 
 ## prerequisites
 While you are able to choose between different languages to implement the client, the framework itself is written in C. Therefore, the GCC toolchain must be present to build the framework. Unless you are making use of the Linux lab, you might have to separately install the appropriate compiler toolchain. Should you be able to use `apt-get`, you can install the following package to do so.

@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 
 	zeromq_start();
 	webserver_start();
-	imcs_start();
+	// imcs_start(); // SERVER CURRENTLY UNAVAILABLE
 
 	printf("framework: started\n");
 
