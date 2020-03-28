@@ -20,76 +20,13 @@
 		<link rel="stylesheet" type="text/css" href="/assets/fontawesome.css" />
 		
 		<style type="text/css">
-			body {
-				cursor:default;
-			}
-			
-			.btn, .input-group, .input-group-text, .form-control {
-				font-size:0.9rem;
-			}
-			
-			.btn > .pull-right {
-				margin:3px 0px 0px -30px;
-			}
-
-			.nav-link > .pull-right {
-				margin:3px 0px 0px 0px;
-			}
-			
-			.card {
-				margin:0px 20px 40px 20px;
-			}
-
-			.card-body > p {
-				text-align:justify;
-			}
-
-			.card-body > :last-child {
-				margin-bottom:0px;
-			}
-		</style>
-
-		<style type="text/css">
-			body > table {
-				margin:40px auto 0px auto;
-			}
-			
-			table > tbody > tr > td {
-				vertical-align:top;
-			}
-			
-			div.card-body > table > tbody > tr > td:nth-child(1) {
-				width:270px;
-			}
-			
-			div.card-body > table > tbody > tr > td:nth-child(3) {
-				width:270px;
-			}
-			
-			#idChess > div.card-body > table > tbody > tr > td:nth-child(2) > div {
-				width:1px;
-				height:501px;
-				
-				margin:0px 15px 0px 15px;
-				
-				background-color:#CCCCCC;
-			}
-			
-			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table {
-				margin:10px 0px 0px 0px;
-			}
-			
 			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr > td {
-				cursor:pointer;
-				
-				width:54px;
-				height:54px;
-				
 				border:1px solid #CCCCCC;
-				
+				cursor:pointer;
+				height:54px;
 				text-align:center;
-				
 				vertical-align:middle;
+				width:54px;
 			}
 			
 			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(odd) > td:nth-child(odd) {
@@ -98,34 +35,6 @@
 			
 			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(even) > td:nth-child(even) {
 				background-color:#F5F5F5;
-			}
-			
-			#idImcs > div.card-body > table > tbody > tr > td:nth-child(2) > div {
-				width:1px;
-				height:472px;
-				
-				margin:0px 15px 0px 15px;
-				
-				background-color:#CCCCCC;
-			}
-			
-			#idImcs > div.card-body > table > tbody > tr > td:nth-child(3) > pre {
-				width:270px;
-				height:449px;
-				
-				margin:0px;
-				
-				font-size:10px;
-				word-wrap:normal;
-			}
-			
-			#idTest > div.card-body > table > tbody > tr > td:nth-child(2) > div {
-				width:1px;
-				height:690px;
-				
-				margin:0px 15px 0px 15px;
-				
-				background-color:#CCCCCC;
 			}
 		</style>
 		
@@ -828,35 +737,35 @@
 			});
 		</script>
 	</head>
-	<body>
-		<table><tr><td>
+	<body style="cursor:default; line-height:1.1; padding:20px 20px 0px 20px;">
+		<table style="margin:0px auto 0px auto;"><tr style="vertical-align:top;"><td>
 		
-		<div class="card" id="idChess">
+		<div class="card" id="idChess" style="margin:0px 0px 20px 20px;">
 			<div class="card-header">
 				Chess
 			</div>
 			<div class="card-body">
 				<table>
-					<tr>
-						<td>
+					<tr style="vertical-align:top;">
+						<td style="width:270px;">
 							<button class="btn btn-primary btn-block text-left" id="idChess_Reset">
 								chess_reset();
-								<i class="fa fa-repeat pull-right"></i>
+								<i class="fa fa-repeat pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idChess_MoveRandom">
 								chess_moveRandom();
-								<i class="fa fa-random pull-right"></i>
+								<i class="fa fa-random pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idChess_MoveGreedy">
 								chess_moveGreedy();
-								<i class="fa fa-bicycle pull-right"></i>
+								<i class="fa fa-bicycle pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idChess_MoveNegamax">
 								chess_moveNegamax(int);
-								<i class="fa fa-car pull-right"></i>
+								<i class="fa fa-car pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
@@ -869,7 +778,7 @@
 							
 							<button class="btn btn-primary btn-block text-left" id="idChess_MoveAlphabeta">
 								chess_moveAlphabeta(int, int);
-								<i class="fa fa-plane pull-right"></i>
+								<i class="fa fa-plane pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
@@ -882,13 +791,13 @@
 							
 							<button class="btn btn-primary btn-block text-left" id="idChess_Undo">
 								chess_undo();
-								<i class="fa fa-undo pull-right"></i>
+								<i class="fa fa-undo pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 						</td>
 						<td>
-							<div></div>
+							<div style="background-color:#CCCCCC; height:511px; margin:0px 15px 0px 15px; width:1px;"></div>
 						</td>
-						<td>
+						<td style="width:270px;">
 							<div class="input-group btn-block">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
 								<div class="form-control" id="idChess_Board_Depth"></div>
@@ -909,7 +818,7 @@
 								<div class="form-control" id="idChess_Eval"></div>
 							</div>
 							
-							<table id="idChess_Board">
+							<table id="idChess_Board" style="margin-top:10px;">
 								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
 								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
 								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
@@ -923,7 +832,7 @@
 			</div>
 		</div>
 		
-		<div class="card" id="idImcs">
+		<div class="card" id="idImcs" style="margin:0px 0px 20px 20px;">
 			<div class="card-header">
 				Internet
 			</div>
@@ -933,11 +842,11 @@
 				</div>
 				
 				<table>
-					<tr>
-						<td>
+					<tr style="vertical-align:top;">
+						<td style="width:270px;">
 							<button class="btn btn-primary btn-block text-left" id="idImcs_Register">
 								imcs_register(char*, char*);
-								<i class="fa fa-lock pull-right"></i>
+								<i class="fa fa-lock pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strUser:</span></div>
@@ -950,7 +859,7 @@
 							
 							<button class="btn btn-primary btn-block text-left" id="idImcs_Login">
 								imcs_login(char*, char*);
-								<i class="fa fa-lock pull-right"></i>
+								<i class="fa fa-lock pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strUser:</span></div>
@@ -963,17 +872,17 @@
 							
 							<button class="btn btn-primary btn-block text-left" id="idImcs_List">
 								imcs_list();
-								<i class="fa fa-list pull-right"></i>
+								<i class="fa fa-list pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idImcs_Offer">
 								imcs_offer();
-								<i class="fa fa-compress pull-right"></i>
+								<i class="fa fa-compress pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idImcs_Accept">
 								imcs_accept();
-								<i class="fa fa-compress pull-right"></i>
+								<i class="fa fa-compress pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intIdent:</span></div>
@@ -982,14 +891,14 @@
 							
 							<button class="btn btn-primary btn-block text-left" id="idImcs_Ratings">
 								imcs_ratings();
-								<i class="fa fa-trophy pull-right"></i>
+								<i class="fa fa-trophy pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 						</td>
 						<td>
-							<div></div>
+							<div style="background-color:#CCCCCC; height:498px; margin:0px 15px 0px 15px; width:1px;"></div>
 						</td>
-						<td>
-							<pre class="alert alert-secondary" id="idImcs_History"></pre>
+						<td style="width:270px;">
+							<pre class="alert alert-secondary" id="idImcs_History" style="font-size:10px; height:498px; margin:0px; word-wrap:normal;"></pre>
 						</td>
 					</tr>
 				</table>
@@ -998,98 +907,98 @@
 		
 		</td><td>
 		
-		<div class="card" id="idTest">
+		<div class="card" id="idTest" style="margin:0px 0px 20px 20px;">
 			<div class="card-header">
 				Test
 			</div>
 			<div class="card-body">
 				<table>
-					<tr>
-						<td>
+					<tr style="vertical-align:top;">
+						<td style="width:270px;">
 							<button class="btn btn-primary btn-block text-left" id="idTest_Board">
 								test_board();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_Winner">
 								test_winner();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_IsValid">
 								test_isValid();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_IsEnemy">
 								test_isEnemy();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_IsOwn">
 								test_isOwn();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_IsNothing">
 								test_isNothing();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_Eval">
 								test_eval();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_Moves">
 								test_moves();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_Move">
 								test_move();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_Undo">
 								test_undo();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_MovesShuffled">
 								test_movesShuffled();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_MovesEvaluated">
 								test_movesEvaluated();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_MoveRandom">
 								test_moveRandom();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_MoveGreedy">
 								test_moveGreedy();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_MoveNegamax">
 								test_moveNegamax();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 							
 							<button class="btn btn-primary btn-block text-left" id="idTest_MoveAlphabeta">
 								test_moveAlphabeta();
-								<i class="fa fa-question pull-right"></i>
+								<i class="fa fa-question pull-right" style="margin:3px 0px 0px 0px;"></i>
 							</button>
 						</td>
 						<td>
-							<div></div>
+							<div style="background-color:#CCCCCC; height:728px; margin:0px 15px 0px 15px; width:1px;"></div>
 						</td>
-						<td>
+						<td style="width:270px;">
 							<div class="input-group btn-block">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">boolReturn:</span></div>
 								<div class="form-control" id="idTest_Return_Return"></div>
