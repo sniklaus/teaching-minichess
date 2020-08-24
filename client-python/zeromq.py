@@ -19,7 +19,7 @@ def zeromq_start():
 	objSocket = objContext.socket(zmq.PAIR); objSocket.bind('tcp://*:' + str(main_intZeromq))
 	
 	while zeromq_boolRunning == True:
-		objIn = json.loads(objSocket.recv().decode())
+		objIn = json.loads(objSocket.recv().decode('utf-8'))
 		objOut = {}
 		
 		if objIn['strFunction'] == 'ping':
