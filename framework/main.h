@@ -25,27 +25,27 @@ extern int main_intWebserver;
 extern int main_intZeromq;
 
 static inline int minimum(int intA, int intB) {
-	if (intA < intB) {
-		return intA;
-	}
-	
-	return intB;
+    if (intA < intB) {
+        return intA;
+    }
+    
+    return intB;
 }
 
 static inline int maximum(int intA, int intB) {
-	if (intA > intB) {
-		return intA;
-	}
-	
-	return intB;
+    if (intA > intB) {
+        return intA;
+    }
+    
+    return intB;
 }
 
 static inline unsigned long long milliseconds() {
-	struct timeval objTimeval = { };
-	
-	gettimeofday(&objTimeval, NULL);
-	
-	return (objTimeval.tv_sec * 1000) + (objTimeval.tv_usec / 1000);
+    struct timeval objTimeval = { };
+    
+    gettimeofday(&objTimeval, NULL);
+    
+    return (objTimeval.tv_sec * 1000) + (objTimeval.tv_usec / 1000);
 }
 
 #endif

@@ -1,1019 +1,1019 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		
-		<meta name="viewport" content="width=1000" />
-		
-		<title>minichess</title>
-		
-		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAxlBMVEUAAABOWZ5BTZhCTZhHUpt7g7d5gbZ5grZ5grZ6grZsda9tdq9tdrBtd7Bsdq9ye7Jye7JzfLN0fbNxerJdaKdeaadfaahfaqhha6ldZ6dfaahfaqhjbat/h7mAh7mFjLx8hLh3gLV6grZ6grdfaahgaqlibKpha6ljbapRXKBSXKBUX6JTXqFSXaH///+uuNXEzOHx9Pvb4O+5wtv8/f+zvdi+x97m6vXr7/edqcujrs6/x97V2+vg5fGNmcKXo8jJ0eXQ1ucIdJUyAAAALnRSTlMACR0dI1BRUVJSiIiIiIi8vb29vdbW1tbW4uLi4uzs7Ozs7Ozx8fHx8f39/f39FstVagAAALZJREFUeNptz8cWgkAMBVAYR8Xee1fAnoQBBOz+/0+ZgaVmlXcX7ySG8TumKLV3x6PbsoSZZlkbLq7JlWb9itQiqtMn+vEDIn9cFgzWgBDD8AHB5dazGFqzAHk88PCzbDK45KUZgjuSw3BS4N85A1xQHTRE4PlxCqHaM2yJdyKKAGKydemcQde8AVYdhmKfMsCAugV9WGXCohAVjdLDTFnvremWvDbdssyeEYWmc97bjXzO/PP7F9bvG7XExUxsAAAAAElFTkSuQmCC" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        <meta name="viewport" content="width=1000" />
+        
+        <title>minichess</title>
+        
+        <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAxlBMVEUAAABOWZ5BTZhCTZhHUpt7g7d5gbZ5grZ5grZ6grZsda9tdq9tdrBtd7Bsdq9ye7Jye7JzfLN0fbNxerJdaKdeaadfaahfaqhha6ldZ6dfaahfaqhjbat/h7mAh7mFjLx8hLh3gLV6grZ6grdfaahgaqlibKpha6ljbapRXKBSXKBUX6JTXqFSXaH///+uuNXEzOHx9Pvb4O+5wtv8/f+zvdi+x97m6vXr7/edqcujrs6/x97V2+vg5fGNmcKXo8jJ0eXQ1ucIdJUyAAAALnRSTlMACR0dI1BRUVJSiIiIiIi8vb29vdbW1tbW4uLi4uzs7Ozs7Ozx8fHx8f39/f39FstVagAAALZJREFUeNptz8cWgkAMBVAYR8Xee1fAnoQBBOz+/0+ZgaVmlXcX7ySG8TumKLV3x6PbsoSZZlkbLq7JlWb9itQiqtMn+vEDIn9cFgzWgBDD8AHB5dazGFqzAHk88PCzbDK45KUZgjuSw3BS4N85A1xQHTRE4PlxCqHaM2yJdyKKAGKydemcQde8AVYdhmKfMsCAugV9WGXCohAVjdLDTFnvremWvDbdssyeEYWmc97bjXzO/PP7F9bvG7XExUxsAAAAAElFTkSuQmCC" />
 
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.58.4/plotly-cartesian.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.58.4/plotly-cartesian.min.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
 
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-		<style type="text/css">
-			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr > td {
-				border:1px solid #CCCCCC;
-				cursor:pointer;
-				height:54px;
-				text-align:center;
-				vertical-align:middle;
-				width:54px;
-			}
-			
-			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(odd) > td:nth-child(odd) {
-				background-color:#F5F5F5;
-			}
-			
-			#idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(even) > td:nth-child(even) {
-				background-color:#F5F5F5;
-			}
-		</style>
-		
-		<script type="text/javascript">
-			jQuery(window.document).ready(function () {
-				var zeromq_show = function() {
-					if (jQuery('#idZeromq').length === 0) {
-						jQuery(window.document.body)
-							.append(jQuery('<div></div>')
-								.attr({
-									'id': 'idZeromq'
-								})
-								.css({
-									'position': 'fixed',
-									'left': '0px',
-									'right': '0px',
-									'top': '0px',
-									'bottom': '0px',
-									'z-index': '10000',
-									'background-color': '#FFFFFF'
-								})
-								.append(jQuery('<div></div>')
-									.addClass('alert')
-									.addClass('alert-danger')
-									.css({
-										'position': 'fixed',
-										'right': '30px',
-										'bottom': '30px',
-										'margin': '0px'
-									})
-									.text('not connected to a client ...')
-								)
-							)
-						;
-					}
-				};
-				
-				var zeromq_hide = function() {
-					if (jQuery('#idZeromq').length !== 0) {
-						window.location.reload();
-					}
-				};
-				
-				var loading_show = function() {
-					if (jQuery('#idLoading').length === 0) {
-						jQuery(window.document.body)
-							.append(jQuery('<div></div>')
-								.attr({
-									'id': 'idLoading'
-								})
-								.css({
-									'position': 'fixed',
-									'left': '0px',
-									'right': '0px',
-									'top': '0px',
-									'bottom': '0px',
-									'z-index': '20000'
-								})
-								.append(jQuery('<div></div>')
-									.addClass('fa')
-									.addClass('fa-cog')
-									.addClass('fa-spin')
-									.css({
-										'position': 'fixed',
-										'right': '30px',
-										'bottom': '30px',
-										'font-size': '48px'
-									})
-								)
-							)
-						;
-					}
-				};
-				
-				var loading_hide = function() {
-					if (jQuery('#idLoading').length !== 0) {
-						jQuery('#idLoading')
-							.remove()
-						;
-					}
-				};
-				
-				var chess_strInput = '';
-				var chess_strInputPrevious = '';
-				var chess_strBoard = '';
-				var chess_strMoves = '';
-				
-				var chess_call = function(strFunction, strParameters) {
-					if (strFunction !== 'chess_moves') {
-						chess_strInput = '';
-						chess_strInputPrevious = '';
-					}
-					
-					var strUrl = '/' + strFunction;
-					
-					for (var strParameter in strParameters) {
-						if (strUrl.indexOf('?') === -1) {
-							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
-							
-						} else if (strUrl.indexOf('?') !== -1) {
-							strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
-							
-						}
-					}
-					
-					loading_show();
-					
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': strUrl,
-						'dataType': 'json',
-						'success': function(objData) {
-							chess_call_board();
-							chess_call_winner();
-							chess_call_eval();
-							chess_call_moves();
-						},
-						'complete': function() {
-							loading_hide();
-						}
-					});
-				};
-				
-				var chess_call_board = function() {
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': '/chess_boardGet',
-						'dataType': 'json',
-						'success': function(objData) {
-							chess_strBoard = objData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
-							
-							jQuery('#idChess_Board_Depth')
-								.text(chess_strBoard[0].split(' ')[0])
-							;
-							
-							jQuery('#idChess_Board_Next')
-								.text(chess_strBoard[0].split(' ')[1])
-							;
-							
-							for (var intRow = 1; intRow < 7; intRow += 1) {
-								for (var intCol = 0; intCol < 5; intCol += 1) {
-									jQuery('#idChess_Board').find('tr').eq(intRow - 1).find('td').eq(intCol).find('img')
-										.attr({
-											'src': '/assets/images/nothing.svg'
-										})
-										.each(function() {
-											var strPiece = chess_strBoard[intRow].substr(intCol, 1);
-											
-											if ((strPiece > 'a') && (strPiece < 'z')) {
-												jQuery(this)
-													.attr({
-														'src': '/assets/images/black_' + strPiece.toLowerCase() + '.svg'
-													})
-												;
-												
-											} else if ((strPiece > 'A') && (strPiece < 'Z')) {
-												jQuery(this)
-													.attr({
-														'src': '/assets/images/white_' + strPiece.toLowerCase() + '.svg'
-													})
-												;
-												
-											}
-										})
-									;
-								}
-							}
-						}
-					});
-				};
-				
-				var chess_call_winner = function() {
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': '/chess_winner',
-						'dataType': 'json',
-						'success': function(objData) {
-							jQuery('#idChess_Winner')
-								.text(objData.strReturn)
-							;
-						}
-					});
-				};
-				
-				var chess_call_eval = function() {
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': '/chess_eval',
-						'dataType': 'json',
-						'success': function(objData) {
-							jQuery('#idChess_Eval')
-								.text(objData.intReturn)
-							;
-						}
-					});
-				};
-				
-				var chess_call_moves = function() {
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': '/chess_moves',
-						'dataType': 'json',
-						'success': function(objData) {
-							chess_strMoves = objData.strOut.split('\n');
-							
-							jQuery('#idChess_Board').find('td')
-								.css({
-									'background-color': ''
-								})
-							;
-							
-							for (var strMove of chess_strMoves) {
-								if (strMove.substr(0, 2) === chess_strInput) {
-									var intX = strMove.charCodeAt(3) - ('a').charCodeAt(0);
-									var intY = ('6').charCodeAt(0) - strMove.charCodeAt(4);
-									
-									jQuery('#idChess_Board').find('tr').eq(intY).find('td').eq(intX)
-										.css({
-											'background-color': '#71C000'
-										})
-									;
-								}
-							}
-						}
-					});
-				};
-				
-				{
-					chess_call('chess_reset', {});
-				}
-				
-				{
-					jQuery('#idChess_Reset')
-						.on('click', function() {
-							chess_call('chess_reset', {});
-						})
-					;
-					
-					jQuery('#idChess_MoveRandom')
-						.on('click', function() {
-							chess_call('chess_moveRandom', {});
-						})
-					;
-					
-					jQuery('#idChess_MoveGreedy')
-						.on('click', function() {
-							chess_call('chess_moveGreedy', {});
-						})
-					;
-					
-					jQuery('#idChess_MoveNegamax')
-						.on('click', function() {
-							chess_call('chess_moveNegamax', {
-								'intMaxdepth': jQuery('#idChess_MoveNegamax_Maxdepth').val(),
-								'intDuration': jQuery('#idChess_MoveNegamax_Duration').val()
-							});
-						})
-					;
-					
-					jQuery('#idChess_MoveAlphabeta')
-						.on('click', function() {
-							chess_call('chess_moveAlphabeta', {
-								'intMaxdepth': jQuery('#idChess_MoveAlphabeta_Maxdepth').val(),
-								'intDuration': jQuery('#idChess_MoveAlphabeta_Duration').val()
-							});
-						})
-					;
-					
-					jQuery('#idChess_Undo')
-						.on('click', function() {
-							chess_call('chess_undo', {});
-						})
-					;
-					
-					jQuery('#idChess_Board').find('td')
-						.on('click', function() {
-							var intX = jQuery(this).index();
-							var intY = jQuery(this).parent().index();
-							
-							var strInput = String.fromCharCode(('a').charCodeAt(0) + intX, ('6').charCodeAt(0) - intY);
-							var strInputPrevious = chess_strInput;
-							
-							if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) === -1) {
-								chess_strInput = strInput;
-								chess_strInputPrevious = strInputPrevious;
-								
-								chess_call('chess_moves', {});
-								
-							} else if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) !== -1) {
-								chess_strInput = '';
-								chess_strInputPrevious = '';
-								
-								chess_call('chess_move', {
-									'strIn': strInputPrevious + '-' + strInput + '\n'
-								});
-								
-							}
-						})
-					;
-				}
-				
-				var imcs_call = function(strFunction, strParameters) {
-					var strUrl = '/' + strFunction;
-					
-					for (var strParameter in strParameters) {
-						if (strUrl.indexOf('?') === -1) {
-							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
-							
-						} else if (strUrl.indexOf('?') !== -1) {
-							strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
-							
-						}
-					}
-					
-					loading_show();
-					
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': strUrl,
-						'dataType': 'json',
-						'success': function(objData) {
-							
-						}
-					});
-				};
-				
-				{
-					jQuery('#idImcs_Register')
-						.on('click', function() {
-							imcs_call('imcs_register', {
-								'strUser': jQuery('#idImcs_Register_User').val(),
-								'strPass': jQuery('#idImcs_Register_Pass').val()
-							});
-						})
-					;
-					
-					jQuery('#idImcs_Login')
-						.on('click', function() {
-							imcs_call('imcs_login', {
-								'strUser': jQuery('#idImcs_Login_User').val(),
-								'strPass': jQuery('#idImcs_Login_Pass').val()
-							});
-						})
-					;
-					
-					jQuery('#idImcs_List')
-						.on('click', function() {
-							imcs_call('imcs_list');
-						})
-					;
-					
-					jQuery('#idImcs_Offer')
-						.on('click', function() {
-							imcs_call('imcs_offer');
-						})
-					;
-					
-					jQuery('#idImcs_Accept')
-						.on('click', function() {
-							imcs_call('imcs_accept', {
-								'intIdent': jQuery('#idImcs_Accept_Ident').val()
-							});
-						})
-					;
-					
-					jQuery('#idImcs_Ratings')
-						.on('click', function() {
-							imcs_call('imcs_ratings');
-						})
-					;
-				}
-				
-				var test_strFunction = '';
-				var test_intBench = [];
-				
-				var test_call = function(strFunction, strParameters) {
-					if (test_strFunction !== strFunction) {
-						test_strFunction = strFunction;
-						test_intBench = [];
-					}
-					
-					var strUrl = '/' + strFunction;
-					
-					for (var strParameter in strParameters) {
-						if (strUrl.indexOf('?') === -1) {
-							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
-							
-						} else if (strUrl.indexOf('?') !== -1) {
-							strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
-							
-						}
-					}
-					
-					loading_show();
-					
-					jQuery.ajax({
-						'async': true,
-						'type': 'GET',
-						'url': strUrl,
-						'dataType': 'json',
-						'success': function(objData) {
-							test_intBench.push(objData.intBench);
-							
-							jQuery('#idTest_Return_Return')
-								.text(objData.boolReturn)
-							;
-							
-							jQuery('#idTest_Return_Bench')
-								.text(objData.intBench.toFixed(3))
-							;
-							
-							Plotly.newPlot('idTest_Boxplot', [{
-								'type': 'box',
-								'orientation': 'v',
-								'boxpoints': 'all',
-								'pointpos': 2.0,
-								'jitter': 0.0,
-								'y': test_intBench,
-								'hoverinfo': 'none'
-							}], {
-								'showlegend': false,
-								'margin': {
-									'l': 80,
-									'r': 60,
-									'b': 50,
-									't': 50
-								},
-								'xaxis': {
-									'zeroline': false,
-									'showticklabels': false
-								},
-								'yaxis': {
-									'zeroline': false,
-									'tickformat': '.1f'
-								}
-							}, {
-								'displayModeBar': false
-							});
-							
-							if (objData.boolReturn === true) {
-								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
-									.removeClass()
-									.addClass('fa')
-									.addClass('fa-check')
-								;
-								
-							} else if (objData.boolReturn === false) {
-								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
-									.removeClass()
-									.addClass('fa')
-									.addClass('fa-times')
-								;
-								
-							}
-						},
-						'complete': function() {
-							loading_hide();
-							
-							chess_call('chess_reset', {});
-						}
-					});
-				};
-				
-				{
-					jQuery('#idTest_Board')
-						.on('click', function() {
-							test_call('test_board');
-						})
-					;
-					
-					jQuery('#idTest_Winner')
-						.on('click', function() {
-							test_call('test_winner');
-						})
-					;
-					
-					jQuery('#idTest_IsValid')
-						.on('click', function() {
-							test_call('test_isValid');
-						})
-					;
-					
-					jQuery('#idTest_IsEnemy')
-						.on('click', function() {
-							test_call('test_isEnemy');
-						})
-					;
-					
-					jQuery('#idTest_IsOwn')
-						.on('click', function() {
-							test_call('test_isOwn');
-						})
-					;
-					
-					jQuery('#idTest_IsNothing')
-						.on('click', function() {
-							test_call('test_isNothing');
-						})
-					;
-					
-					jQuery('#idTest_Eval')
-						.on('click', function() {
-							test_call('test_eval');
-						})
-					;
-					
-					jQuery('#idTest_Moves')
-						.on('click', function() {
-							test_call('test_moves');
-						})
-					;
-					
-					jQuery('#idTest_Move')
-						.on('click', function() {
-							test_call('test_move');
-						})
-					;
-					
-					jQuery('#idTest_Undo')
-						.on('click', function() {
-							test_call('test_undo');
-						})
-					;
-					
-					jQuery('#idTest_MovesShuffled')
-						.on('click', function() {
-							test_call('test_movesShuffled');
-						})
-					;
-					
-					jQuery('#idTest_MovesEvaluated')
-						.on('click', function() {
-							test_call('test_movesEvaluated');
-						})
-					;
-					
-					jQuery('#idTest_MoveRandom')
-						.on('click', function() {
-							test_call('test_moveRandom');
-						})
-					;
-					
-					jQuery('#idTest_MoveGreedy')
-						.on('click', function() {
-							test_call('test_moveGreedy');
-						})
-					;
-					
-					jQuery('#idTest_MoveNegamax')
-						.on('click', function() {
-							test_call('test_moveNegamax');
-						})
-					;
-					
-					jQuery('#idTest_MoveAlphabeta')
-						.on('click', function() {
-							test_call('test_moveAlphabeta');
-						})
-					;
-				}
-				
-				var websocket_connect = function() {
-					var objWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
-					
-					objWebsocket.onmessage = function(objEvent) {
-						var objData = JSON.parse(objEvent.data);
-						
-						if (objData.strEvent === 'zeromq_status') {
-							if (objData.strData === 'disconnected') {
-								zeromq_show();
-								
-							} else if (objData.strData === 'connected') {
-								zeromq_hide();
-								
-							}
-							
-						} else if (objData.strEvent === 'zeromq_name') {
-							jQuery('#idImcs_Register_User')
-								.val(objData.strData)
-							;
-							
-							jQuery('#idImcs_Login_User')
-								.val(objData.strData)
-							;
-							
-						} else if (objData.strEvent === 'imcs_status') {
-							jQuery('#idImcs').find('div.alert')
-								.css({
-									'display': 'none'
-								})
-							;
-							
-							jQuery('#idImcs').find('td').eq(0).children()
-								.filter('a.btn')
-									.addClass('disabled')
-								.end()
-								.find('input')
-									.prop('disabled', true)
-								.end()
-							;
-							
-							if (objData.strData === 'disconnected') {
-								jQuery('#idImcs').find('div.alert')
-									.css({
-										'display': 'block'
-									})
-								;
-								
-							} else if (objData.strData === 'connected') {
-								jQuery('#idImcs').find('td').eq(0).children().slice(0, 6)
-									.filter('a.btn')
-										.removeClass('disabled')
-									.end()
-									.find('input')
-										.prop('disabled', false)
-									.end()
-								;
-								
-							} else if (objData.strData === 'authorized') {
-								jQuery('#idImcs').find('td').eq(0).children().slice(6, 11)
-									.filter('a.btn')
-										.removeClass('disabled')
-									.end()
-									.find('input')
-										.prop('disabled', false)
-									.end()
-								;
-								
-							}
-							
-						} else if (objData.strEvent === 'imcs_buffer') {
-							jQuery('#idImcs_History')
-								.append(window.document.createTextNode(objData.strData))
-							;
-							
-							jQuery('#idImcs_History').get(0).scrollTop += 1000;
-							
-						} else if (objData.strEvent === 'imcs_board') {
-							var strBoard = objData.strData.replace(new RegExp('\\.', 'g'), ' ').split('\n');
-							
-							jQuery('#idChess_Board_Depth')
-								.text(strBoard[0].split(' ')[0])
-							;
-							
-							jQuery('#idChess_Board_Next')
-								.text(strBoard[0].split(' ')[1])
-							;
-							
-							for (var intRow = 1; intRow < 7; intRow += 1) {
-								for (var intCol = 0; intCol < 5; intCol += 1) {
-									jQuery('#idChess_Board').find('tr').eq(intRow - 1).find('td').eq(intCol).find('img')
-										.attr({
-											'src': '/assets/images/nothing.svg'
-										})
-										.each(function() {
-											var strPiece = strBoard[intRow].substr(intCol, 1);
-											
-											if ((strPiece > 'a') && (strPiece < 'z')) {
-												jQuery(this)
-													.attr({
-														'src': '/assets/images/black_' + strPiece.toLowerCase() + '.svg'
-													})
-												;
-												
-											} else if ((strPiece > 'A') && (strPiece < 'Z')) {
-												jQuery(this)
-													.attr({
-														'src': '/assets/images/white_' + strPiece.toLowerCase() + '.svg'
-													})
-												;
-												
-											}
-										})
-									;
-								}
-							}
-							
-						} else if (objData.strEvent === 'imcs_operation') {
-							loading_hide();
-							
-						}
-					};
-					
-					objWebsocket.onclose = function(objEvent) {
-						window.setTimeout(websocket_connect, 1000);
-					};
-				};
-				
-				{
-					websocket_connect();
-				}
-			});
-		</script>
-	</head>
-	<body style="cursor:default; line-height:1.1; padding:20px 20px 0px 20px;">
-		<table style="margin:0px auto 0px auto;"><tr style="vertical-align:top;"><td>
-		
-		<div class="card" id="idChess" style="margin:0px 0px 20px 20px;">
-			<div class="card-header">
-				Chess
-			</div>
-			<div class="card-body">
-				<table>
-					<tr style="vertical-align:top;">
-						<td class="d-grid gap-2" style="width:270px;">
-							<button class="btn btn-primary text-start" id="idChess_Reset">
-								chess_reset();
-								<i class="fa fa-repeat" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idChess_MoveRandom">
-								chess_moveRandom();
-								<i class="fa fa-random" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idChess_MoveGreedy">
-								chess_moveGreedy();
-								<i class="fa fa-bicycle" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idChess_MoveNegamax">
-								chess_moveNegamax(int);
-								<i class="fa fa-car" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
-								<input class="form-control" id="idChess_MoveNegamax_Maxdepth" type="number" value="3" />
-							</div>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intDuration:</span>
-								<input class="form-control" id="idChess_MoveNegamax_Duration" type="number" value="3000" />
-							</div>
-							
-							<button class="btn btn-primary text-start" id="idChess_MoveAlphabeta">
-								chess_moveAlphabeta(int, int);
-								<i class="fa fa-plane" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
-								<input class="form-control" id="idChess_MoveAlphabeta_Maxdepth" type="number" value="3" />
-							</div>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intDuration:</span>
-								<input class="form-control" id="idChess_MoveAlphabeta_Duration" type="number" value="3000" />
-							</div>
-							
-							<button class="btn btn-primary text-start" id="idChess_Undo">
-								chess_undo();
-								<i class="fa fa-undo" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-						</td>
-						<td>
-							<div style="background-color:#CCCCCC; height:519px; margin:0px 15px 0px 15px; width:1px;"></div>
-						</td>
-						<td class="d-grid gap-2" style="width:270px;">
-							<div class="input-group">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
-								<div class="form-control" id="idChess_Board_Depth"></div>
-							</div>
-							
-							<div class="input-group">
-								<span class="input-group-text text-end" style="display:block; width:110px;">strNext:</span>
-								<div class="form-control" id="idChess_Board_Next"></div>
-							</div>
-							
-							<div class="input-group">
-								<span class="input-group-text text-end" style="display:block; width:110px;">strWinner:</span>
-								<div class="form-control" id="idChess_Winner"></div>
-							</div>
-							
-							<div class="input-group">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intEval:</span>
-								<div class="form-control" id="idChess_Eval"></div>
-							</div>
-							
-							<table id="idChess_Board" style="margin-top:10px;">
-								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
-								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
-								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
-								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
-								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
-								<tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		
-		<div class="card" id="idImcs" style="margin:0px 0px 20px 20px;">
-			<div class="card-header">
-				Internet
-			</div>
-			<div class="card-body">
-				<div class="alert alert-danger">
-					not connected to imcs ...
-				</div>
-				
-				<table>
-					<tr style="vertical-align:top;">
-						<td class="d-grid gap-2" style="width:270px;">
-							<button class="btn btn-primary text-start" id="idImcs_Register">
-								imcs_register(char*, char*);
-								<i class="fa fa-lock" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">strUser:</span>
-								<input class="form-control" id="idImcs_Register_User" type="text" value="" />
-							</div>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">strPass:</span>
-								<input class="form-control" id="idImcs_Register_Pass" type="password" value="" />
-							</div>
-							
-							<button class="btn btn-primary text-start" id="idImcs_Login">
-								imcs_login(char*, char*);
-								<i class="fa fa-lock" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">strUser:</span>
-								<input class="form-control" id="idImcs_Login_User" type="text" value="" />
-							</div>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">strPass:</span>
-								<input class="form-control" id="idImcs_Login_Pass" type="password" value="" />
-							</div>
-							
-							<button class="btn btn-primary text-start" id="idImcs_List">
-								imcs_list();
-								<i class="fa fa-list" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idImcs_Offer">
-								imcs_offer();
-								<i class="fa fa-dice" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idImcs_Accept">
-								imcs_accept();
-								<i class="fa fa-dice" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							<div class="input-group ms-4 pe-4">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intIdent:</span>
-								<input class="form-control" id="idImcs_Accept_Ident" type="number" value="9999" />
-							</div>
-							
-							<button class="btn btn-primary text-start" id="idImcs_Ratings">
-								imcs_ratings();
-								<i class="fa fa-trophy" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-						</td>
-						<td>
-							<div style="background-color:#CCCCCC; height:498px; margin:0px 15px 0px 15px; width:1px;"></div>
-						</td>
-						<td style="width:270px;">
-							<pre class="alert alert-secondary" id="idImcs_History" style="font-size:10px; height:498px; margin:0px; word-wrap:normal;"></pre>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		
-		</td><td>
-		
-		<div class="card" id="idTest" style="margin:0px 0px 20px 20px;">
-			<div class="card-header">
-				Test
-			</div>
-			<div class="card-body">
-				<table>
-					<tr style="vertical-align:top;">
-						<td class="d-grid gap-2" style="width:270px;">
-							<button class="btn btn-primary text-start" id="idTest_Board">
-								test_board();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_Winner">
-								test_winner();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_IsValid">
-								test_isValid();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_IsEnemy">
-								test_isEnemy();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_IsOwn">
-								test_isOwn();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_IsNothing">
-								test_isNothing();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_Eval">
-								test_eval();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_Moves">
-								test_moves();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_Move">
-								test_move();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_Undo">
-								test_undo();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_MovesShuffled">
-								test_movesShuffled();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_MovesEvaluated">
-								test_movesEvaluated();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_MoveRandom">
-								test_moveRandom();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_MoveGreedy">
-								test_moveGreedy();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_MoveNegamax">
-								test_moveNegamax();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-							
-							<button class="btn btn-primary text-start" id="idTest_MoveAlphabeta">
-								test_moveAlphabeta();
-								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
-							</button>
-						</td>
-						<td>
-							<div style="background-color:#CCCCCC; height:728px; margin:0px 15px 0px 15px; width:1px;"></div>
-						</td>
-						<td class="d-grid gap-2" style="width:270px;">
-							<div class="input-group">
-								<span class="input-group-text text-end" style="display:block; width:110px;">boolReturn:</span>
-								<div class="form-control" id="idTest_Return_Return"></div>
-							</div>
-							
-							<div class="input-group">
-								<span class="input-group-text text-end" style="display:block; width:110px;">intBench:</span>
-								<div class="form-control" id="idTest_Return_Bench"></div>
-							</div>
-							
-							<div id="idTest_Boxplot"></div>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		
-		</td></tr></table>
-	</body>
+        <style type="text/css">
+            #idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr > td {
+                border:1px solid #CCCCCC;
+                cursor:pointer;
+                height:54px;
+                text-align:center;
+                vertical-align:middle;
+                width:54px;
+            }
+            
+            #idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(odd) > td:nth-child(odd) {
+                background-color:#F5F5F5;
+            }
+            
+            #idChess > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr:nth-child(even) > td:nth-child(even) {
+                background-color:#F5F5F5;
+            }
+        </style>
+        
+        <script type="text/javascript">
+            jQuery(window.document).ready(function () {
+                var zeromq_show = function() {
+                    if (jQuery('#idZeromq').length === 0) {
+                        jQuery(window.document.body)
+                            .append(jQuery('<div></div>')
+                                .attr({
+                                    'id': 'idZeromq'
+                                })
+                                .css({
+                                    'position': 'fixed',
+                                    'left': '0px',
+                                    'right': '0px',
+                                    'top': '0px',
+                                    'bottom': '0px',
+                                    'z-index': '10000',
+                                    'background-color': '#FFFFFF'
+                                })
+                                .append(jQuery('<div></div>')
+                                    .addClass('alert')
+                                    .addClass('alert-danger')
+                                    .css({
+                                        'position': 'fixed',
+                                        'right': '30px',
+                                        'bottom': '30px',
+                                        'margin': '0px'
+                                    })
+                                    .text('not connected to a client ...')
+                                )
+                            )
+                        ;
+                    }
+                };
+                
+                var zeromq_hide = function() {
+                    if (jQuery('#idZeromq').length !== 0) {
+                        window.location.reload();
+                    }
+                };
+                
+                var loading_show = function() {
+                    if (jQuery('#idLoading').length === 0) {
+                        jQuery(window.document.body)
+                            .append(jQuery('<div></div>')
+                                .attr({
+                                    'id': 'idLoading'
+                                })
+                                .css({
+                                    'position': 'fixed',
+                                    'left': '0px',
+                                    'right': '0px',
+                                    'top': '0px',
+                                    'bottom': '0px',
+                                    'z-index': '20000'
+                                })
+                                .append(jQuery('<div></div>')
+                                    .addClass('fa-solid')
+                                    .addClass('fa-gear')
+                                    .addClass('fa-spin')
+                                    .css({
+                                        'position': 'fixed',
+                                        'right': '30px',
+                                        'bottom': '30px',
+                                        'font-size': '48px'
+                                    })
+                                )
+                            )
+                        ;
+                    }
+                };
+                
+                var loading_hide = function() {
+                    if (jQuery('#idLoading').length !== 0) {
+                        jQuery('#idLoading')
+                            .remove()
+                        ;
+                    }
+                };
+                
+                var chess_strInput = '';
+                var chess_strInputPrevious = '';
+                var chess_strBoard = '';
+                var chess_strMoves = '';
+                
+                var chess_call = function(strFunction, strParameters) {
+                    if (strFunction !== 'chess_moves') {
+                        chess_strInput = '';
+                        chess_strInputPrevious = '';
+                    }
+                    
+                    var strUrl = '/' + strFunction;
+                    
+                    for (var strParameter in strParameters) {
+                        if (strUrl.indexOf('?') === -1) {
+                            strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+                            
+                        } else if (strUrl.indexOf('?') !== -1) {
+                            strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+                            
+                        }
+                    }
+                    
+                    loading_show();
+                    
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': strUrl,
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            chess_call_board();
+                            chess_call_winner();
+                            chess_call_eval();
+                            chess_call_moves();
+                        },
+                        'complete': function() {
+                            loading_hide();
+                        }
+                    });
+                };
+                
+                var chess_call_board = function() {
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': '/chess_boardGet',
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            chess_strBoard = objData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+                            
+                            jQuery('#idChess_Board_Depth')
+                                .text(chess_strBoard[0].split(' ')[0])
+                            ;
+                            
+                            jQuery('#idChess_Board_Next')
+                                .text(chess_strBoard[0].split(' ')[1])
+                            ;
+                            
+                            for (var intRow = 1; intRow < 7; intRow += 1) {
+                                for (var intCol = 0; intCol < 5; intCol += 1) {
+                                    jQuery('#idChess_Board').find('tr').eq(intRow - 1).find('td').eq(intCol).find('img')
+                                        .attr({
+                                            'src': '/assets/images/nothing.svg'
+                                        })
+                                        .each(function() {
+                                            var strPiece = chess_strBoard[intRow].substr(intCol, 1);
+                                            
+                                            if ((strPiece > 'a') && (strPiece < 'z')) {
+                                                jQuery(this)
+                                                    .attr({
+                                                        'src': '/assets/images/black_' + strPiece.toLowerCase() + '.svg'
+                                                    })
+                                                ;
+                                                
+                                            } else if ((strPiece > 'A') && (strPiece < 'Z')) {
+                                                jQuery(this)
+                                                    .attr({
+                                                        'src': '/assets/images/white_' + strPiece.toLowerCase() + '.svg'
+                                                    })
+                                                ;
+                                                
+                                            }
+                                        })
+                                    ;
+                                }
+                            }
+                        }
+                    });
+                };
+                
+                var chess_call_winner = function() {
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': '/chess_winner',
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            jQuery('#idChess_Winner')
+                                .text(objData.strReturn)
+                            ;
+                        }
+                    });
+                };
+                
+                var chess_call_eval = function() {
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': '/chess_eval',
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            jQuery('#idChess_Eval')
+                                .text(objData.intReturn)
+                            ;
+                        }
+                    });
+                };
+                
+                var chess_call_moves = function() {
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': '/chess_moves',
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            chess_strMoves = objData.strOut.split('\n');
+                            
+                            jQuery('#idChess_Board').find('td')
+                                .css({
+                                    'background-color': ''
+                                })
+                            ;
+                            
+                            for (var strMove of chess_strMoves) {
+                                if (strMove.substr(0, 2) === chess_strInput) {
+                                    var intX = strMove.charCodeAt(3) - ('a').charCodeAt(0);
+                                    var intY = ('6').charCodeAt(0) - strMove.charCodeAt(4);
+                                    
+                                    jQuery('#idChess_Board').find('tr').eq(intY).find('td').eq(intX)
+                                        .css({
+                                            'background-color': '#71C000'
+                                        })
+                                    ;
+                                }
+                            }
+                        }
+                    });
+                };
+                
+                {
+                    chess_call('chess_reset', {});
+                }
+                
+                {
+                    jQuery('#idChess_Reset')
+                        .on('click', function() {
+                            chess_call('chess_reset', {});
+                        })
+                    ;
+                    
+                    jQuery('#idChess_MoveRandom')
+                        .on('click', function() {
+                            chess_call('chess_moveRandom', {});
+                        })
+                    ;
+                    
+                    jQuery('#idChess_MoveGreedy')
+                        .on('click', function() {
+                            chess_call('chess_moveGreedy', {});
+                        })
+                    ;
+                    
+                    jQuery('#idChess_MoveNegamax')
+                        .on('click', function() {
+                            chess_call('chess_moveNegamax', {
+                                'intMaxdepth': jQuery('#idChess_MoveNegamax_Maxdepth').val(),
+                                'intDuration': jQuery('#idChess_MoveNegamax_Duration').val()
+                            });
+                        })
+                    ;
+                    
+                    jQuery('#idChess_MoveAlphabeta')
+                        .on('click', function() {
+                            chess_call('chess_moveAlphabeta', {
+                                'intMaxdepth': jQuery('#idChess_MoveAlphabeta_Maxdepth').val(),
+                                'intDuration': jQuery('#idChess_MoveAlphabeta_Duration').val()
+                            });
+                        })
+                    ;
+                    
+                    jQuery('#idChess_Undo')
+                        .on('click', function() {
+                            chess_call('chess_undo', {});
+                        })
+                    ;
+                    
+                    jQuery('#idChess_Board').find('td')
+                        .on('click', function() {
+                            var intX = jQuery(this).index();
+                            var intY = jQuery(this).parent().index();
+                            
+                            var strInput = String.fromCharCode(('a').charCodeAt(0) + intX, ('6').charCodeAt(0) - intY);
+                            var strInputPrevious = chess_strInput;
+                            
+                            if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) === -1) {
+                                chess_strInput = strInput;
+                                chess_strInputPrevious = strInputPrevious;
+                                
+                                chess_call('chess_moves', {});
+                                
+                            } else if (chess_strMoves.indexOf(strInputPrevious + '-' + strInput) !== -1) {
+                                chess_strInput = '';
+                                chess_strInputPrevious = '';
+                                
+                                chess_call('chess_move', {
+                                    'strIn': strInputPrevious + '-' + strInput + '\n'
+                                });
+                                
+                            }
+                        })
+                    ;
+                }
+                
+                var imcs_call = function(strFunction, strParameters) {
+                    var strUrl = '/' + strFunction;
+                    
+                    for (var strParameter in strParameters) {
+                        if (strUrl.indexOf('?') === -1) {
+                            strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+                            
+                        } else if (strUrl.indexOf('?') !== -1) {
+                            strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+                            
+                        }
+                    }
+                    
+                    loading_show();
+                    
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': strUrl,
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            
+                        }
+                    });
+                };
+                
+                {
+                    jQuery('#idImcs_Register')
+                        .on('click', function() {
+                            imcs_call('imcs_register', {
+                                'strUser': jQuery('#idImcs_Register_User').val(),
+                                'strPass': jQuery('#idImcs_Register_Pass').val()
+                            });
+                        })
+                    ;
+                    
+                    jQuery('#idImcs_Login')
+                        .on('click', function() {
+                            imcs_call('imcs_login', {
+                                'strUser': jQuery('#idImcs_Login_User').val(),
+                                'strPass': jQuery('#idImcs_Login_Pass').val()
+                            });
+                        })
+                    ;
+                    
+                    jQuery('#idImcs_List')
+                        .on('click', function() {
+                            imcs_call('imcs_list');
+                        })
+                    ;
+                    
+                    jQuery('#idImcs_Offer')
+                        .on('click', function() {
+                            imcs_call('imcs_offer');
+                        })
+                    ;
+                    
+                    jQuery('#idImcs_Accept')
+                        .on('click', function() {
+                            imcs_call('imcs_accept', {
+                                'intIdent': jQuery('#idImcs_Accept_Ident').val()
+                            });
+                        })
+                    ;
+                    
+                    jQuery('#idImcs_Ratings')
+                        .on('click', function() {
+                            imcs_call('imcs_ratings');
+                        })
+                    ;
+                }
+                
+                var test_strFunction = '';
+                var test_intBench = [];
+                
+                var test_call = function(strFunction, strParameters) {
+                    if (test_strFunction !== strFunction) {
+                        test_strFunction = strFunction;
+                        test_intBench = [];
+                    }
+                    
+                    var strUrl = '/' + strFunction;
+                    
+                    for (var strParameter in strParameters) {
+                        if (strUrl.indexOf('?') === -1) {
+                            strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+                            
+                        } else if (strUrl.indexOf('?') !== -1) {
+                            strUrl += '&' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
+                            
+                        }
+                    }
+                    
+                    loading_show();
+                    
+                    jQuery.ajax({
+                        'async': true,
+                        'type': 'GET',
+                        'url': strUrl,
+                        'dataType': 'json',
+                        'success': function(objData) {
+                            test_intBench.push(objData.intBench);
+                            
+                            jQuery('#idTest_Return_Return')
+                                .text(objData.boolReturn)
+                            ;
+                            
+                            jQuery('#idTest_Return_Bench')
+                                .text(objData.intBench.toFixed(3))
+                            ;
+                            
+                            Plotly.newPlot('idTest_Boxplot', [{
+                                'type': 'box',
+                                'orientation': 'v',
+                                'boxpoints': 'all',
+                                'pointpos': 2.0,
+                                'jitter': 0.0,
+                                'y': test_intBench,
+                                'hoverinfo': 'none'
+                            }], {
+                                'showlegend': false,
+                                'margin': {
+                                    'l': 80,
+                                    'r': 60,
+                                    'b': 50,
+                                    't': 50
+                                },
+                                'xaxis': {
+                                    'zeroline': false,
+                                    'showticklabels': false
+                                },
+                                'yaxis': {
+                                    'zeroline': false,
+                                    'tickformat': '.1f'
+                                }
+                            }, {
+                                'displayModeBar': false
+                            });
+                            
+                            if (objData.boolReturn === true) {
+                                jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
+                                    .removeClass()
+                                    .addClass('fa-solid')
+                                    .addClass('fa-check')
+                                ;
+                                
+                            } else if (objData.boolReturn === false) {
+                                jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
+                                    .removeClass()
+                                    .addClass('fa-solid')
+                                    .addClass('fa-xmark')
+                                ;
+                                
+                            }
+                        },
+                        'complete': function() {
+                            loading_hide();
+                            
+                            chess_call('chess_reset', {});
+                        }
+                    });
+                };
+                
+                {
+                    jQuery('#idTest_Board')
+                        .on('click', function() {
+                            test_call('test_board');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_Winner')
+                        .on('click', function() {
+                            test_call('test_winner');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_IsValid')
+                        .on('click', function() {
+                            test_call('test_isValid');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_IsEnemy')
+                        .on('click', function() {
+                            test_call('test_isEnemy');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_IsOwn')
+                        .on('click', function() {
+                            test_call('test_isOwn');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_IsNothing')
+                        .on('click', function() {
+                            test_call('test_isNothing');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_Eval')
+                        .on('click', function() {
+                            test_call('test_eval');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_Moves')
+                        .on('click', function() {
+                            test_call('test_moves');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_Move')
+                        .on('click', function() {
+                            test_call('test_move');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_Undo')
+                        .on('click', function() {
+                            test_call('test_undo');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_MovesShuffled')
+                        .on('click', function() {
+                            test_call('test_movesShuffled');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_MovesEvaluated')
+                        .on('click', function() {
+                            test_call('test_movesEvaluated');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_MoveRandom')
+                        .on('click', function() {
+                            test_call('test_moveRandom');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_MoveGreedy')
+                        .on('click', function() {
+                            test_call('test_moveGreedy');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_MoveNegamax')
+                        .on('click', function() {
+                            test_call('test_moveNegamax');
+                        })
+                    ;
+                    
+                    jQuery('#idTest_MoveAlphabeta')
+                        .on('click', function() {
+                            test_call('test_moveAlphabeta');
+                        })
+                    ;
+                }
+                
+                var websocket_connect = function() {
+                    var objWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
+                    
+                    objWebsocket.onmessage = function(objEvent) {
+                        var objData = JSON.parse(objEvent.data);
+                        
+                        if (objData.strEvent === 'zeromq_status') {
+                            if (objData.strData === 'disconnected') {
+                                zeromq_show();
+                                
+                            } else if (objData.strData === 'connected') {
+                                zeromq_hide();
+                                
+                            }
+                            
+                        } else if (objData.strEvent === 'zeromq_name') {
+                            jQuery('#idImcs_Register_User')
+                                .val(objData.strData)
+                            ;
+                            
+                            jQuery('#idImcs_Login_User')
+                                .val(objData.strData)
+                            ;
+                            
+                        } else if (objData.strEvent === 'imcs_status') {
+                            jQuery('#idImcs').find('div.alert')
+                                .css({
+                                    'display': 'none'
+                                })
+                            ;
+                            
+                            jQuery('#idImcs').find('td').eq(0).children()
+                                .filter('a.btn')
+                                    .addClass('disabled')
+                                .end()
+                                .find('input')
+                                    .prop('disabled', true)
+                                .end()
+                            ;
+                            
+                            if (objData.strData === 'disconnected') {
+                                jQuery('#idImcs').find('div.alert')
+                                    .css({
+                                        'display': 'block'
+                                    })
+                                ;
+                                
+                            } else if (objData.strData === 'connected') {
+                                jQuery('#idImcs').find('td').eq(0).children().slice(0, 6)
+                                    .filter('a.btn')
+                                        .removeClass('disabled')
+                                    .end()
+                                    .find('input')
+                                        .prop('disabled', false)
+                                    .end()
+                                ;
+                                
+                            } else if (objData.strData === 'authorized') {
+                                jQuery('#idImcs').find('td').eq(0).children().slice(6, 11)
+                                    .filter('a.btn')
+                                        .removeClass('disabled')
+                                    .end()
+                                    .find('input')
+                                        .prop('disabled', false)
+                                    .end()
+                                ;
+                                
+                            }
+                            
+                        } else if (objData.strEvent === 'imcs_buffer') {
+                            jQuery('#idImcs_History')
+                                .append(window.document.createTextNode(objData.strData))
+                            ;
+                            
+                            jQuery('#idImcs_History').get(0).scrollTop += 1000;
+                            
+                        } else if (objData.strEvent === 'imcs_board') {
+                            var strBoard = objData.strData.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+                            
+                            jQuery('#idChess_Board_Depth')
+                                .text(strBoard[0].split(' ')[0])
+                            ;
+                            
+                            jQuery('#idChess_Board_Next')
+                                .text(strBoard[0].split(' ')[1])
+                            ;
+                            
+                            for (var intRow = 1; intRow < 7; intRow += 1) {
+                                for (var intCol = 0; intCol < 5; intCol += 1) {
+                                    jQuery('#idChess_Board').find('tr').eq(intRow - 1).find('td').eq(intCol).find('img')
+                                        .attr({
+                                            'src': '/assets/images/nothing.svg'
+                                        })
+                                        .each(function() {
+                                            var strPiece = strBoard[intRow].substr(intCol, 1);
+                                            
+                                            if ((strPiece > 'a') && (strPiece < 'z')) {
+                                                jQuery(this)
+                                                    .attr({
+                                                        'src': '/assets/images/black_' + strPiece.toLowerCase() + '.svg'
+                                                    })
+                                                ;
+                                                
+                                            } else if ((strPiece > 'A') && (strPiece < 'Z')) {
+                                                jQuery(this)
+                                                    .attr({
+                                                        'src': '/assets/images/white_' + strPiece.toLowerCase() + '.svg'
+                                                    })
+                                                ;
+                                                
+                                            }
+                                        })
+                                    ;
+                                }
+                            }
+                            
+                        } else if (objData.strEvent === 'imcs_operation') {
+                            loading_hide();
+                            
+                        }
+                    };
+                    
+                    objWebsocket.onclose = function(objEvent) {
+                        window.setTimeout(websocket_connect, 1000);
+                    };
+                };
+                
+                {
+                    websocket_connect();
+                }
+            });
+        </script>
+    </head>
+    <body style="cursor:default; line-height:1.1; padding:20px 20px 0px 20px;">
+        <table style="margin:0px auto 0px auto;"><tr style="vertical-align:top;"><td>
+        
+        <div class="card" id="idChess" style="margin:0px 0px 20px 20px;">
+            <div class="card-header">
+                Chess
+            </div>
+            <div class="card-body">
+                <table>
+                    <tr style="vertical-align:top;">
+                        <td class="d-grid gap-2" style="width:270px;">
+                            <button class="btn btn-primary text-start" id="idChess_Reset">
+                                chess_reset();
+                                <i class="fa-solid fa-repeat" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idChess_MoveRandom">
+                                chess_moveRandom();
+                                <i class="fa-solid fa-shuffle" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idChess_MoveGreedy">
+                                chess_moveGreedy();
+                                <i class="fa-solid fa-bicycle" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idChess_MoveNegamax">
+                                chess_moveNegamax(int);
+                                <i class="fa-solid fa-car" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
+                                <input class="form-control" id="idChess_MoveNegamax_Maxdepth" type="number" value="3" />
+                            </div>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intDuration:</span>
+                                <input class="form-control" id="idChess_MoveNegamax_Duration" type="number" value="3000" />
+                            </div>
+                            
+                            <button class="btn btn-primary text-start" id="idChess_MoveAlphabeta">
+                                chess_moveAlphabeta(int, int);
+                                <i class="fa-solid fa-plane" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
+                                <input class="form-control" id="idChess_MoveAlphabeta_Maxdepth" type="number" value="3" />
+                            </div>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intDuration:</span>
+                                <input class="form-control" id="idChess_MoveAlphabeta_Duration" type="number" value="3000" />
+                            </div>
+                            
+                            <button class="btn btn-primary text-start" id="idChess_Undo">
+                                chess_undo();
+                                <i class="fa-solid fa-rotate-left" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <div style="background-color:#CCCCCC; height:519px; margin:0px 15px 0px 15px; width:1px;"></div>
+                        </td>
+                        <td class="d-grid gap-2" style="width:270px;">
+                            <div class="input-group">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
+                                <div class="form-control" id="idChess_Board_Depth"></div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">strNext:</span>
+                                <div class="form-control" id="idChess_Board_Next"></div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">strWinner:</span>
+                                <div class="form-control" id="idChess_Winner"></div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intEval:</span>
+                                <div class="form-control" id="idChess_Eval"></div>
+                            </div>
+                            
+                            <table id="idChess_Board" style="margin-top:10px;">
+                                <tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+                                <tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+                                <tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+                                <tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+                                <tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+                                <tr><td><img></td><td><img></td><td><img></td><td><img></td><td><img></td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card" id="idImcs" style="margin:0px 0px 20px 20px;">
+            <div class="card-header">
+                Internet
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    not connected to imcs ...
+                </div>
+                
+                <table>
+                    <tr style="vertical-align:top;">
+                        <td class="d-grid gap-2" style="width:270px;">
+                            <button class="btn btn-primary text-start" id="idImcs_Register">
+                                imcs_register(char*, char*);
+                                <i class="fa-solid fa-lock" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">strUser:</span>
+                                <input class="form-control" id="idImcs_Register_User" type="text" value="" />
+                            </div>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">strPass:</span>
+                                <input class="form-control" id="idImcs_Register_Pass" type="password" value="" />
+                            </div>
+                            
+                            <button class="btn btn-primary text-start" id="idImcs_Login">
+                                imcs_login(char*, char*);
+                                <i class="fa-solid fa-lock" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">strUser:</span>
+                                <input class="form-control" id="idImcs_Login_User" type="text" value="" />
+                            </div>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">strPass:</span>
+                                <input class="form-control" id="idImcs_Login_Pass" type="password" value="" />
+                            </div>
+                            
+                            <button class="btn btn-primary text-start" id="idImcs_List">
+                                imcs_list();
+                                <i class="fa-solid fa-list" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idImcs_Offer">
+                                imcs_offer();
+                                <i class="fa-solid fa-dice" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idImcs_Accept">
+                                imcs_accept();
+                                <i class="fa-solid fa-dice" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            <div class="input-group ms-4 pe-4">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intIdent:</span>
+                                <input class="form-control" id="idImcs_Accept_Ident" type="number" value="9999" />
+                            </div>
+                            
+                            <button class="btn btn-primary text-start" id="idImcs_Ratings">
+                                imcs_ratings();
+                                <i class="fa-solid fa-trophy" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <div style="background-color:#CCCCCC; height:498px; margin:0px 15px 0px 15px; width:1px;"></div>
+                        </td>
+                        <td style="width:270px;">
+                            <pre class="alert alert-secondary" id="idImcs_History" style="font-size:10px; height:498px; margin:0px; word-wrap:normal;"></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        </td><td>
+        
+        <div class="card" id="idTest" style="margin:0px 0px 20px 20px;">
+            <div class="card-header">
+                Test
+            </div>
+            <div class="card-body">
+                <table>
+                    <tr style="vertical-align:top;">
+                        <td class="d-grid gap-2" style="width:270px;">
+                            <button class="btn btn-primary text-start" id="idTest_Board">
+                                test_board();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_Winner">
+                                test_winner();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_IsValid">
+                                test_isValid();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_IsEnemy">
+                                test_isEnemy();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_IsOwn">
+                                test_isOwn();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_IsNothing">
+                                test_isNothing();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_Eval">
+                                test_eval();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_Moves">
+                                test_moves();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_Move">
+                                test_move();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_Undo">
+                                test_undo();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_MovesShuffled">
+                                test_movesShuffled();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_MovesEvaluated">
+                                test_movesEvaluated();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_MoveRandom">
+                                test_moveRandom();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_MoveGreedy">
+                                test_moveGreedy();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_MoveNegamax">
+                                test_moveNegamax();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                            
+                            <button class="btn btn-primary text-start" id="idTest_MoveAlphabeta">
+                                test_moveAlphabeta();
+                                <i class="fa-solid fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <div style="background-color:#CCCCCC; height:728px; margin:0px 15px 0px 15px; width:1px;"></div>
+                        </td>
+                        <td class="d-grid gap-2" style="width:270px;">
+                            <div class="input-group">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">boolReturn:</span>
+                                <div class="form-control" id="idTest_Return_Return"></div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <span class="input-group-text text-end" style="display:block; width:110px;">intBench:</span>
+                                <div class="form-control" id="idTest_Return_Bench"></div>
+                            </div>
+                            
+                            <div id="idTest_Boxplot"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        </td></tr></table>
+    </body>
 </html>
