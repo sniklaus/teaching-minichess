@@ -12,7 +12,7 @@ The framework provides a graphical user interface that is accessible through a b
 While you are able to choose between different languages to implement the client, the framework itself is written in C. Therefore, the GCC toolchain must be present to build the framework. Unless you are making use of the Linux lab, you might have to separately install the appropriate compiler toolchain. Should you be able to use `apt-get`, you can install the following package to do so.
 
 ```
-sudo apt-get install build-essential
+sudo apt-get install -y build-essential
 ```
 
 Should you be unable to setup the compiler toolchain correctly, I am afraid that there will be no individual support to resolve this issue. The machines in the Linux lab are appropriately configured, so you always have the option to use them in favor of your personal computer.
@@ -20,7 +20,7 @@ Should you be unable to setup the compiler toolchain correctly, I am afraid that
 Besides the compiler toolchain, it is necessary to install ZeroMQ with version `3.*` which will be used to communicate between the framework and a client. This dependency is already met by the machines in the Linux lab but can easily be installed on a Debian computer through the corresponding package.
 
 ```
-sudo apt-get install libzmq3-dev
+sudo apt-get install -y libzmq3-dev
 ```
 
 Should you not be able to use `apt-get` or should you experience any issues during the installation, you can consult [zeromq.org](http://zeromq.org/intro:get-the-software) for further instructions. As with the compiler toolchain, I am afraid that there will be no individual support to resolve this issue.

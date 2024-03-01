@@ -13,7 +13,7 @@
 
 #include "cjson.h"
 #include "mongoose.h"
-#include <zmq.h> // sudo apt-get install libzmq3-dev
+#include <zmq.h> // sudo apt-get install -y libzmq3-dev
 
 #include "chess.h"
 #include "imcs.h"
