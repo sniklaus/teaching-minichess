@@ -56,19 +56,19 @@ def zeromq_start():
             strOut = chess_moves()
             
             objOut['intOut'] = len(strOut)
-            objOut['strOut'] = str.join('', strOut)
+            objOut['strOut'] = str().join(strOut)
             
         elif objIn['strFunction'] == 'chess_movesShuffled':
             strOut = chess_movesShuffled()
             
             objOut['intOut'] = len(strOut)
-            objOut['strOut'] = str.join('', strOut)
+            objOut['strOut'] = str().join(strOut)
             
         elif objIn['strFunction'] == 'chess_movesEvaluated':
             strOut = chess_movesEvaluated()
             
             objOut['intOut'] = len(strOut)
-            objOut['strOut'] = str.join('', strOut)
+            objOut['strOut'] = str().join(strOut)
             
         elif objIn['strFunction'] == 'chess_move':
             chess_move(objIn['strIn'])
